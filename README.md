@@ -16,7 +16,7 @@ Passez à la vitesse supérieure ! Suite du Rtv1, le RT pousse beaucoup plus loi
 ```
 
 =============
-###Dependences
+###Dépendances
 
 * OSX : OpenGL, AppKit
 * Linux : X11

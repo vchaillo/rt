@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/07 18:01:20 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/07 22:27:27 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ int				key_hook_effects(int keycode, t_env *e)
 			e->scene->grayscale = INACTIVE;
 			e->scene->cartoon = ACTIVE;
 			e->scene->cartoon = ACTIVE;
-			e->scene->amb_intensity *= 10;
+			e->scene->amb_intensity *= 5;
 		}
 		else
 		{
 			e->scene->cartoon = INACTIVE;
-			e->scene->amb_intensity /= 10;
+			e->scene->amb_intensity /= 5;
 		}
 	}
 	return (0);
@@ -107,14 +107,19 @@ int				key_hook(int keycode, t_env *e)
 			delete_scene(e->scene);
 		exit(0);
 	}
-	if (e->scene->mode == MOVE_MODE)
-		key_hook_camera(keycode, e->scene->camera);
+	if (keycode == RETURN || keycode == RETURN_MAC)
+		export_image(e);
 	else
-		key_hook_objects(keycode, e->scene);
-	key_hook_light(keycode, e->scene);
-	key_hook_scene(keycode, e);
-	key_hook_effects(keycode, e);
-	print_keyhook(keycode, e);
-	update_image(e);
+	{
+		if (e->scene->mode == MOVE_MODE)
+			key_hook_camera(keycode, e->scene->camera);
+		else
+			key_hook_objects(keycode, e->scene);
+		key_hook_light(keycode, e->scene);
+		key_hook_scene(keycode, e);
+		key_hook_effects(keycode, e);
+		print_keyhook(keycode, e);
+		update_image(e);
+	}
 	return (0);
 }

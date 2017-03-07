@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:33:11 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/07 20:51:03 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int		expose_hook(t_env *e)
 void	start_mlx(t_env *e)
 {
 	if (!(e->mlx = mlx_init()))
+	{
+		print_error(MLX_ERROR);
 		exit(0);
-	e->win = mlx_new_window(e->mlx, WIN_W, WIN_H, "rtv1");
+	}
+	e->win = mlx_new_window(e->mlx, WIN_W, WIN_H, "rt");
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	draw(e);

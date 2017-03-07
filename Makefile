@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/07 16:49:07 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/07 22:19:26 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRC_TOOLS = \
 		tools/solve_equations.c\
 		tools/color.c\
 		tools/error.c\
+		tools/export.c\
 
 SRC_SCENES = \
 		scenes/scenes.c\

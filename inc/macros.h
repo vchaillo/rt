@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/28 14:11:27 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/07 22:21:44 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define MALLOC_ERROR 0
 # define MLX_ERROR 1
 # define ARG_ERROR 2
+# define OPEN_ERROR 3
 
 /*
 ** window and camera defines
@@ -75,5 +76,11 @@
 # define AMB 0
 # define SPOT 1
 # define DIR 2
+
+/*
+** files modes defines
+*/
+# define IMAGE 0
+# define SCENE 1
 
 #endif

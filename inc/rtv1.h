@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 17:47:30 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/07 22:19:04 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+# include <time.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <dirent.h>
 # include "libft.h"
 # include "colors.h"
 # include "term_colors.h"
@@ -118,6 +123,11 @@ t_color			mult_color(t_color color1, t_color color2);
 t_vector		vector_rot_x(t_vector v, float angle);
 t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);
+void			export_image(t_env *e);
+int				create_file(t_env *e);
+void			put_file_header(int fd);
+void			put_image_header(int fd);
+char			*get_file_name(t_env *e, int type);
 /*
 ** 				scenes functions
 */

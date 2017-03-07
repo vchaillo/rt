@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 18:04:31 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/07 22:30:15 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 		return (new_color(BLACK));
 	if (e->scene->cartoon == ACTIVE)
 	{
-		if (dot < 0.25)
+		if (dot < 0.2)
 			dot = 0;
+		else if (dot < 0.4)
+			dot = 0.2;
 		else if (dot < 0.5)
-			dot = 0.25;
-		else if (dot < 0.75)
-			dot = 0.5;
+			dot = 0.4;
 		else
 			dot = 1;
 	}

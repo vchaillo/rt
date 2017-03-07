@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 16:50:45 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/07 19:19:38 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void			print_error(int error_code)
 		ft_putendl_color("Mlx initialization failed", TERM_BOLD_RED);
 	else if (error_code == MALLOC_ERROR)
 		ft_putendl_color("Memory allocation failed", TERM_BOLD_RED);
+	else if (error_code == OPEN_ERROR)
+		ft_putendl_color("Open or create file failed", TERM_BOLD_RED);
 	exit(0);
 }

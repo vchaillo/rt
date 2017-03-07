@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/23 21:53:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/07 18:01:20 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,33 @@ int				key_hook_scene(int keycode, t_env *e)
 	return (0);
 }
 
+int				key_hook_effects(int keycode, t_env *e)
+{
+	if (keycode == X || keycode == X_MAC)
+	{
+		if (!e->scene->sepia && !e->scene->grayscale && !e->scene->cartoon)
+			e->scene->sepia = ACTIVE;
+		else if (e->scene->sepia == ACTIVE)
+		{
+			e->scene->sepia = INACTIVE;
+			e->scene->grayscale = ACTIVE;
+		}
+		else if (e->scene->grayscale == ACTIVE)
+		{
+			e->scene->grayscale = INACTIVE;
+			e->scene->cartoon = ACTIVE;
+			e->scene->cartoon = ACTIVE;
+			e->scene->amb_intensity *= 10;
+		}
+		else
+		{
+			e->scene->cartoon = INACTIVE;
+			e->scene->amb_intensity /= 10;
+		}
+	}
+	return (0);
+}
+
 int				key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESCAPE || keycode == ESCAPE_MAC)
@@ -86,6 +113,7 @@ int				key_hook(int keycode, t_env *e)
 		key_hook_objects(keycode, e->scene);
 	key_hook_light(keycode, e->scene);
 	key_hook_scene(keycode, e);
+	key_hook_effects(keycode, e);
 	print_keyhook(keycode, e);
 	update_image(e);
 	return (0);

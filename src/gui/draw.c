@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:31:27 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/07 16:02:47 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	draw(t_env *e)
 		while (x < WIN_W)
 		{
 			color = raytracer(e, x, y);
+			color = apply_effects(e, color);
 			fill_pixel(e, color, x, y);
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/30 23:03:28 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/07 18:04:31 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 	return (color);
 }
 
-t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray)
+t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 {
 	t_color		color;
 	float		dot;
@@ -68,35 +68,46 @@ t_color			diffuse(t_hitpoint hitpoint, t_light *spot, t_ray *ray)
 		dot = fabs(dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
-	color = scalar_color(dot, mult_color(hitpoint.color, spot->color));
+	if (e->scene->cartoon == ACTIVE)
+	{
+		if (dot < 0.25)
+			dot = 0;
+		else if (dot < 0.5)
+			dot = 0.25;
+		else if (dot < 0.75)
+			dot = 0.5;
+		else
+			dot = 1;
+	}
+	color = scalar_color(dot, mult_color(hitpoint.color, l->color));
 	return (color);
 }
 
-t_color			phong(t_env *e, t_light *light, t_ray *v_ray)
+t_color			phong(t_env *e, t_light *light, t_ray *vray)
 {
 	t_color		color;
-	t_ray		l_ray;
+	t_ray		lray;
 
 	color = new_color(BLACK);
-	l_ray.o = v_ray->hitpoint.pos;
+	lray.o = vray->hitpoint.pos;
 	if (light->type == SPOT)
 	{
-		l_ray.d = vector_sub(light->pos, v_ray->hitpoint.pos);
-		l_ray.t = sqrt((l_ray.d.x * l_ray.d.x) + (l_ray.d.y * l_ray.d.y) +
-			(l_ray.d.z * l_ray.d.z));
+		lray.d = vector_sub(light->pos, vray->hitpoint.pos);
+		lray.t = sqrt((lray.d.x * lray.d.x) + (lray.d.y * lray.d.y) +
+			(lray.d.z * lray.d.z));
 	}
 	else
 	{
-		l_ray.d = vector_scalar(-1, light->dir);
-		l_ray.t = MAX_DIST;
+		lray.d = vector_scalar(-1, light->dir);
+		lray.t = MAX_DIST;
 	}
-	l_ray.d = normalize(l_ray.d);
-	if (!(is_in_shadow(e->scene->objects, &l_ray, v_ray->hitpoint.object)))
+	lray.d = normalize(lray.d);
+	if (!(is_in_shadow(e->scene->objects, &lray, vray->hitpoint.object)))
 	{
 		if (e->scene->diffuse == ACTIVE)
-			color = add_color(diffuse(v_ray->hitpoint, light, &l_ray), color);
-		if (e->scene->specular == ACTIVE)
-			color = add_color(specular(v_ray, light, &l_ray), color);
+			color = add_color(diffuse(e, vray->hitpoint, light, &lray), color);
+		if (e->scene->specular == ACTIVE && e->scene->cartoon == INACTIVE)
+			color = add_color(specular(vray, light, &lray), color);
 	}
 	return (color);
 }

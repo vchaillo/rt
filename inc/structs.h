@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/23 19:11:48 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/07 17:36:07 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,9 @@ typedef struct				s_scene
 	int						nb_objects;
 	int						nb_lights;
 	int						mode;
+	int						sepia;
+	int						grayscale;
+	int						cartoon;
 }							t_scene;
 
 typedef struct				s_env

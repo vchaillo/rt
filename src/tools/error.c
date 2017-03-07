@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 11:41:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/07 16:50:45 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			print_help(void)
 {
-	ft_putendl("Usage : ./rtv1 [options]");
+	ft_putendl("Usage : ./rt [options]");
 	ft_putendl_color("Available options :", TERM_BLACK);
 	ft_putstr_color("-v,      	:   ", TERM_BLACK);
 	ft_putendl_color("display rays and scene infos", TERM_BLACK);

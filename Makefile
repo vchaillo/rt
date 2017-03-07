@@ -6,11 +6,11 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/02/23 04:07:34 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/07 16:49:07 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rtv1
+NAME = rt
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -43,6 +43,7 @@ SRC_CORE = \
 		core/plane.c\
 		core/cylinder.c\
 		core/cone.c\
+		core/effects.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\

@@ -21,6 +21,12 @@
 # define REF_DEPTH 1
 
 /*
+** anti-aliasing defines
+** we will dont need this defines when the parsor will be done
+*/
+# define AA 1
+
+/*
 ** basics defines
 */
 # define TRUE 1

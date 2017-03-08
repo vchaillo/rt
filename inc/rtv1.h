@@ -57,6 +57,9 @@ t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
 t_color			apply_effects(t_env *e, t_color color);
 t_color			sepia(t_color color);
 t_color			grayscale(t_color color);
+t_color			reflection(t_env *e, t_ray *ray);
+void			reflected_ray(t_ray *ray);
+
 /*
 ** 				gui functions
 */
@@ -171,11 +174,5 @@ void			delete_objects(t_object *objects);
 t_light			*new_light(int type, float intensity, t_vector v, t_color c);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
-
-/*
-**				reflection functions
-*/
-t_color			reflection(t_env *e, t_ray *ray);
-void			reflected_ray(t_ray *ray);
 
 #endif

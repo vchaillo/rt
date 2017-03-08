@@ -17,14 +17,14 @@
 ** reflection defines
 ** reflection coef need to be change with real material reflection
 */
-# define REF_COEF 0.2
-# define REF_DEPTH 1
+# define REF_COEF 0.1
+# define REF_DEPTH 3
 
 /*
 ** anti-aliasing defines
 ** we will dont need this defines when the parsor will be done
 */
-# define AA 1
+# define AA 4
 
 /*
 ** basics defines

@@ -55,6 +55,7 @@ t_color			add_color(t_color color1, t_color color2)
 	return (limit_color(color1));
 }
 
+
 t_color			mult_color(t_color color1, t_color color2)
 {
 	color1.r = color1.r * color2.r;

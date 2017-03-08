@@ -30,6 +30,7 @@ void	start_mlx(t_env *e)
 	e->win = mlx_new_window(e->mlx, WIN_W, WIN_H, "rt");
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
+	e->color_array = init_color_array(WIN_W * AA, WIN_H * AA);
 	draw(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);

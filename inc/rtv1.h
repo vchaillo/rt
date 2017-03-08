@@ -59,6 +59,9 @@ t_color			sepia(t_color color);
 t_color			grayscale(t_color color);
 t_color			reflection(t_env *e, t_ray *ray);
 void			reflected_ray(t_ray *ray);
+void			exposure_correction(t_color **colors);
+t_color			**super_sampling(t_color **colors);
+
 
 /*
 ** 				gui functions
@@ -85,6 +88,9 @@ int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder);
 int				key_hook_cone(int keycode, t_cone *cone);
 int				key_hook_cone_rotation(int keycode, t_cone *cone);
 int				key_hook_objects(int keycode, t_scene *scene);
+t_color			**init_color_array(int wmax, int hmax);
+void			free_color_array(int hmax, t_color **colors);
+
 /*
 ** 				cli functions
 */

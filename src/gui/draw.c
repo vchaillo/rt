@@ -22,6 +22,20 @@ void	fill_pixel(t_env *e, t_color color, int x, int y)
 	e->data[i + 2] = (color.r);
 }
 
+void	apply_color_to_image(t_env *e)
+{
+	int x;
+	int y;
+
+	y = -1;
+	while (++y < WIN_H)
+	{
+		x = -1;
+		while (++x < WIN_W)
+			fill_pixel(e, e->color_array[y][x], x, y);
+	}
+}
+
 void	update_image(t_env *e)
 {
 	mlx_destroy_image(e->mlx, e->img);
@@ -39,18 +53,21 @@ void	draw(t_env *e)
 	e->nb_cam_rays = WIN_W * WIN_H;
 	e->nb_light_rays = 0;
 	y = 0;
-	while (y < WIN_H)
+	while (y < WIN_H * AA)
 	{
 		x = 0;
-		while (x < WIN_W)
+		while (x < WIN_W * AA)
 		{
 			color = raytracer(e, x, y);
 			color = apply_effects(e, color);
-			fill_pixel(e, color, x, y);
+			// fill_pixel(e, color, x, y);
+			e->color_array[y][x] = color;
 			x++;
 		}
 		y++;
 	}
+	e->color_array = super_sampling(e->color_array);
+	apply_color_to_image(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	print_gui_output(e);

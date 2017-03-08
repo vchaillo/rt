@@ -45,6 +45,8 @@ SRC_CORE = \
 		core/cone.c\
 		core/effects.c\
 		core/reflection_refraction.c\
+		core/exposure.c\
+		core/antialiasing.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\
@@ -58,6 +60,7 @@ SRC_GUI = \
 		gui/key_hook_cone.c\
 		gui/mouse_hook.c\
 		gui/print.c\
+		gui/color_array.c\
 
 SRC_CLI = \
 		cli/output.c\

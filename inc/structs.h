@@ -135,7 +135,7 @@ typedef struct				s_env
 	double					nb_cam_rays;
 	double					nb_light_rays;
 	int						verbose;
-	t_color					**colors;
+	t_color					**color_array;
 }							t_env;
 
 #endif

@@ -56,8 +56,8 @@ t_vector		get_camray_dir(t_camera *camera, int x, int y)
 	float		dir_y;
 	float		dir_z;
 
-	dir_x = (2.0 * ((x + 0.5) / WIN_W) - 1.0) * camera->ratio * camera->fov;
-	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H)) * camera->fov;
+	dir_x = (2.0 * ((x + 0.5) / WIN_W / AA) - 1.0) * camera->ratio * camera->fov;
+	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H / AA)) * camera->fov;
 	dir_z = camera->focale;
 	dir = new_vector(dir_x, dir_y, dir_z);
 	dir = vector_rot_x(dir, camera->rot.x);

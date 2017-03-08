@@ -44,6 +44,7 @@ SRC_CORE = \
 		core/cylinder.c\
 		core/cone.c\
 		core/effects.c\
+		core/reflection_refraction.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\

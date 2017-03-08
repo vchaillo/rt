@@ -14,6 +14,13 @@
 # define MACROS_H
 
 /*
+** reflection defines
+** reflection coef need to be change with real material reflection
+*/
+# define REF_COEF 0.2
+# define REF_DEPTH 1
+
+/*
 ** basics defines
 */
 # define TRUE 1

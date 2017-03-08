@@ -69,13 +69,20 @@ t_vector		get_camray_dir(t_camera *camera, int x, int y)
 t_color			raytracer(t_env *e, int x, int y)
 {
 	t_ray		ray;
+	t_color		color;
 
 	ray.o = e->scene->camera->pos;
 	ray.d = get_camray_dir(e->scene->camera, x, y);
 	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
-		ray.hitpoint.color = illuminate(e, &ray);
+	{
+		color = illuminate(e, &ray);
+		//calcule reflection
+		//can't use do while loop so I have to initialize the reflected ray
+		reflected_ray(&ray);
+		color = add_color(color, reflection(e, &ray));
+	}
 	else
-		ray.hitpoint.color = (e->scene->background_color);
-	return (ray.hitpoint.color);
+		color = (e->scene->background_color);
+	return (color);
 }

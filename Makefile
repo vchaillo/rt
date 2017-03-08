@@ -45,7 +45,6 @@ SRC_CORE = \
 		core/cone.c\
 		core/effects.c\
 		core/reflection_refraction.c\
-		core/exposure.c\
 		core/antialiasing.c\
 
 SRC_PARSER = \

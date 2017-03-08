@@ -16,6 +16,7 @@ int		main(int ac, char **av)
 {
 	t_env	e;
 
+	e.scene = NULL;
 	load_scene(SCENE_1, &e);
 	if (ac > 1)
 		parse_arguments(ac, av, &e);

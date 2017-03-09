@@ -61,12 +61,12 @@ void	draw(t_env *e)
 			color = raytracer(e, x, y);
 			color = apply_effects(e, color);
 			// fill_pixel(e, color, x, y);
-			e->color_array[y][x] = color;
+			e->color_array_aa[y][x] = color;
 			x++;
 		}
 		y++;
 	}
-	e->color_array = super_sampling(e->color_array);
+	super_sampling(e->color_array, e->color_array_aa);
 	apply_color_to_image(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);

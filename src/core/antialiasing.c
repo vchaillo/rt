@@ -38,20 +38,16 @@ void		ss_average(t_color **src, t_color **dst, int x1, int y1)
 	dst[y1][x1].b /= AA * AA;
 }
 
-t_color		**super_sampling(t_color **colors)
+void		super_sampling(t_color **color_array, t_color **color_array_aa)
 {
 	int		x;
 	int		y;
-	t_color	**final_colors;
 
-	final_colors = init_color_array(WIN_W, WIN_H);
 	y = -1;
 	while (++y < WIN_H)
 	{
 		x = -1;
 		while (++x < WIN_W)
-			ss_average(colors, final_colors, x, y);
+			ss_average(color_array_aa, color_array, x, y);
 	}
-	free_color_array(WIN_H * AA, colors);
-	return (final_colors);
 }

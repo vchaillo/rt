@@ -60,8 +60,7 @@ t_color			grayscale(t_color color);
 t_color			reflection(t_env *e, t_ray *ray);
 void			reflected_ray(t_ray *ray);
 void			exposure_correction(t_color **colors);
-t_color			**super_sampling(t_color **colors);
-
+void			super_sampling(t_color **color_array, t_color **color_array_aa);
 
 /*
 ** 				gui functions

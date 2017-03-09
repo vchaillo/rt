@@ -118,6 +118,8 @@ typedef struct				s_scene
 	int						sepia;
 	int						grayscale;
 	int						cartoon;
+	int						aa_initial;
+	int						aa;
 }							t_scene;
 
 typedef struct				s_env

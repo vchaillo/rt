@@ -34,6 +34,8 @@ t_scene			*new_scene(t_color background_color, t_camera *camera)
 	scene->sepia = INACTIVE;
 	scene->grayscale = INACTIVE;
 	scene->cartoon = INACTIVE;
+	scene->aa_initial = AA;
+	scene->aa = scene->aa_initial;
 	return (scene);
 }
 

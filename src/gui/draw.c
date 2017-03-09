@@ -53,10 +53,10 @@ void	draw(t_env *e)
 	e->nb_cam_rays = WIN_W * WIN_H;
 	e->nb_light_rays = 0;
 	y = 0;
-	while (y < WIN_H * AA)
+	while (y < WIN_H * e->scene->aa)
 	{
 		x = 0;
-		while (x < WIN_W * AA)
+		while (x < WIN_W * e->scene->aa)
 		{
 			color = raytracer(e, x, y);
 			color = apply_effects(e, color);
@@ -66,7 +66,7 @@ void	draw(t_env *e)
 		}
 		y++;
 	}
-	super_sampling(e->color_array, e->color_array_aa);
+	super_sampling(e);
 	apply_color_to_image(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);

@@ -39,7 +39,7 @@ void			print_help(void);
 */
 void			get_hitpoint(t_object *object, t_ray *ray, float t_min);
 int				get_ray_intersection(t_object *objects, t_ray *ray);
-t_vector		get_camray_dir(t_camera *camera, int x, int y);
+t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa);
 t_color			raytracer(t_env *e, int x, int y);
 float			hit_plane(t_plane *plane, t_ray *ray);
 int				is_plane_illuminated(t_ray *ray, t_light *light);
@@ -60,7 +60,7 @@ t_color			grayscale(t_color color);
 t_color			reflection(t_env *e, t_ray *ray);
 void			reflected_ray(t_ray *ray);
 void			exposure_correction(t_color **colors);
-void			super_sampling(t_color **color_array, t_color **color_array_aa);
+void			super_sampling(t_env *e);
 
 /*
 ** 				gui functions

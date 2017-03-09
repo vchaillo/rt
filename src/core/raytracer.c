@@ -49,15 +49,15 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	return (t_min);
 }
 
-t_vector		get_camray_dir(t_camera *camera, int x, int y)
+t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa)
 {
 	t_vector	dir;
 	float		dir_x;
 	float		dir_y;
 	float		dir_z;
 
-	dir_x = (2.0 * ((x + 0.5) / WIN_W / AA) - 1.0) * camera->ratio * camera->fov;
-	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H / AA)) * camera->fov;
+	dir_x = (2.0 * ((x + 0.5) / WIN_W / aa) - 1.0) * camera->ratio * camera->fov;
+	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H / aa)) * camera->fov;
 	dir_z = camera->focale;
 	dir = new_vector(dir_x, dir_y, dir_z);
 	dir = vector_rot_x(dir, camera->rot.x);
@@ -72,13 +72,11 @@ t_color			raytracer(t_env *e, int x, int y)
 	t_color		color;
 
 	ray.o = e->scene->camera->pos;
-	ray.d = get_camray_dir(e->scene->camera, x, y);
+	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
 	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
 	{
 		color = illuminate(e, &ray);
-		//calcule reflection
-		//can't use do while loop so I have to initialize the reflected ray
 		reflected_ray(&ray);
 		color = add_color(color, reflection(e, &ray));
 	}

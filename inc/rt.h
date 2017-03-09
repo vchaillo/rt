@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/09 15:40:41 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/09 18:47:29 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray);
 t_color			phong(t_env *e, t_light *light, t_ray *vray);
 t_color			illuminate(t_env *e, t_ray *ray);
 t_vector		get_normal(t_ray *ray);
+t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane);
 t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
 t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
 t_color			apply_effects(t_env *e, t_color color);
@@ -167,7 +168,7 @@ t_camera		*new_camera(float x, float y, float z);
 void			delete_camera(t_camera *camera);
 t_sphere		*new_sphere(float x, float y, float z, float r);
 void			delete_sphere(t_sphere *sphere);
-t_plane			*new_plane(float x, float y, float z, float d);
+t_plane			*new_plane(float x, float y, float z, float offset, int wave);
 void			delete_plane(t_plane *plane);
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);

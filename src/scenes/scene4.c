@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/28 16:56:49 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/09 18:34:51 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void			load_scene4_objects(t_scene *scene)
 		new_color(ORANGE), 100));
 	add_object(scene, new_object(SPHERE, new_sphere(0, 30, -100, 10),
 		new_color(RED), 100));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0),
+	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0, TRUE),
 		new_color(LIGHT_GREY), 100));
 }
 

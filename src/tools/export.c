@@ -97,9 +97,7 @@ void			export_image(t_env *e)
 		while (x < WIN_W)
 		{
 			i = x * 4 + y * e->size;
-			write(fd, (char *)&e->data[i], 1);
-			write(fd, (char *)&e->data[i + 1], 1);
-			write(fd, (char *)&e->data[i + 2], 1);
+			write(fd, (char *)&e->data[i], 3);
 			x++;
 		}
 		y--;

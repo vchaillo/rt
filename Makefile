@@ -29,7 +29,7 @@ END_COLOR =	\033[0m
 SRCDIR = src/
 OBJDIR = obj/
 OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs\
- 			obj/scenes obj/parser
+			obj/scenes obj/parser
 
 # Sources files
 SRC_MAIN = \
@@ -98,7 +98,7 @@ SRC_STRUCTS = \
 		structs/t_color.c\
 
 SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI) $(SRC_TOOLS)\
- 		$(SRC_STRUCTS) $(SRC_SCENES) $(SRC_PARSER)
+		$(SRC_STRUCTS) $(SRC_SCENES) $(SRC_PARSER)
 
 # Objects files
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))

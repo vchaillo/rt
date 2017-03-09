@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder)
 {

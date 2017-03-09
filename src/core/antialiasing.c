@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 void		ss_average(t_color **src, t_color **dst, int x1, int y1)
 {

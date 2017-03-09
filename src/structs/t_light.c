@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 t_light			*new_light(int type, float intensity, t_vector v, t_color c)
 {

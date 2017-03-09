@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 {

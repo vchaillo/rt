@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r)
 {

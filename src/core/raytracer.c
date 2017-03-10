@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 01:38:12 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/10 23:11:38 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,13 @@ t_color			raytracer(t_env *e, int x, int y)
 	if (ray.hitpoint.object)
 	{
 		color = new_color(BLACK);
-		if (ray.hitpoint.object->type == SPHERE)
+		if (ray.hitpoint.object->material.type == MARBLE)
 		{
 			noise = modulate_noise(ray.hitpoint.pos, 75);
 			color = scalar_color(noise, ray.hitpoint.object->color);
 		}
+		if (ray.hitpoint.object->type == PLANE)
+			color = checkerboard_plane(ray.hitpoint);
 		color = add_color(illuminate(e, &ray), color);
 		reflected_ray(&ray);
 		color = add_color(color, reflection(e, &ray));

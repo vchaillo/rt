@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 21:12:55 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/10 22:56:26 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa);
 t_color			raytracer(t_env *e, int x, int y);
 float			hit_plane(t_plane *plane, t_ray *ray);
 int				is_plane_illuminated(t_ray *ray, t_light *light);
+t_color			checkerboard_plane(t_hitpoint hitpoint);
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_cone(t_cone *cone, t_ray *ray);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 20:51:12 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/10 22:43:59 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct				s_plane
 {
 	t_vector				normal;
 	float					offset;
-	int						wave;
+	int						type;
 }							t_plane;
 
 typedef struct				s_cylinder

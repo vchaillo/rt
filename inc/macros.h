@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 19:47:14 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/10 22:41:36 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@
 # define PLANE 1
 # define CYLINDER 2
 # define CONE 3
+
+/*
+** plane types defines
+*/
+# define NORMAL 0
+# define WAVE 1
+# define CHECK 2
+# define CHECK_WAVE 3
 
 /*
 ** lights defines

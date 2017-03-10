@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 21:44:49 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 21:24:21 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/10 23:09:36 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void			load_scene1_objects(t_scene *scene)
 {
 	add_object(scene, new_object(SPHERE, new_sphere(0, 10, 0, 10),
-		new_color(ORANGE), new_material(PLASTIC)));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0, TRUE),
-		new_color(LIGHT_GREY), new_material(GLASS)));
+		new_color(ORANGE), new_material(MARBLE)));
+	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0, CHECK),
+		new_color(WHITE), new_material(GLASS)));
 }
 
 void			load_scene1_lights(t_scene *scene)

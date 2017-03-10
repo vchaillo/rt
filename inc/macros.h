@@ -17,8 +17,8 @@
 ** reflection defines
 ** reflection coef need to be change with real material reflection
 */
-# define REF_COEF 0.1
-# define REF_DEPTH 0
+# define REF_COEF 0.2
+# define REF_DEPTH 3
 
 /*
 ** basics defines
@@ -52,7 +52,7 @@
 # define RATIO (float)WIN_W / (float)WIN_H
 # define FOV tan((20 * M_PI) / 180)
 # define FOCALE -1
-# define EPSILON 0.0001
+# define EPSILON 0.01
 # define MAX_DIST 1000
 
 /*

@@ -12,7 +12,7 @@
 
 NAME = rt
 
-CC = gcc
+CC = gcc -O3
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -Rf
 

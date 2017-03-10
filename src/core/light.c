@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 01:50:14 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/10 19:41:47 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,9 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 	dot = dot_product(hitpoint.normal, ray->d);
 	if (hitpoint.object->type == PLANE)
 		dot = fabs(dot);
+	dot = cartoon(e, dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
-	if (e->scene->effect == CARTOON)
-	{
-		if (dot < 0.2)
-			dot = 0;
-		else if (dot < 0.4)
-			dot = 0.2;
-		else if (dot < 0.5)
-			dot = 0.4;
-		else
-			dot = 1;
-	}
 	color = scalar_color(dot, mult_color(hitpoint.color, l->color));
 	return (color);
 }

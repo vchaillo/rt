@@ -3,35 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 19:43:19 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/11/22 07:47:45 by vchaillo         ###   ########.fr       */
+/*   Created: 2016/05/13 16:02:13 by hbock             #+#    #+#             */
+/*   Updated: 2016/05/13 16:02:13 by hbock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+char	*ft_strstr(const char *big, const char *little)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
-	i = 0;
-	j = 0;
-	if (s2[i] == '\0')
-		return ((char *)s1);
-	while (s1[i])
+	if (!ft_strlen(little))
+		return ((char*)big);
+	i = -1;
+	while (big[++i])
 	{
-		while (s1[i] == s2[j] && s1[i] != '\0')
+		if (big[i] == little[0])
 		{
-			i++;
-			j++;
-			if (s2[j] == '\0')
-				return ((char *)s1 + i - j);
+			j = 0;
+			while (little[j] && big[i + j] && little[j] == big[i + j])
+				j++;
+			if (little[j] == 0)
+				return ((char*)big + i);
 		}
-		j = 0;
-		i++;
 	}
 	return (NULL);
 }

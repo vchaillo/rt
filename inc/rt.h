@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 01:32:20 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/10 19:40:20 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include "structs.h"
 # include "keycodes.h"
 # include "macros.h"
+# include "materials.h"
 
 /*
 ** 				main functions
@@ -58,6 +59,7 @@ t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
 t_color			apply_effects(t_env *e, t_color color);
 t_color			sepia(t_color color);
 t_color			grayscale(t_color color);
+float			cartoon(t_env *e, float dot);
 t_color			reflection(t_env *e, t_ray *ray);
 void			reflected_ray(t_ray *ray);
 void			exposure_correction(t_color **colors);

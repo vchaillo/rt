@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 19:40:20 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/10 21:12:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,12 +179,17 @@ t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);
 t_cone			*new_cone(t_vector axis, t_vector apex, float aperture);
 void			delete_cone(t_cone *cone);
-t_object		*new_object(int type, void *object, t_color color, int mat);
+t_object		*new_object(int type, void *object, t_color color, t_mat mat);
 void			add_object(t_scene *scene, t_object *new);
 void			delete_objects(t_object *objects);
 t_light			*new_light(int type, float intensity, t_vector v, t_color c);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
+t_mat			new_material(int material);
+t_mat			new_basic_material(void);
+t_mat			new_plastic_material(void);
+t_mat			new_glass_material(void);
+t_mat			new_marble_material(void);
 t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
 t_color			**reset_color_array(int wmax, int hmax, t_color **colors);

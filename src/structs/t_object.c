@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/10 14:36:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/10 20:52:21 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_object		*new_object(int type, void *object, t_color color, int mat)
+t_object		*new_object(int type, void *object, t_color color, t_mat mat)
 {
 	t_object	*new_object;
 

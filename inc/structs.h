@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 01:42:02 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/10 20:51:12 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,21 @@ typedef struct				s_cone
 	float					angle;
 }							t_cone;
 
+typedef struct				s_mat
+{
+	int						type;
+	float					diffuse;
+	float					specular;
+	float					reflexion;
+	float					refraction;
+}							t_mat;
+
 typedef struct				s_object
 {
 	int						type;
-	int						material;
 	void					*object;
 	t_color					color;
+	t_mat					material;
 	struct s_object			*next;
 }							t_object;
 

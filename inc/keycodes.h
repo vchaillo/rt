@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 17:54:38 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:00:11 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define RETURN 65293
 # define R 114
 # define X 120
+# define KP0 65438
 # define KP1 65436
 # define KP2 65433
 # define KP3 65435
@@ -66,11 +67,13 @@
 # define RETURN_MAC 36
 # define R_MAC 15
 # define X_MAC 7
+# define KP0_MAC 82
 # define KP1_MAC 83
 # define KP2_MAC 84
 # define KP3_MAC 85
 # define KP4_MAC 86
 # define KP5_MAC 87
+# define NUM0_MAC 29
 # define NUM1_MAC 18
 # define NUM2_MAC 19
 # define NUM3_MAC 20

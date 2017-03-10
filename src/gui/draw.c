@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 16:02:47 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:13:52 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	draw(t_env *e)
 		{
 			color = raytracer(e, x, y);
 			color = apply_effects(e, color);
-			// fill_pixel(e, color, x, y);
 			e->color_array_aa[y][x] = color;
 			x++;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   antialiasing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 19:52:30 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/08 19:52:30 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/10 01:15:12 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void		ss_average(t_env *e, int x1, int y1)
 	int		x;
 	int		y;
 
-	e->color_array[y1][x1].r = 0;
-	e->color_array[y1][x1].g = 0;
-	e->color_array[y1][x1].b = 0;
+	e->color_array[y1][x1] = new_color(BLACK);
 	y = y1 * e->scene->aa;
 	while (y < (y1 + 1) * e->scene->aa)
 	{

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 20:51:03 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:30:36 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	start_mlx(t_env *e)
 	e->win = mlx_new_window(e->mlx, WIN_W, WIN_H, "rt");
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
-	e->color_array_aa = init_color_array(WIN_W * e->scene->aa, WIN_H * e->scene->aa);
-	e->color_array = init_color_array(WIN_W, WIN_H);
+	e->color_array_aa = new_color_array(WIN_W * e->scene->aa,
+		WIN_H * e->scene->aa);
+	e->color_array = new_color_array(WIN_W, WIN_H);
 	draw(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);

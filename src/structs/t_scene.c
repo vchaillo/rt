@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 17:43:14 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:42:17 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,8 @@ t_scene			*new_scene(t_color background_color, t_camera *camera)
 	scene->dir = ACTIVE;
 	scene->spot = ACTIVE;
 	scene->mode = MOVE_MODE;
-	scene->sepia = INACTIVE;
-	scene->grayscale = INACTIVE;
-	scene->cartoon = INACTIVE;
-	scene->aa_initial = AA;
-	scene->aa = scene->aa_initial;
+	scene->effect = INACTIVE;
+	scene->aa = INACTIVE_AA;
 	return (scene);
 }
 

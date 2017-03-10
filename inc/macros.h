@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/07 22:21:44 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 02:00:46 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,14 @@
 # define REF_DEPTH 0
 
 /*
-** anti-aliasing defines
-** we will dont need this defines when the parsor will be done
-*/
-# define AA 2
-
-/*
 ** basics defines
 */
 # define TRUE 1
 # define FALSE 0
 # define ACTIVE 1
 # define INACTIVE 0
+# define ACTIVE_AA 2
+# define INACTIVE_AA 1
 
 /*
 ** verbose defines
@@ -89,6 +85,13 @@
 # define AMB 0
 # define SPOT 1
 # define DIR 2
+
+/*
+** effects defines
+*/
+# define SEPIA 1
+# define GRAYSCALE 2
+# define CARTOON 3
 
 /*
 ** files modes defines

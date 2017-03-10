@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/28 16:01:13 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:38:12 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,20 @@ t_color			raytracer(t_env *e, int x, int y)
 {
 	t_ray		ray;
 	t_color		color;
+	double		noise;
 
 	ray.o = e->scene->camera->pos;
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
 	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
 	{
-		color = illuminate(e, &ray);
+		color = new_color(BLACK);
+		if (ray.hitpoint.object->type == SPHERE)
+		{
+			noise = modulate_noise(ray.hitpoint.pos, 75);
+			color = scalar_color(noise, ray.hitpoint.object->color);
+		}
+		color = add_color(illuminate(e, &ray), color);
 		reflected_ray(&ray);
 		color = add_color(color, reflection(e, &ray));
 	}

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/07 22:30:15 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:50:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 		dot = fabs(dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
-	if (e->scene->cartoon == ACTIVE)
+	if (e->scene->effect == CARTOON)
 	{
 		if (dot < 0.2)
 			dot = 0;
@@ -106,7 +106,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 	{
 		if (e->scene->diffuse == ACTIVE)
 			color = add_color(diffuse(e, vray->hitpoint, light, &lray), color);
-		if (e->scene->specular == ACTIVE && e->scene->cartoon == INACTIVE)
+		if (e->scene->specular == ACTIVE && e->scene->effect != CARTOON)
 			color = add_color(specular(vray, light, &lray), color);
 	}
 	return (color);

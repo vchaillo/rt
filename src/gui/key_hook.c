@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/07 22:27:27 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/10 01:49:15 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,26 @@ int				key_hook_scene(int keycode, t_env *e)
 
 int				key_hook_effects(int keycode, t_env *e)
 {
-	if (keycode == X || keycode == X_MAC)
+	if (keycode == KP0 || keycode == KP0_MAC || keycode == NUM0_MAC)
 	{
-		if (!e->scene->sepia && !e->scene->grayscale && !e->scene->cartoon)
-			e->scene->sepia = ACTIVE;
-		else if (e->scene->sepia == ACTIVE)
+		e->scene->aa = e->scene->aa == INACTIVE_AA ? ACTIVE_AA : INACTIVE_AA;
+		e->color_array_aa = reset_color_array(WIN_W * e->scene->aa,
+			WIN_H * e->scene->aa, e->color_array_aa);
+	}
+	else if (keycode == X || keycode == X_MAC)
+	{
+		if (e->scene->effect == INACTIVE)
+			e->scene->effect = SEPIA;
+		else if (e->scene->effect == SEPIA)
+			e->scene->effect = GRAYSCALE;
+		else if (e->scene->effect == GRAYSCALE)
 		{
-			e->scene->sepia = INACTIVE;
-			e->scene->grayscale = ACTIVE;
-		}
-		else if (e->scene->grayscale == ACTIVE)
-		{
-			e->scene->grayscale = INACTIVE;
-			e->scene->cartoon = ACTIVE;
-			e->scene->cartoon = ACTIVE;
+			e->scene->effect = CARTOON;
 			e->scene->amb_intensity *= 5;
 		}
 		else
 		{
-			e->scene->cartoon = INACTIVE;
+			e->scene->effect = INACTIVE;
 			e->scene->amb_intensity /= 5;
 		}
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reflection.c                                       :+:      :+:    :+:   */
+/*   reflection_refraction.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 14:58:39 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/08 14:58:39 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/09 23:13:38 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ t_color			reflection(t_env *e, t_ray *ray)
 	t_color		color;
 
 	i = -1;
-	//create a function to initialize a colore
-	color.r = 0;
-	color.g = 0;
-	color.b = 0;
+	color = new_color(BLACK);
 	//REF_COEF should be multiply each iteration by the reflection coef of the last object hit
 	while (++i < REF_DEPTH && REF_COEF > EPSILON)
 	{

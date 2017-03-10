@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/07 22:19:26 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/10 01:18:50 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC_CORE = \
 		core/effects.c\
 		core/reflection_refraction.c\
 		core/antialiasing.c\
+		core/perlin.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\
@@ -59,7 +60,6 @@ SRC_GUI = \
 		gui/key_hook_cone.c\
 		gui/mouse_hook.c\
 		gui/print.c\
-		gui/color_array.c\
 
 SRC_CLI = \
 		cli/output.c\
@@ -96,6 +96,7 @@ SRC_STRUCTS = \
 		structs/t_object.c\
 		structs/t_light.c\
 		structs/t_color.c\
+		structs/t_color_array.c\
 
 SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI) $(SRC_TOOLS)\
 		$(SRC_STRUCTS) $(SRC_SCENES) $(SRC_PARSER)

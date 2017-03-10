@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/09 18:47:29 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/10 01:32:20 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ t_color			reflection(t_env *e, t_ray *ray);
 void			reflected_ray(t_ray *ray);
 void			exposure_correction(t_color **colors);
 void			super_sampling(t_env *e);
+int				permutation(int index);
+float			modulate_noise(t_vector pos, int resolution);
+float			gradient(int i, int j);
+float			perlin_noise(float x, float y, float res);
+float			fade(float nb);
 
 /*
 ** 				gui functions
@@ -88,8 +93,6 @@ int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder);
 int				key_hook_cone(int keycode, t_cone *cone);
 int				key_hook_cone_rotation(int keycode, t_cone *cone);
 int				key_hook_objects(int keycode, t_scene *scene);
-t_color			**init_color_array(int wmax, int hmax);
-void			free_color_array(int hmax, t_color **colors);
 
 /*
 ** 				cli functions
@@ -180,5 +183,8 @@ void			delete_objects(t_object *objects);
 t_light			*new_light(int type, float intensity, t_vector v, t_color c);
 void			add_light(t_scene *scene, t_light *new);
 void			delete_lights(t_light *lights);
+t_color			**new_color_array(int wmax, int hmax);
+void			delete_color_array(int hmax, t_color **colors);
+t_color			**reset_color_array(int wmax, int hmax, t_color **colors);
 
 #endif

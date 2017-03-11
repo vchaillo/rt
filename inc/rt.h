@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 09:55:53 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/11 09:55:53 by valentin          ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,46 +31,49 @@
 # include "materials.h"
 
 /*
-**				Color effects
-*/
-# include "effects.h"
-
-/*
-**				Reflection effects
-*/
-# include "reflection.h"
-
-/*
 ** 				main functions
 */
 void			print_error(int error_code);
 void			print_help(void);
+
 /*
 ** 				core functions
 */
-void			get_hitpoint(t_object *object, t_ray *ray, float t_min);
-int				get_ray_intersection(t_object *objects, t_ray *ray);
-t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa);
-t_color			raytracer(t_env *e, int x, int y);
-float			hit_plane(t_plane *plane, t_ray *ray);
-int				is_plane_illuminated(t_ray *ray, t_light *light);
-t_color			checkerboard_plane(t_hitpoint hitpoint);
-float			hit_sphere(t_sphere *sphere, t_ray *ray);
-float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
-float			hit_cone(t_cone *cone, t_ray *ray);
-int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj);
-t_color			illuminate(t_env *e, t_ray *ray);
-t_vector		get_normal(t_ray *ray);
-t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane);
-t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
-t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
-void			exposure_correction(t_color **colors);
+
+/*
+**				raytracer
+*/
+# include "core/raytracer.h"
+
+/*
+**				Color effects
+*/
+# include "core/effects.h"
+
+/*
+**				Reflection effects
+*/
+# include "core/reflection.h"
+/*
+**				Normals
+*/
+# include "core/normal.h"
+
+/*
+**				Perlin Noise
+*/
+# include "core/perlin.h"
+
+/*
+**				Objects
+*/
+# include "core/objects.h"
+
+/*
+**				lights
+*/
+
 void			super_sampling(t_env *e);
-unsigned int	permutation(int index);
-float			perlin(t_vector pos, int resolution);
-float			gradient(int i, int j);
-float			noise(float x, float y, float res);
-float			fade(float nb);
 
 /*
 ** 				gui functions

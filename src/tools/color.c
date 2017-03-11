@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:10 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/19 00:47:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 03:59:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ t_color			average_color(t_color color)
 		color.g *= 255 / max;
 		color.b *= 255 / max;
 	}
+	return (color);
+}
+
+t_color			negative_color(t_color color)
+{
+	color.r = 255 - color.r;
+	color.g = 255 - color.g;
+	color.b = 255 - color.b;
 	return (color);
 }
 

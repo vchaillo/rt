@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 23:10:54 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 04:52:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,14 @@ int				is_plane_illuminated(t_ray *ray, t_light *light)
 t_color			checkerboard_plane(t_hitpoint hitpoint)
 {
 	t_color		color;
-	int			tmp_x;
-	int			tmp_y;
 
-	(void)tmp_y;
-	tmp_x = (int)hitpoint.pos.x;
 	color = hitpoint.object->color;
-	if (tmp_x < 0)
-	{
-		if ((tmp_x + 1) % 2)
-			color = new_color(BLUE);
-	}
-	else
-	{
-		if (tmp_x % 2)
-			color = new_color(BLUE);
-	}
+	if (hitpoint.pos.x < 0)
+		hitpoint.pos.x--;
+	if (hitpoint.pos.z < 0)
+		hitpoint.pos.z--;
+	if (((int)hitpoint.pos.x % 2 && (int)hitpoint.pos.z % 2)
+		|| (!((int)hitpoint.pos.x % 2) && !((int)hitpoint.pos.z % 2)))
+		color = negative_color(color);
 	return (color);
 }

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 23:11:38 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 04:50:12 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 	ray->hitpoint.object = object;
 	ray->hitpoint.pos = vector_add(ray->o, vector_scalar(t_min, ray->d));
 	ray->hitpoint.normal = get_normal(ray);
-	ray->hitpoint.color = object->color;
+	if (ray->hitpoint.object->type == PLANE)
+		ray->hitpoint.color = checkerboard_plane(ray->hitpoint);
+	else
+		ray->hitpoint.color = object->color;
 }
 
 int				get_ray_intersection(t_object *objects, t_ray *ray)
@@ -83,8 +86,6 @@ t_color			raytracer(t_env *e, int x, int y)
 			noise = modulate_noise(ray.hitpoint.pos, 75);
 			color = scalar_color(noise, ray.hitpoint.object->color);
 		}
-		if (ray.hitpoint.object->type == PLANE)
-			color = checkerboard_plane(ray.hitpoint);
 		color = add_color(illuminate(e, &ray), color);
 		reflected_ray(&ray);
 		color = add_color(color, reflection(e, &ray));

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 22:41:36 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 04:51:15 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@
 # define SEPIA 1
 # define GRAYSCALE 2
 # define CARTOON 3
+# define NEGATIVE 4
 
 /*
 ** files modes defines

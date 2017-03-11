@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 01:49:15 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/11 04:02:09 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int				key_hook_effects(int keycode, t_env *e)
 		else if (e->scene->effect == SEPIA)
 			e->scene->effect = GRAYSCALE;
 		else if (e->scene->effect == GRAYSCALE)
+			e->scene->effect = NEGATIVE;
+		else if (e->scene->effect == NEGATIVE)
 		{
 			e->scene->effect = CARTOON;
 			e->scene->amb_intensity *= 5;

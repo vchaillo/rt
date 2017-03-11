@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 15:53:32 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 19:32:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 04:00:56 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ t_color			apply_effects(t_env *e, t_color color)
 		color = sepia(color);
 	if (e->scene->effect == GRAYSCALE)
 		color = grayscale(color);
+	if (e->scene->effect == NEGATIVE)
+		color = negative_color(color);
 	return (color);
 }

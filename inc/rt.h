@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 22:56:26 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 03:59:35 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ t_color			average_color(t_color color);
 t_color			scalar_color(float scalar, t_color color);
 t_color			add_color(t_color color1, t_color color2);
 t_color			mult_color(t_color color1, t_color color2);
+t_color			negative_color(t_color color);
 t_vector		vector_rot_x(t_vector v, float angle);
 t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);

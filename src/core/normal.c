@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 22:45:49 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 05:04:00 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane)
 	float		wave_height;
 	float		wave_width;
 
-	wave_height = 10;
-	wave_width = 1.2;
+	wave_height = 20;
+	wave_width = 2;
 	if (plane->type == WAVE || plane->type == CHECK_WAVE)
 		normal = vector_rot_z(plane->normal,
 			sin(ray->hitpoint.pos.x*wave_width)*wave_height);

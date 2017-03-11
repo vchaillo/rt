@@ -31,6 +31,16 @@
 # include "materials.h"
 
 /*
+**				Color effects
+*/
+# include "effects.h"
+
+/*
+**				Reflection effects
+*/
+# include "reflection.h"
+
+/*
 ** 				main functions
 */
 void			print_error(int error_code);
@@ -49,20 +59,11 @@ float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_cone(t_cone *cone, t_ray *ray);
 int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj);
-t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
-t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray);
-t_color			phong(t_env *e, t_light *light, t_ray *vray);
 t_color			illuminate(t_env *e, t_ray *ray);
 t_vector		get_normal(t_ray *ray);
 t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane);
 t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
 t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
-t_color			apply_effects(t_env *e, t_color color);
-t_color			sepia(t_color color);
-t_color			grayscale(t_color color);
-float			cartoon(t_env *e, float dot);
-t_color			reflection(t_env *e, t_ray *ray);
-void			reflected_ray(t_ray *ray);
 void			exposure_correction(t_color **colors);
 void			super_sampling(t_env *e);
 int				permutation(int index);

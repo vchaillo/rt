@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 04:50:12 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/11 11:07:54 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	while (object != NULL)
 	{
 		if (object->type == SPHERE)
-			t = hit_sphere((t_sphere *)object->object, ray);
+			t = hit_sphere(object->object, ray);
 		else if (object->type == PLANE)
-			t = hit_plane((t_plane *)object->object, ray);
+			t = hit_plane(object->object, ray);
 		else if (object->type == CYLINDER)
-			t = hit_cylinder((t_cylinder *)object->object, ray);
+			t = hit_cylinder(object->object, ray);
 		else if (object->type == CONE)
-			t = hit_cone((t_cone *)object->object, ray);
+			t = hit_cone(object->object, ray);
 		if (t > EPSILON && t < t_min)
 		{
 			t_min = t;
@@ -73,20 +73,13 @@ t_color			raytracer(t_env *e, int x, int y)
 {
 	t_ray		ray;
 	t_color		color;
-	double		noise;
 
 	ray.o = e->scene->camera->pos;
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
 	ray.t = get_ray_intersection(e->scene->objects, &ray);
 	if (ray.hitpoint.object)
 	{
-		color = new_color(BLACK);
-		if (ray.hitpoint.object->material.type == MARBLE)
-		{
-			noise = modulate_noise(ray.hitpoint.pos, 75);
-			color = scalar_color(noise, ray.hitpoint.object->color);
-		}
-		color = add_color(illuminate(e, &ray), color);
+		color = illuminate(e, &ray);
 		reflected_ray(&ray);
 		color = add_color(color, reflection(e, &ray));
 	}

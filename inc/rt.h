@@ -67,9 +67,9 @@ t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
 void			exposure_correction(t_color **colors);
 void			super_sampling(t_env *e);
 unsigned int	permutation(int index);
-float			modulate_noise(t_vector pos, int resolution);
+float			perlin(t_vector pos, int resolution);
 float			gradient(int i, int j);
-float			perlin_noise(float x, float y, float res);
+float			noise(float x, float y, float res);
 float			fade(float nb);
 
 /*

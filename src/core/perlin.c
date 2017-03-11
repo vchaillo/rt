@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/11 09:58:09 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/11 11:09:09 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ float			fade(float nb)
 	float		t;
 
 	t = nb - (int)nb;
-	return (3 * t * t - 2 * t * t * t);
+	return (t * t * t * (t * (t * 6 - 15) + 10));
 }
 
 unsigned int		permutation(int index)
@@ -61,7 +61,7 @@ unsigned int		permutation(int index)
 	return (perm[index]);
 }
 
-float			perlin_noise(float x, float y, float res)
+float			noise(float x, float y, float res)
 {
 	int 		i;
 	int 		j;
@@ -90,11 +90,11 @@ float			perlin_noise(float x, float y, float res)
 	return (smooth[0] + fade(y) * (smooth[1] - smooth[0]));
 }
 
-float				modulate_noise(t_vector pos, int resolution)
+float				perlin(t_vector pos, int resolution)
 {
 	float			nb;
 
-	nb = (perlin_noise(fabs(pos.x * 100), fabs(pos.y * 100),
+	nb = (noise(fabs(pos.x * 100), fabs(pos.y * 100),
 		resolution) + 1);
 	return (nb);
 }

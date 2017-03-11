@@ -16,11 +16,11 @@ t_mat			new_marble_material(void)
 {
 	t_mat		material;
 
-	material.type = MARBLE;
-	material.diffuse = MARBLE_DIFFUSE;
-	material.specular = MARBLE_SPECULAR;
-	material.reflexion = MARBLE_REFLEXION;
-	material.refraction = MARBLE_REFRACTION;
+	material.type = PERLIN;
+	material.diffuse = PERLIN_DIFFUSE;
+	material.specular = PERLIN_SPECULAR;
+	material.reflexion = PERLIN_REFLEXION;
+	material.refraction = PERLIN_REFRACTION;
 	return (material);
 }
 

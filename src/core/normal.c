@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/11 05:04:00 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/11 10:36:51 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_vector		get_normal(t_ray *ray)
 		normal = get_normal_at_cylinder(ray, ray->hitpoint.object->object);
 	else
 		normal = get_normal_at_cone(ray, ray->hitpoint.object->object);
+	if (ray->hitpoint.object->material.type == PERLIN)
+		normal = vector_rot_y(normal, perlin(ray->hitpoint.pos, 75) * 30);
 	return (normalize(normal));
 }
 
@@ -38,7 +40,7 @@ t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane)
 	wave_width = 2;
 	if (plane->type == WAVE || plane->type == CHECK_WAVE)
 		normal = vector_rot_z(plane->normal,
-			sin(ray->hitpoint.pos.x*wave_width)*wave_height);
+			sin(ray->hitpoint.pos.x * wave_width) * wave_height);
 	else
 		normal = (plane->normal);
 	return (normal);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 21:18:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/11 10:19:29 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BASIC 0
 # define PLASTIC 1
 # define GLASS 2
-# define MARBLE 3
+# define PERLIN 3
 
 # define BASIC_DIFFUSE 1
 # define BASIC_SPECULAR 100
@@ -33,9 +33,9 @@
 # define GLASS_REFLEXION 1
 # define GLASS_REFRACTION 1
 
-# define MARBLE_DIFFUSE 1
-# define MARBLE_SPECULAR 100
-# define MARBLE_REFLEXION 0.5
-# define MARBLE_REFRACTION 1
+# define PERLIN_DIFFUSE 1
+# define PERLIN_SPECULAR 100
+# define PERLIN_REFLEXION 0.5
+# define PERLIN_REFRACTION 1
 
 #endif

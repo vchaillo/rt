@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 03:59:35 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/11 09:55:53 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
 t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
 void			exposure_correction(t_color **colors);
 void			super_sampling(t_env *e);
-int				permutation(int index);
+unsigned int	permutation(int index);
 float			modulate_noise(t_vector pos, int resolution);
 float			gradient(int i, int j);
 float			perlin_noise(float x, float y, float res);

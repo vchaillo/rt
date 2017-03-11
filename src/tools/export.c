@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 18:36:20 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/07 22:26:30 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/11 11:31:25 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ char			*get_file_name(t_env *e, int type)
 	time(&seconds);
 	current_time = *localtime(&seconds);
 	if (type == IMAGE)
-		strftime(str_time, 128, "doc/screenshots/%Y%m%d_%H%M%S.jpg",
+		strftime(str_time, 128, "doc/screenshots/%Y%m%d_%H%M%S.bmp",
 			&current_time);
 	else
-		strftime(str_time, 128, "doc/scenes/%Y%m%d_%H%M%S.scene",
+		strftime(str_time, 128, "doc/scenes/%Y%m%d_%H%M%S.sc",
 			&current_time);
 	return (str_time);
 }

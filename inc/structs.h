@@ -85,6 +85,7 @@ typedef struct				s_ray
 	t_vector				o;
 	t_vector				d;
 	float					t;
+	float					current_refraction;
 	t_hitpoint				hitpoint;
 }							t_ray;
 

@@ -83,10 +83,9 @@ t_color			raytracer(t_env *e, int x, int y)
 			noise = modulate_noise(ray.hitpoint.pos, 75);
 			color = scalar_color(noise, ray.hitpoint.object->color);
 		}
-		if (ray.hitpoint.object->type == PLANE)
-			color = checkerboard_plane(ray.hitpoint);
+		// if (ray.hitpoint.object->type == PLANE)
+		// 	color = checkerboard_plane(ray.hitpoint);
 		color = add_color(illuminate(e, &ray), color);
-		reflected_ray(&ray);
 		color = add_color(color, reflection(e, &ray));
 	}
 	else

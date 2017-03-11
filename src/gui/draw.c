@@ -66,6 +66,7 @@ void	draw(t_env *e)
 		y++;
 	}
 	super_sampling(e);
+	exposure(e->color_array);
 	apply_color_to_image(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);

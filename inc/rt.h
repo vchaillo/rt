@@ -62,14 +62,13 @@ t_color			sepia(t_color color);
 t_color			grayscale(t_color color);
 float			cartoon(t_env *e, float dot);
 t_color			reflection(t_env *e, t_ray *ray);
-void			reflected_ray(t_ray *ray);
-void			exposure_correction(t_color **colors);
 void			super_sampling(t_env *e);
 int				permutation(int index);
 float			modulate_noise(t_vector pos, int resolution);
 float			gradient(int i, int j);
 float			perlin_noise(float x, float y, float res);
 float			fade(float nb);
+void			exposure(t_color **color_array);
 
 /*
 ** 				gui functions
@@ -163,6 +162,10 @@ void			load_scene4_lights(t_scene *scene);
 void			load_scene5(t_env *e);
 void			load_scene5_objects(t_scene *scene);
 void			load_scene5_lights(t_scene *scene);
+void			load_scene6(t_env *e);
+void			load_scene6_objects(t_scene *scene);
+void			load_scene6_lights(t_scene *scene);
+
 /*
 ** 				structs functions
 */

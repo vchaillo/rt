@@ -69,7 +69,7 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 	dot = cartoon(e, dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
-	color = scalar_color(dot, mult_color(hitpoint.color, l->color));
+	color = scalar_color(dot, add_color(hitpoint.color, l->color));
 	return (color);
 }
 
@@ -126,6 +126,6 @@ t_color			illuminate(t_env *e, t_ray *ray)
 	}
 	if (e->scene->amb == ACTIVE && (e->scene->spot || e->scene->dir))
 		color = add_color(scalar_color((e->scene->amb_intensity / 10),
-			mult_color(e->scene->amb_color, ray->hitpoint.color)), color);
+			add_color(e->scene->amb_color, ray->hitpoint.color)), color);
 	return (color);
 }

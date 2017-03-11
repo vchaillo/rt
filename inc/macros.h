@@ -17,8 +17,8 @@
 ** reflection defines
 ** reflection coef need to be change with real material reflection
 */
-# define REF_COEF 0.2
-# define REF_DEPTH 3
+
+# define REF_DEPTH 5
 
 /*
 ** basics defines
@@ -64,12 +64,13 @@
 /*
 ** scenes defines
 */
-# define NB_SCENES 5
+# define NB_SCENES 6
 # define SCENE_1 1
 # define SCENE_2 2
 # define SCENE_3 3
 # define SCENE_4 4
 # define SCENE_5 5
+# define SCENE_6 6
 
 /*
 ** objects defines

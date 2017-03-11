@@ -60,6 +60,18 @@ t_mat			new_basic_material(void)
 	return (material);
 }
 
+t_mat			new_bitref_material(void)
+{
+	t_mat		material;
+
+	material.type = BIT_REF;
+	material.diffuse = BITREF_DIFFUSE;
+	material.specular = BITREF_SPECULAR;
+	material.reflexion = BITREF_REFLEXION;
+	material.refraction = BITREF_REFRACTION;
+	return (material);
+}
+
 t_mat			new_material(int type)
 {
 	t_mat		material;
@@ -70,6 +82,8 @@ t_mat			new_material(int type)
 		material = new_plastic_material();
 	else if (type == GLASS)
 		material = new_glass_material();
+	else if (type == BIT_REF)
+		material = new_bitref_material();
 	else
 		material = new_marble_material();
 	return (material);

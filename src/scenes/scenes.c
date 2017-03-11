@@ -24,6 +24,8 @@ void			load_scene(int scene_type, t_env *e)
 		load_scene4(e);
 	else if (scene_type == SCENE_5)
 		load_scene5(e);
+	else if (scene_type == SCENE_6)
+		load_scene6(e);
 }
 
 void			switch_scene(int keycode, t_env *e)

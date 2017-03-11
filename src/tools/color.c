@@ -52,14 +52,30 @@ t_color			add_color(t_color color1, t_color color2)
 	color1.r = color1.r + color2.r;
 	color1.g = color1.g + color2.g;
 	color1.b = color1.b + color2.b;
-	return (limit_color(color1));
+	return (color1);
 }
-
 
 t_color			mult_color(t_color color1, t_color color2)
 {
 	color1.r = color1.r * color2.r;
 	color1.g = color1.g * color2.g;
 	color1.b = color1.b * color2.b;
-	return (average_color(color1));
+	return (color1);
 }
+
+// t_color			add_color(t_color color1, t_color color2)
+// {
+// 	color1.r = color1.r + color2.r;
+// 	color1.g = color1.g + color2.g;
+// 	color1.b = color1.b + color2.b;
+// 	return (limit_color(color1));
+// }
+
+
+// t_color			mult_color(t_color color1, t_color color2)
+// {
+// 	color1.r = color1.r * color2.r;
+// 	color1.g = color1.g * color2.g;
+// 	color1.b = color1.b * color2.b;
+// 	return (average_color(color1));
+// }

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 09:55:53 by valentin          ###   ########.fr      */
+/*   Updated: 2017/03/12 23:50:03 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@
 void			print_error(int error_code);
 void			print_help(void);
 
-/*
-** 				core functions
-*/
-
+/*********************************************
+** 				core functions				**
+**********************************************/
 /*
 **				raytracer
 */
@@ -72,6 +71,7 @@ void			print_help(void);
 /*
 **				lights
 */
+# include "core/light.h"
 
 void			super_sampling(t_env *e);
 

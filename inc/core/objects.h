@@ -1,5 +1,5 @@
-#ifndef
-# define OBJECT_H
+#ifndef OBJECTS_H
+# define OBJECTS_H
 
 float			hit_plane(t_plane *plane, t_ray *ray);
 int				is_plane_illuminated(t_ray *ray, t_light *light);

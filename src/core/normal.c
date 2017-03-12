@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/11 10:36:51 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 00:12:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,13 @@ t_vector		get_normal_at_tore(t_ray *ray, t_tore *tore)
 
 	hit = ray->hitpoint.pos;
 	normal.x = 4 * hit.x *
-	  (pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->R, 2) - pow(tore->r, 2)) -
-	  (8 * pow(tore->R, 2) * hit.x);
+		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
+		- pow(tore->r, 2)) - (8 * pow(tore->big_r, 2) * hit.x);
 	normal.y = 4 * hit.y *
-	  (pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->R, 2) - pow(tore->r, 2));
+		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
+		- pow(tore->r, 2));
 	normal.z = 4 * hit.z *
-	  (pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->R, 2) - pow(tore->r, 2)) -
-	  (8 * pow(tore->R, 2) * hit.z);
+		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
+		- pow(tore->r, 2)) - (8 * pow(tore->big_r, 2) * hit.z);
 	return (normal);
 }

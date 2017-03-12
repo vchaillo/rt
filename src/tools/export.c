@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 18:36:20 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/11 11:31:25 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 00:28:41 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void			put_file_header(int fd)
 {
 	int				data[3];
 
-	write(fd, "BM", 2);
+	(void)(write(fd, "BM", 2) + 1);
 	data[0] = (WIN_W * WIN_H);
 	data[1] = 0;
 	data[2] = 54;
-	write(fd, (char *)data, 12);
+	(void)(write(fd, (char *)data, 12) + 1);
 }
 
 void			put_image_header(int fd)
@@ -76,7 +76,7 @@ void			put_image_header(int fd)
 	data[7] = 0;
 	data[8] = 0;
 	data[9] = 0;
-	write(fd, (char *)data, 40);
+	(void)(write(fd, (char *)data, 40) + 1);
 }
 
 void			export_image(t_env *e)
@@ -97,7 +97,7 @@ void			export_image(t_env *e)
 		while (x < WIN_W)
 		{
 			i = x * 4 + y * e->size;
-			write(fd, (char *)&e->data[i], 3);
+			(void)(write(fd, (char *)&e->data[i], 3) + 1);
 			x++;
 		}
 		y--;

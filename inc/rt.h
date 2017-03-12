@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/12 23:50:03 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 00:42:58 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <dirent.h>
 # include "libft.h"
 # include "colors.h"
 # include "term_colors.h"
@@ -42,36 +41,36 @@ void			print_help(void);
 /*
 **				raytracer
 */
-# include "core/raytracer.h"
+# include "prototypes/core/raytracer.h"
 
 /*
 **				Color effects
 */
-# include "core/effects.h"
+# include "prototypes/core/effects.h"
 
 /*
 **				Reflection effects
 */
-# include "core/reflection.h"
+# include "prototypes/core/reflection.h"
 /*
 **				Normals
 */
-# include "core/normal.h"
+# include "prototypes/core/normal.h"
 
 /*
 **				Perlin Noise
 */
-# include "core/perlin.h"
+# include "prototypes/core/perlin.h"
 
 /*
 **				Objects
 */
-# include "core/objects.h"
+# include "prototypes/core/objects.h"
 
 /*
-**				lights
+**				Lights
 */
-# include "core/light.h"
+# include "prototypes/core/light.h"
 
 void			super_sampling(t_env *e);
 

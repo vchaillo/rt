@@ -3,43 +3,43 @@ rt commands
 
 ###Moves
 
-|       Key      |                Function                 |
-| -------------- |:---------------------------------------:|
-| `A` `D`        | move camera or objects on x axis        |
-| `SPACE` `CTRL` | move camera or objects on y axis        |
-| `W` `S`        | move camera or objects on z axis        |
-| `UP` `DOWN`    | rotate camera or objects on x axis      |
-| `LEFT` `RIGHT` | rotate camera or objects on y axis      |
-| `Q` `E`        | rotate camera or objects on z axis      |
-| `+` `-`        | increase or decrease objects attributes |
+|                Key               |                Function                 |
+| -------------------------------- |:---------------------------------------:|
+| <kbd>A</kbd> <kbd>D</kbd>        | move camera or objects on x axis        |
+| <kbd>SPACE</kbd> <kbd>CTRL</kbd> | move camera or objects on y axis        |
+| <kbd>W</kbd> <kbd>S</kbd>        | move camera or objects on z axis        |
+| <kbd>UP</kbd> <kbd>DOWN</kbd>    | rotate camera or objects on x axis      |
+| <kbd>LEFT</kbd> <kbd>RIGHT</kbd> | rotate camera or objects on y axis      |
+| <kbd>Q</kbd> <kbd>E</kbd>        | rotate camera or objects on z axis      |
+| <kbd>+</kbd> <kbd>-</kbd>        | increase or decrease objects attributes |
 
 =========
 ###Lights
 
-| Key |           Function           |
-| --- |:----------------------------:|
-| `1` | switch on/off ambiant light  |
-| `2` | switch on/off diffuse light  |
-| `3` | switch on/off specular light |
-| `4` | switch on/off spot light     |
-| `5` | switch on/off dir light      |
+|     Key      |           Function           |
+| ------------ |:----------------------------:|
+| <kbd>1</kbd> | switch on/off ambiant light  |
+| <kbd>2</kbd> | switch on/off diffuse light  |
+| <kbd>3</kbd> | switch on/off specular light |
+| <kbd>4</kbd> | switch on/off spot light     |
+| <kbd>5</kbd> | switch on/off dir light      |
 
 ==========
 ###Effects
 
-| Key |          Function          |
-| --- |:--------------------------:|
-| `0` | switch on/off antialiasing |
-| `X` | switch between effects     |
+|     Key      |          Function          |
+| ------------ |:--------------------------:|
+| <kbd>0</kbd> | switch on/off antialiasing |
+| <kbd>X</kbd> | switch between effects     |
 
 ========
 ###Other
 
-| Key      |        Function        |
-| -------- |:----------------------:|
-| `N`      | next scene             |
-| `P`      | previous scene         |
-| `R`      | reset scene            |
-| `M`      | switch move/edit modes |
-| `RETURN` | save screenshot        |
-| `ESCAPE` | exit                   |
+|        Key        |        Function        |
+| ----------------- |:----------------------:|
+| <kbd>N</kbd>      | next scene             |
+| <kbd>P</kbd>      | previous scene         |
+| <kbd>R</kbd>      | reset scene            |
+| <kbd>M</kbd>      | switch move/edit modes |
+| <kbd>RETURN</kbd> | save screenshot        |
+| <kbd>ESCAPE</kbd> | exit                   |

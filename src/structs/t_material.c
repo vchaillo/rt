@@ -21,6 +21,7 @@ t_mat			new_marble_material(void)
 	material.specular = MARBLE_SPECULAR;
 	material.reflexion = MARBLE_REFLEXION;
 	material.refraction = MARBLE_REFRACTION;
+	material.medium_index = MARBLE_MEDIUM_INDEX;
 	return (material);
 }
 
@@ -33,6 +34,7 @@ t_mat			new_glass_material(void)
 	material.specular = GLASS_SPECULAR;
 	material.reflexion = GLASS_REFLEXION;
 	material.refraction = GLASS_REFRACTION;
+	material.medium_index = GLASS_MEDIUM_INDEX;
 	return (material);
 }
 
@@ -45,6 +47,7 @@ t_mat			new_plastic_material(void)
 	material.specular = PLASTIC_SPECULAR;
 	material.reflexion = PLASTIC_REFLEXION;
 	material.refraction = PLASTIC_REFRACTION;
+	material.medium_index = PLASTIC_MEDIUM_INDEX;
 	return (material);
 }
 
@@ -57,6 +60,7 @@ t_mat			new_basic_material(void)
 	material.specular = BASIC_SPECULAR;
 	material.reflexion = BASIC_REFLEXION;
 	material.refraction = BASIC_REFRACTION;
+	material.medium_index = BASIC_MEDIUM_INDEX;
 	return (material);
 }
 
@@ -69,6 +73,7 @@ t_mat			new_bitref_material(void)
 	material.specular = BITREF_SPECULAR;
 	material.reflexion = BITREF_REFLEXION;
 	material.refraction = BITREF_REFRACTION;
+	material.medium_index = BITREF_MEDIUM_INDEX;
 	return (material);
 }
 

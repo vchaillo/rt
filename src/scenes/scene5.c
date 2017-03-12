@@ -21,7 +21,7 @@ void			load_scene5_objects(t_scene *scene)
 		new_vector(-10, 0, -5), 2), new_color(PASTEL_BLUE),
 		new_material(BASIC)));
 	add_object(scene, new_object(SPHERE, new_sphere(-1, 3, 2, 2),
-		new_color(BLUE), new_material(BASIC)));
+		new_color(BLACK), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 0, CHECK_WAVE),
 		new_color(DARK_GREY), new_material(BASIC)));
 }

@@ -61,6 +61,7 @@ typedef struct				s_mat
 	float					specular;
 	float					reflexion;
 	float					refraction;
+	float					medium_index;
 }							t_mat;
 
 typedef struct				s_object
@@ -85,8 +86,8 @@ typedef struct				s_ray
 	t_vector				o;
 	t_vector				d;
 	float					t;
-	float					current_refraction;
 	t_hitpoint				hitpoint;
+	float					medium_index;
 }							t_ray;
 
 typedef struct				s_light

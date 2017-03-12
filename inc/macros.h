@@ -14,11 +14,9 @@
 # define MACROS_H
 
 /*
-** reflection defines
-** reflection coef need to be change with real material reflection
+** reflection and refraction defines
 */
-
-# define REF_DEPTH 5
+# define MAX_DEPTH 6
 
 /*
 ** basics defines

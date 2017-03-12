@@ -61,7 +61,7 @@ t_color			apply_effects(t_env *e, t_color color);
 t_color			sepia(t_color color);
 t_color			grayscale(t_color color);
 float			cartoon(t_env *e, float dot);
-t_color			reflection(t_env *e, t_ray *ray);
+t_color			reflection_refraction(t_env *e, t_ray *ray, int depth, float cumul_coef);
 void			super_sampling(t_env *e);
 int				permutation(int index);
 float			modulate_noise(t_vector pos, int resolution);

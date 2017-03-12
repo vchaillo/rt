@@ -15,17 +15,17 @@
 void			load_scene3_objects(t_scene *scene)
 {
 	add_object(scene, new_object(SPHERE, new_sphere(0, 1.5, 0, 3),
-		new_color(RED), new_material(BASIC)));
+		new_color(RED), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0, NORMAL),
-		new_color(WHITE), new_material(BASIC)));
+		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 10, NORMAL),
-		new_color(WHITE), new_material(BASIC)));
+		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(0, 0, 1, 5, NORMAL),
-		new_color(WHITE), new_material(BASIC)));
+		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 5, NORMAL),
-		new_color(WHITE), new_material(BASIC)));
+		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 5, NORMAL),
-		new_color(WHITE), new_material(BASIC)));
+		new_color(WHITE), new_material(GLASS)));
 }
 
 void			load_scene3_lights(t_scene *scene)
@@ -42,6 +42,7 @@ void			load_scene3(t_env *e)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_3;
 	e->scene = new_scene(new_color(BLACK), new_camera(0, 5, 20));
+	e->scene->camera->rot.y += 25;
 	load_scene3_objects(e->scene);
 	load_scene3_lights(e->scene);
 }

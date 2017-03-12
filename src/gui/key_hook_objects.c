@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 22:26:30 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/19 03:42:57 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/13 00:52:10 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,42 @@
 
 int				key_hook_plane(int keycode, t_plane *plane)
 {
-	if (keycode == UP || keycode == UP_MAC)
+	if (keycode == KEY_UP || keycode == KEY_UP_MAC)
 		plane->normal = vector_rot_x(plane->normal, -10);
-	else if (keycode == DOWN || keycode == DOWN_MAC)
+	else if (keycode == KEY_DOWN || keycode == KEY_DOWN_MAC)
 		plane->normal = vector_rot_x(plane->normal, 10);
-	else if (keycode == LEFT || keycode == LEFT_MAC)
+	else if (keycode == KEY_LEFT || keycode == KEY_LEFT_MAC)
 		plane->normal = vector_rot_y(plane->normal, 10);
-	else if (keycode == RIGHT || keycode == RIGHT_MAC)
+	else if (keycode == KEY_RIGHT || keycode == KEY_RIGHT_MAC)
 		plane->normal = vector_rot_y(plane->normal, -10);
-	else if (keycode == A || keycode == Q_MAC)
+	else if (keycode == KEY_A || keycode == KEY_Q_MAC)
 		plane->normal = vector_rot_z(plane->normal, 10);
-	else if (keycode == E || keycode == E_MAC)
+	else if (keycode == KEY_E || keycode == KEY_E_MAC)
 		plane->normal = vector_rot_z(plane->normal, -10);
-	else if (keycode == PLUS || keycode == PLUS_MAC)
+	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
 		plane->offset -= 1;
-	else if (keycode == MINUS || keycode == MINUS_MAC)
+	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
 		plane->offset += 1;
 	return (0);
 }
 
 int				key_hook_sphere(int keycode, t_sphere *sphere)
 {
-	if (keycode == D || keycode == D_MAC)
+	if (keycode == KEY_D || keycode == KEY_D_MAC)
 		sphere->pos.x += 1;
-	else if (keycode == Q || keycode == A_MAC)
+	else if (keycode == KEY_Q || keycode == KEY_A_MAC)
 		sphere->pos.x -= 1;
-	else if (keycode == SPACE || keycode == SPACE_MAC)
+	else if (keycode == KEY_SPACE || keycode == KEY_SPACE_MAC)
 		sphere->pos.y += 1;
-	else if (keycode == CONTROL || keycode == CONTROL_MAC)
+	else if (keycode == KEY_CONTROL || keycode == KEY_CONTROL_MAC)
 		sphere->pos.y -= 1;
-	else if (keycode == S || keycode == S_MAC)
+	else if (keycode == KEY_S || keycode == KEY_S_MAC)
 		sphere->pos.z += 1;
-	else if (keycode == Z || keycode == W_MAC)
+	else if (keycode == KEY_Z || keycode == KEY_W_MAC)
 		sphere->pos.z -= 1;
-	else if (keycode == PLUS || keycode == PLUS_MAC)
+	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
 		sphere->r += 1;
-	else if (keycode == MINUS || keycode == MINUS_MAC)
+	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
 		sphere->r -= 1;
 	return (0);
 }

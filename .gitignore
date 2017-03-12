@@ -1,4 +1,5 @@
 obj/*
 rt
 .DS_Store
+.directory
 ._*

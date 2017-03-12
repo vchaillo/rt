@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/13 17:35:02 by hbock             #+#    #+#             */
-/*   Updated: 2016/07/13 17:35:05 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/12 23:39:26 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	realloc_line(char **line, int nread)
 	char	*tmp;
 
 	tmp = *line;
-	len = (tmp) ? ft_strlen(tmp) + nread : nread;
+	len = (tmp) ? (int)ft_strlen(tmp) + nread : nread;
 	if ((*line = ft_strnew(len)) == NULL)
 		return (-1);
 	if (tmp)

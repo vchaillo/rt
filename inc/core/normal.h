@@ -5,5 +5,6 @@ t_vector		get_normal(t_ray *ray);
 t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane);
 t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
 t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
+t_vector		get_normal_at_tore(t_ray *ray, t_tore *tor);
 
 #endif

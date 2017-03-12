@@ -74,3 +74,20 @@ t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone)
 	normal = vector_sub(tmp, project);
 	return (normal);
 }
+
+t_vector		get_normal_at_tore(t_ray *ray, t_tore *tore)
+{
+  	t_vector	hit;
+	t_vector	normal;
+
+	hit = ray->hitpoint.pos;
+	normal.x = 4 * hit.x *
+	  (pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->R, 2) - pow(tore->r, 2)) -
+	  (8 * pow(tore->R, 2) * hit.x);
+	normal.y = 4 * hit.y *
+	  (pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->R, 2) - pow(tore->r, 2));
+	normal.z = 4 * hit.z *
+	  (pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->R, 2) - pow(tore->r, 2)) -
+	  (8 * pow(tore->R, 2) * hit.z);
+	return (normal);
+}

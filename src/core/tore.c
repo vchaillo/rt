@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 16:28:16 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 19:56:59 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 float			hit_tore(t_tore *tore, t_ray *ray)
 {
-	float		eq4[5];
+	double		eq4[5];
 	float		t;
 	t_vector	dist;
 

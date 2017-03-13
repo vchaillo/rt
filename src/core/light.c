@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 16:27:10 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 20:55:04 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 	{
 		if (hit_obj != object)
 		{
-			t = get_hit_distance(object->object, ray);
+			t = get_hit_distance(object, ray);
 			if (t > EPSILON && t < ray->t)
 				return (TRUE);
 		}

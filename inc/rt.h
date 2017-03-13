@@ -6,13 +6,15 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 17:14:51 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 20:13:18 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
 
+# include <float.h>
+# include "gsl/gsl_poly.h"
 # include <mlx.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -68,7 +70,7 @@ void			print_help(void);
 # include "prototypes/core/objects.h"
 
 /*
-**				Lights
+*				Lights
 */
 # include "prototypes/core/light.h"
 
@@ -147,6 +149,7 @@ int				create_file(t_env *e);
 void			put_file_header(int fd);
 void			put_image_header(int fd);
 char			*get_file_name(t_env *e, int type);
+double			solve_deg4(const double *eq);
 /*
 ** 				scenes functions
 */

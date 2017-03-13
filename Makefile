@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/11 11:32:43 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/03/13 21:00:07 by tlegroux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC_CORE = \
 		core/plane.c\
 		core/cylinder.c\
 		core/cone.c\
+		core/tore.c\
 		core/effects.c\
 		core/reflection_refraction.c\
 		core/antialiasing.c\
@@ -111,10 +112,12 @@ ifeq ($(UNAME_S), Linux)
 LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm
 else
 UNAME_S = MACOS
-LIBMLX		=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+LIBMLX	=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 endif
-LIBFT =	 -Llib/libft/ -lft
-INC	=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/
+LIBFT 	=	 -Llib/libft/ -lft
+LIBGSL	= 	 -Llib/gsl/lib -lgsl -lgslcblas
+LDFLAGS =	-static
+INC		=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/ -I lib/gsl/include/
 
 # Rules
 all: $(NAME)
@@ -122,7 +125,7 @@ all: $(NAME)
 $(NAME): obj libft $(OBJ)
 		@echo "========================================="
 		@printf "$(WHITE)Creating $(UNAME_S) $(NAME) executable... $(END_COLOR)"
-		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBFT)
+		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBFT) $(LIBGSL)
 		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "========================================="
 

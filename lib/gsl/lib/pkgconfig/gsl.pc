@@ -1,0 +1,11 @@
+prefix=/Users/tlegroux/42sync/code/raytracer/lib/gsl
+exec_prefix=/Users/tlegroux/42sync/code/raytracer/lib/gsl
+libdir=/Users/tlegroux/42sync/code/raytracer/lib/gsl/lib
+includedir=/Users/tlegroux/42sync/code/raytracer/lib/gsl/include
+GSL_CBLAS_LIB=-lgslcblas
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 2.3
+Libs: -L/Users/tlegroux/42sync/code/raytracer/lib/gsl/lib -lgsl ${GSL_CBLAS_LIB}  -lm 
+Cflags: -I/Users/tlegroux/42sync/code/raytracer/lib/gsl/include

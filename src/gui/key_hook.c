@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 17:05:40 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/14 00:26:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@ void			key_hook_effects(int keycode, t_env *e)
 	if (keycode == KEY_KP0 || keycode == KEY_KP0_MAC || keycode == KEY_NUM0_MAC)
 	{
 		e->scene->aa = e->scene->aa == INACTIVE_AA ? ACTIVE_AA : INACTIVE_AA;
-		e->color_array_aa = reset_color_array(WIN_W * e->scene->aa,
-			WIN_H * e->scene->aa, e->color_array_aa);
+		e->color_array_aa = reset_color_array(e->scene->aa, e->color_array_aa);
 	}
 	else if (keycode == KEY_X || keycode == KEY_X_MAC)
 	{

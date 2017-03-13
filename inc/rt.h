@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:36:10 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 00:29:09 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,6 @@ t_mat			new_glass_material(void);
 t_mat			new_marble_material(void);
 t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
-t_color			**reset_color_array(int wmax, int hmax, t_color **colors);
+t_color			**reset_color_array(int aa, t_color **colors);
 
 #endif

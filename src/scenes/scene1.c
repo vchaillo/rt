@@ -33,7 +33,7 @@ void			load_scene1(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_1;
-	e->scene = new_scene(new_color(BLACK), new_camera(0, 15, 60));
+	e->scene = new_scene(new_color(BLACK), new_camera(0, 25, 60));
 	load_scene1_objects(e->scene);
 	load_scene1_lights(e->scene);
 }

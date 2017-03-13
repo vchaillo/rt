@@ -77,7 +77,8 @@ t_color			raytracer(t_env *e, int x, int y)
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
 	//we arbitray choose 1 for the medium_index because we suppose that the
 	//original view ray starts from the air (we arnt under water or something else)
-	ray.medium_index = 1;
+	ray.ior = AIR_IOR;
+	ray.is_in = 0;
 	color = reflection_refraction(e, &ray, 0, 1);
 	// ray.t = get_ray_intersection(e->scene->objects, &ray);
 	// if (ray.hitpoint.object)

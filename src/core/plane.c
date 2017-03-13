@@ -31,14 +31,19 @@ int				is_plane_illuminated(t_ray *ray, t_light *light)
 {
 	float		t;
 	t_ray		cam_light_ray;
+	float		sign_light;
+	float		sign_eye;
+	t_plane		*plane;
 
 	cam_light_ray.o = ray->o;
 	if (light->type == SPOT)
 	{
-		cam_light_ray.d = vector_sub(light->pos, cam_light_ray.o);
-		cam_light_ray.t = sqrt((cam_light_ray.d.x * cam_light_ray.d.x)
-			+ (cam_light_ray.d.y * cam_light_ray.d.y)
-			+ (cam_light_ray.d.z * cam_light_ray.d.z));
+		plane = (t_plane *)ray->hitpoint.object->object;
+		sign_light = dot_product(plane->normal, light->pos) + plane->offset;
+		sign_eye = dot_product(plane->normal, ray->o) + plane->offset;
+		if (sign_light * sign_eye >= 0)
+			return (TRUE);
+		return (FALSE);
 	}
 	else
 	{

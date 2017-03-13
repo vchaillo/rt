@@ -28,8 +28,8 @@ int				refracted_ray(t_ray *ray)
 	float		c2;
 
 	ray->o = ray->hitpoint.pos;
-	n = ray->medium_index / ray->hitpoint.object->material.medium_index;
-	// n = ray->hitpoint.object->material.medium_index / ray->medium_index;
+	// n = ray->ior / ray->past_ior;
+	n = ray->past_ior / ray->ior;
 	c1 = -dot_product(ray->hitpoint.normal, ray->d);
 	c2 = n * n * (1 - c1 * c1);
 	if (c2 > 1)
@@ -47,16 +47,16 @@ float			schlick(t_ray *ray)
 	float		c3;
 	float		n;
 
-	// r0 = (ray->hitpoint.object->material.medium_index - ray->medium_index) / (ray->medium_index + ray->hitpoint.object->material.medium_index);
-	r0 = (ray->medium_index - ray->hitpoint.object->material.medium_index) / (ray->medium_index + ray->hitpoint.object->material.medium_index);
+	r0 = (ray->past_ior - ray->ior) / (ray->ior + ray->past_ior);
+	// r0 = (ray->ior - ray->past_ior) / (ray->ior + ray->past_ior);
 	r0 *= r0;
 	c1 = -dot_product(ray->hitpoint.normal, ray->d);
-	if (ray->medium_index > ray->hitpoint.object->material.medium_index)
-	{
-		n = ray->medium_index / ray->hitpoint.object->material.medium_index;
-	// if (ray->hitpoint.object->material.medium_index > ray->medium_index)
+	// if (ray->ior > ray->past_ior)
 	// {
-	// 	n =  ray->hitpoint.object->material.medium_index / ray->medium_index;
+	// 	n = ray->ior / ray->past_ior;
+	if (ray->past_ior > ray->ior)
+	{
+		n =  ray->past_ior / ray->ior;
 		c3 = n * n * (1 - c1 * c1);
 		if (c3 > 1)
 			return (1);
@@ -80,6 +80,22 @@ t_color			calculate_combined_color(t_color color, t_color reflect_color, t_color
 	return (color);
 }
 
+void			compute_ior(t_ray *ray)
+{
+	if (ray->is_in)
+	{
+		ray->ior = AIR_IOR;
+		ray->past_ior = ray->hitpoint.object->material.ior;
+		ray->is_in = 0;
+	}
+	else
+	{
+		ray->ior = ray->hitpoint.object->material.ior;
+		ray->past_ior = AIR_IOR;
+		ray->is_in = 1;
+	}
+}
+
 t_color			reflection_refraction(t_env *e, t_ray *ray, int depth, float cumul_coef)
 {
 	t_color		color;
@@ -88,15 +104,12 @@ t_color			reflection_refraction(t_env *e, t_ray *ray, int depth, float cumul_coe
 	t_ray		reflect_ray;
 	t_ray		refract_ray;
 
-	if (depth)
-		ray->medium_index = ray->hitpoint.object->material.medium_index;
 	reflect_color = new_color(BLACK);
 	refract_color = new_color(BLACK);
 	ray->t = get_ray_intersection(e->scene->objects, ray);
 	if (!(ray->hitpoint.object))
-	{
 		return (e->scene->background_color);
-	}
+	compute_ior(ray);
 	color = illuminate(e, ray);
 	if (depth == MAX_DEPTH || cumul_coef < 0.02)
 		return (color);

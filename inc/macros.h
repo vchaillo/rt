@@ -16,7 +16,8 @@
 /*
 ** reflection and refraction defines
 */
-# define MAX_DEPTH 6
+# define MAX_DEPTH 5
+# define AIR_IOR 1
 
 /*
 ** basics defines

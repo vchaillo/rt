@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 20:53:11 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 21:45:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	float		t;
 	float		t_min;
 	t_object	*object;
+	t_object	*hit_object;
 
 	t_min = MAX_DIST;
+	hit_object = NULL;
 	ray->hitpoint.object = NULL;
 	object = objects;
 	while (object != NULL)
@@ -55,10 +57,12 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 		if (t > EPSILON && t < t_min)
 		{
 			t_min = t;
-			get_hitpoint(object, ray, t_min);
+			hit_object = object;
 		}
 		object = object->next;
 	}
+	if (hit_object)
+		get_hitpoint(hit_object, ray, t_min);
 	return (t_min);
 }
 

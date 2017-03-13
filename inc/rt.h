@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 20:13:18 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 21:36:10 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,9 +179,9 @@ t_scene			*new_scene(t_color background_color, t_camera *camera);
 void			delete_scene(t_scene *scene);
 t_camera		*new_camera(float x, float y, float z);
 void			delete_camera(t_camera *camera);
-t_sphere		*new_sphere(float x, float y, float z, float r);
+t_sphere		*new_sphere(t_vector pos, float r);
 void			delete_sphere(t_sphere *sphere);
-t_plane			*new_plane(t_vector vect, float offset, int wave);
+t_plane			*new_plane(t_vector normal, float offset, int wave);
 void			delete_plane(t_plane *plane);
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);

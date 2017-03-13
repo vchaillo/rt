@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:15:00 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/13 21:39:04 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				is_plane_illuminated(t_ray *ray, t_light *light)
 {
 	float		t;
 	float		sign_light;
-	floa		sign_eye;
+	float		sign_eye;
 	t_ray		cam_light_ray;
 	t_plane		*plane;
 

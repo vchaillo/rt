@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 16:58:49 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 21:33:43 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ float			noise(float x, float y, float res)
 	return (smooth[0] + fade(y) * (smooth[1] - smooth[0]));
 }
 
-float				perlin(t_vector pos, int resolution)
+float				perlin(float x, float y, int resolution)
 {
 	float			nb;
 
-	nb = (noise(fabs(pos.x * 100), fabs(pos.y * 100),
+	nb = (noise(fabs(x * 100), fabs(y * 100),
 		resolution) + 1);
 	return (nb);
 }

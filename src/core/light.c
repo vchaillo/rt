@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 20:55:04 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 21:38:07 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 		return (new_color(BLACK));
 	color = scalar_color(dot, mult_color(hitpoint.color, l->color));
 	if (hitpoint.object->material.type == PERLIN)
-		color = scalar_color(perlin(hitpoint.pos, 75), color);
+		color = scalar_color(perlin(hitpoint.pos.x, hitpoint.pos.y, 75), color);
 	return (color);
 }
 

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 15:54:57 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/13 21:38:36 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_vector		get_normal(t_ray *ray)
 	else
 		normal = get_normal_at_cone(ray, ray->hitpoint.object->object);
 	if (ray->hitpoint.object->material.type == PERLIN)
-		normal = vector_rot_y(normal, perlin(ray->hitpoint.pos, 75) * 30);
+		normal = vector_rot_y(normal, perlin(ray->hitpoint.pos.x,
+		ray->hitpoint.pos.y, 75) * 30);
 	return (normalize(normal));
 }
 

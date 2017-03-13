@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 01:17:40 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 01:39:58 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 17:10:09 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void			delete_color_array(int hmax, t_color **colors)
 t_color			**reset_color_array(int wmax, int hmax, t_color **colors)
 {
 	(void)colors;
-	// delete_color_array(wmax, colors);
+/*
+** delete_color_array(wmax, colors);
+*/
 	return (new_color_array(wmax, hmax));
 }

@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 14:58:39 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/09 23:13:38 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 16:04:07 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void			reflected_ray(t_ray *ray)
 	ray->d = reflected_dir(ray);
 }
 
+/*
+** REF_COEF should be multiply each iteration
+** by the reflection coef of the last object hit
+*/
+
 t_color			reflection(t_env *e, t_ray *ray)
 {
 	int			i;
@@ -38,7 +43,6 @@ t_color			reflection(t_env *e, t_ray *ray)
 
 	i = -1;
 	color = new_color(BLACK);
-	//REF_COEF should be multiply each iteration by the reflection coef of the last object hit
 	while (++i < REF_DEPTH && REF_COEF > EPSILON)
 	{
 		ray->hitpoint.object = NULL;

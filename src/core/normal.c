@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 00:12:39 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 15:54:57 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane)
 	return (normal);
 }
 
-
 t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder)
 {
 	t_vector	normal;
@@ -77,7 +76,7 @@ t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone)
 
 t_vector		get_normal_at_tore(t_ray *ray, t_tore *tore)
 {
-  	t_vector	hit;
+	t_vector	hit;
 	t_vector	normal;
 
 	hit = ray->hitpoint.pos;

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 11:03:39 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 15:54:35 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ t_color			checkerboard_plane(t_hitpoint hitpoint)
 		if (((int)hitpoint.pos.x % 2 && (int)hitpoint.pos.z % 2)
 			|| (!((int)hitpoint.pos.x % 2) && !((int)hitpoint.pos.z % 2)))
 			color = negative_color(color);
-
 	}
 	return (color);
 }

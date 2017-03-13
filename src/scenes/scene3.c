@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:57:50 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/11 04:42:56 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 17:17:19 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void			load_scene3_objects(t_scene *scene)
 {
 	add_object(scene, new_object(SPHERE, new_sphere(0, 0, 0, 30),
 		new_color(RED), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 35, NORMAL),
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 35, NORMAL),
 		new_color(DARK_GREY), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 35, NORMAL),
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, -1, 0), 35, NORMAL),
 		new_color(DARK_GREY), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(0, 0, 1, 35, NORMAL),
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 0, 1), 35, NORMAL),
 		new_color(DARK_GREY), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 35, NORMAL),
+	add_object(scene, new_object(PLANE, new_plane(new_vector(1, 0, 0), 35, NORMAL),
 		new_color(DARK_GREY), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 35, NORMAL),
+	add_object(scene, new_object(PLANE, new_plane(new_vector(-1, 0, 0), 35, NORMAL),
 		new_color(DARK_GREY), new_material(BASIC)));
 }
 

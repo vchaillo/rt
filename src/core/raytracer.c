@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/12 23:54:25 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:24:57 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,23 @@ void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 		ray->hitpoint.color = object->color;
 }
 
+float			get_hit_distance(t_object *object, t_ray *ray)
+{
+	float		t;
+
+	if (object->type == SPHERE)
+		t = hit_sphere(object->object, ray);
+	else if (object->type == PLANE)
+		t = hit_plane(object->object, ray);
+	else if (object->type == CYLINDER)
+		t = hit_cylinder(object->object, ray);
+	else if (object->type == CONE)
+		t = hit_cone(object->object, ray);
+	else
+		t = EPSILON;
+	return (t);
+}
+
 int				get_ray_intersection(t_object *objects, t_ray *ray)
 {
 	float		t;
@@ -34,14 +51,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	object = objects;
 	while (object != NULL)
 	{
-		if (object->type == SPHERE)
-			t = hit_sphere(object->object, ray);
-		else if (object->type == PLANE)
-			t = hit_plane(object->object, ray);
-		else if (object->type == CYLINDER)
-			t = hit_cylinder(object->object, ray);
-		else // if (object->type == CONE)
-			t = hit_cone(object->object, ray);
+		t = get_hit_distance(object, ray);
 		if (t > EPSILON && t < t_min)
 		{
 			t_min = t;
@@ -59,7 +69,8 @@ t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa)
 	float		dir_y;
 	float		dir_z;
 
-	dir_x = (2.0 * ((x + 0.5) / WIN_W / aa) - 1.0) * camera->ratio * camera->fov;
+	dir_x = (2.0 * ((x + 0.5) / WIN_W / aa) - 1.0) *
+			camera->ratio * camera->fov;
 	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H / aa)) * camera->fov;
 	dir_z = camera->focale;
 	dir = new_vector(dir_x, dir_y, dir_z);

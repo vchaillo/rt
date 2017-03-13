@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 00:14:37 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:28:16 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 ** Ray to hit tore intersection is a 4th degree equation.
 ** eq4[5] is the a, b, c, d, e parameters of that equation.
 */
+
 float			hit_tore(t_tore *tore, t_ray *ray)
 {
-  	float		eq4[5];
+	float		eq4[5];
 	float		t;
 	t_vector	dist;
 

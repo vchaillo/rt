@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 18:36:20 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 00:28:41 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 17:13:43 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char			*get_file_name(t_env *e, int type)
 {
 	time_t		seconds;
 	struct tm	current_time;
-	char 		*str_time;
+	char		*str_time;
 
 	if (!(str_time = (char *)malloc(sizeof(char) * 128)))
 	{

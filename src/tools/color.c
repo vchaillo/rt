@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:10 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 03:59:14 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/13 17:13:18 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ t_color			add_color(t_color color1, t_color color2)
 	color1.b = color1.b + color2.b;
 	return (limit_color(color1));
 }
-
 
 t_color			mult_color(t_color color1, t_color color2)
 {

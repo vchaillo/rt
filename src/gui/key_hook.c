@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 00:56:10 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 17:05:40 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int				key_hook_scene(int keycode, t_env *e)
 	return (0);
 }
 
-int				key_hook_effects(int keycode, t_env *e)
+void			key_hook_effects(int keycode, t_env *e)
 {
 	if (keycode == KEY_KP0 || keycode == KEY_KP0_MAC || keycode == KEY_NUM0_MAC)
 	{
@@ -99,7 +99,6 @@ int				key_hook_effects(int keycode, t_env *e)
 			e->scene->amb_intensity /= 5;
 		}
 	}
-	return (0);
 }
 
 int				key_hook(int keycode, t_env *e)

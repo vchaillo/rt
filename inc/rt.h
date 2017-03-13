@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 00:55:02 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/13 17:14:51 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int				key_hook(int keycode, t_env *e);
 int				key_hook_camera(int keycode, t_camera *camera);
 int				key_hook_light(int key, t_scene *scene);
 int				key_hook_scene(int keycode, t_env *e);
-int				key_hook_effects(int keycode, t_env *e);
+void			key_hook_effects(int keycode, t_env *e);
 int				mouse_hook(int button, int x, int y, t_env *e);
 void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			update_image(t_env *e);
@@ -178,7 +178,7 @@ t_camera		*new_camera(float x, float y, float z);
 void			delete_camera(t_camera *camera);
 t_sphere		*new_sphere(float x, float y, float z, float r);
 void			delete_sphere(t_sphere *sphere);
-t_plane			*new_plane(float x, float y, float z, float offset, int wave);
+t_plane			*new_plane(t_vector vect, float offset, int wave);
 void			delete_plane(t_plane *plane);
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);

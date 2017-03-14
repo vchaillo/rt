@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 06:35:41 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:33:43 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <float.h>
 # include "gsl/gsl_poly.h"
+# include "gsl/gsl_errno.h"
 # include <mlx.h>
 # include <stdlib.h>
 # include <stdio.h>

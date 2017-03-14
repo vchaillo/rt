@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 00:29:09 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 01:29:20 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,9 @@ void			load_scene4_lights(t_scene *scene);
 void			load_scene5(t_env *e);
 void			load_scene5_objects(t_scene *scene);
 void			load_scene5_lights(t_scene *scene);
+void			load_scene6(t_env *e);
+void			load_scene6_objects(t_scene *scene);
+void			load_scene6_lights(t_scene *scene);
 /*
 ** 				structs functions
 */
@@ -181,6 +184,10 @@ t_camera		*new_camera(float x, float y, float z);
 void			delete_camera(t_camera *camera);
 t_sphere		*new_sphere(t_vector pos, float r);
 void			delete_sphere(t_sphere *sphere);
+t_tore			*new_tore(t_vector pos, float r, float big_r);
+void			delete_tore(t_tore *tore);
+t_boloid		*new_boloid(t_vector pos, float a, float b, float c);
+void			delete_boloid(t_boloid *boloid);
 t_plane			*new_plane(t_vector normal, float offset, int wave);
 void			delete_plane(t_plane *plane);
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);

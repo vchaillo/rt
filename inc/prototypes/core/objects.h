@@ -7,5 +7,6 @@ t_color			checkerboard_plane(t_hitpoint hitpoint);
 float			hit_sphere(t_sphere *sphere, t_ray *ray);
 float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
 float			hit_cone(t_cone *cone, t_ray *ray);
-
+float			hit_tore(t_tore *tore, t_ray *ray);
+float			hit_boloid(t_boloid *boloid, t_ray *ray);
 #endif

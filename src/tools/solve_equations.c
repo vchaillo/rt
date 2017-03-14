@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:07:17 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 19:57:26 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/14 00:36:14 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ double			solve_deg4(const double *eq)
 	double		result;
 
 	if (!(workspace = gsl_poly_complex_workspace_alloc(5)))
-		return (DBL_MIN);
+		print_error(MALLOC_ERROR);
 	gsl_poly_complex_solve(eq, 5, workspace, r);
 	result = DBL_MAX;
 	i = 0;	
 	while (i < 4)
 	{
-		if (!r[2 * i + 1])
+		if (r[2 * i + 1] > -EPSILON && r[2 * i + 1] < EPSILON)
 		{
 			if (r[2 * i] > EPSILON && r[2 * i] < result)
 				result = r[2 * i];

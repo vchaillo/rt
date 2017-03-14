@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 19:53:08 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 00:56:34 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/14 00:22:58 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void			load_scene(int scene_type, t_env *e)
 		load_scene4(e);
 	else if (scene_type == SCENE_5)
 		load_scene5(e);
+	else if (scene_type == SCENE_6)
+		load_scene6(e);
 }
 
 void			switch_scene(int keycode, t_env *e)

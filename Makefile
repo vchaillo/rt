@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/13 21:00:07 by tlegroux         ###   ########.fr        #
+#    Updated: 2017/03/14 00:17:14 by tlegroux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC_CORE = \
 		core/cylinder.c\
 		core/cone.c\
 		core/tore.c\
+		core/boloid.c\
 		core/effects.c\
 		core/reflection_refraction.c\
 		core/antialiasing.c\
@@ -85,6 +86,7 @@ SRC_SCENES = \
 		scenes/scene3.c\
 		scenes/scene4.c\
 		scenes/scene5.c\
+		scenes/scene6.c\
 
 SRC_STRUCTS = \
 		structs/t_vector.c\
@@ -92,6 +94,8 @@ SRC_STRUCTS = \
 		structs/t_camera.c\
 		structs/t_sphere.c\
 		structs/t_plane.c\
+		structs/t_tore.c\
+		structs/t_boloid.c\
 		structs/t_cylinder.c\
 		structs/t_cone.c\
 		structs/t_object.c\

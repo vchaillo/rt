@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:45:55 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 01:27:51 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ float			get_hit_distance(t_object *object, t_ray *ray)
 		t = hit_cylinder(object->object, ray);
 	else if (object->type == CONE)
 		t = hit_cone(object->object, ray);
+	else if (object->type == TORE)
+		t = hit_tore(object->object, ray);
+	else if (object->type == BOLOID)
+		t = hit_boloid(object->object, ray);
 	else
 		t = EPSILON;
 	return (t);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 00:06:37 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/14 00:13:41 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ typedef struct				s_tore
 	float					r;
 	float					big_r;
 }							t_tore;
+
+typedef struct				s_boloid
+{
+	t_vector				pos;
+	float					a;
+	float					b;
+	float					c;
+}							t_boloid;
 
 typedef struct				s_mat
 {

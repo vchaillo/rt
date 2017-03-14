@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/11 04:51:15 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/14 00:44:33 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@
 /*
 ** scenes defines
 */
-# define NB_SCENES 5
+# define NB_SCENES 6
 # define SCENE_1 1
 # define SCENE_2 2
 # define SCENE_3 3
 # define SCENE_4 4
 # define SCENE_5 5
+# define SCENE_6 6
 
 /*
 ** objects defines
@@ -78,6 +79,8 @@
 # define PLANE 1
 # define CYLINDER 2
 # define CONE 3
+# define TORE 4
+# define BOLOID 5
 
 /*
 ** plane types defines

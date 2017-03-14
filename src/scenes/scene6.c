@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene6.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlegroux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 00:15:01 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/14 01:39:25 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/14 04:39:32 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void			load_scene6(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_6;
-	e->scene = new_scene(new_color(BLACK), new_camera(0, 20, 100));
+	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 20, 100),
+		new_vector(0, 0, -1)));
 	load_scene6_objects(e->scene);
 	load_scene6_lights(e->scene);
 }

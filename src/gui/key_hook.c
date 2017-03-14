@@ -6,40 +6,11 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 00:26:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 06:30:08 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-int				key_hook_camera(int keycode, t_camera *camera)
-{
-	if (keycode == KEY_D || keycode == KEY_D_MAC)
-		camera->pos.x += 1;
-	else if (keycode == KEY_Q || keycode == KEY_A_MAC)
-		camera->pos.x -= 1;
-	else if (keycode == KEY_SPACE || keycode == KEY_SPACE_MAC)
-		camera->pos.y += 1;
-	else if (keycode == KEY_CONTROL || keycode == KEY_CONTROL_MAC)
-		camera->pos.y -= 1;
-	else if (keycode == KEY_S || keycode == KEY_S_MAC)
-		camera->pos.z += 1;
-	else if (keycode == KEY_Z || keycode == KEY_W_MAC)
-		camera->pos.z -= 1;
-	else if (keycode == KEY_UP || keycode == KEY_UP_MAC)
-		camera->rot.x += 10;
-	else if (keycode == KEY_DOWN || keycode == KEY_DOWN_MAC)
-		camera->rot.x -= 10;
-	else if (keycode == KEY_LEFT || keycode == KEY_LEFT_MAC)
-		camera->rot.y += 10;
-	else if (keycode == KEY_RIGHT || keycode == KEY_RIGHT_MAC)
-		camera->rot.y -= 10;
-	else if (keycode == KEY_A || keycode == KEY_Q_MAC)
-		camera->rot.z += 10;
-	else if (keycode == KEY_E || keycode == KEY_E_MAC)
-		camera->rot.z -= 10;
-	return (0);
-}
 
 int				key_hook_light(int key, t_scene *scene)
 {

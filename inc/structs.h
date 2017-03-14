@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 01:46:32 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 06:25:51 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ typedef struct				s_camera
 {
 	t_vector				pos;
 	t_vector				dir;
+	t_vector				dir_left;
+	t_vector				dir_up;
 	t_vector				rot;
 	float					ratio;
 	float					fov;

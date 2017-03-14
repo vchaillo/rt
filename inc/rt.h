@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 01:46:54 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 06:35:41 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ void			start_mlx(t_env *e);
 int				expose_hook(t_env *e);
 int				key_hook(int keycode, t_env *e);
 int				key_hook_camera(int keycode, t_camera *camera);
+int				key_hook_move_camera(int keycode, t_camera *camera);
+int				key_hook_rot_x_camera(int keycode, t_camera *camera);
+int				key_hook_rot_y_camera(int keycode, t_camera *camera);
+int				key_hook_rot_z_camera(int keycode, t_camera *camera);
 int				key_hook_light(int key, t_scene *scene);
 int				key_hook_scene(int keycode, t_env *e);
 void			key_hook_effects(int keycode, t_env *e);
@@ -181,7 +185,7 @@ t_color			new_color(int color);
 t_vector		new_vector(float x, float y, float z);
 t_scene			*new_scene(t_color background_color, t_camera *camera);
 void			delete_scene(t_scene *scene);
-t_camera		*new_camera(float x, float y, float z);
+t_camera		*new_camera(t_vector pos, t_vector dir);
 void			delete_camera(t_camera *camera);
 t_sphere		*new_sphere(t_vector pos, float r);
 void			delete_sphere(t_sphere *sphere);

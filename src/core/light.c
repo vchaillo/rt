@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:38:07 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 10:58:05 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,6 @@ t_color			illuminate(t_env *e, t_ray *ray)
 	}
 	if (e->scene->amb == ACTIVE && (e->scene->spot || e->scene->dir))
 		color = add_color(scalar_color((e->scene->amb_intensity / 10),
-			mult_color(e->scene->amb_color, ray->hitpoint.color)), color);
+			add_color(e->scene->amb_color, ray->hitpoint.color)), color);
 	return (color);
 }

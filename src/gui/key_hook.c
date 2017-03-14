@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 06:30:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 08:59:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,13 @@ void			key_hook_effects(int keycode, t_env *e)
 	}
 	else if (keycode == KEY_X || keycode == KEY_X_MAC)
 	{
-		if (e->scene->effect == INACTIVE)
-			e->scene->effect = SEPIA;
-		else if (e->scene->effect == SEPIA)
-			e->scene->effect = GRAYSCALE;
-		else if (e->scene->effect == GRAYSCALE)
-			e->scene->effect = NEGATIVE;
-		else if (e->scene->effect == NEGATIVE)
-		{
-			e->scene->effect = CARTOON;
+		e->scene->effect++;
+		if (e->scene->effect == 6)
+			e->scene->effect = 0;
+		else if (e->scene->effect == CARTOON)
 			e->scene->amb_intensity *= 5;
-		}
-		else
-		{
-			e->scene->effect = INACTIVE;
+		else if (e->scene->effect == CARTOON + 1)
 			e->scene->amb_intensity /= 5;
-		}
 	}
 }
 

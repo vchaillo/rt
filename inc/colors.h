@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/01/28 16:49:26 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/14 10:59:53 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define YELLOW 0xFFDD5A
-# define LIGHT_BLUE 0x00FFFF
+# define CYAN 0x00FFFF
 # define PINK 0xFF00FF
 
 # define GREEN_1 0xC1FFA6

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 06:47:11 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 08:25:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@
 # define GRAYSCALE 2
 # define CARTOON 3
 # define NEGATIVE 4
+# define STEREO 5
 
 /*
 ** files modes defines

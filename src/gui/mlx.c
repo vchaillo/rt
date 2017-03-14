@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 01:11:32 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/14 02:12:51 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	start_mlx(t_env *e)
 	e->color_array_aa = new_color_array(WIN_W * e->scene->aa,
 		WIN_H * e->scene->aa);
 	e->color_array = new_color_array(WIN_W, WIN_H);
-	draw(e);
+	update_image(e);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 2, 3, key_hook, e);

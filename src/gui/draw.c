@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 17:07:29 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/14 02:36:38 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	fill_pixel(t_env *e, t_color color, int x, int y)
+void			fill_pixel(t_env *e, t_color color, int x, int y)
 {
 	int			i;
 
@@ -22,29 +22,39 @@ void	fill_pixel(t_env *e, t_color color, int x, int y)
 	e->data[i + 2] = (color.r);
 }
 
-void	apply_color_to_image(t_env *e)
+void			apply_color_to_image(t_env *e)
 {
-	int x;
-	int y;
+	int 		x;
+	int 		y;
+	t_color		**colors;
 
+	colors = e->scene->aa == ACTIVE_AA ? e->color_array : e->color_array_aa;
 	y = -1;
 	while (++y < WIN_H)
 	{
 		x = -1;
 		while (++x < WIN_W)
-			fill_pixel(e, e->color_array[y][x], x, y);
+			fill_pixel(e, colors[y][x], x, y);
 	}
 }
 
-void	update_image(t_env *e)
+void			update_image(t_env *e)
 {
+	clock_t 	begin;
+	clock_t 	end;
+
 	mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
+	begin = clock();
 	draw(e);
+	end = clock();
+	e->frame_time = (float)(end - begin) / CLOCKS_PER_SEC;
+	print_gui_output(e);
+	print_cli_output(e);
 }
 
-void	draw(t_env *e)
+void			draw(t_env *e)
 {
 	int			x;
 	int			y;
@@ -69,6 +79,4 @@ void	draw(t_env *e)
 	apply_color_to_image(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	print_gui_output(e);
-	print_cli_output(e);
 }

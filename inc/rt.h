@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 01:29:20 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/14 01:46:54 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ void			print_color(t_color color);
 void			print_vector(t_vector vector);
 void			print_start_line(void);
 void			print_end_line(void);
+void			print_frame_time(t_env *e);
 /*
 ** 				tools functions
 */

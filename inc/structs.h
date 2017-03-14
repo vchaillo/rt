@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 00:13:41 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/14 01:46:32 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ typedef struct				s_env
 	double					nb_cam_rays;
 	double					nb_light_rays;
 	int						verbose;
+	float					frame_time;
 	t_color					**color_array;
 	t_color					**color_array_aa;
 }							t_env;

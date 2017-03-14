@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 15:15:39 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/10 14:14:05 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/14 01:39:08 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,19 @@ void			print_nb_rays(t_env *e)
 	ft_putchar('\n');
 }
 
+void			print_frame_time(t_env *e)
+{
+	ft_putstr_color("Frame time : ", TERM_BOLD_GREY);
+	ft_putfloat2(e->frame_time);
+	ft_putendl_color(" s\n", TERM_BOLD_GREY);
+}
+
 void			print_cli_output(t_env *e)
 {
 	if (e->verbose == FULL_VERBOSE || e->verbose == MIN_VERBOSE)
 	{
 		print_start_line();
+		print_frame_time(e);
 		print_nb_rays(e);
 		if (e->verbose == FULL_VERBOSE)
 		{

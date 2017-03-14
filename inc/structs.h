@@ -98,6 +98,7 @@ typedef struct				s_ray
 	t_vector				o;
 	t_vector				d;
 	float					t;
+	float					transmittance_ray;
 	t_hitpoint				hitpoint;
 	float					ior;
 	float					past_ior;

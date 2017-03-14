@@ -18,6 +18,7 @@
 */
 # define MAX_DEPTH 6
 # define AIR_IOR 1
+# define EPSILON_SHADOW 0.01
 
 /*
 ** basics defines

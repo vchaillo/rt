@@ -18,10 +18,13 @@ int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 	t_object	*object;
 
 	object = objects;
+	ray->transmittance_ray = 1;
 	while (object != NULL)
 	{
 		if (hit_obj != object)
 		{
+			if (ray->transmittance_ray < EPSILON_SHADOW)
+				return (TRUE);
 			if (object->type == SPHERE)
 				t = hit_sphere((t_sphere *)object->object, ray);
 			else if (object->type == PLANE)
@@ -30,13 +33,41 @@ int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 				t = hit_cylinder((t_cylinder *)object->object, ray);
 			else if (object->type == CONE)
 				t = hit_cone((t_cone *)object->object, ray);
-			if (t > EPSILON && t < ray->t)
+			if (t > EPSILON && t < ray->t && !object->material.refraction)
 				return (TRUE);
+			else if (t > EPSILON && t < ray->t && object->material.refraction)
+				ray->transmittance_ray *= object->material.refraction;
 		}
 		object = object->next;
 	}
 	return (FALSE);
 }
+
+// int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
+// {
+// 	float		t;
+// 	t_object	*object;
+//
+// 	object = objects;
+// 	while (object != NULL)
+// 	{
+// 		if (hit_obj != object)
+// 		{
+// 			if (object->type == SPHERE)
+// 				t = hit_sphere((t_sphere *)object->object, ray);
+// 			else if (object->type == PLANE)
+// 				t = hit_plane((t_plane *)object->object, ray);
+// 			else if (object->type == CYLINDER)
+// 				t = hit_cylinder((t_cylinder *)object->object, ray);
+// 			else if (object->type == CONE)
+// 				t = hit_cone((t_cone *)object->object, ray);
+// 			if (t > EPSILON && t < ray->t)
+// 				return (TRUE);
+// 		}
+// 		object = object->next;
+// 	}
+// 	return (FALSE);
+// }
 
 t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 {
@@ -98,6 +129,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 			color = add_color(diffuse(e, vray->hitpoint, light, &lray), color);
 		if (e->scene->specular == ACTIVE && e->scene->effect != CARTOON)
 			color = add_color(specular(vray, light, &lray), color);
+		color = scalar_color(lray.transmittance_ray, color);
 	}
 	return (color);
 }

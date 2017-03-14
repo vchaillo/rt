@@ -86,6 +86,7 @@ SRC_SCENES = \
 		scenes/scene4.c\
 		scenes/scene5.c\
 		scenes/scene6.c\
+		scenes/scene7.c\
 
 SRC_STRUCTS = \
 		structs/t_vector.c\

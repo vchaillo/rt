@@ -22,6 +22,8 @@ void			load_scene3_objects(t_scene *scene)
 		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(0, 0, 1, 5, NORMAL),
 		new_color(WHITE), new_material(GLASS)));
+	add_object(scene, new_object(PLANE, new_plane(0, 0, 1, -32, NORMAL),
+		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(1, 0, 0, 5, NORMAL),
 		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(-1, 0, 0, 5, NORMAL),

@@ -71,6 +71,7 @@
 # define SCENE_4 4
 # define SCENE_5 5
 # define SCENE_6 6
+# define SCENE_7 7
 
 /*
 ** objects defines

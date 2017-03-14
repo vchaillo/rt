@@ -165,6 +165,9 @@ void			load_scene5_lights(t_scene *scene);
 void			load_scene6(t_env *e);
 void			load_scene6_objects(t_scene *scene);
 void			load_scene6_lights(t_scene *scene);
+void			load_scene7(t_env *e);
+void			load_scene7_objects(t_scene *scene);
+void			load_scene7_lights(t_scene *scene);
 
 /*
 ** 				structs functions

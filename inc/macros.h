@@ -25,6 +25,8 @@
 */
 # define EXPOSURE -0.66
 # define EXPOSE_TYPE 1
+# define DO_GAMMA 0
+# define INV_GAMMA 0.45
 
 /*
 ** basics defines

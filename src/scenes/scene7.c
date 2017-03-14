@@ -26,10 +26,10 @@ void			load_scene7_lights(t_scene *scene)
 	scene->amb_color = new_color(BLUE);
 	add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
 		new_color(WHITE)));
-	add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
-		new_color(WHITE)));
-	add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
-		new_color(WHITE)));
+	// add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
+	// 	new_color(WHITE)));
+	// add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
+	// 	new_color(WHITE)));
 }
 
 void			load_scene7(t_env *e)

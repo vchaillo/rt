@@ -12,6 +12,16 @@
 
 #include "rt.h"
 
+void		gamma_correction(t_color *color)
+{
+	float	inv_gamma;
+
+	inv_gamma = INV_GAMMA;
+	color->r = 255 * powf(color->r / 255, inv_gamma);
+	color->g = 255 * powf(color->g / 255, inv_gamma);
+	color->b = 255 * powf(color->b / 255, inv_gamma);
+}
+
 void		manual_expose(t_color **color_array)
 {
 	float	exposure;
@@ -29,6 +39,8 @@ void		manual_expose(t_color **color_array)
 			color_array[y][x].r = (1 - expf(color_array[y][x].r / 255 * exposure)) * 255;
 			color_array[y][x].g = (1 - expf(color_array[y][x].g / 255 * exposure)) * 255;
 			color_array[y][x].b = (1 - expf(color_array[y][x].b / 255 * exposure)) * 255;
+			if (DO_GAMMA)
+				gamma_correction(&(color_array[y][x]));
 		}
 	}
 }

@@ -13,6 +13,18 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+typedef struct				s_fresnel
+{
+	float		cosi;
+    float		etai;
+	float		etat;
+	float		tmp;
+	float		sint;
+	float		cost;
+	float		rs;
+	float		rp;
+}							t_fresnel;
+
 typedef struct				s_color
 {
 	float					r;
@@ -91,6 +103,15 @@ typedef struct				s_ray
 	float					past_ior;
 	int						is_in;
 }							t_ray;
+
+typedef struct				s_ref
+{
+	t_color		color;
+	t_color		reflect_color;
+	t_color		refract_color;
+	t_ray		reflect_ray;
+	t_ray		refract_ray;
+}							t_ref;
 
 typedef struct				s_light
 {

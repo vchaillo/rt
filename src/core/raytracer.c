@@ -75,26 +75,8 @@ t_color			raytracer(t_env *e, int x, int y)
 	(void)noise;
 	ray.o = e->scene->camera->pos;
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
-	//we arbitray choose 1 for the medium_index because we suppose that the
-	//original view ray starts from the air (we arnt under water or something else)
 	ray.ior = AIR_IOR;
 	ray.is_in = 0;
 	color = reflection_refraction(e, &ray, 0, 1);
-	// ray.t = get_ray_intersection(e->scene->objects, &ray);
-	// if (ray.hitpoint.object)
-	// {
-	// 	color = new_color(BLACK);
-	// 	if (ray.hitpoint.object->material.type == MARBLE)
-	// 	{
-	// 		noise = modulate_noise(ray.hitpoint.pos, 75);
-	// 		color = scalar_color(noise, ray.hitpoint.object->color);
-	// 	}
-	// 	// if (ray.hitpoint.object->type == PLANE)
-	// 	// 	color = checkerboard_plane(ray.hitpoint);
-	// 	// color = add_color(illuminate(e, &ray), color);
-	// 	color = add_color(color, reflection_refraction(e, &ray));
-	// }
-	// else
-	// 	color = (e->scene->background_color);
 	return (color);
 }

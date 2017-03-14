@@ -16,7 +16,7 @@
 /*
 ** reflection and refraction defines
 */
-# define MAX_DEPTH 5
+# define MAX_DEPTH 6
 # define AIR_IOR 1
 
 /*
@@ -26,7 +26,7 @@
 # define FALSE 0
 # define ACTIVE 1
 # define INACTIVE 0
-# define ACTIVE_AA 2
+# define ACTIVE_AA 4
 # define INACTIVE_AA 1
 
 /*

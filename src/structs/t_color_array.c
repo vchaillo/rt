@@ -38,7 +38,7 @@ t_color			**new_color_array(int wmax, int hmax)
 void			delete_color_array(int hmax, t_color **colors)
 {
 	while (--hmax)
-	free(colors[hmax]);
+		free(colors[hmax]);
 	free(colors);
 }
 

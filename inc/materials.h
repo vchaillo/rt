@@ -24,7 +24,7 @@
 # define BASIC_SPECULAR 100
 # define BASIC_REFLEXION 0
 # define BASIC_REFRACTION 0
-# define BASIC_IOR 0
+# define BASIC_IOR 1
 
 # define PLASTIC_DIFFUSE 1
 # define PLASTIC_SPECULAR 10
@@ -34,9 +34,9 @@
 
 # define GLASS_DIFFUSE 1
 # define GLASS_SPECULAR 10
-# define GLASS_REFLEXION 0.1
-# define GLASS_REFRACTION 0.9
-# define GLASS_IOR 1.52
+# define GLASS_REFLEXION 1
+# define GLASS_REFRACTION 0
+# define GLASS_IOR 20
 
 # define MARBLE_DIFFUSE 1
 # define MARBLE_SPECULAR 100
@@ -52,8 +52,8 @@
 
 # define WATER_DIFFUSE 1
 # define WATER_SPECULAR 10
-# define WATER_REFLEXION 0.1
-# define WATER_REFRACTION 0.9
+# define WATER_REFLEXION 0.2
+# define WATER_REFRACTION 0.8
 # define WATER_IOR 1.33
 
 #endif

@@ -21,6 +21,12 @@
 # define EPSILON_SHADOW 0.01
 
 /*
+** exposure defines
+*/
+# define EXPOSURE -0.66
+# define EXPOSE_TYPE 1
+
+/*
 ** basics defines
 */
 # define TRUE 1

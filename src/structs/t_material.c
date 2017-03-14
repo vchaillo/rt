@@ -90,6 +90,19 @@ t_mat			new_water_material(void)
 	return (material);
 }
 
+t_mat			new_test_material(void)
+{
+	t_mat		material;
+
+	material.type = TEST;
+	material.diffuse = TEST_DIFFUSE;
+	material.specular = TEST_SPECULAR;
+	material.reflexion = TEST_REFLEXION;
+	material.refraction = TEST_REFRACTION;
+	material.ior = TEST_IOR;
+	return (material);
+}
+
 t_mat			new_material(int type)
 {
 	t_mat		material;
@@ -104,6 +117,8 @@ t_mat			new_material(int type)
 		material = new_bitref_material();
 	else if (type == WATER)
 		material = new_water_material();
+	else if (type == TEST)
+		material = new_test_material();
 	else
 		material = new_marble_material();
 	return (material);

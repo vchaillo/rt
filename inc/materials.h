@@ -19,6 +19,7 @@
 # define MARBLE 3
 # define BIT_REF 4
 # define WATER 5
+# define TEST 6
 
 # define BASIC_DIFFUSE 1
 # define BASIC_SPECULAR 100
@@ -55,5 +56,11 @@
 # define WATER_REFLEXION 0.2
 # define WATER_REFRACTION 0.8
 # define WATER_IOR 1.33
+
+# define TEST_DIFFUSE 1
+# define TEST_SPECULAR 10
+# define TEST_REFLEXION 0
+# define TEST_REFRACTION 0
+# define TEST_IOR 4
 
 #endif

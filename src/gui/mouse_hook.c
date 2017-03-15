@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:37 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/15 01:55:43 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/15 17:08:34 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void			select_object(int x, int y, t_env *e)
 
 int				mouse_clic(t_env *e)
 {
-	delete_scene(e->scene);
+	if (e->scene)
+		delete_scene(e->scene);
 	exit(0);
 	return (0);
 }

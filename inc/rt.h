@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 19:33:43 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/15 01:55:24 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int				key_hook_light(int key, t_scene *scene);
 int				key_hook_scene(int keycode, t_env *e);
 void			key_hook_effects(int keycode, t_env *e);
 int				mouse_hook(int button, int x, int y, t_env *e);
+int				mouse_clic(t_env *e);
 void			fill_pixel(t_env *e, t_color color, int x, int y);
 void			update_image(t_env *e);
 void			draw(t_env *e);

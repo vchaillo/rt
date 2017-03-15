@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 02:12:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/15 01:50:09 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	start_mlx(t_env *e)
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 2, 3, key_hook, e);
+	mlx_hook(e->win, 17, (1l << 17), mouse_clic, e);
 	mlx_loop(e->mlx);
 }

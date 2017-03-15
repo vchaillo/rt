@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:37 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 03:07:15 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/15 01:55:43 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ void			select_object(int x, int y, t_env *e)
 		e->scene->selected_object = NULL;
 		e->scene->mode = MOVE_MODE;
 	}
+}
+
+int				mouse_clic(t_env *e)
+{
+	delete_scene(e->scene);
+	exit(0);
+	return (0);
 }
 
 int				mouse_hook(int button, int x, int y, t_env *e)

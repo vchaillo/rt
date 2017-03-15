@@ -45,6 +45,10 @@ void		manual_expose(t_color **color_array)
 	}
 }
 
+/*
+*** Need to implement a UI to manualy manage exposure and gamma
+*/
+
 void		exposure(t_color **color_array)
 {
 	float	max;

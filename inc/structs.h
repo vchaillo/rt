@@ -82,6 +82,7 @@ typedef struct				s_object
 	void					*object;
 	t_color					color;
 	t_mat					material;
+	int						id;
 	struct s_object			*next;
 }							t_object;
 

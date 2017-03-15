@@ -23,10 +23,10 @@
 /*
 ** exposure defines
 */
-# define EXPOSURE -0.66
-# define EXPOSE_TYPE 1
+# define EXPOSURE -1
+# define EXPOSE_TYPE 2
 # define DO_GAMMA 0
-# define INV_GAMMA 0.45
+# define INV_GAMMA 6
 
 /*
 ** basics defines

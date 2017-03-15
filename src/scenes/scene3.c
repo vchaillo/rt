@@ -15,7 +15,7 @@
 void			load_scene3_objects(t_scene *scene)
 {
 	add_object(scene, new_object(SPHERE, new_sphere(0, 1.5, 0, 3),
-		new_color(RED), new_material(GLASS)));
+		new_color(RED), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(0, 1, 0, 0, NORMAL),
 		new_color(WHITE), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(0, -1, 0, 10, NORMAL),

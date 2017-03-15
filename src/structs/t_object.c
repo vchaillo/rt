@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 20:52:21 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/15 17:09:35 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void			delete_objects(t_object *objects)
 			delete_cylinder(objects->object);
 		else if (objects->type == CONE)
 			delete_cone(objects->object);
+		else if (objects->type == TORE)
+			delete_tore(objects->object);
 		objects->next = NULL;
 		free(objects);
 		objects = tmp;

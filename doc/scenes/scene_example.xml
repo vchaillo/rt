@@ -1,0 +1,90 @@
+<scene>
+
+	<!-- mandatory -->
+	<camera>
+		<pos>10, 0, 30<pos>
+		<dir>0, 0, -1<dir>
+	</camera>
+	<!-- mandatory -->
+	<background>BLUE</background>
+	<!-- if absent amb_color = 0 amb_intensity = 0 -->
+	<amb_color>WHITE</amb_color>
+	<amb_intensity>WHITE</amb_intensity>
+	<!-- if absent aa = INACTIVE_AA -->
+	<antialiasing>ACTIVE_AA</antialiasing>
+	<!-- if absent scene->effect = INACTIVE -->
+	<effect>SEPIA</effect>
+
+	<!-- 1 object or more mandatory -->
+	<objects>
+
+		<object>
+			<type>SPHERE</type>
+			<color>ORANGE</color>
+			<material>PERLIN</material>
+			<sphere>
+				<pos>0, 10.2, 0</pos>
+				<r>5.2</r>
+			</sphere>
+		</object>
+
+		<object>
+			<type>PLANE</type>
+			<color>WHITE</color>
+			<material>GLASS</material>
+			<plane>
+				<normal>0, 1, 0</normal>
+				<offset>0</offset>
+				<type>CHECK</type>
+			</plane>
+		</object>
+
+		<object>
+			<type>CYLINDER</type>
+			<color>BLUE</color>
+			<material>PLASTIC</material>
+			<cone>
+				<axis>0, 1, 0</axis>
+				<pos>0, 1, 0</pos>
+				<r>2</r>
+			</cone>
+		</object>
+
+		<object>
+			<type>CONE</type>
+			<color>YELLOW</color>
+			<material>BASIC</material>
+			<cylinder>
+				<axis>0, 1, 0</axis>
+				<apex>0, 1, 0</apex>
+				<angle>20</angle>
+			</cylinder>
+		</object>
+
+	</objects>
+
+	<!-- 1 light or more mandatory -->
+	<lights>
+
+		<light>
+			<!-- spot will be rename to point or light_point -->
+			<type>SPOT</type>
+			<intensity>1.0</intensity>
+			<color>WHITE</color>
+			<spot>
+				<pos>15, 12, 20<pos>
+			</spot>
+		</light>
+
+		<light>
+			<type>DIR</type>
+			<intensity>1.0</intensity>
+			<color>WHITE</color>
+			<dir>
+				<dir>15, 12, 20<dir>
+			</dir>
+		</light>
+
+	</lights>
+
+</scene>

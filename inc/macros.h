@@ -14,9 +14,14 @@
 # define MACROS_H
 
 /*
+** multi threading
+*/
+#define NUM_THREADS 4
+
+/*
 ** reflection and refraction defines
 */
-# define MAX_DEPTH 6
+# define MAX_DEPTH 10
 # define AIR_IOR 1
 # define EPSILON_SHADOW 0.01
 

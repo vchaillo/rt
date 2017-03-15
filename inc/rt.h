@@ -31,6 +31,12 @@
 # include "materials.h"
 
 /*
+** multi threading
+*/
+#include <pthread.h>
+#include <assert.h>
+
+/*
 ** 				main functions
 */
 void			print_error(int error_code);

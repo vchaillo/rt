@@ -165,6 +165,7 @@ typedef struct				s_env
 	int						size;
 	int						endian;
 	int						bpp;
+	int						thread;
 	int						scene_type;
 	t_scene					*scene;
 	double					nb_rays;

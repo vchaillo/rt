@@ -119,10 +119,10 @@ else
 UNAME_S = MACOS
 LIBMLX	=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 endif
+LIBGSL	= 	 -Llib/gsl_$(UNAME_S)/lib -lgsl -lgslcblas
 LIBFT 	=	 -Llib/libft/ -lft
-LIBGSL	= 	 -Llib/gsl/lib -lgsl -lgslcblas
 LDFLAGS =	-static
-INC		=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/ -I lib/gsl/include/
+INC		=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/ -I lib/gsl_$(UNAME_S)/include/
 
 # Rules
 all: $(NAME)

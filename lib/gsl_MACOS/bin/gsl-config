@@ -1,8 +1,8 @@
 #! /bin/sh
 
-prefix=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS
-exec_prefix=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS
-includedir=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/include
+prefix=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS
+exec_prefix=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS
+includedir=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/include
 
 usage()
 {
@@ -58,16 +58,16 @@ while test $# -gt 0; do
 	;;
 
     --cflags)
-       	echo -I/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/include 
+       	echo -I/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/include 
        	;;
 
     --libs)
         : ${GSL_CBLAS_LIB=-lgslcblas}
-	echo -L/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/lib -lgsl $GSL_CBLAS_LIB 
+	echo -L/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/lib -lgsl $GSL_CBLAS_LIB 
        	;;
 
     --libs-without-cblas)
-	echo -L/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/lib -lgsl 
+	echo -L/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/lib -lgsl 
        	;;
     *)
 	usage

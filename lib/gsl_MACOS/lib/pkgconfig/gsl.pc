@@ -1,11 +1,11 @@
-prefix=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS
-exec_prefix=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS
-libdir=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/lib
-includedir=/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/include
+prefix=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS
+exec_prefix=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS
+libdir=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/lib
+includedir=/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/include
 GSL_CBLAS_LIB=-lgslcblas
 
 Name: GSL
 Description: GNU Scientific Library
 Version: 2.3
-Libs: -L/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/lib -lgsl ${GSL_CBLAS_LIB}  -lm 
-Cflags: -I/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/include
+Libs: -L/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/lib -lgsl ${GSL_CBLAS_LIB}  -lm 
+Cflags: -I/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/include

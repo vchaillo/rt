@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/Users/valentinchaillou89/Code/ft_projects/rt/lib/gsl_MACOS/lib'
+libdir='/Users/vchaillo/Code/ft_projects/rt/lib/gsl_MACOS/lib'

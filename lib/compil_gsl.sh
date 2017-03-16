@@ -1,7 +1,11 @@
 #!/bin/bash
 #Only use in case of non-reversible gsl removal.
 
-installdir="$PWD/gsl_`uname -s`/"
+system=`uname -s`
+if [ $system != "Linux"  ];then
+	system='Macos'
+fi
+installdir="$PWD/gsl_$system/"
 cd ./gsl-src
 make clean
 ./configure --prefix=$installdir

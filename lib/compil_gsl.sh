@@ -3,7 +3,7 @@
 
 system=`uname -s`
 if [ $system != "Linux"  ];then
-	system='Macos'
+	system='MACOS'
 fi
 installdir="$PWD/gsl_$system/"
 cd ./gsl-src

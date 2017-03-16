@@ -1,4 +1,4 @@
-This is gsl-ref.info, produced by makeinfo version 5.1 from
+This is gsl-ref.info, produced by makeinfo version 5.2 from
 gsl-ref.texi.
 
 Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
@@ -6786,6 +6786,7 @@ It is given by,
 
 where x_0 = A, x_1 = \lambda and x_2 = b.  The ith row of the Jacobian
 is therefore
+
 
 The main part of the program sets up a Levenberg-Marquardt solver and
 some simulated random data.  The data uses the known parameters

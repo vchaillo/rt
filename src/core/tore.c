@@ -21,7 +21,6 @@ float			hit_tore(t_tore *tore, t_ray *ray)
 {
 	double		eq4[5];
 	float		t;
-	t_vector	dist;
 
 	eq4[0] = pow(pow(ray->d.x, 2) + pow(ray->d.y, 2) + pow(ray->d.z, 2), 2);
 	eq4[1] = 4 * (pow(ray->d.x, 2) + pow(ray->d.y, 2) + pow(ray->d.z, 2)) *
@@ -38,7 +37,6 @@ float			hit_tore(t_tore *tore, t_ray *ray)
 	eq4[4] = (pow(ray->o.x, 2) + pow(ray->o.y, 2) + pow(ray->o.z, 2)
 		+ pow(tore->big_r, 2) - pow(tore->r, 2)) - 4 * pow(tore->big_r, 2)
 		* (pow(ray->d.x, 2) + pow(ray->d.z, 2));
-	dist = vector_sub(ray->o, tore->pos);
 	t = solve_deg4(eq4);
 	return (t);
 }

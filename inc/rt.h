@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/15 01:55:24 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/15 18:47:04 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ t_color			negative_color(t_color color);
 t_vector		vector_rot_x(t_vector v, float angle);
 t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);
+t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle);
 void			export_image(t_env *e);
 int				create_file(t_env *e);
 void			put_file_header(int fd);

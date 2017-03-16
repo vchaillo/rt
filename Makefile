@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/14 06:36:52 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/15 18:40:14 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ SRC_CLI = \
 SRC_TOOLS = \
 		tools/pow_2.c\
 		tools/vector.c\
-		tools/matrix.c\
+		tools/rotations.c\
 		tools/solve_equations.c\
 		tools/color.c\
 		tools/error.c\

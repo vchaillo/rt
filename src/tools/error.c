@@ -28,7 +28,7 @@ void			print_error(int error_code)
 {
 	if (error_code == ARG_ERROR)
 	{
-		ft_putendl_color("rtv1 : Unknow option", TERM_BOLD_RED);
+		ft_putendl_color("rt : Unknow option", TERM_BOLD_RED);
 		print_help();
 	}
 	else if (error_code == MLX_ERROR)

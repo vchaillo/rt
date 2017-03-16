@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/15 18:40:14 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/16 18:14:33 by tlegroux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,11 +115,12 @@ OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
 LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+LIBGSL	= 	 -Llib/gsl_$(UNAME_S)/lib -lgsl -lgslcblas
 else
 UNAME_S = MACOS
 LIBMLX	=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
-endif
 LIBGSL	= 	 -Llib/gsl_$(UNAME_S)/lib -lgsl -lgslcblas
+endif
 LIBFT 	=	 -Llib/libft/ -lft
 LDFLAGS =	-static
 INC		=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/ -I lib/gsl_$(UNAME_S)/include/

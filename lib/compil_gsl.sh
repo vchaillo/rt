@@ -1,7 +1,13 @@
 #!/bin/bash
 #Only use in case of non-reversible gsl removal.
 
+installdir="$PWD/gsl/"
 cd ./gsl-src
-./configure --prefix=$PWD/../gsl/
+make clean
+./configure --prefix=$installdir
+make
+echo "Make ENDED!"
+sleep 5
 make install
-rm ../gsl/lib/*.dylib
+echo "Make install ENDED!"
+rm -f ../gsl/lib/*.dylib

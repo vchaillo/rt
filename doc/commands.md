@@ -39,4 +39,5 @@ rt commands
 | <kbd>R</kbd>      | reset scene            |
 | <kbd>M</kbd>      | switch move/edit modes |
 | <kbd>RETURN</kbd> | save screenshot        |
+| <kbd>DELETE</kbd> | save xml scene         |
 | <kbd>ESCAPE</kbd> | exit                   |

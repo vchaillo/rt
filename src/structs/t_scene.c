@@ -33,6 +33,9 @@ t_scene			*new_scene(t_color background_color, t_camera *camera)
 	scene->mode = MOVE_MODE;
 	scene->effect = INACTIVE;
 	scene->aa = INACTIVE_AA;
+	scene->color_array_aa = new_color_array(WIN_W * scene->aa,
+		WIN_H * scene->aa);
+	scene->color_array = new_color_array(WIN_W, WIN_H);
 	return (scene);
 }
 

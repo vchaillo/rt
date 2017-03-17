@@ -175,6 +175,8 @@ typedef struct				s_scene
 	int						mode;
 	int						effect;
 	int						aa;
+	t_color					**color_array;
+	t_color					**color_array_aa;
 }							t_scene;
 
 typedef struct				s_env
@@ -194,8 +196,6 @@ typedef struct				s_env
 	double					nb_light_rays;
 	int						verbose;
 	float					frame_time;
-	t_color					**color_array;
-	t_color					**color_array_aa;
 }							t_env;
 
 #endif

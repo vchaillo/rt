@@ -17,23 +17,23 @@ void		ss_average(t_env *e, int x1, int y1)
 	int		x;
 	int		y;
 
-	e->color_array[y1][x1] = new_color(BLACK);
+	e->scene->color_array[y1][x1] = new_color(BLACK);
 	y = y1 * e->scene->aa;
 	while (y < (y1 + 1) * e->scene->aa)
 	{
 		x = x1 * e->scene->aa;
 		while (x < (x1 + 1) * e->scene->aa)
 		{
-			e->color_array[y1][x1].r += e->color_array_aa[y][x].r;
-			e->color_array[y1][x1].g += e->color_array_aa[y][x].g;
-			e->color_array[y1][x1].b += e->color_array_aa[y][x].b;
+			e->scene->color_array[y1][x1].r += e->scene->color_array_aa[y][x].r;
+			e->scene->color_array[y1][x1].g += e->scene->color_array_aa[y][x].g;
+			e->scene->color_array[y1][x1].b += e->scene->color_array_aa[y][x].b;
 			x++;
 		}
 		y++;
 	}
-	e->color_array[y1][x1].r /= e->scene->aa * e->scene->aa;
-	e->color_array[y1][x1].g /= e->scene->aa * e->scene->aa;
-	e->color_array[y1][x1].b /= e->scene->aa * e->scene->aa;
+	e->scene->color_array[y1][x1].r /= e->scene->aa * e->scene->aa;
+	e->scene->color_array[y1][x1].g /= e->scene->aa * e->scene->aa;
+	e->scene->color_array[y1][x1].b /= e->scene->aa * e->scene->aa;
 }
 
 void		super_sampling(t_env *e)

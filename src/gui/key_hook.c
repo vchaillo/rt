@@ -48,7 +48,7 @@ void			key_hook_effects(int keycode, t_env *e)
 	if (keycode == KEY_KP0 || keycode == KEY_KP0_MAC || keycode == KEY_NUM0_MAC)
 	{
 		e->scene->aa = e->scene->aa == INACTIVE_AA ? ACTIVE_AA : INACTIVE_AA;
-		e->color_array_aa = reset_color_array(e->scene->aa, e->color_array_aa);
+		e->scene->color_array_aa = reset_color_array(e->scene->aa, e->scene->color_array_aa);
 	}
 	else if (keycode == KEY_X || keycode == KEY_X_MAC)
 	{

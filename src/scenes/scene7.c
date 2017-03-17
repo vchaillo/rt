@@ -36,7 +36,7 @@ void			load_scene7(t_env *e)
 {
 	if (e->scene)
 		delete_scene(e->scene);
-	e->scene_type = SCENE_6;
+	e->scene_type = SCENE_7;
 	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(10, 15, 40),
 		new_vector(0, 0, -1)));
 	load_scene7_objects(e->scene);

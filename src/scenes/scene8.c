@@ -34,12 +34,11 @@ void			load_scene8_objects(t_scene *scene)
 		NORMAL), new_color(ORANGE), new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(1, 0, 0), -40,
 		NORMAL), new_color(RED), new_material(BASIC)));
-	add_object(scene, new_object(CONE, new_cone(new_vector(-1, 1, 0),
-		new_vector(-8, 10, -20), 15), new_color(GREEN),
-			new_material(BASIC)));
+	// add_object(scene, new_object(CONE, new_cone(new_vector(-1, 1, 0),
+	// 	new_vector(-8, 10, -20), 15), new_color(GREEN),	new_material(BASIC)));
 	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, -0.3),
 		new_vector(-10, 0, -5), 2), new_color(PASTEL_BLUE),
-			new_material(GLASS)));
+		new_material(GLASS)));
 	// add_object(scene, new_object(PLANE, new_plane(new_vector(-1, 0, 0), 5,
 		// NORMAL), new_color(PURPLE), new_material(BASIC)));
 }

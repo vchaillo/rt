@@ -1,7 +1,6 @@
 rt commands
 ===========
 
-*********
 ### Moves
 
 |                Key               |                Function                 |
@@ -14,7 +13,6 @@ rt commands
 | <kbd>Q</kbd> <kbd>E</kbd>        | rotate camera or objects on z axis      |
 | <kbd>+</kbd> <kbd>-</kbd>        | increase or decrease objects attributes |
 
-**********
 ### Lights
 
 |     Key      |           Function           |
@@ -25,7 +23,6 @@ rt commands
 | <kbd>4</kbd> | switch on/off spot light     |
 | <kbd>5</kbd> | switch on/off dir light      |
 
-***********
 ### Effects
 
 |     Key      |          Function          |
@@ -33,7 +30,6 @@ rt commands
 | <kbd>0</kbd> | switch on/off antialiasing |
 | <kbd>X</kbd> | switch between effects     |
 
-*********
 ### Other
 
 |        Key        |        Function        |

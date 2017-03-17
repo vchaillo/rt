@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 01:41:20 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:05:35 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,36 +55,10 @@
 void			print_error(int error_code);
 void			print_help(void);
 
-
-// void			get_hitpoint(t_object *object, t_ray *ray, float t_min);
-// int				get_ray_intersection(t_object *objects, t_ray *ray);
-// t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa);
-// t_color			raytracer(t_env *e, int x, int y);
-// float			hit_plane(t_plane *plane, t_ray *ray);
-// int				is_plane_illuminated(t_ray *ray, t_light *light);
-// t_color			checkerboard_plane(t_hitpoint hitpoint);
-// float			hit_sphere(t_sphere *sphere, t_ray *ray);
-// float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
-// float			hit_cone(t_cone *cone, t_ray *ray);
-// int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj);
-// t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
-// t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray);
-// t_color			phong(t_env *e, t_light *light, t_ray *vray);
-// t_color			illuminate(t_env *e, t_ray *ray);
-// t_vector		get_normal(t_ray *ray);
-// t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane);
-// t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
-// t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
-// t_color			apply_effects(t_env *e, t_color color);
-// t_color			sepia(t_color color);
-// t_color			grayscale(t_color color);
-// float			cartoon(t_env *e, float dot);
+/*
+** 				bleh functions
+*/
 void			super_sampling(t_env *e);
-// int				permutation(int index);
-// float			modulate_noise(t_vector pos, int resolution);
-// float			gradient(int i, int j);
-// float			perlin_noise(float x, float y, float res);
-// float			fade(float nb);
 void			exposure(t_color **color_array);
 
 /*
@@ -146,6 +120,7 @@ void			print_frame_time(t_env *e);
 */
 void			parse_arguments(int ac, char **av, t_env *e);
 float			solve_deg2(double a, double b, double c);
+double			solve_deg4(const double *eq);
 float			pow_2(float nb);
 t_vector		normalize(t_vector vector);
 t_vector		vector_scalar(float scalar, t_vector v);
@@ -162,12 +137,20 @@ t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);
 t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle);
 t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis);
+/*
+** 				export functions
+*/
 void			export_image(t_env *e);
-int				create_file(t_env *e);
+int				create_file(t_env *e, int type);
 void			put_file_header(int fd);
 void			put_image_header(int fd);
 char			*get_file_name(t_env *e, int type);
-double			solve_deg4(const double *eq);
+void			export_scene(t_env *e);
+void			print_tag_tofile(char *tag, int type, int tabulations, int fd);
+void			print_vector_tofile(t_vector v, char *name, int tabs, int fd);
+void			print_color_tofile(t_color c, char *name, int tabs, int fd);
+void			print_objects_tofile(t_object *objects, int fd);
+void			print_lights_tofile(t_env *e, t_light *lights, int fd);
 /*
 ** 				scenes functions
 */

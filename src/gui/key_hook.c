@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 08:59:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 09:23:54 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int				key_hook(int keycode, t_env *e)
 	}
 	if (keycode == KEY_RETURN || keycode == KEY_RETURN_MAC)
 		export_image(e);
+	else if (keycode == KEY_DELETE || keycode == KEY_DELETE_MAC)
+		export_scene(e);
 	else
 	{
 		if (e->scene->mode == MOVE_MODE)

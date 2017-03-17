@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 02:36:38 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 09:25:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void			apply_color_to_image(t_env *e)
 	{
 		x = -1;
 		while (++x < WIN_W)
+		{
+			if (e->scene->effect == NEGATIVE)
+				e->scene->color_array[y][x] = negative_color(e->scene->color_array[y][x]);
 			fill_pixel(e, e->scene->color_array[y][x], x, y);
+		}
 	}
 }
 

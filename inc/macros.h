@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 05:42:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 08:13:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,12 @@
 */
 # define IMAGE 0
 # define SCENE 1
+
+/*
+** tags defines
+*/
+# define TAG_OPEN 0
+# define TAG_OPEN_ENDL 1
+# define TAG_CLOSE 2
 
 #endif

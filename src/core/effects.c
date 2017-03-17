@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 15:53:32 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 11:17:39 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 09:00:18 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_color			sepia(t_color color)
 	output_color.r = (color.r * 0.493) + (color.g * 0.769) + (color.b * 0.189);
 	output_color.g = (color.r * 0.449) + (color.g * 0.686) + (color.b * 0.168);
 	output_color.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
-	return (limit_color(output_color));
+	return (output_color);
 }
 
 t_color			grayscale(t_color color)
@@ -75,8 +75,6 @@ t_color			apply_effects(t_env *e, t_color color)
 		color = sepia(color);
 	else if (e->scene->effect == GRAYSCALE)
 		color = grayscale(color);
-	else if (e->scene->effect == NEGATIVE)
-		color = negative_color(color);
 	else if (e->scene->effect == STEREO)
 		color = stereoscopy(color);
 	return (color);

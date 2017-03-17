@@ -19,6 +19,4 @@ Passez à la vitesse supérieure ! Suite du Rtv1, le RT pousse beaucoup plus loi
 * OSX : OpenGL, AppKit
 * Linux : X11
 
-====================
-
-Project of school 42
+###### Project of school 42

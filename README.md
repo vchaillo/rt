@@ -5,19 +5,19 @@ rt
 * [Commands list] (https://github.com/vchaillo/rt/blob/master/doc/commands.md)
 
 ==============
-###Description
+### Description
 
 Passez à la vitesse supérieure ! Suite du Rtv1, le RT pousse beaucoup plus loin les possibilités du Raytracing : effet miroir, transparence, découpe des objets, applications de textures... Capitalisez sur le projet précédent pour réaliser une infrastructure capable de supporter toutes ces ramifications et obtenir de sublimes images de synthèse.
 
 ========
-###Usage
+### Usage
 
 ```
 ./rt [-v, -V] [-s1...5]
 ```
 
 ==============
-###Dépendances
+### Dépendances
 
 * OSX : OpenGL, AppKit
 * Linux : X11

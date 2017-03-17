@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 06:15:36 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 18:42:53 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define KEY_SPACE 32
 # define KEY_CONTROL 65507
 # define KEY_RETURN 65293
-# define KEY_DELETE 00000
+# define KEY_DELETE 65288
 # define KEY_R 114
 # define KEY_X 120
 # define KEY_KP0 65438

@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/17 12:30:56 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/17 18:42:00 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,7 +121,7 @@ OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 # Inludes and libraries
 UNAME_S = $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
-LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lpthread
 LIBGSL	= 	 -Llib/gsl_$(UNAME_S)/lib -lgsl -lgslcblas
 else
 UNAME_S = MACOS

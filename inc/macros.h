@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 08:25:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 05:42:04 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 # define MAX_DEPTH 10
 # define AIR_IOR 1
 # define EPSILON_SHADOW 0.01
+
+/*
+** rotations and translations defines
+*/
+# define CAM_SPEED 1
+# define CAM_ROT 10
+# define OBJ_SPEED 1
+# define OBJ_ROT 10
+# define OBJ_EXPAND 1
 
 /*
 ** exposure defines

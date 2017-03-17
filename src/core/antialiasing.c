@@ -41,14 +41,11 @@ void		super_sampling(t_env *e)
 	int		x;
 	int		y;
 
-	if (e->scene->aa == ACTIVE_AA)
-	{
 		y = -1;
 		while (++y < WIN_H)
 		{
 			x = -1;
 			while (++x < WIN_W)
-			ss_average(e, x, y);
+				ss_average(e, x, y);
 		}
-	}
 }

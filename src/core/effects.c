@@ -49,7 +49,7 @@ t_color			stereoscopy(t_color color)
 	red_color = add_color(color, new_color(RED));
 	cyan_color = grayscale(color);
 	cyan_color = add_color(color, new_color(CYAN));
-	final_color = mult_color(cyan_color, red_color);
+	final_color = add_color(cyan_color, red_color);
 	return ((final_color));
 }
 

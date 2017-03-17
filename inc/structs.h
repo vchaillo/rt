@@ -13,6 +13,18 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+typedef struct				s_fresnel
+{
+	float		cosi;
+    float		etai;
+	float		etat;
+	float		tmp;
+	float		sint;
+	float		cost;
+	float		rs;
+	float		rp;
+}							t_fresnel;
+
 typedef struct				s_color
 {
 	float					r;
@@ -76,6 +88,7 @@ typedef struct				s_mat
 	float					specular;
 	float					reflexion;
 	float					refraction;
+	float					ior;
 }							t_mat;
 
 typedef struct				s_object
@@ -84,6 +97,7 @@ typedef struct				s_object
 	void					*object;
 	t_color					color;
 	t_mat					material;
+	int						id;
 	struct s_object			*next;
 }							t_object;
 
@@ -100,8 +114,21 @@ typedef struct				s_ray
 	t_vector				o;
 	t_vector				d;
 	float					t;
+	float					transmittance_ray;
 	t_hitpoint				hitpoint;
+	float					ior;
+	float					past_ior;
+	int						is_in;
 }							t_ray;
+
+typedef struct				s_ref
+{
+	t_color		color;
+	t_color		reflect_color;
+	t_color		refract_color;
+	t_ray		reflect_ray;
+	t_ray		refract_ray;
+}							t_ref;
 
 typedef struct				s_light
 {
@@ -155,6 +182,7 @@ typedef struct				s_env
 	int						size;
 	int						endian;
 	int						bpp;
+	int						thread;
 	int						scene_type;
 	t_scene					*scene;
 	double					nb_rays;

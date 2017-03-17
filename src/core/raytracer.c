@@ -95,14 +95,8 @@ t_color			raytracer(t_env *e, int x, int y)
 
 	ray.o = e->scene->camera->pos;
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
-	ray.t = get_ray_intersection(e->scene->objects, &ray);
-	if (ray.hitpoint.object)
-	{
-		color = illuminate(e, &ray);
-		reflected_ray(&ray);
-		color = add_color(color, reflection(e, &ray));
-	}
-	else
-		color = (e->scene->background_color);
+	ray.ior = AIR_IOR;
+	ray.is_in = 0;
+	color = reflection_refraction(e, &ray, 0, 1);
 	return (color);
 }

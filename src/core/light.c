@@ -18,13 +18,18 @@ int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 	t_object	*object;
 
 	object = objects;
+	ray->transmittance_ray = 1;
 	while (object != NULL)
 	{
 		if (hit_obj != object)
 		{
-			t = get_hit_distance(object, ray);
-			if (t > EPSILON && t < ray->t)
+			if (ray->transmittance_ray < EPSILON_SHADOW)
 				return (TRUE);
+			t = get_hit_distance(object, ray);
+			if (t > EPSILON && t < ray->t && !object->material.refraction)
+				return (TRUE);
+			else if (t > EPSILON && t < ray->t && object->material.refraction)
+				ray->transmittance_ray *= object->material.refraction;
 		}
 		object = object->next;
 	}
@@ -62,7 +67,7 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 	dot = cartoon(e, dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
-	color = scalar_color(dot, mult_color(hitpoint.color, l->color));
+	color = scalar_color(dot, add_color(hitpoint.color, l->color));
 	if (hitpoint.object->material.type == PERLIN)
 		color = scalar_color(perlin(hitpoint.pos.x, hitpoint.pos.y, 75), color);
 	return (color);
@@ -93,6 +98,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 			color = add_color(diffuse(e, vray->hitpoint, light, &lray), color);
 		if (e->scene->specular == ACTIVE && e->scene->effect != CARTOON)
 			color = add_color(specular(vray, light, &lray), color);
+		color = scalar_color(lray.transmittance_ray, color);
 	}
 	return (color);
 }

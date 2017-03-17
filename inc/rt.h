@@ -24,6 +24,8 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <pthread.h>
+# include <assert.h>
 # include "libft.h"
 # include "colors.h"
 # include "term_colors.h"
@@ -33,49 +35,57 @@
 # include "materials.h"
 
 /*
+** core
+*/
+# include "prototypes/core/raytracer.h"
+# include "prototypes/core/effects.h"
+# include "prototypes/core/reflection.h"
+# include "prototypes/core/normal.h"
+# include "prototypes/core/perlin.h"
+# include "prototypes/core/objects.h"
+# include "prototypes/core/light.h"
+
+/*
+** multi threading
+*/
+
+/*
 ** 				main functions
 */
 void			print_error(int error_code);
 void			print_help(void);
 
-/*********************************************
-** 				core functions				**
-**********************************************/
-/*
-**				raytracer
-*/
-# include "prototypes/core/raytracer.h"
 
-/*
-**				Color effects
-*/
-# include "prototypes/core/effects.h"
-
-/*
-**				Reflection effects
-*/
-# include "prototypes/core/reflection.h"
-/*
-**				Normals
-*/
-# include "prototypes/core/normal.h"
-
-/*
-**				Perlin Noise
-*/
-# include "prototypes/core/perlin.h"
-
-/*
-**				Objects
-*/
-# include "prototypes/core/objects.h"
-
-/*
-*				Lights
-*/
-# include "prototypes/core/light.h"
-
+// void			get_hitpoint(t_object *object, t_ray *ray, float t_min);
+// int				get_ray_intersection(t_object *objects, t_ray *ray);
+// t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa);
+// t_color			raytracer(t_env *e, int x, int y);
+// float			hit_plane(t_plane *plane, t_ray *ray);
+// int				is_plane_illuminated(t_ray *ray, t_light *light);
+// t_color			checkerboard_plane(t_hitpoint hitpoint);
+// float			hit_sphere(t_sphere *sphere, t_ray *ray);
+// float			hit_cylinder(t_cylinder *cylinder, t_ray *ray);
+// float			hit_cone(t_cone *cone, t_ray *ray);
+// int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj);
+// t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
+// t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray);
+// t_color			phong(t_env *e, t_light *light, t_ray *vray);
+// t_color			illuminate(t_env *e, t_ray *ray);
+// t_vector		get_normal(t_ray *ray);
+// t_vector		get_normal_at_plane(t_ray *ray, t_plane *plane);
+// t_vector		get_normal_at_cylinder(t_ray *ray, t_cylinder *cylinder);
+// t_vector		get_normal_at_cone(t_ray *ray, t_cone *cone);
+// t_color			apply_effects(t_env *e, t_color color);
+// t_color			sepia(t_color color);
+// t_color			grayscale(t_color color);
+// float			cartoon(t_env *e, float dot);
 void			super_sampling(t_env *e);
+// int				permutation(int index);
+// float			modulate_noise(t_vector pos, int resolution);
+// float			gradient(int i, int j);
+// float			perlin_noise(float x, float y, float res);
+// float			fade(float nb);
+void			exposure(t_color **color_array);
 
 /*
 ** 				gui functions
@@ -146,7 +156,6 @@ t_color			limit_color(t_color color);
 t_color			average_color(t_color color);
 t_color			scalar_color(float scalar, t_color color);
 t_color			add_color(t_color color1, t_color color2);
-t_color			mult_color(t_color color1, t_color color2);
 t_color			negative_color(t_color color);
 t_vector		vector_rot_x(t_vector v, float angle);
 t_vector		vector_rot_y(t_vector v, float angle);
@@ -181,6 +190,13 @@ void			load_scene5_lights(t_scene *scene);
 void			load_scene6(t_env *e);
 void			load_scene6_objects(t_scene *scene);
 void			load_scene6_lights(t_scene *scene);
+void			load_scene7(t_env *e);
+void			load_scene7_objects(t_scene *scene);
+void			load_scene7_lights(t_scene *scene);
+void			load_scene8(t_env *e);
+void			load_scene8_objects(t_scene *scene);
+void			load_scene8_lights(t_scene *scene);
+
 /*
 ** 				structs functions
 */

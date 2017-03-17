@@ -42,7 +42,7 @@ int				is_plane_illuminated(t_ray *ray, t_light *light)
 		sign_light = dot_product(plane->normal, light->pos) + plane->offset;
 		sign_eye = dot_product(plane->normal, ray->o) + plane->offset;
 		if (sign_light * sign_eye > 0)
-		return (TRUE);
+			return (TRUE);
 		return (FALSE);
 	}
 	else

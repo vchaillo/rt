@@ -21,6 +21,7 @@ t_mat			new_marble_material(void)
 	material.specular = PERLIN_SPECULAR;
 	material.reflexion = PERLIN_REFLEXION;
 	material.refraction = PERLIN_REFRACTION;
+	material.ior = PERLIN_IOR;
 	return (material);
 }
 
@@ -33,6 +34,7 @@ t_mat			new_glass_material(void)
 	material.specular = GLASS_SPECULAR;
 	material.reflexion = GLASS_REFLEXION;
 	material.refraction = GLASS_REFRACTION;
+	material.ior = GLASS_IOR;
 	return (material);
 }
 
@@ -45,6 +47,7 @@ t_mat			new_plastic_material(void)
 	material.specular = PLASTIC_SPECULAR;
 	material.reflexion = PLASTIC_REFLEXION;
 	material.refraction = PLASTIC_REFRACTION;
+	material.ior = PLASTIC_IOR;
 	return (material);
 }
 
@@ -57,6 +60,46 @@ t_mat			new_basic_material(void)
 	material.specular = BASIC_SPECULAR;
 	material.reflexion = BASIC_REFLEXION;
 	material.refraction = BASIC_REFRACTION;
+	material.ior = BASIC_IOR;
+	return (material);
+}
+
+t_mat			new_bitref_material(void)
+{
+	t_mat		material;
+
+	material.type = BIT_REF;
+	material.diffuse = BITREF_DIFFUSE;
+	material.specular = BITREF_SPECULAR;
+	material.reflexion = BITREF_REFLEXION;
+	material.refraction = BITREF_REFRACTION;
+	material.ior = BITREF_IOR;
+	return (material);
+}
+
+t_mat			new_water_material(void)
+{
+	t_mat		material;
+
+	material.type = WATER;
+	material.diffuse = WATER_DIFFUSE;
+	material.specular = WATER_SPECULAR;
+	material.reflexion = WATER_REFLEXION;
+	material.refraction = WATER_REFRACTION;
+	material.ior = WATER_IOR;
+	return (material);
+}
+
+t_mat			new_test_material(void)
+{
+	t_mat		material;
+
+	material.type = TEST;
+	material.diffuse = TEST_DIFFUSE;
+	material.specular = TEST_SPECULAR;
+	material.reflexion = TEST_REFLEXION;
+	material.refraction = TEST_REFRACTION;
+	material.ior = TEST_IOR;
 	return (material);
 }
 
@@ -70,6 +113,12 @@ t_mat			new_material(int type)
 		material = new_plastic_material();
 	else if (type == GLASS)
 		material = new_glass_material();
+	else if (type == BIT_REF)
+		material = new_bitref_material();
+	else if (type == WATER)
+		material = new_water_material();
+	else if (type == TEST)
+		material = new_test_material();
 	else
 		material = new_marble_material();
 	return (material);

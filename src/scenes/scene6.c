@@ -20,7 +20,6 @@ void			load_scene6_objects(t_scene *scene)
 								 new_color(ORANGE), new_material(PERLIN)));
 /*	add_object(scene, new_object(BOLOID, new_boloid(new_vector(0, 0, 0), 1/(5*5), 1/(5*5), 1/(10*10)),
 	new_color(BLUE), new_material(GLASS))); */
-
 }
 
 void			load_scene6_lights(t_scene *scene)

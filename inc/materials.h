@@ -17,25 +17,50 @@
 # define PLASTIC 1
 # define GLASS 2
 # define PERLIN 3
+# define BIT_REF 4
+# define WATER 5
+# define TEST 6
 
 # define BASIC_DIFFUSE 1
 # define BASIC_SPECULAR 100
 # define BASIC_REFLEXION 0
 # define BASIC_REFRACTION 0
+# define BASIC_IOR 1
 
 # define PLASTIC_DIFFUSE 1
 # define PLASTIC_SPECULAR 10
 # define PLASTIC_REFLEXION 0
 # define PLASTIC_REFRACTION 0
+# define PLASTIC_IOR 1
 
 # define GLASS_DIFFUSE 1
-# define GLASS_SPECULAR 1000
+# define GLASS_SPECULAR 10
 # define GLASS_REFLEXION 1
-# define GLASS_REFRACTION 1
+# define GLASS_REFRACTION 0
+# define GLASS_IOR 20
 
 # define PERLIN_DIFFUSE 1
 # define PERLIN_SPECULAR 100
 # define PERLIN_REFLEXION 0.5
 # define PERLIN_REFRACTION 1
+# define PERLIN_IOR 1
+
+# define BITREF_DIFFUSE 1
+# define BITREF_SPECULAR 10
+# define BITREF_REFLEXION 0.7
+# define BITREF_REFRACTION 0
+# define BITREF_IOR 20
+
+# define WATER_DIFFUSE 1
+# define WATER_SPECULAR 10
+# define WATER_REFLEXION 0.2
+# define WATER_REFRACTION 0.8
+# define WATER_IOR 1.33
+
+# define TEST_DIFFUSE 1
+# define TEST_SPECULAR 10
+# define TEST_REFLEXION 0
+# define TEST_REFRACTION 0
+# define TEST_IOR 4
 
 #endif

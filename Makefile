@@ -49,6 +49,7 @@ SRC_CORE = \
 		core/reflection_refraction.c\
 		core/antialiasing.c\
 		core/perlin.c\
+		core/exposure.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\
@@ -88,6 +89,8 @@ SRC_SCENES = \
 		scenes/scene4.c\
 		scenes/scene5.c\
 		scenes/scene6.c\
+		scenes/scene7.c\
+		scenes/scene8.c\
 
 SRC_STRUCTS = \
 		structs/t_vector.c\

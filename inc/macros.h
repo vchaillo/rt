@@ -14,11 +14,24 @@
 # define MACROS_H
 
 /*
-** reflection defines
-** reflection coef need to be change with real material reflection
+** multi threading
 */
-# define REF_COEF 0.2
-# define REF_DEPTH 3
+#define NUM_THREADS 4
+
+/*
+** reflection and refraction defines
+*/
+# define MAX_DEPTH 10
+# define AIR_IOR 1
+# define EPSILON_SHADOW 0.01
+
+/*
+** exposure defines
+*/
+# define EXPOSURE -1
+# define EXPOSE_TYPE 2
+# define DO_GAMMA 0
+# define INV_GAMMA 6
 
 /*
 ** basics defines
@@ -27,7 +40,7 @@
 # define FALSE 0
 # define ACTIVE 1
 # define INACTIVE 0
-# define ACTIVE_AA 2
+# define ACTIVE_AA 4
 # define INACTIVE_AA 1
 
 /*
@@ -64,13 +77,15 @@
 /*
 ** scenes defines
 */
-# define NB_SCENES 6
+# define NB_SCENES 8
 # define SCENE_1 1
 # define SCENE_2 2
 # define SCENE_3 3
 # define SCENE_4 4
 # define SCENE_5 5
 # define SCENE_6 6
+# define SCENE_7 7
+# define SCENE_8 8
 
 /*
 ** objects defines

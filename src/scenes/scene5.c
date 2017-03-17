@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 11:00:15 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:55:55 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 void			load_scene5_objects(t_scene *scene)
 {
-	add_object(scene, new_object(CONE, new_cone(new_vector(0, 1, -0.5),
-		new_vector(40, 20, -25), 30), new_color(CYAN),
+	t_vector	limits[2];
+
+	limits[0] = new_vector(EPSILON, EPSILON, EPSILON);
+	limits[1] = new_vector(0, 0, 0);
+	add_object(scene, new_object(CONE,
+								 new_cone(new_vector(0, 1, -0.5),
+										  new_vector(40, 20, -25), 30, limits)
+								 , new_color(CYAN),
 		new_material(BASIC)));
 	add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, -0.3),
 		new_vector(-50, 0, -25), 10), new_color(PASTEL_BLUE),

@@ -6,13 +6,14 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:37 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/28 14:57:17 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:48:17 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_cone			*new_cone(t_vector axis, t_vector apex, float aperture)
+t_cone			*new_cone(t_vector axis, t_vector apex,
+						  float aperture, t_vector limits[])
 {
 	t_cone	*cone;
 
@@ -21,6 +22,8 @@ t_cone			*new_cone(t_vector axis, t_vector apex, float aperture)
 	cone->axis = normalize(axis);
 	cone->apex = apex;
 	cone->angle = aperture;
+	cone->limit_min = limits[0];
+	cone->limit_max = limits[1];
 	return (cone);
 }
 

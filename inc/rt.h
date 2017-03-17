@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/15 18:47:04 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:41:20 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ t_vector		vector_rot_x(t_vector v, float angle);
 t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);
 t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle);
+t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis);
 void			export_image(t_env *e);
 int				create_file(t_env *e);
 void			put_file_header(int fd);
@@ -200,7 +201,8 @@ t_plane			*new_plane(t_vector normal, float offset, int wave);
 void			delete_plane(t_plane *plane);
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
 void			delete_cylinder(t_cylinder *cylinder);
-t_cone			*new_cone(t_vector axis, t_vector apex, float aperture);
+t_cone			*new_cone(t_vector axis, t_vector apex, float aperture,
+						  t_vector limits[]);
 void			delete_cone(t_cone *cone);
 t_object		*new_object(int type, void *object, t_color color, t_mat mat);
 void			add_object(t_scene *scene, t_object *new);

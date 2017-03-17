@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 01:20:22 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/16 01:06:24 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:51:20 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,22 @@ t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle)
 		+ ((axis.y * axis.z * (1 - c) + (axis.x * s)) * v.y)
 		+ ((pow_2(axis.z) * (1 - c) + c) * v.z);
 	return (normalize(vector));
+}
+
+t_vector	convert_to_rotated_coordinates(t_vector pos, t_vector axis)
+{
+	t_vector	pos2;
+	t_vector	ret;
+
+	pos2.x = pos.x;
+	pos2.y = 0;
+	pos2.z = 0;
+	ret.x = dot_product(pos2, axis);
+	pos2.x = 0;
+	pos2.y = pos.y;
+	ret.y = dot_product(pos2, axis);
+	pos2.y = 0;
+	pos2.z = pos.z;
+	ret.z = dot_product(pos2, axis);
+	return (ret);
 }

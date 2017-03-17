@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 06:25:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:03:49 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,16 @@ typedef struct				s_cylinder
 {
 	t_vector				axis;
 	t_vector				pos;
+	t_vector				limit_max;
+	t_vector				limit_min;
 	float					r;
 }							t_cylinder;
 
 typedef struct				s_cone
 {
 	t_vector				axis;
+	t_vector				limit_max;
+	t_vector				limit_min;
 	t_vector				apex;
 	float					angle;
 }							t_cone;

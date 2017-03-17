@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/17 12:03:59 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/17 12:30:56 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,9 +68,6 @@ SRC_GUI = \
 SRC_CLI = \
 		cli/output.c\
 		cli/hooks_output.c\
-		cli/objects_output.c\
-		cli/lights_output.c\
-		cli/tools_output.c\
 
 SRC_TOOLS = \
 		tools/pow_2.c\

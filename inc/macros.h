@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 08:13:27 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:29:56 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@
 /*
 ** verbose defines
 */
-# define FULL_VERBOSE 1
-# define MIN_VERBOSE 2
+# define VERBOSE 1
 
 /*
 ** errors defines

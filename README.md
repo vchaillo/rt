@@ -11,7 +11,7 @@ Passez à la vitesse supérieure ! Suite du Rtv1, le RT pousse beaucoup plus loi
 ### Usage
 
 ```
-./rt [-v, -V] [-s1...5]
+./rt [-v] [-s1...5]
 ```
 
 ### Dépendances

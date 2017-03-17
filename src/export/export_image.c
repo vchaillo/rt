@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 18:36:20 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 06:05:13 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:45:05 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void			export_image(t_env *e)
 		y--;
 	}
 	ft_putendl_color(ft_strcat(get_file_name(e, IMAGE),
-		" saved !"), TERM_BOLD_GREEN);
+		" saved !\n"), TERM_BOLD_GREEN);
 	close(fd);
 }

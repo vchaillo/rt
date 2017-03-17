@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 16:31:16 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 00:26:39 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:29:45 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ void			parse_arguments(int ac, char **av, t_env *e)
 	i = 1;
 	while (i < ac)
 	{
-		if (ft_strcmp(av[i], "-V") == 0)
-			e->verbose = MIN_VERBOSE;
-		else if (ft_strcmp(av[i], "-v") == 0)
-			e->verbose = FULL_VERBOSE;
+		if (ft_strcmp(av[i], "-v") == 0)
+			e->verbose = VERBOSE;
 		else if (ft_strcmp(av[i], "-s1") == 0)
 			load_scene(SCENE_1, e);
 		else if (ft_strcmp(av[i], "-s2") == 0)

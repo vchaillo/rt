@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:25:52 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 12:05:44 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:53:29 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ static void			print_camera_tofile(t_camera *camera, int fd)
 
 static void			print_scene_tofile(t_scene *scene, int fd)
 {
+	float			amb_intensity;
+
+	amb_intensity = scene->amb == ACTIVE ? scene->amb_intensity : 0;
 	print_color_tofile(scene->background_color, "background", 1, fd);
 	print_color_tofile(scene->amb_color, "amb_color", 1, fd);
 	print_tag_tofile("amb_intensity", TAG_OPEN, 1, fd);
-	dprintf(fd, "%.1f", scene->amb_intensity);
+	dprintf(fd, "%.1f", amb_intensity);
 	print_tag_tofile("amb_intensity", TAG_CLOSE, 0, fd);
 	print_tag_tofile("antialiasing", TAG_OPEN, 1, fd);
 	scene->aa == INACTIVE_AA ? ft_putstr_fd("INACTIVE_AA", fd) :
@@ -60,6 +63,6 @@ void			export_scene(t_env *e)
 	print_lights_tofile(e, e->scene->lights, fd);
 	print_tag_tofile("scene", TAG_CLOSE, 0, fd);
 	ft_putendl_color(ft_strcat(get_file_name(e, SCENE),
-		" saved !"), TERM_BOLD_GREEN);
+		" saved !\n"), TERM_BOLD_GREEN);
 	close(fd);
 }

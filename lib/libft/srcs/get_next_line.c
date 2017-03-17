@@ -3,110 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmorice <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/13 17:35:02 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/12 23:39:26 by valentin         ###   ########.fr       */
+/*   Created: 2016/12/09 16:28:39 by mmorice           #+#    #+#             */
+/*   Updated: 2017/02/10 23:40:33 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-static void	check_first_gnl(t_static_s *g, int fd)
+int		resultat(char **line, char *buf_save)
 {
-	if (fd != g->first_gnl_use)
-	{
-		g->first_gnl_use = fd;
-		ft_bzero(g->static_s, BUFF_SIZE + 1);
-	}
-}
+	char	*eol;
 
-static int	use_static_s(char *static_s, char **line)
-{
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	while (static_s[i] && static_s[i] != '\n')
-		i++;
-	if ((*line = ft_strnew(i)) == NULL)
-		return (-1);
-	i = -1;
-	while (static_s[++i] && static_s[i] != '\n' && static_s[i] != EOF)
-		(*line)[i] = static_s[i];
-	if (static_s[i] == '\n')
+	eol = ft_strchr(buf_save, '\n');
+	if (NULL != eol)
 	{
-		if ((tmp = ft_strdup(static_s + i + 1)) == NULL)
-			return (-1);
-		ft_bzero(static_s, BUFF_SIZE + 1);
-		ft_strcpy(static_s, tmp);
-		ft_strdel(&tmp);
+		*eol = '\0';
+		*line = ft_strdup(buf_save);
+		ft_memmove(buf_save, &eol[1], ft_strlen(&eol[1]) + 1);
 		return (1);
 	}
-	if (static_s[i] == EOF)
-		return (0);
-	ft_strclr(static_s);
-	return (-2);
-}
-
-static int	realloc_line(char **line, int nread)
-{
-	int		len;
-	char	*tmp;
-
-	tmp = *line;
-	len = (tmp) ? (int)ft_strlen(tmp) + nread : nread;
-	if ((*line = ft_strnew(len)) == NULL)
-		return (-1);
-	if (tmp)
-		*line = ft_strcpy(*line, tmp);
-	ft_strdel(&tmp);
-	return (1);
-}
-
-static int	add_buff(char *buff, char *line, char *static_s)
-{
-	int	i;
-
-	while (*line)
-		line++;
-	i = -1;
-	while (buff[++i] && buff[i] != '\n' && buff[i] != EOF)
-		line[i] = buff[i];
-	if (buff[i] == '\n')
+	if (0 < ft_strlen(buf_save))
 	{
-		ft_strcpy(static_s, buff + i + 1);
+		*line = ft_strdup(buf_save);
+		*buf_save = '\0';
 		return (1);
 	}
-	if (buff[i] == EOF)
-		return (-1);
-	ft_bzero(buff, BUFF_SIZE + 1);
 	return (0);
 }
 
-int			get_next_line(int const fd, char **line)
+int		get_next_line(int const fd, char **line)
 {
-	int					ret;
-	char				buff[BUFF_SIZE + 1];
-	static t_static_s	g;
+	static char	*buf_save = NULL;
+	char		buffer[BUFF_SIZE + 1];
+	char		*line_tmp;
+	int			ret;
 
-	check_first_gnl(&g, fd);
-	ft_bzero(buff, BUFF_SIZE + 1);
-	if (line == NULL)
+	if (NULL == line || 0 > fd || BUFF_SIZE <= 0)
 		return (-1);
-	if ((ret = use_static_s(g.static_s, line)) > -2)
-		return (ret);
-	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
+	if (NULL == buf_save)
+		buf_save = ft_strnew(0);
+	while (!ft_strchr(buf_save, '\n'))
 	{
-		if (realloc_line(line, ret) == -1)
+		ret = read(fd, buffer, BUFF_SIZE);
+		if (-1 == ret)
 			return (-1);
-		ret = add_buff(buff, *line, g.static_s);
-		if (ret)
+		if (0 == ret)
 			break ;
+		buffer[ret] = '\0';
+		line_tmp = ft_strjoin(buf_save, buffer);
+		free(buf_save);
+		buf_save = line_tmp;
 	}
-	if (!ret && *line && ft_strlen(*line))
-		return (1);
-	if (!ret)
-		ft_strdel(line);
-	return (ret);
+	return (resultat(line, buf_save));
 }

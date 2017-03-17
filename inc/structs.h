@@ -6,12 +6,31 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 06:25:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 07:22:08 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+typedef struct				s_array
+{
+	char					**tab_color;
+	char					**tab_material;
+	char					**tab_macro;
+	int						countlight;
+	int						countobj;
+}							t_array;
+
+typedef struct				s_parser
+{
+	char					*line;
+	char					**tab;
+	int						mlen;
+	int						i;
+	int						y;
+	int						fd;
+}							t_parser;
 
 typedef struct				s_color
 {

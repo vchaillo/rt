@@ -1,0 +1,57 @@
+<scene>
+
+	<camera>
+		<pos>0, 0, 4<pos>
+		<dir>0, 0, -1<dir>
+	</camera>
+	<background>BLACK</background>
+	<amb_color>WHITE</amb_color>
+	<amb_intensity>1</amb_intensity>
+
+	<objects>
+
+		<object>
+			<type>SPHERE</type>
+			<color>WHITE</color>
+			<material>BASIC</material>
+			<sphere>
+				<pos>0, 0, 0</pos>
+				<r>1</r>
+			</sphere>
+
+	</object>
+
+	</objects>
+
+	<lights>
+
+		<light>
+			<type>DIR</type>
+			<intensity>1</intensity>
+			<color>RED</color>
+			<dir>
+				<pos>1, -1, -1<pos>
+			</dir>
+		</light>
+
+		<light>
+			<type>DIR</type>
+			<intensity>1</intensity>
+			<color>BLUE</color>
+			<dir>
+				<pos>-1, -1, -1<pos>
+			</dir>
+		</light>
+
+				<light>
+			<type>DIR</type>
+			<intensity>1</intensity>
+			<color>GREEN</color>
+			<dir>
+				<pos>0, 1, -1<pos>
+			</dir>
+		</light>
+
+	</lights>
+
+</scene>

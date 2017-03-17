@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/15 01:55:24 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/17 08:22:14 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 ** 				main functions
 */
 void			print_error(int error_code);
+void			print_parser_error(char *str, int error_code, int line);
 void			print_help(void);
 
 /*********************************************
@@ -134,6 +135,7 @@ void			print_frame_time(t_env *e);
 /*
 ** 				tools functions
 */
+char			**get_tab(char *file);
 void			parse_arguments(int ac, char **av, t_env *e);
 float			solve_deg2(double a, double b, double c);
 float			pow_2(float nb);

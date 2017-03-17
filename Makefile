@@ -52,6 +52,7 @@ SRC_CORE = \
 
 SRC_PARSER = \
 		parser/args_parser.c\
+		parser/parser.c\
 
 SRC_GUI = \
 		gui/mlx.c\

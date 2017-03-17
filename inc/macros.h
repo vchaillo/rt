@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 08:25:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 08:49:05 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@
 # define MLX_ERROR 1
 # define ARG_ERROR 2
 # define OPEN_ERROR 3
+# define OBJECT_ABSENT_ERROR 4
+# define LIGHT_ABSENT_ERROR 5
+# define IS_MISSING 6
+# define THREE_ARGV_VEC 7
+# define IS_EMPTY 8
+# define MISSING 9
+# define NOT_DEFINE 10
 
 /*
 ** window and camera defines

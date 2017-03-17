@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 21:33:43 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:29:09 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ unsigned int		permutation(int index)
 	141, 128, 195, 78, 66, 215, 61, 156, 180
 
 	};
-	return (perm[index]);
+	return (perm[index % 256]);
 }
 
 float			noise(float x, float y, float res)

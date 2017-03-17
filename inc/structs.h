@@ -50,6 +50,9 @@ typedef struct				s_plane
 	t_vector				normal;
 	float					offset;
 	int						type;
+	int						is_limited;
+	t_vector				mins;
+	t_vector				maxs;
 }							t_plane;
 
 typedef struct				s_cylinder
@@ -84,6 +87,13 @@ typedef struct				s_boloid
 	float					b;
 	float					c;
 }							t_boloid;
+
+typedef struct				s_limit
+{
+	int						is_limited;
+	t_vector				mins;
+	t_vector				maxs;
+}							t_limit;
 
 typedef struct				s_mat
 {

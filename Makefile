@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/18 19:30:08 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/18 19:33:58 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,7 +125,7 @@ LIBMLX	=	-Llib/mlx/minilibx_$(SYSTEM) -lmlx -L/usr/lib -lXext -lX11 -lm -lpthrea
 LIBGSL	= 	 -Llib/gsl/gsl_$(SYSTEM)/lib -lgsl -lgslcblas
 else
 SYSTEM = MACOS
-LIBMLX	=	-Llib/minilibx_$(SYSTEM)/ -lmlx -framework OpenGL -framework AppKit
+LIBMLX	=	-Llib/mlx/minilibx_$(SYSTEM)/ -lmlx -framework OpenGL -framework AppKit
 LIBGSL	= 	 -Llib/gsl/gsl_$(SYSTEM)/lib -lgsl -lgslcblas
 endif
 LIBFT 	=	 -Llib/libft/ -lft

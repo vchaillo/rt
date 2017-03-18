@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 01:03:49 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/18 18:06:16 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 typedef struct				s_fresnel
 {
-	float		cosi;
-    float		etai;
-	float		etat;
-	float		tmp;
-	float		sint;
-	float		cost;
-	float		rs;
-	float		rp;
+	float					cosi;
+	float					etai;
+	float					etat;
+	float					tmp;
+	float					sint;
+	float					cost;
+	float					rs;
+	float					rp;
 }							t_fresnel;
 
 typedef struct				s_color
 {
-	float					r;
-	float					g;
-	float					b;
+	unsigned int			r;
+	unsigned int			g;
+	unsigned int			b;
 }							t_color;
 
 typedef struct				s_vector
@@ -137,11 +137,11 @@ typedef struct				s_ray
 
 typedef struct				s_ref
 {
-	t_color		color;
-	t_color		reflect_color;
-	t_color		refract_color;
-	t_ray		reflect_ray;
-	t_ray		refract_ray;
+	t_color					color;
+	t_color					reflect_color;
+	t_color					refract_color;
+	t_ray					reflect_ray;
+	t_ray					refract_ray;
 }							t_ref;
 
 typedef struct				s_light

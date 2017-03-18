@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 07:17:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 10:13:52 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/18 17:59:38 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,16 @@ void			print_vector_tofile(t_vector v, char *name, int tabs, int fd)
 
 void			print_color_tofile(t_color c, char *name, int tabs, int fd)
 {
+	int			hexcolor;
+
+	hexcolor = ((c.r & 0xff) << 16) + ((c.g & 0xff) << 8) + (c.b & 0xff);
 	print_tag_tofile(name, TAG_OPEN, tabs, fd);
-	ft_putnbr_fd(c.r, fd);
-	ft_putstr_fd(", ", fd);
-	ft_putnbr_fd(c.g, fd);
-	ft_putstr_fd(", ", fd);
-	ft_putnbr_fd(c.b, fd);
+	dprintf(fd, "0x%x", hexcolor);
+	// printf("%d", intcolor);
+	// ft_putnbr_fd(c.r, fd);
+	// ft_putstr_fd(", ", fd);
+	// ft_putnbr_fd(c.g, fd);
+	// ft_putstr_fd(", ", fd);
+	// ft_putnbr_fd(c.b, fd);
 	print_tag_tofile(name, TAG_CLOSE, 0, fd);
 }

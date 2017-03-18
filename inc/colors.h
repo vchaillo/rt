@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 10:59:53 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/18 18:14:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 # define BROWN 0x663100
 # define PURPLE 0x471054
-# define ORANGE 0x59682F00
+# define ORANGE 0xFF7700
 # define PASTEL_BLUE 0x6161FB
 # define SEA_BLUE 0x0066FF
 # define GRASS_GREEN 0x669933

@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/17 18:42:00 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/18 19:30:08 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,25 +119,25 @@ SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI) $(SRC_TOOLS)\
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 # Inludes and libraries
-UNAME_S = $(shell uname -s)
-ifeq ($(UNAME_S), Linux)
-LIBMLX	=	-Llib/minilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lpthread
-LIBGSL	= 	 -Llib/gsl_$(UNAME_S)/lib -lgsl -lgslcblas
+SYSTEM = $(shell uname -s)
+ifeq ($(SYSTEM), Linux)
+LIBMLX	=	-Llib/mlx/minilibx_$(SYSTEM) -lmlx -L/usr/lib -lXext -lX11 -lm -lpthread
+LIBGSL	= 	 -Llib/gsl/gsl_$(SYSTEM)/lib -lgsl -lgslcblas
 else
-UNAME_S = MACOS
-LIBMLX	=	-Llib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
-LIBGSL	= 	 -Llib/gsl_$(UNAME_S)/lib -lgsl -lgslcblas
+SYSTEM = MACOS
+LIBMLX	=	-Llib/minilibx_$(SYSTEM)/ -lmlx -framework OpenGL -framework AppKit
+LIBGSL	= 	 -Llib/gsl/gsl_$(SYSTEM)/lib -lgsl -lgslcblas
 endif
 LIBFT 	=	 -Llib/libft/ -lft
 LDFLAGS =	-static
-INC		=	-I inc/ -I lib/minilibx/ -I lib/libft/includes/ -I lib/gsl_$(UNAME_S)/include/
+INC		=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM)/ -I lib/libft/includes/ -I lib/gsl/gsl_$(SYSTEM)/include/
 
 # Rules
 all: $(NAME)
 
 $(NAME): obj libft $(OBJ)
 		@echo "========================================="
-		@printf "$(WHITE)Creating $(UNAME_S) $(NAME) executable... $(END_COLOR)"
+		@printf "$(WHITE)Creating $(SYSTEM) $(NAME) executable... $(END_COLOR)"
 		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBFT) $(LIBGSL)
 		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "========================================="

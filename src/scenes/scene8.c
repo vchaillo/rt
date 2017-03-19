@@ -16,6 +16,8 @@ void			load_scene8_objects(t_scene *scene)
 {
 	t_vector	limits[2];
 
+	limits[0] = new_vector(0, 0, 0);
+	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-3.2, -3.2, -5), 2.6,
 							new_vector(0, 1, 0), limits),
 				     new_color(FAKE_BLACK), new_material(CHROME)));

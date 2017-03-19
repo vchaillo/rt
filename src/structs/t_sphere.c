@@ -12,12 +12,16 @@
 
 #include "rt.h"
 
-t_sphere		*new_sphere(t_vector pos, float r)
+t_sphere		*new_sphere(t_vector pos, float r, t_vector axis,
+				    t_vector limits[])
 {
 	t_sphere	*sphere;
 
 	if (!(sphere = (t_sphere*)malloc(sizeof(t_sphere))))
 		print_error(MALLOC_ERROR);
+	sphere->axis = axis;
+	sphere->limit_min = limits[0];
+	sphere->limit_max = limits[1];
 	sphere->pos = pos;
 	sphere->r = r;
 	return (sphere);

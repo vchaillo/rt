@@ -49,7 +49,8 @@
 // 	return (plane);
 // }
 
-t_plane			*new_plane(t_vector normal, float offset, int type)
+t_plane			*new_plane(t_vector normal, float offset, int type,
+				   t_vector limits[])
 {
 	t_plane		*plane;
 
@@ -58,6 +59,8 @@ t_plane			*new_plane(t_vector normal, float offset, int type)
 	plane->normal = normalize(normal);
 	plane->offset = offset;
 	plane->type = type;
+	plane->limit_min = limits[0];
+	plane->limit_max = limits[1];
 	return (plane);
 }
 

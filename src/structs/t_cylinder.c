@@ -12,7 +12,8 @@
 
 #include "rt.h"
 
-t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r)
+t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r,
+				      t_vector limits[])
 {
 	t_cylinder	*cylinder;
 
@@ -21,6 +22,8 @@ t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r)
 	cylinder->axis = normalize(axis);
 	cylinder->pos = pos;
 	cylinder->r = r;
+	cylinder->limit_min = limits[0];
+	cylinder->limit_max = limits[1];
 	return (cylinder);
 }
 

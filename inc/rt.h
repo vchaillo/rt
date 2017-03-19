@@ -184,7 +184,8 @@ t_boloid		*new_boloid(t_vector pos, float a, float b, float c);
 void			delete_boloid(t_boloid *boloid);
 t_plane			*new_plane(t_vector normal, float offset, int wave);
 void			delete_plane(t_plane *plane);
-t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r);
+t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r,
+				      t_vector limits[]);
 void			delete_cylinder(t_cylinder *cylinder);
 t_cone			*new_cone(t_vector axis, t_vector apex, float aperture,
 						  t_vector limits[]);

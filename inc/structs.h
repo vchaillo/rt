@@ -42,6 +42,9 @@ typedef struct				s_vector
 typedef struct				s_sphere
 {
 	t_vector				pos;
+	t_vector				axis;
+	t_vector				limit_max;
+	t_vector				limit_min;
 	float					r;
 }							t_sphere;
 
@@ -50,6 +53,11 @@ typedef struct				s_plane
 	t_vector				normal;
 	float					offset;
 	int						type;
+	int						is_limited;
+	t_vector				mins;
+	t_vector				maxs;
+  	t_vector				limit_max;
+	t_vector				limit_min;
 }							t_plane;
 
 typedef struct				s_cylinder

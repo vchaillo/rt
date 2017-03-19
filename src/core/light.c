@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 10:58:05 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:44:02 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 	dot = dot_product(r_ray.d, v_ray->d);
 	if (dot >= 0)
 		return (new_color(BLACK));
-	spe = pow(dot, v_ray->hitpoint.object->material.specular);
+	spe = pow(dot, v_ray->hitpoint.object->material.shininess);
+	spe *= v_ray->hitpoint.object->material.specular;
 	color = scalar_color(spe, spot->color);
 	return (color);
 }

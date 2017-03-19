@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/18 18:06:16 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:43:02 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct				s_mat
 	int						type;
 	float					diffuse;
 	float					specular;
+	float					shininess;
 	float					reflexion;
 	float					refraction;
 	float					ior;

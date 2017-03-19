@@ -50,7 +50,7 @@ int				key_hook_box(int keycode, t_box *box)
 	}
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
 	{
-		box->corner_min = vector_scalar(-OBJ_EXPAND * 1.3, box->corner_min);
+		box->corner_min = vector_scalar(1 / (OBJ_EXPAND * 1.3), box->corner_min);
 		box->corner_max = vector_scalar(-1, box->corner_min);
 	}
 	else

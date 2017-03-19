@@ -66,6 +66,8 @@ int				key_hook_objects(int keycode, t_scene *scene)
 			key_hook_cylinder(keycode, scene->selected_object->object);
 		else if (scene->selected_object->type == CONE)
 			key_hook_cone(keycode, scene->selected_object->object);
+		else if (scene->selected_object->type == BOX)
+			key_hook_box(keycode, scene->selected_object->object);
 	}
 	return (0);
 }

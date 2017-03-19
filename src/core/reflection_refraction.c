@@ -93,17 +93,20 @@ t_color			reflection_refraction(t_env *e, t_ray *ray, int depth,
 	float		kr;
 	t_color		composed_color;
 
+	r.color = new_color(BLACK);
 	r.reflect_color = new_color(BLACK);
 	r.refract_color = new_color(BLACK);
 	ray->t = get_ray_intersection(e->scene->objects, ray);
 	if (!(ray->hitpoint.object))
 		return (e->scene->background_color);
-	r.color = illuminate(e, ray);
+	// r.color = illuminate(e, ray);
 	if (depth == MAX_DEPTH || coef < 0.02)
 		return (r.color);
 	r.reflect_ray = *ray;
 	r.refract_ray = *ray;
-	if (r.reflect_ray.hitpoint.object->material.property == REFLECTIVE)
+	if (ray->hitpoint.object->material.property == DIFFUSE)
+		r.color = illuminate(e, ray);
+	else if (r.reflect_ray.hitpoint.object->material.property == REFLECTIVE)
 	{
 		reflected_ray(&(r.reflect_ray));
 		r.color = add_color(r.color, reflection_refraction(e, &(r.reflect_ray), depth + 1,

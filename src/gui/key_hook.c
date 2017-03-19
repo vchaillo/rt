@@ -6,11 +6,33 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 12:45:52 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/19 15:58:50 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static int			check_if_update_image(int k)
+{
+	if (k == KEY_UP || k == KEY_DOWN || k == KEY_LEFT || k == KEY_RIGHT
+		|| k == KEY_PLUS || k == KEY_MINUS || k == KEY_Z || k == KEY_Q
+		|| k == KEY_S || k == KEY_D || k == KEY_A || k == KEY_E || k == KEY_N
+		|| k == KEY_P || k == KEY_SPACE || k == KEY_CONTROL	|| k == KEY_R
+		|| k == KEY_X || k == KEY_KP0 || k == KEY_KP1 || k == KEY_KP2
+		|| k == KEY_M || k == KEY_KP3 || k == KEY_KP4 || k == KEY_KP5
+		|| k == KEY_UP_MAC || k == KEY_DOWN_MAC || k == KEY_LEFT_MAC
+		|| k == KEY_RIGHT_MAC || k == KEY_PLUS_MAC || k == KEY_MINUS_MAC
+		|| k == KEY_W_MAC || k == KEY_M_MAC || k == KEY_A_MAC || k == KEY_S_MAC
+		|| k == KEY_D_MAC || k == KEY_Q_MAC || k == KEY_E_MAC || k == KEY_N_MAC
+		|| k == KEY_P_MAC || k == KEY_SPACE_MAC || k == KEY_CONTROL_MAC
+		|| k == KEY_R_MAC || k == KEY_X_MAC || k == KEY_KP0_MAC
+		|| k == KEY_KP1_MAC || k == KEY_KP2_MAC	|| k == KEY_KP3_MAC
+		|| k == KEY_KP4_MAC || k == KEY_KP5_MAC || k == KEY_NUM0_MAC
+		|| k == KEY_NUM1_MAC || k == KEY_NUM2_MAC || k == KEY_NUM3_MAC
+		|| k == KEY_NUM4_MAC || k == KEY_NUM5_MAC)
+		return (TRUE);
+	return (FALSE);
+}
 
 int				key_hook_light(int key, t_scene *scene)
 {
@@ -76,15 +98,18 @@ int				key_hook(int keycode, t_env *e)
 		export_scene(e);
 	else
 	{
-		if (e->scene->mode == MOVE_MODE)
-			key_hook_camera(keycode, e->scene->camera);
-		else
-			key_hook_objects(keycode, e->scene);
-		key_hook_light(keycode, e->scene);
-		key_hook_scene(keycode, e);
-		key_hook_effects(keycode, e);
-		print_keyhook(keycode, e);
-		update_image(e);
+		if (check_if_update_image(keycode) == TRUE)
+		{
+			if (e->scene->mode == MOVE_MODE)
+				key_hook_camera(keycode, e->scene->camera);
+			else
+				key_hook_objects(keycode, e->scene);
+			key_hook_light(keycode, e->scene);
+			key_hook_scene(keycode, e);
+			key_hook_effects(keycode, e);
+			print_keyhook(keycode, e);
+			update_image(e);
+		}
 	}
 	return (0);
 }

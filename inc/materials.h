@@ -64,8 +64,8 @@
 
 # define GLASS_DIFFUSE 1
 # define GLASS_SPECULAR 10
-# define GLASS_REFLEXION 0.8
-# define GLASS_REFRACTION 0.8
+# define GLASS_REFLEXION 0.4
+# define GLASS_REFRACTION 0.7
 # define GLASS_IOR 1.55
 
 # define TEST_DIFFUSE 1

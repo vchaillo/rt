@@ -88,6 +88,7 @@ int				key_hook_sphere(int keycode, t_sphere *sphere);
 int				key_hook_plane(int keycode, t_plane *plane);
 int				key_hook_cylinder(int keycode, t_cylinder *cylinder);
 int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder);
+int				key_hook_box(int keycode, t_box *box);
 int				key_hook_cone(int keycode, t_cone *cone);
 int				key_hook_cone_rotation(int keycode, t_cone *cone);
 int				key_hook_objects(int keycode, t_scene *scene);

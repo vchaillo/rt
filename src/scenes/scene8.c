@@ -14,20 +14,24 @@
 
 void			load_scene8_objects(t_scene *scene)
 {
-	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-3.2, -3.2, -5), 2.6),
-		new_color(FAKE_BLACK), new_material(CHROME)));
-	add_object(scene, new_object(SPHERE, new_sphere(new_vector(3.2, -3.2, 0), 2.6),
-		new_color(FAKE_BLACK), new_material(GLASS)));
+	t_vector	limits[2];
+
+	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-3.2, -3.2, -5), 2.6,
+							new_vector(0, 1, 0), limits),
+				     new_color(FAKE_BLACK), new_material(CHROME)));
+	add_object(scene, new_object(SPHERE, new_sphere(new_vector(3.2, -3.2, 0), 2.6,
+							new_vector(0, 1, 0), limits),
+				     new_color(FAKE_BLACK), new_material(GLASS)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 6,
-		NORMAL), new_color(GREY), new_material(BASIC)));
+		NORMAL, limits), new_color(GREY), new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), -6,
-		NORMAL), new_color(GREY), new_material(BASIC)));
+		NORMAL, limits), new_color(GREY), new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 0, 1), 14,
-		NORMAL), new_color(GREY), new_material(BASIC)));
+		NORMAL, limits), new_color(GREY), new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(-1, 0, 0), -8,
-		NORMAL), new_color(RED), new_material(BASIC)));
+		NORMAL, limits), new_color(RED), new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(1, 0, 0), -8,
-		NORMAL), new_color(BLUE), new_material(BASIC)));
+		NORMAL, limits), new_color(BLUE), new_material(BASIC)));
 }
 
 void			load_scene8_lights(t_scene *scene)

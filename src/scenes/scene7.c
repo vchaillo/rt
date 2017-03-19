@@ -14,10 +14,15 @@
 
 void			load_scene7_objects(t_scene *scene)
 {
-	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-4, 4, 0), 7),
-		new_color(0x31c486), new_material(TEST)));
+      	t_vector	limits[2];
+
+	limits[0] = new_vector(0, 0, 0);
+	limits[1] = new_vector(0, 0, 0);
+	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-4, 4, 0), 7,
+							new_vector(0, 1, 0), limits),
+				     new_color(0x31c486), new_material(TEST)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 5,
-		NORMAL), new_color(SEA_BLUE), new_material(BASIC)));
+						      NORMAL, limits), new_color(SEA_BLUE), new_material(BASIC)));
 }
 
 void			load_scene7_lights(t_scene *scene)

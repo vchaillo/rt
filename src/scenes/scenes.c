@@ -14,7 +14,7 @@
 
 void			load_scene(int scene_type, t_env *e)
 {
-  /*if (scene_type == SCENE_1)
+  	if (scene_type == SCENE_1)
 		load_scene1(e);
 	else if (scene_type == SCENE_2)
 		load_scene2(e);
@@ -22,14 +22,14 @@ void			load_scene(int scene_type, t_env *e)
 		load_scene3(e);
 	else if (scene_type == SCENE_4)
 		load_scene4(e);
-		else*/ if (scene_type == SCENE_5)
-		load_scene5(e); /*
+	else if (scene_type == SCENE_5)
+		load_scene5(e);
 	else if (scene_type == SCENE_6)
 		load_scene6(e);
 	else if (scene_type == SCENE_7)
 		load_scene7(e);
 	else if (scene_type == SCENE_8)
-	load_scene8(e); */
+		load_scene8(e);
 }
 
 void			switch_scene(int keycode, t_env *e)

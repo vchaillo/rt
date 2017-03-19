@@ -14,7 +14,11 @@
 
 void			load_scene6_objects(t_scene *scene)
 {
-	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 10, 0), 0, CHECK),
+      	t_vector	limits[2];
+
+	limits[0] = new_vector(0, 0, 0);
+	limits[1] = new_vector(0, 0, 0);
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 10, 0), 0, CHECK, limits),
 								 new_color(WHITE), new_material(BASIC)));
 	add_object(scene, new_object(TORE, new_tore(new_vector(0, 0, 0), 5, 20),
 								 new_color(ORANGE), new_material(BASIC)));

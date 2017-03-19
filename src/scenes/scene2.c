@@ -14,8 +14,13 @@
 
 void			load_scene2_objects(t_scene *scene)
 {
-	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 0, 0), 1),
-		new_color(WHITE), new_material(BASIC)));
+    	t_vector	limits[2];
+
+	limits[0] = new_vector(0, 0, 0);
+	limits[1] = new_vector(0, 0, 0);
+	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 0, 0), 1,
+							new_vector(0, 1, 0), limits),
+				     new_color(WHITE), new_material(BASIC)));
 }
 
 void			load_scene2_lights(t_scene *scene)

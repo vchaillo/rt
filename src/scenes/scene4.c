@@ -17,8 +17,8 @@ void			load_scene4_objects(t_scene *scene)
 	int			i;
 	t_vector	limits[2];
 	
-	limits[0] = new_vector(0, -30, 0);
-	limits[1] = new_vector(0, +15, 0);
+	limits[0] = new_vector(0, 0, 0);
+	limits[1] = new_vector(0, 0, 0);
 	i = 0;
 	while (i > -100)
 	{
@@ -31,10 +31,12 @@ void			load_scene4_objects(t_scene *scene)
 		i -= 4;
 	}
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 10, -100),
-		10), new_color(ORANGE), new_material(BASIC)));
+							10, new_vector(0, 1, 0), limits),
+				     new_color(ORANGE), new_material(BASIC)));
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 30, -100),
-		10), new_color(RED), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0, NORMAL),
+							10, new_vector(0, 1, 0), limits),
+				     new_color(RED), new_material(BASIC)));
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0, NORMAL, limits),
 		new_color(LIGHT_GREY), new_material(BASIC)));
 }
 

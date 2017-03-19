@@ -38,4 +38,7 @@
 # define SEA_BLUE 0x0066FF
 # define GRASS_GREEN 0x669933
 
+# define FAKE_BLACK 0x171717
+# define FAKE_WHITE 0xEDEDED
+
 #endif

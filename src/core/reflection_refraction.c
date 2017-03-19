@@ -28,7 +28,8 @@ int				refracted_ray(t_ray *ray)
 	float		c2;
 
 	ray->o = ray->hitpoint.pos;
-	n = ray->past_ior / ray->ior;
+	n = AIR_IOR / ray->hitpoint.object->material.ior;;
+	// n = ray->past_ior / ray->ior;
 	c1 = -dot_product(ray->hitpoint.normal, ray->d);
 	c2 = n * n * (1 - c1 * c1);
 	if (c2 > 1)
@@ -76,7 +77,9 @@ t_color			calculate_combined_color(t_ref r, t_ray *ray, float cumul_coef)
 	fresnel(ray, &kr);
 	composed_color = add_color(scalar_color(kr, r.reflect_color),
 		scalar_color(1 - kr, r.refract_color));
-	r.color = add_color(r.color, scalar_color(cumul_coef, composed_color));
+	r.color = add_color(r.color, composed_color);
+	(void)cumul_coef;
+	// r.color = add_color(r.color, scalar_color(cumul_coef, composed_color));
 	return (r.color);
 }
 

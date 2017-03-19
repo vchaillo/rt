@@ -38,6 +38,19 @@ t_mat			new_glass_material(void)
 	return (material);
 }
 
+t_mat			new_chrome_material(void)
+{
+	t_mat		material;
+
+	material.type = CHROME;
+	material.diffuse = CHROME_DIFFUSE;
+	material.specular = CHROME_SPECULAR;
+	material.reflexion = CHROME_REFLEXION;
+	material.refraction = CHROME_REFRACTION;
+	material.ior = CHROME_IOR;
+	return (material);
+}
+
 t_mat			new_plastic_material(void)
 {
 	t_mat		material;
@@ -119,6 +132,8 @@ t_mat			new_material(int type)
 		material = new_water_material();
 	else if (type == TEST)
 		material = new_test_material();
+	else if (type == CHROME)
+		material = new_chrome_material();
 	else
 		material = new_marble_material();
 	return (material);

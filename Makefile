@@ -76,6 +76,7 @@ SRC_TOOLS = \
 		tools/solve_equations.c\
 		tools/color.c\
 		tools/error.c\
+		tools/cross_product.c\
 
 SRC_EXPORT = \
 		export/exports.c\

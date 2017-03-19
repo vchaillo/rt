@@ -31,7 +31,8 @@ t_ray				ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz)
     new.o = vector_rot_x(ray->o, -rotxyz.x);
     new.o = vector_rot_y(new.o, -rotxyz.y);
     new.o = vector_rot_z(new.o, -rotxyz.z);
-    new.o = vector_sub(new.o, trans);
+	// new.o = ray->o;
+	new.o = vector_sub(new.o, trans);
     return (new);
 }
 

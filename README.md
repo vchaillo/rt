@@ -1,8 +1,9 @@
 rt
 ===
 
-[Subject](../blob/master/rt.pdf)
-[Commands list](../blob/master/doc/commands.md)
+[Subject](../master/rt.pdf)
+
+[Commands list](../master/doc/commands.md)
 
 ### Description
 

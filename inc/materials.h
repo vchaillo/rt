@@ -19,7 +19,8 @@
 # define PERLIN 3
 # define BIT_REF 4
 # define WATER 5
-# define TEST 6
+# define CHROME 6
+# define TEST 7
 
 # define BASIC_DIFFUSE 1
 # define BASIC_SPECULAR 100
@@ -33,11 +34,11 @@
 # define PLASTIC_REFRACTION 0
 # define PLASTIC_IOR 1
 
-# define GLASS_DIFFUSE 1
-# define GLASS_SPECULAR 10
-# define GLASS_REFLEXION 1
-# define GLASS_REFRACTION 0
-# define GLASS_IOR 20
+# define CHROME_DIFFUSE 1
+# define CHROME_SPECULAR 10
+# define CHROME_REFLEXION 1
+# define CHROME_REFRACTION 0
+# define CHROME_IOR 20
 
 # define PERLIN_DIFFUSE 1
 # define PERLIN_SPECULAR 100
@@ -55,7 +56,13 @@
 # define WATER_SPECULAR 10
 # define WATER_REFLEXION 0.2
 # define WATER_REFRACTION 0.8
-# define WATER_IOR 1.33
+# define WATER_IOR 1.3
+
+# define GLASS_DIFFUSE 1
+# define GLASS_SPECULAR 10
+# define GLASS_REFLEXION 0.8
+# define GLASS_REFRACTION 0.8
+# define GLASS_IOR 1.55
 
 # define TEST_DIFFUSE 1
 # define TEST_SPECULAR 10

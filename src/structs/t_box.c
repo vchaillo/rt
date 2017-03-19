@@ -18,9 +18,9 @@ t_box			*new_box(t_vector corner, t_vector translation, t_vector rotxyz)
 
 	if (!(box = (t_box*)malloc(sizeof(t_box))))
 		print_error(MALLOC_ERROR);
-    corner.x = (coner.x >= 0) ? coner.x : -coner.x;
-    corner.y = (coner.y >= 0) ? coner.y : -coner.y;
-    corner.z = (coner.z >= 0) ? coner.z : -coner.z;
+    corner.x = (corner.x >= 0) ? corner.x : -corner.x;
+    corner.y = (corner.y >= 0) ? corner.y : -corner.y;
+    corner.z = (corner.z >= 0) ? corner.z : -corner.z;
     box->corner_min = corner;
     box->corner_max = vector_scalar(-1, corner);
     box->trans = translation;

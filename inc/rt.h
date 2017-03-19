@@ -206,5 +206,7 @@ t_mat			new_marble_material(void);
 t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
 t_color			**reset_color_array(int aa, t_color **colors);
+t_box			*new_box(t_vector corner, t_vector translation, t_vector rotxyz);
+
 
 #endif

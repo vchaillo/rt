@@ -99,6 +99,7 @@ typedef struct				s_box
 	t_vector				corner_max;
 	t_vector				trans;
 	t_vector				rotxyz;
+	t_vector				normal_hit;
 }							t_box;
 
 typedef struct				s_mat

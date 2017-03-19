@@ -104,6 +104,7 @@
 # define CONE 3
 # define TORE 4
 # define BOLOID 5
+# define BOX 6
 
 /*
 ** plane types defines

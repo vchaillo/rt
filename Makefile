@@ -43,6 +43,7 @@ SRC_CORE = \
 		core/plane.c\
 		core/cylinder.c\
 		core/cone.c\
+		core/box.c\
 		core/tore.c\
 		core/boloid.c\
 		core/effects.c\
@@ -107,6 +108,7 @@ SRC_STRUCTS = \
 		structs/t_boloid.c\
 		structs/t_cylinder.c\
 		structs/t_cone.c\
+		structs/t_box.c\
 		structs/t_object.c\
 		structs/t_light.c\
 		structs/t_material.c\

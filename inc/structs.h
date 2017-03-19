@@ -101,6 +101,7 @@ typedef struct				s_mat
 	float					reflexion;
 	float					refraction;
 	float					ior;
+	int						property;
 }							t_mat;
 
 typedef struct				s_object

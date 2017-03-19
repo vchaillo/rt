@@ -28,8 +28,8 @@
 /*
 ** rotations and translations defines
 */
-# define CAM_SPEED 0.5
-# define CAM_ROT 1
+# define CAM_SPEED 1
+# define CAM_ROT 10
 # define OBJ_SPEED 1
 # define OBJ_ROT 10
 # define OBJ_EXPAND 1

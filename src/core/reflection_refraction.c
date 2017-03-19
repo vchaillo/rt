@@ -19,24 +19,41 @@ void			reflected_ray(t_ray *ray)
 	c1 = -dot_product(ray->hitpoint.normal, ray->d);
 	ray->d = vector_add(ray->d, vector_scalar(2 * c1, ray->hitpoint.normal));
 	ray->o = ray->hitpoint.pos;
+	ray->d = normalize(ray->d);
 }
 
 int				refracted_ray(t_ray *ray)
 {
-	float		n;
-	float		c1;
-	float		c2;
+	t_fresnel	f;
+	t_vector	n;
+	float		k;
+	float		eta;
 
+	f.etai = AIR_IOR;
+	f.etat = ray->hitpoint.object->material.ior;
+	f.cosi = dot_product(ray->d, ray->hitpoint.normal);
+	f.cosi = fminf(fmaxf(f.cosi, -1), 1);
+
+
+	n = new_vector(ray->hitpoint.normal.x, ray->hitpoint.normal.y,
+		ray->hitpoint.normal.z);
+	if (f.cosi < 0)
+		f.cosi = -f.cosi;
+	else
+	{
+		f.tmp = f.etai;
+		f.etai = f.etat;
+		f.etat = f.tmp;
+		n = new_vector(-n.x, -n.y, -n.z);
+	}
+	eta = f.etai / f.etat;
+	k = 1 - eta * eta * (1 - f.cosi * f.cosi);
+	if (k < 0)
+		ray->d = new_vector(0, 0, 0);
+	else
+		ray->d = vector_add(vector_scalar(eta, ray->d), vector_scalar(eta * f.cosi - sqrtf(k), n));
+	ray->d = normalize(ray->d);
 	ray->o = ray->hitpoint.pos;
-	n = AIR_IOR / ray->hitpoint.object->material.ior;;
-	// n = ray->past_ior / ray->ior;
-	c1 = -dot_product(ray->hitpoint.normal, ray->d);
-	c2 = n * n * (1 - c1 * c1);
-	if (c2 > 1)
-		return (1);
-	c2 = sqrtf(1 - c2);
-	ray->d = vector_add(vector_scalar(n, ray->d), vector_scalar(n * c1 - c2,
-		ray->hitpoint.normal));
 	return (0);
 }
 
@@ -47,7 +64,7 @@ void			fresnel(t_ray *ray, float *kr)
 	f.etai = AIR_IOR;
 	f.etat = ray->hitpoint.object->material.ior;
 	f.cosi = dot_product(ray->d, ray->hitpoint.normal);
-	f.cosi = fminf(fmaxf(f.cosi, 1), -1);
+	f.cosi = fminf(fmaxf(f.cosi, -1), 1);
 	if (f.cosi > 0)
 	{
 		f.tmp = f.etai;
@@ -69,24 +86,12 @@ void			fresnel(t_ray *ray, float *kr)
 	}
 }
 
-t_color			calculate_combined_color(t_ref r, t_ray *ray, float cumul_coef)
-{
-	float		kr;
-	t_color		composed_color;
-
-	fresnel(ray, &kr);
-	composed_color = add_color(scalar_color(kr, r.reflect_color),
-		scalar_color(1 - kr, r.refract_color));
-	r.color = add_color(r.color, composed_color);
-	(void)cumul_coef;
-	// r.color = add_color(r.color, scalar_color(cumul_coef, composed_color));
-	return (r.color);
-}
-
 t_color			reflection_refraction(t_env *e, t_ray *ray, int depth,
 	float coef)
 {
 	t_ref		r;
+	float		kr;
+	t_color		composed_color;
 
 	r.reflect_color = new_color(BLACK);
 	r.refract_color = new_color(BLACK);
@@ -98,17 +103,27 @@ t_color			reflection_refraction(t_env *e, t_ray *ray, int depth,
 		return (r.color);
 	r.reflect_ray = *ray;
 	r.refract_ray = *ray;
-	if (r.reflect_ray.hitpoint.object->material.reflexion)
+	if (r.reflect_ray.hitpoint.object->material.property == REFLECTIVE)
 	{
 		reflected_ray(&(r.reflect_ray));
-		r.reflect_color = reflection_refraction(e, &(r.reflect_ray), depth + 1,
-			coef * r.reflect_ray.hitpoint.object->material.reflexion);
+		r.color = add_color(r.color, reflection_refraction(e, &(r.reflect_ray), depth + 1,
+			r.reflect_ray.hitpoint.object->material.reflexion * coef));
 	}
-	if (r.refract_ray.hitpoint.object->material.refraction)
+	else if (r.refract_ray.hitpoint.object->material.property == TRANSMITIVE)
 	{
-		if (!refracted_ray(&(r.refract_ray)))
-			r.refract_color = reflection_refraction(e, &(r.refract_ray), depth
-			+ 1, coef * r.refract_ray.hitpoint.object->material.refraction);
+		fresnel(ray, &kr);
+		if (kr < 1)
+		{
+			if (!refracted_ray(&(r.refract_ray)))
+				r.refract_color = reflection_refraction(e, &(r.refract_ray), depth
+				+ 1, (1 - kr) * coef);
+		}
+		reflected_ray(&(r.reflect_ray));
+		r.reflect_color = reflection_refraction(e, &(r.reflect_ray), depth + 1,
+			kr * coef);
+		composed_color = add_color(scalar_color(kr, r.reflect_color),
+			scalar_color(1 - kr, r.refract_color));
+		r.color = add_color(r.color, composed_color);
 	}
-	return (calculate_combined_color(r, ray, coef));
+	return (r.color);
 }

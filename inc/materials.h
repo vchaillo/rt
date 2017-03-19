@@ -13,6 +13,10 @@
 #ifndef MATERIALS_H
 # define MATERIALS_H
 
+#define DIFFUSE 0
+#define REFLECTIVE 1
+#define TRANSMITIVE 2
+
 # define BASIC 0
 # define PLASTIC 1
 # define GLASS 2

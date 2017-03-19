@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/11 10:19:29 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/19 16:24:38 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define PERLIN_DIFFUSE 1
 # define PERLIN_SPECULAR 100
 # define PERLIN_REFLEXION 0.5
-# define PERLIN_REFRACTION 1
+# define PERLIN_REFRACTION 0
 # define PERLIN_IOR 1
 
 # define BITREF_DIFFUSE 1

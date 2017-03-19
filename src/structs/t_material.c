@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:53:22 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 21:13:43 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:25:12 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ t_mat			new_glass_material(void)
 	material.refraction = GLASS_REFRACTION;
 	material.ior = GLASS_IOR;
 	material.property = TRANSMITIVE;
+	return (material);
+}
+
+t_mat			new_perlin_material(void)
+{
+	t_mat		material;
+
+	material.type = PERLIN;
+	material.diffuse = PERLIN_DIFFUSE;
+	material.specular = PERLIN_SPECULAR;
+	material.reflexion = PERLIN_REFLEXION;
+	material.refraction = PERLIN_REFRACTION;
+	material.ior = PERLIN_IOR;
+	material.property = DIFFUSE;
 	return (material);
 }
 
@@ -134,6 +148,8 @@ t_mat			new_material(int type)
 		material = new_plastic_material();
 	else if (type == GLASS)
 		material = new_glass_material();
+	else if (type == PERLIN)
+		material = new_perlin_material();
 	else if (type == BIT_REF)
 		material = new_bitref_material();
 	else if (type == WATER)

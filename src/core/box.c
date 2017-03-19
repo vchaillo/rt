@@ -26,12 +26,12 @@ t_ray				ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz)
     t_ray			new;
 
     new.d = vector_rot_x(ray->d, -rotxyz.x);
-    new.d = vector_rot_y(ray->d, -rotxyz.y);
-    new.d = vector_rot_z(ray->d, -rotxyz.z);
+    new.d = vector_rot_y(new.d, -rotxyz.y);
+    new.d = vector_rot_z(new.d, -rotxyz.z);
     new.o = vector_rot_x(ray->o, -rotxyz.x);
-    new.o = vector_rot_y(ray->o, -rotxyz.y);
-    new.o = vector_rot_z(ray->o, -rotxyz.z);
-    new.o = vector_sub(ray->o, trans);
+    new.o = vector_rot_y(new.o, -rotxyz.y);
+    new.o = vector_rot_z(new.o, -rotxyz.z);
+    new.o = vector_sub(new.o, trans);
     return (new);
 }
 
@@ -70,7 +70,6 @@ float           hit_box(t_box *box, t_ray *ray)
 	int			tmp_normal;
     t_ray		r;
 
-	// printf("salut\n");
     r = ray_coord_modif(ray, box->trans, box->rotxyz);
 	if (r.d.x == 0)
 	{

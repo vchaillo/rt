@@ -23,8 +23,12 @@ t_vector		get_normal(t_ray *ray)
 		normal = get_normal_at_plane(ray, ray->hitpoint.object->object);
 	else if (ray->hitpoint.object->type == CYLINDER)
 		normal = get_normal_at_cylinder(ray, ray->hitpoint.object->object);
-	else
+	else if (ray->hitpoint.object->type == CONE)
 		normal = get_normal_at_cone(ray, ray->hitpoint.object->object);
+	else if (ray->hitpoint.object->type == TORE)
+		normal = get_normal_at_tore(ray, ray->hitpoint.object->object);
+	else if (ray->hitpoint.object->type == BOLOID)
+		normal = get_normal_at_boloid(ray, ray->hitpoint.object->object);
 	if (ray->hitpoint.object->material.type == PERLIN)
 		normal = vector_rot_y(normal, perlin(ray->hitpoint.pos.x,
 		ray->hitpoint.pos.y, 75) * 30);
@@ -90,5 +94,5 @@ t_vector		get_normal_at_tore(t_ray *ray, t_tore *tore)
 	normal.z = 4 * hit.z *
 		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
 		 - pow(tore->r, 2));
-	return (normalize(normal));
+	return (normal);
 }

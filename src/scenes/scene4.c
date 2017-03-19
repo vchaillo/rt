@@ -15,15 +15,18 @@
 void			load_scene4_objects(t_scene *scene)
 {
 	int			i;
-
+	t_vector	limits[2];
+	
+	limits[0] = new_vector(0, -30, 0);
+	limits[1] = new_vector(0, +15, 0);
 	i = 0;
 	while (i > -100)
 	{
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
-			new_vector(10, 0, i), 1), new_color(PASTEL_BLUE),
+								    new_vector(10, 0, i), 1, limits), new_color(PASTEL_BLUE),
 			new_material(BASIC)));
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
-			new_vector(-10, 0, i), 1), new_color(PASTEL_BLUE),
+								    new_vector(-10, 0, i), 1, limits), new_color(PASTEL_BLUE),
 			new_material(BASIC)));
 		i -= 4;
 	}

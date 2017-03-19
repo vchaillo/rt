@@ -68,18 +68,31 @@ t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle)
 
 t_vector	convert_to_rotated_coordinates(t_vector pos, t_vector axis)
 {
-	t_vector	pos2;
-	t_vector	ret;
-
-	pos2.x = pos.x;
-	pos2.y = 0;
-	pos2.z = 0;
-	ret.x = dot_product(pos2, axis);
-	pos2.x = 0;
-	pos2.y = pos.y;
-	ret.y = dot_product(pos2, axis);
-	pos2.y = 0;
-	pos2.z = pos.z;
-	ret.z = dot_product(pos2, axis);
-	return (ret);
+	float		theta0;
+	float		phi0;
+	float		theta;
+	float		phi;
+	float		r0;
+	float		r;
+	
+	r0 = sqrt(pow(pos.x, 2) + pow(pos.y, 2) + pow(pos.z, 2));
+	r = sqrt(pow(axis.x, 2) + pow(axis.y, 2) + pow(axis.z, 2));
+	theta0 = acos(pos.y / r0);
+	if (!theta0)
+	  phi0 = 0;
+	else
+	  phi0 = acos(pos.z / sin(theta0) / r0);
+	theta = acos(axis.y / r);
+	if (!theta)
+	  phi = 0;
+	else
+	  phi = acos(axis.z / sin(theta) / r);
+	if (asin(pos.x / sin(theta0) / r0) < 0)
+	  phi0 = -phi0;
+	if (asin(axis.x / sin(theta) / r) < 0)
+	  phi = -phi;
+	pos.x = r0 * sin(theta0 + theta) * sin (phi0 + phi);
+	pos.y = r0 * cos(theta0 + theta);
+	pos.z = r0 * sin(theta0 + theta) * cos (phi0 + phi);
+	return (pos);
 }

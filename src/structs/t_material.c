@@ -12,7 +12,6 @@
 
 #include "rt.h"
 
-<<<<<<< HEAD
 t_mat			new_marble_material(void)
 {
 	t_mat		material;
@@ -28,8 +27,6 @@ t_mat			new_marble_material(void)
 	return (material);
 }
 
-=======
->>>>>>> 5cfdb54e77acc353561fdea305a8bd1870927ec9
 t_mat			new_glass_material(void)
 {
 	t_mat		material;
@@ -175,7 +172,7 @@ t_mat			new_material(int type)
 		material = new_water_material();
 	else if (type == TEST)
 		material = new_test_material();
-	else if (type == CHROME)
+	else
 		material = new_chrome_material();
 	return (material);
 }

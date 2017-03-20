@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 08:22:14 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/20 18:50:52 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@
 # include "keycodes.h"
 # include "macros.h"
 # include "materials.h"
-
-/*
-** 				main functions
-*/
-void			print_error(int error_code);
-void			print_parser_error(char *str, int error_code, int line);
-void			print_help(void);
 
 /*********************************************
 ** 				core functions				**
@@ -133,10 +126,23 @@ void			print_start_line(void);
 void			print_end_line(void);
 void			print_frame_time(t_env *e);
 /*
+** 				parser functions
+*/
+void			parse_arguments(int ac, char **av, t_env *e);
+void			parse_xml_file(t_env *e, char **tab);
+t_macros		create_macros_arrays(t_env *e);
+int				search_macro(char *str, char **tab);
+char			**get_tab(char *file);
+int				hextoint(const char *str);
+int				get_value(char *str, char **tab, int x, t_array t);
+int				get_nbr(char *str, char **tab, int x);
+t_vector		get_vect(char *str, char **tab, int x);
+void			print_error(int error_code);
+void			print_parser_error(char *str, int error_code, int line);
+void			print_help(void);
+/*
 ** 				tools functions
 */
-char			**get_tab(char *file);
-void			parse_arguments(int ac, char **av, t_env *e);
 float			solve_deg2(double a, double b, double c);
 float			pow_2(float nb);
 t_vector		normalize(t_vector vector);

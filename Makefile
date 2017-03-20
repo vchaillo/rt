@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/14 06:36:52 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/20 18:53:50 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SRC_CORE = \
 
 SRC_PARSER = \
 		parser/args_parser.c\
+		parser/parse_macros.c\
+		parser/parser_tools.c\
 		parser/parser.c\
 
 SRC_GUI = \

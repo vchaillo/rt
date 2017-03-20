@@ -30,6 +30,8 @@ void			load_scene(int scene_type, t_env *e)
 		load_scene7(e);
 	else if (scene_type == SCENE_8)
 		load_scene8(e);
+	else if (scene_type == SCENE_9)
+		load_scene9(e);
 }
 
 void			switch_scene(int keycode, t_env *e)

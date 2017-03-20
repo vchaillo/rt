@@ -102,6 +102,15 @@ typedef struct				s_box
 	t_vector				normal_hit;
 }							t_box;
 
+typedef struct				s_disc
+{
+	float					r_min;
+	float					r_max;
+	t_vector				pos;
+	t_vector				rotxyz;
+	t_vector				normal_hit;
+}							t_disc;
+
 typedef struct				s_mat
 {
 	int						type;

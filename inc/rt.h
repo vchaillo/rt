@@ -124,6 +124,8 @@ t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);
 t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle);
 t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis);
+t_vector		cross_product(t_vector u, t_vector v);
+
 /*
 ** 				export functions
 */
@@ -167,6 +169,7 @@ void			load_scene7_lights(t_scene *scene);
 void			load_scene8(t_env *e);
 void			load_scene8_objects(t_scene *scene);
 void			load_scene8_lights(t_scene *scene);
+void			load_scene9(t_env *e);
 
 /*
 ** 				structs functions
@@ -208,6 +211,7 @@ t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
 t_color			**reset_color_array(int aa, t_color **colors);
 t_box			*new_box(t_vector corner, t_vector translation, t_vector rotxyz);
-
+t_disc			*new_disc(float r_max, float r_min, t_vector pos, t_vector rotxyz);
+t_ray			ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz);
 
 #endif

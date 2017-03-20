@@ -85,7 +85,7 @@
 /*
 ** scenes defines
 */
-# define NB_SCENES 8
+# define NB_SCENES 9
 # define SCENE_1 1
 # define SCENE_2 2
 # define SCENE_3 3
@@ -94,6 +94,7 @@
 # define SCENE_6 6
 # define SCENE_7 7
 # define SCENE_8 8
+# define SCENE_9 9
 
 /*
 ** objects defines
@@ -105,6 +106,7 @@
 # define TORE 4
 # define BOLOID 5
 # define BOX 6
+# define DISC 7
 
 /*
 ** plane types defines

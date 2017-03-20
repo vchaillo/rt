@@ -37,6 +37,8 @@ void			parse_arguments(int ac, char **av, t_env *e)
 			load_scene(SCENE_7, e);
 		else if (ft_strcmp(av[i], "-s8") == 0)
 			load_scene(SCENE_8, e);
+		else if (ft_strcmp(av[i], "-s9") == 0)
+			load_scene(SCENE_9, e);
 		else
 			print_error(ARG_ERROR);
 		i++;

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cross_product.c                                    :+:      :+:    :+:   */
+/*   t_disc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 10:17:32 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/17 10:17:33 by hbock            ###   ########.fr       */
+/*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
+/*   Updated: 2017/03/14 07:55:18 by hbock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_vector			cross_product(t_vector u, t_vector v)
+t_disc		*new_disc(float r_max, float r_min, t_vector pos, t_vector rotxyz)
 {
-    t_vector        cross;
+	t_disc	*disc;
 
-    cross.x = u.y * v.z - u.z * v.y;
-    cross.y = u.z * v.x - u.x * v.z;
-    cross.z = u.x * v.y - u.y * v.x;
-    return (cross);
+	if (!(disc = (t_disc*)malloc(sizeof(t_disc))))
+		print_error(MALLOC_ERROR);
+	disc->pos = pos;
+	disc->rotxyz = rotxyz;
+	disc->r_max = r_max;
+	disc->r_min = r_min;
+	return (disc);
+}
+
+void			delete_disc(t_disc *disc)
+{
+	free(disc);
 }

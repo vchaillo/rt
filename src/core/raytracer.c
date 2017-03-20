@@ -41,6 +41,8 @@ float			get_hit_distance(t_object *object, t_ray *ray)
 		t = hit_boloid(object->object, ray);
 	else if (object->type == BOX)
 		t = hit_box(object->object, ray);
+	else if (object->type == DISC)
+		t = hit_disc(object->object, ray);
 	else
 		t = EPSILON;
 	return (t);

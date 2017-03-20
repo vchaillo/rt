@@ -41,7 +41,8 @@ void			print_color_tofile(t_color c, char *name, int tabs, int fd)
 {
 	int			hexcolor;
 
-	hexcolor = ((c.r & 0xff) << 16) + ((c.g & 0xff) << 8) + (c.b & 0xff);
+	// hexcolor = ((c.r & 0xff) << 16) + ((c.g & 0xff) << 8) + (c.b & 0xff);
+	hexcolor = (((int)(c.r) & 0xff) << 16) + (((int)(c.g) & 0xff) << 8) + ((int)(c.b) & 0xff);
 	print_tag_tofile(name, TAG_OPEN, tabs, fd);
 	dprintf(fd, "0x%x", hexcolor);
 	// printf("%d", intcolor);

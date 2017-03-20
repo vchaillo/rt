@@ -89,12 +89,13 @@ t_vector		get_normal_at_tore(t_ray *ray, t_tore *tore)
 	hit = ray->hitpoint.pos;
 	normal.x = 4 * hit.x *
 		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
-		 - pow(tore->r, 2));
+		 - pow(tore->r, 2)) - 8 * pow(tore->big_r, 2) * hit.x;
 	normal.y = 4 * hit.y *
 		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
 		 - pow(tore->r, 2));
 	normal.z = 4 * hit.z *
 		(pow(hit.x, 2) + pow(hit.y, 2) + pow(hit.z, 2) + pow(tore->big_r, 2)
-		 - pow(tore->r, 2));
+		 - pow(tore->r, 2)) - 8 * pow(tore->big_r, 2) * hit.z;
+	normal = normalize(normal);
 	return (normal);
 }

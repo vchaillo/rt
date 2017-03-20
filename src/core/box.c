@@ -149,6 +149,8 @@ float           hit_box(t_box *box, t_ray *ray)
 
     if (tzmax < tmax)
         tmax = tzmax;
+	if (tmin > tmax)
+		normal = 5;
 	ray->hitpoint.normal = normal_box(box, normal);
     return ((tmin <= tmax) ? tmin : tmax);
 }

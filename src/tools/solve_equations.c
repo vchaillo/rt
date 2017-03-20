@@ -54,7 +54,7 @@ double			solve_deg4(const double *eq)
 	double		result;
 	double		root;
 
-	gsl_set_error_handler (NULL);
+	gsl_set_error_handler_off ();
 	if (!(workspace = gsl_poly_complex_workspace_alloc(5)))
 		print_error(MALLOC_ERROR);
 	gsl_poly_complex_solve(eq, 5, workspace, r);
@@ -71,18 +71,18 @@ double			solve_deg4(const double *eq)
 	  result = DBL_MAX;
 	else
 	  return (DBL_MAX);
-	i = 0;       
+	i = 0;
 	while (i < 4)
-	  {
+	{
+	  //printf("%lf + i*%lf\n", r[2 * i], r[1 + 2*i]); 
 	    if (r[(2 * i) + 1] == 0)
-	      {
+	    {
 		root = r[2 * i];
-       		//printf("%lf + i*%lf\n", r[2 * i], r[1 + 2*i]); 
 		if (root > EPSILON && root < result)
 		  result = root;
-	      }
+	    }
 	    i++;
-	  }
+	}
 	//printf("result: %lf\n", result);
 	gsl_poly_complex_workspace_free(workspace);
 	return (result);

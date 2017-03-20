@@ -19,37 +19,43 @@
 
 float			hit_tore(t_tore *tore, t_ray *ray)
 {
-	double		eq4[5];
+	double		dir[3];
+	double		pos[3];
+	double		eq[5];
+	double		tmp[7];
 	float		t;
 
-	eq4[4] = pow(pow(ray->d.x, 2) + pow(ray->d.y, 2) + pow(ray->d.z, 2), 2);
+	dir[0] = ray->d.x;
+	dir[1] = ray->d.y;
+	dir[2] = ray->d.z;
+	pos[0] = ray->o.x;
+	pos[1] = ray->o.y;
+	pos[2] = ray->o.z;
+	tmp[6] = 4.0 * tore->big_r * tore->big_r;
+	tmp[0] = dir[0] * dir[0] + dir[1] * dir[1] + dir[2] * dir[2];
+	tmp[1] = 2.0 * (dir[0] * pos[0] + dir[1] * pos[1] + dir[2] * pos[2]);
+	tmp[2] = pos[0] * pos[0] + pos[1] * pos[1] + pos[2] * pos[2] +
+	       	 tore->big_r * tore->big_r - tore->r * tore->r;
+	tmp[3] = tmp[6] * (dir[0] * dir[0] + dir[2] * dir[2]);
+	tmp[4] = tmp[6] * 2 * (dir[0] * pos[0] + dir[2] * pos[2]);
+	tmp[5] = tmp[6] * (pos[0] * pos[0] + pos[2] * pos[2]);
 	
-	eq4[3] = 4 * (pow(ray->d.x, 2) + pow(ray->d.y, 2) + pow(ray->d.z, 2))
-	  * ((ray->d.x * ray->o.x) + (ray->d.y * ray->o.y) + (ray->d.z * ray->o.z));
-	
-	eq4[2] = 2 * (pow(ray->d.x, 2) + pow(ray->d.y, 2) + pow(ray->d.z, 2))
-	* (pow(ray->o.x, 2) + pow(ray->o.y, 2) + pow(ray->o.z, 2) + pow(tore->big_r, 2) - pow(tore->r, 2))
-	  + pow(((ray->d.x * ray->o.x) + (ray->d.y * ray->o.y) + (ray->d.z * ray->o.z)), 2)
-	  - (4 * pow(tore->big_r, 2) * (pow(ray->d.x, 2) + pow(ray->d.z, 2)));
- 
-	eq4[1] = 4 * ((ray->d.x * ray->o.x) + (ray->d.y * ray->o.y) + (ray->d.z * ray->o.z))
-		* (pow(ray->o.x, 2) + pow(ray->o.y, 2) + pow(ray->o.z, 2) + pow(tore->big_r, 2) - pow(tore->r, 2))
-	  - (8 * pow(tore->big_r, 2) * ((ray->d.x * ray->o.x) + (ray->d.z * ray->o.z)));
-	
-	eq4[0] = (pow(ray->o.x, 2) + pow(ray->o.y, 2) + pow(ray->o.z, 2)
-		+ pow(tore->big_r, 2) - pow(tore->r, 2))
-	  	- 4 * pow(tore->big_r, 2) * (pow(ray->o.x, 2) + pow(ray->o.z, 2));
-	eq4[0] /= eq4[4];
-	eq4[1] /= eq4[4];
-	eq4[2] /= eq4[4];
-	eq4[3] /= eq4[4];
-	eq4[4] = 1;
-	t = solve_deg4(eq4);
+	eq[4] = pow(tmp[0], 2);
+	eq[3] = 2.0 * tmp[0] * tmp[1];
+	eq[2] = 2.0 * tmp[0] * tmp[2] + pow(tmp[1], 2) - tmp[3];
+	eq[1] = 2.0 * tmp[1] * tmp[2] - tmp[4];
+	eq[0] = pow(tmp[2], 2) - tmp[5];
+	  
+	eq[0] /= eq[4];
+	eq[1] /= eq[4];
+	eq[2] /= eq[4];
+	eq[3] /= eq[4];
+	eq[4] = 1;
+	t = solve_deg4(eq);
 	if (t != INFINITY && t > EPSILON)
-	  {
-	    //printf("%.18lf*x^4 + %.18lf*x^3 + %.18lf*x^2 + %.18lf*x + %.18lf = 0\nx = %lf\n", eq4[4], eq4[3] , eq4[2] , eq4[1] , eq4[0] , t);
-	  }
-	 t = sqrt(pow(t * ray->d.x, 2) + pow(t * ray->d.y, 2) + pow(t * ray->d.z, 2));
+	{
+	  //printf("%.18lf*x^4 + %.18lf*x^3 + %.18lf*x^2 + %.18lf*x + %.18lf = 0\nx = %lf\n", eq4[4], eq4[3] , eq4[2] , eq4[1] , eq4[0] , t);
+	}
 	// printf("t: %lf\n", t);
 	return (t);
 }

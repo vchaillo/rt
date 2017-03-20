@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene7.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/14 07:55:18 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/19 21:30:16 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			load_scene7_objects(t_scene *scene)
 	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-4, 4, 0), 7,
 							new_vector(0, 1, 0), limits),
-				     new_color(0x31c486), new_material(TEST)));
+				     new_color(0x31c486), new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 5,
 						      NORMAL, limits), new_color(SEA_BLUE), new_material(BASIC)));
 }
@@ -44,6 +44,7 @@ void			load_scene7(t_env *e)
 	e->scene_type = SCENE_7;
 	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(10, 15, 40),
 		new_vector(0, 0, -1)));
+	e->scene->camera->rot = new_vector(-10, 20, 0);
 	load_scene7_objects(e->scene);
 	load_scene7_lights(e->scene);
 }

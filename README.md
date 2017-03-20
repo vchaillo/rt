@@ -1,8 +1,9 @@
 rt
 ===
 
-* [Subject] (https://github.com/vchaillo/rt/blob/master/rt.pdf)
-* [Commands list] (https://github.com/vchaillo/rt/blob/master/doc/commands.md)
+[Subject](../master/rt.pdf)
+
+[Commands list](../master/doc/commands.md)
 
 ### Description
 

@@ -111,6 +111,7 @@ t_color			reflection_refraction(t_env *e, t_ray *ray, int depth,
 		reflected_ray(&(r.reflect_ray));
 		r.color = add_color(r.color, reflection_refraction(e, &(r.reflect_ray), depth + 1,
 			r.reflect_ray.hitpoint.object->material.reflexion * coef));
+		r.color = add_color(scalar_color(ray->hitpoint.object->material.reflexion, r.color), scalar_color(1 - ray->hitpoint.object->material.reflexion, illuminate(e, ray)));
 	}
 	else if (r.refract_ray.hitpoint.object->material.property == TRANSMITIVE)
 	{
@@ -118,8 +119,11 @@ t_color			reflection_refraction(t_env *e, t_ray *ray, int depth,
 		if (kr < 1)
 		{
 			if (!refracted_ray(&(r.refract_ray)))
+			{
 				r.refract_color = reflection_refraction(e, &(r.refract_ray), depth
 				+ 1, (1 - kr) * coef);
+				r.refract_color = add_color(scalar_color(ray->hitpoint.object->material.refraction, r.refract_color), scalar_color(1 - ray->hitpoint.object->material.refraction, ray->hitpoint.object->color));
+			}
 		}
 		reflected_ray(&(r.reflect_ray));
 		r.reflect_color = reflection_refraction(e, &(r.reflect_ray), depth + 1,

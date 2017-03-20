@@ -23,6 +23,7 @@ t_mat			new_marble_material(void)
 	material.refraction = PERLIN_REFRACTION;
 	material.ior = PERLIN_IOR;
 	material.property = REFLECTIVE;
+	material.shadow = PERLIN_SHADOW;
 	return (material);
 }
 
@@ -37,6 +38,7 @@ t_mat			new_glass_material(void)
 	material.refraction = GLASS_REFRACTION;
 	material.ior = GLASS_IOR;
 	material.property = TRANSMITIVE;
+	material.shadow = GLASS_SHADOW;
 	return (material);
 }
 
@@ -51,6 +53,7 @@ t_mat			new_chrome_material(void)
 	material.refraction = CHROME_REFRACTION;
 	material.ior = CHROME_IOR;
 	material.property = REFLECTIVE;
+	material.shadow = CHROME_SHADOW;
 	return (material);
 }
 
@@ -65,6 +68,7 @@ t_mat			new_plastic_material(void)
 	material.refraction = PLASTIC_REFRACTION;
 	material.ior = PLASTIC_IOR;
 	material.property = REFLECTIVE;
+	material.shadow = PLASTIC_SHADOW;
 	return (material);
 }
 
@@ -79,6 +83,7 @@ t_mat			new_basic_material(void)
 	material.refraction = BASIC_REFRACTION;
 	material.ior = BASIC_IOR;
 	material.property = DIFFUSE;
+	material.shadow = BASIC_SHADOW;
 	return (material);
 }
 
@@ -93,6 +98,7 @@ t_mat			new_bitref_material(void)
 	material.refraction = BITREF_REFRACTION;
 	material.ior = BITREF_IOR;
 	material.property = REFLECTIVE;
+	material.shadow = BITREF_SHADOW;
 	return (material);
 }
 
@@ -107,6 +113,7 @@ t_mat			new_water_material(void)
 	material.refraction = WATER_REFRACTION;
 	material.ior = WATER_IOR;
 	material.property = TRANSMITIVE;
+	material.shadow = WATER_SHADOW;
 	return (material);
 }
 
@@ -121,6 +128,7 @@ t_mat			new_test_material(void)
 	material.refraction = TEST_REFRACTION;
 	material.ior = TEST_IOR;
 	material.property = DIFFUSE;
+	material.shadow = TEST_SHADOW;
 	return (material);
 }
 

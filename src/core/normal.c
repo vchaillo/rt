@@ -25,6 +25,8 @@ t_vector		get_normal(t_ray *ray)
 		normal = get_normal_at_cylinder(ray, ray->hitpoint.object->object);
 	else if (ray->hitpoint.object->type == BOX)
 		normal = ray->hitpoint.normal;
+	else if (ray->hitpoint.object->type == DISC)
+		normal = ray->hitpoint.normal;
 	else if (ray->hitpoint.object->type == CONE)
 		normal = get_normal_at_cone(ray, ray->hitpoint.object->object);
 	else if (ray->hitpoint.object->type == TORE)

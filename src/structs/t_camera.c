@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/20 01:22:47 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/20 03:45:50 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,28 @@
 t_camera		*new_camera(t_vector pos, t_vector dir)
 {
 	t_camera	*camera;
+	t_vector	axis;
+	float		angle;
+	float		dot;
 
 	if (!(camera = (t_camera*)malloc(sizeof(t_camera))))
 		print_error(MALLOC_ERROR);
 	camera->pos = pos;
 	camera->dir = normalize(dir);
-	camera->dir_right = vector_rot_y(dir, -90);
+	dot = dot_product(new_vector(0, 0, -1), camera->dir);
+	printf("dot = %f\n", dot);
+	angle = 0;
+	axis = new_vector(0, 1, 0);
+	if (dot != 1 && dot != -1)
+	{
+		axis = cross_product(camera->dir, new_vector(0, 0, -1));
+		angle = acos(dot_product(camera->dir, new_vector(0, 0, -1)));
+	}
+	printf("axis = %f, %f, %f\n", axis.x, axis.y, axis.z);
+	printf("angle = %f\n", angle);
+	camera->dir = vector_rot_axis(dir, axis, angle);
+	camera->dir_right = vector_rot_axis(camera->dir, axis, -90);
 	camera->dir_up = vector_rot_axis(dir, camera->dir_right, 90);
-	// camera->dir_up = vector_rot_x(dir, 90);
 	return (camera);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 06:14:52 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/20 01:23:08 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,17 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa)
 {
 	t_vector	dir;
-	float		dir_x;
-	float		dir_y;
-	float		dir_z;
+	float		x_indent;
+	float		y_indent;
 
-	dir_x = (2.0 * ((x + 0.5) / WIN_W / aa) - 1.0) *
-			camera->ratio * camera->fov;
-	dir_y = (1.0 - 2.0 * ((y + 0.5) / WIN_H / aa)) * camera->fov;
-	dir_z = camera->focale;
-	dir = new_vector(dir_x, dir_y, dir_z);
-	dir = vector_rot_x(dir, camera->rot.x);
-	dir = vector_rot_y(dir, camera->rot.y);
-	dir = vector_rot_z(dir, camera->rot.z);
+	x_indent = RATIO * FOV / WIN_W / aa;
+	y_indent = FOV / WIN_H / aa;
+	dir = vector_add(
+		camera->viewplane_pos,
+		vector_sub(
+			vector_scalar(x_indent * x, camera->dir_right),
+			vector_scalar(y_indent * y, camera->dir_up)));
+	dir = vector_sub(dir, camera->pos);
 	return (normalize(dir));
 }
 
@@ -95,6 +94,7 @@ t_color			raytracer(t_env *e, int x, int y)
 	t_ray		ray;
 	t_color		color;
 
+	get_viewplane_pos(e->scene->camera);
 	ray.o = e->scene->camera->pos;
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
 	ray.ior = AIR_IOR;

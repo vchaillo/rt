@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 12:32:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/20 01:22:54 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ t_scene			*new_scene(t_color background_color, t_camera *camera);
 void			delete_scene(t_scene *scene);
 t_camera		*new_camera(t_vector pos, t_vector dir);
 void			delete_camera(t_camera *camera);
+void			get_viewplane_pos(t_camera *camera);
 t_sphere		*new_sphere(t_vector pos, float r, t_vector axis,
 				    t_vector limits[]);
 void			delete_sphere(t_sphere *sphere);

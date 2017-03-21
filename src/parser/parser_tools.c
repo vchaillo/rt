@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:41:17 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/20 18:46:32 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/21 06:39:55 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,29 @@ char			**get_tab(char *file)
 	(tmp == NULL) ? print_error(OPEN_ERROR) : NULL;
 	tab = ft_strsplit(tmp, '\n');
 	return (tab);
+}
+
+int				search_macro(char *str, char **tab)
+{
+	t_parser	p;
+	char		*line;
+	int			i;
+
+	i = 0;
+	p.i = 0;
+	p.y = 0;
+	line = NULL;
+	while (tab[p.i] != 0)
+	{
+		if (ft_strstr(tab[p.i], str))
+		{
+			i = hextoint(tab[p.i]);
+			return (i);
+		}
+		p.i++;
+	}
+	print_parser_error(str, NOT_DEFINE, p.i);
+	return (0);
 }
 
 int				hextoint(const char *str)

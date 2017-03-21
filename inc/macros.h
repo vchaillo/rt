@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/20 18:15:45 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/21 03:41:43 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define MAX_DIST 1000
 
 /*
-** lights defines
+** mode defines
 */
 # define MOVE_MODE 0
 # define EDIT_MODE 1

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/20 18:26:59 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/21 06:42:55 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,14 +165,20 @@ typedef struct				s_scene
 	int						aa;
 }							t_scene;
 
+typedef struct				s_macro_array
+{
+	char					*define;
+	int						value;
+}							t_macro_array;
+
 typedef struct				s_macros
 {
-	char					**macros_colors;
-	char					**macros_materials;
-	char					**macros_effects;
-	char					**macros_objects;
-	char					**macros_lights;
-	char					**macros_plane_style;
+	t_macro_array			*colors;
+	t_macro_array			*materials;
+	t_macro_array			*effects;
+	t_macro_array			*objects;
+	t_macro_array			*lights;
+	t_macro_array			*plane_styles;
 }							t_macros;
 
 typedef struct				s_env

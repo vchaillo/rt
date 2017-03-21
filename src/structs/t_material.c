@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:53:22 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/19 18:44:52 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/21 01:46:42 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ t_mat			new_material(int type)
 		material = new_water_material();
 	else if (type == TEST)
 		material = new_test_material();
-	else if (type == CHROME)
+	else // if (type == CHROME)
 		material = new_chrome_material();
 	return (material);
 }

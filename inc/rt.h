@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 06:50:20 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/21 08:45:46 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ t_macros		create_macros_arrays(void);
 int				search_macro(char *str, char **tab);
 char			**get_tab(char *file);
 int				hextoint(const char *str);
-int				get_value(char *str, char **tab, int x, t_array t);
+int				get_value(t_env *e, char *str, char **tab, int x);
 int				get_nbr(char *str, char **tab, int x);
 t_vector		get_vect(char *str, char **tab, int x);
 void			print_error(int error_code);

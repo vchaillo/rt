@@ -1,8 +1,8 @@
 <scene>
 
 	<camera>
-		<pos>0, 0, 4<pos>
-		<dir>0, 0, -1<dir>
+		<pos>0.000, 0.100, 4.200<pos>
+		<dir>0.000, 0.000, -1.000<dir>
 	</camera>
 	<background>BLACK</background>
 	<amb_color>WHITE</amb_color>

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/21 03:41:43 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/21 09:06:27 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@
 # define OPEN_ERROR 3
 # define OBJECT_ABSENT_ERROR 4
 # define LIGHT_ABSENT_ERROR 5
-# define IS_MISSING 6
-# define THREE_ARGV_VEC 7
-# define IS_EMPTY 8
-# define MISSING 9
-# define NOT_DEFINE 10
+# define MISSING_TAG_ERROR 6
+# define THREE_ARGV_VEC_ERROR 7
+# define IS_EMPTY_ERROR 8
+# define MISSING_ERROR 9
+# define NOT_DEFINE_ERROR 10
 
 /*
 ** window and camera defines

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:39:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/21 02:36:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static int		is_out_limit(const t_plane *plane, const t_ray *ray, const float t)
 	t_vector	relative_pos;
 	t_vector	rotated_pos;
 
+	return (0);
 	relative_pos.x = (ray->o.x + ray->d.x * t) - 0;
 	relative_pos.y = (ray->o.y + ray->d.y * t) - 0;
 	relative_pos.z = (ray->o.z + ray->d.z * t) - plane->offset;

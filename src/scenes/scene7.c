@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/19 21:30:16 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/21 04:53:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ void			load_scene7_objects(t_scene *scene)
 
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
-	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-4, 4, 0), 7,
+	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 0, 0), 7,
 							new_vector(0, 1, 0), limits),
 				     new_color(0x31c486), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 5,
-						      NORMAL, limits), new_color(SEA_BLUE), new_material(BASIC)));
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0,
+						      NORMAL, limits), new_color(RED), new_material(BASIC)));
 }
 
 void			load_scene7_lights(t_scene *scene)
 {
-	scene->amb_intensity = 0.3;
+	scene->amb_intensity = 1;
 	scene->amb_color = new_color(BLUE);
 	add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
 		new_color(WHITE)));
@@ -42,9 +42,8 @@ void			load_scene7(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_7;
-	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(10, 15, 40),
-		new_vector(0, 0, -1)));
-	e->scene->camera->rot = new_vector(-10, 20, 0);
+	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 50, 50),
+		new_vector(0, -1, -1)));
 	load_scene7_objects(e->scene);
 	load_scene7_lights(e->scene);
 }

@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/18 19:33:58 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/03/20 00:57:58 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,11 +143,11 @@ INC		=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM)/ -I lib/libft/includes/ -I lib/gsl/
 all: $(NAME)
 
 $(NAME): obj libft $(OBJ)
-		@echo "========================================="
+		@echo "======================================="
 		@printf "$(WHITE)Creating $(SYSTEM) $(NAME) executable... $(END_COLOR)"
 		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBFT) $(LIBGSL)
 		@echo "$(GREEN)Done √$(END_COLOR)"
-		@echo "========================================="
+		@echo "======================================="
 
 DEPS := $(OBJ:.o=.d)
 -include $(DEPS)

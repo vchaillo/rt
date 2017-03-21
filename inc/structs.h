@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/19 18:43:02 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/21 03:19:33 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ typedef struct				s_color
 
 typedef struct				s_vector
 {
-	double					x;
-	double					y;
-	double					z;
+	float					x;
+	float					y;
+	float					z;
 }							t_vector;
 
 typedef struct				s_sphere
@@ -177,12 +177,9 @@ typedef struct				s_camera
 {
 	t_vector				pos;
 	t_vector				dir;
-	t_vector				dir_left;
+	t_vector				dir_right;
 	t_vector				dir_up;
-	t_vector				rot;
-	float					ratio;
-	float					fov;
-	float					focale;
+	t_vector				viewplane_pos;
 }							t_camera;
 
 typedef struct				s_scene

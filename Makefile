@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/22 06:06:44 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/22 21:15:08 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_MAIN = \
 		main.c\
 
 SRC_CORE = \
+		core/draw.c\
 		core/raytracer.c\
 		core/light.c\
 		core/normal.c\
@@ -60,7 +61,6 @@ SRC_PARSER = \
 
 SRC_GUI = \
 		gui/mlx.c\
-		gui/draw.c\
 		gui/key_hook.c\
 		gui/key_hook_camera.c\
 		gui/key_hook_objects.c\

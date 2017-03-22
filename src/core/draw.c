@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 06:07:06 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/22 21:49:47 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,22 @@ void* perform_work( void* argument )
 	t_env		*e;
 	int			thread;
 
+	float        increment_percent;
+    float        percent;
+
+
 	e = ( (t_env* )argument );
 	thread = e->thread;
+	increment_percent = 100.0 / (WIN_H * e->scene->aa - 1);
+	percent = 0;
 	e->nb_cam_rays = WIN_W * WIN_H;
 	e->nb_light_rays = 0;
 	y = 0;
 	while (y < WIN_H * e->scene->aa)
 	{
+		printf("\r%.1f %%", percent);
+		fflush(stdout);
+		percent += increment_percent;
 		x = 0;
 		if ((y % NUM_THREADS) == thread)
 		{
@@ -101,13 +110,13 @@ void* perform_work( void* argument )
 	return NULL;
 }
 
-void	draw(t_env *e)
+void			draw(t_env *e)
 {
-	t_env			e_tab[NUM_THREADS];
+	t_env		e_tab[NUM_THREADS];
 
-	pthread_t threads[NUM_THREADS];
-	int result_code;
-	unsigned index;
+	pthread_t	threads[NUM_THREADS];
+	int			result_code;
+	unsigned	index;
 
 	// create all threads one by one
 	for( index = 0; index < NUM_THREADS; ++index )
@@ -133,5 +142,6 @@ void	draw(t_env *e)
 	apply_color_to_image(e);
 	stereoscopy(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
+	ft_putchar('\n');
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/22 03:52:39 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/22 06:04:45 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define EXPOSE_TYPE 2
 # define DO_GAMMA 0
 # define INV_GAMMA 6
+# define FOG_DENSITY 100
 
 /*
 ** basics defines

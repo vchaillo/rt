@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 03:49:30 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/22 05:25:35 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ t_color			raytracer(t_env *e, int x, int y)
 	ray.ior = AIR_IOR;
 	ray.is_in = 0;
 	color = reflection_refraction(e, &ray, 0, 1);
-	// color = fog(e, &ray, color);
+	color = fog(e, &ray, color);
 	return (color);
 }

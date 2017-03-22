@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 02:30:49 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/22 04:21:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 t_color			fog(t_env *e, t_ray *ray, t_color color);
 void			super_sampling(t_env *e);
 void			exposure(t_color **color_array);
+void			stereoscopy(t_env *e);
 
 /*
 ** 				gui functions

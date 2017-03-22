@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/22 02:48:03 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/22 04:45:01 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC_CORE = \
 		core/perlin.c\
 		core/exposure.c\
 		core/fog.c\
+		core/stereoscopy.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\

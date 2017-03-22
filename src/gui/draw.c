@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 09:25:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/22 05:07:12 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void			apply_color_to_image(t_env *e)
 	int 		x;
 	int 		y;
 
-	// colors = e->scene->aa == ACTIVE_AA ? e->scene->color_array : e->scene->color_array_aa;
 	y = -1;
 	while (++y < WIN_H)
 	{
@@ -132,6 +131,7 @@ void	draw(t_env *e)
 	super_sampling(e);
 	exposure(e->scene->color_array);
 	apply_color_to_image(e);
+	stereoscopy(e);
 	e->nb_rays = e->nb_cam_rays + e->nb_light_rays;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }

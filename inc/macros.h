@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/20 01:26:16 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/22 03:52:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@
 # define RATIO (float)WIN_W / (float)WIN_H
 # define FOV tan((40 * M_PI) / 180)
 # define FOCALE 1
-# define EPSILON 0.01
+# define EPSILON 0.001
 # define MAX_DIST 1000
 
 /*

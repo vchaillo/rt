@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 21:44:49 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/19 16:24:22 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/22 02:15:38 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			load_scene1_objects(t_scene *scene)
 				     new_color(ORANGE), new_material(PERLIN)));
 	add_object(scene, new_object(PLANE,
 				     new_plane(new_vector(0, 1, 0), 0, CHECK, limits),
-				     new_color(WHITE), new_material(GLASS)));
+				     new_color(WHITE), new_material(BASIC)));
 }
 
 void			load_scene1_lights(t_scene *scene)

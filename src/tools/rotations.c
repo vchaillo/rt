@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 01:20:22 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 01:51:20 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/20 00:52:49 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_vector	convert_to_rotated_coordinates(t_vector pos, t_vector axis)
 	float		phi;
 	float		r0;
 	float		r;
-	
+
 	r0 = sqrt(pow(pos.x, 2) + pow(pos.y, 2) + pow(pos.z, 2));
 	r = sqrt(pow(axis.x, 2) + pow(axis.y, 2) + pow(axis.z, 2));
 	theta0 = acos(pos.y / r0);

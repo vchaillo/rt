@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 12:32:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/22 04:21:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,12 @@
 */
 
 /*
-** 				main functions
+** 				core functions
 */
-void			print_error(int error_code);
-void			print_help(void);
-
-/*
-** 				bleh functions
-*/
+t_color			fog(t_env *e, t_ray *ray, t_color color);
 void			super_sampling(t_env *e);
 void			exposure(t_color **color_array);
+void			stereoscopy(t_env *e);
 
 /*
 ** 				gui functions
@@ -114,6 +110,7 @@ t_vector		vector_scalar(float scalar, t_vector v);
 t_vector		vector_add(t_vector v1, t_vector v2);
 t_vector		vector_sub(t_vector v1, t_vector v2);
 float			dot_product(t_vector v1, t_vector v2);
+t_vector		cross_product(t_vector u, t_vector v);
 t_color			limit_color(t_color color);
 t_color			average_color(t_color color);
 t_color			scalar_color(float scalar, t_color color);
@@ -125,7 +122,8 @@ t_vector		vector_rot_z(t_vector v, float angle);
 t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle);
 t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis);
 t_vector		cross_product(t_vector u, t_vector v);
-
+void			print_error(int error_code);
+void			print_help(void);
 /*
 ** 				export functions
 */
@@ -178,8 +176,9 @@ t_color			new_color(int color);
 t_vector		new_vector(float x, float y, float z);
 t_scene			*new_scene(t_color background_color, t_camera *camera);
 void			delete_scene(t_scene *scene);
-t_camera		*new_camera(t_vector pos, t_vector dir);
+t_camera		*new_camera(t_vector pos, t_vector look_at);
 void			delete_camera(t_camera *camera);
+void			get_viewplane_pos(t_camera *camera);
 t_sphere		*new_sphere(t_vector pos, float r, t_vector axis,
 				    t_vector limits[]);
 void			delete_sphere(t_sphere *sphere);

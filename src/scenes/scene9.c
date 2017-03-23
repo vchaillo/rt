@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 14:58:39 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/09 23:13:38 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/22 06:00:24 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			load_scene9_objects(t_scene *scene)
 void			load_scene9_lights(t_scene *scene)
 {
 	scene->amb_intensity = 0.3;
-	scene->amb_color = new_color(BLUE);
+	scene->amb_color = new_color(WHITE);
 	add_light(scene, new_light(SPOT, 0.5, new_vector(0, 2, 11),
 		new_color(FAKE_WHITE)));
 }
@@ -52,7 +52,7 @@ void			load_scene9(t_env *e)
 {
 	if (e->scene)
 		delete_scene(e->scene);
-	e->scene_type = SCENE_8;
+	e->scene_type = SCENE_9;
 	e->scene = new_scene(new_color(FAKE_BLACK), new_camera(new_vector(0, 0, 25),
 		new_vector(0, 0, -1)));
 	load_scene9_objects(e->scene);

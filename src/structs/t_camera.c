@@ -6,27 +6,39 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/14 06:46:50 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/22 21:56:03 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_camera		*new_camera(t_vector pos, t_vector dir)
+t_camera		*new_camera(t_vector pos, t_vector look_at)
 {
-	t_camera	*camera;
+	t_camera	*cam;
+	float		angle;
+	t_vector	dir;
 
-	if (!(camera = (t_camera*)malloc(sizeof(t_camera))))
+	if (!(cam = (t_camera*)malloc(sizeof(t_camera))))
 		print_error(MALLOC_ERROR);
-	camera->pos = pos;
-	camera->dir = normalize(dir);
-	camera->dir_left = vector_rot_y(dir, -90);
-	camera->dir_up = vector_rot_x(dir, 90);
-	camera->rot = new_vector(0, 0, 0);
-	camera->ratio = RATIO;
-	camera->fov = FOV;
-	camera->focale = FOCALE;
-	return (camera);
+	cam->pos = pos;
+	cam->dir = new_vector(0, 0, -1);
+	cam->dir_right = new_vector(1, 0, 0);
+	cam->dir_up = new_vector(0, 1, 0);
+	dir = normalize(vector_sub(look_at, cam->pos));
+	angle = acosf(dot_product(new_vector(dir.x, 0, dir.z), cam->dir));
+	angle = dir.x > 0 ? -angle : angle;
+	cam->dir = vector_rot_y(cam->dir, angle * 180 / M_PI);
+	cam->dir_right = vector_rot_y(cam->dir_right, angle * 180 / M_PI);
+	cam->dir_up = vector_rot_y(cam->dir_up, angle * 180 / M_PI);
+	angle = acosf(dot_product(cam->dir, dir)) * 180 / M_PI;
+	angle = dir.y < 0 ? -angle : angle;
+	cam->dir = vector_rot_axis(cam->dir, cam->dir_right, angle);
+	cam->dir_up = vector_rot_axis(cam->dir_up, cam->dir_right, angle);
+	cam->dir_right = vector_rot_axis(cam->dir_right, cam->dir_right, angle);
+	// printf("dir(%f, %f, %f)\n", cam->dir.x, cam->dir.y, cam->dir.z);
+	// printf("dir_up(%f, %f, %f)\n", cam->dir_up.x, cam->dir_up.y, cam->dir_up.z);
+	// printf("dir_right(%f, %f, %f)\n\n", cam->dir_right.x, cam->dir_right.y, cam->dir_right.z);
+	return (cam);
 }
 
 void			delete_camera(t_camera *camera)
@@ -34,7 +46,13 @@ void			delete_camera(t_camera *camera)
 	free(camera);
 }
 
-// 
-// e->view_plane_ori = vec_add(vec_add(e->eye_pos, vec_numb(e->eye_dir,
-// 		VIEW_PLANE_DIST)), vec_sub(vec_numb(e->up_vec, VIEW_PLANE_HEIGHT / 2.0)
-// 		, vec_numb(e->right_vec, VIEW_PLANE_WIDTH / 2.0)));
+void			get_viewplane_pos(t_camera *camera)
+{
+	camera->viewplane_pos = vector_add(
+		vector_add(
+			camera->pos,
+			vector_scalar(FOCALE, camera->dir)),
+		vector_sub(
+			vector_scalar(FOV / 2.0, camera->dir_up),
+			vector_scalar(RATIO * FOV / 2.0, camera->dir_right)));
+}

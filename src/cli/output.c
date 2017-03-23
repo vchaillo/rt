@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 15:15:39 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 12:41:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/22 21:57:08 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void			print_cli_output(t_env *e)
 {
 	if (e->verbose == VERBOSE)
 	{
-		ft_putendl_color("\n********************************", TERM_BOLD_GREEN);
+		ft_putendl_color("\n***********************", TERM_BOLD_GREEN);
 		print_frame_time(e);
 		print_nb_rays(e);
 	}

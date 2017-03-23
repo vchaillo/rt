@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/18 19:33:58 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/03/22 21:15:08 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_MAIN = \
 		main.c\
 
 SRC_CORE = \
+		core/draw.c\
 		core/raytracer.c\
 		core/light.c\
 		core/normal.c\
@@ -52,13 +53,14 @@ SRC_CORE = \
 		core/antialiasing.c\
 		core/perlin.c\
 		core/exposure.c\
+		core/fog.c\
+		core/stereoscopy.c\
 
 SRC_PARSER = \
 		parser/args_parser.c\
 
 SRC_GUI = \
 		gui/mlx.c\
-		gui/draw.c\
 		gui/key_hook.c\
 		gui/key_hook_camera.c\
 		gui/key_hook_objects.c\
@@ -143,11 +145,11 @@ INC		=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM)/ -I lib/libft/includes/ -I lib/gsl/
 all: $(NAME)
 
 $(NAME): obj libft $(OBJ)
-		@echo "========================================="
+		@echo "======================================="
 		@printf "$(WHITE)Creating $(SYSTEM) $(NAME) executable... $(END_COLOR)"
 		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBFT) $(LIBGSL)
 		@echo "$(GREEN)Done √$(END_COLOR)"
-		@echo "========================================="
+		@echo "======================================="
 
 DEPS := $(OBJ:.o=.d)
 -include $(DEPS)

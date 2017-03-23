@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:50:01 by vchaillo          #+#    #+#             */
-/*   Updated: 2016/11/26 16:07:23 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/21 02:36:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static int		is_out_limit(const t_sphere *sphere, const t_ray *ray, const float t
 	t_vector	relative_pos;
 	t_vector	rotated_pos;
 
+	return (0);
 	relative_pos.x = (ray->o.x + ray->d.x * t) - sphere->pos.x;
 	relative_pos.y = (ray->o.y + ray->d.y * t) - sphere->pos.y;
 	relative_pos.z = (ray->o.z + ray->d.z * t) - sphere->pos.z;

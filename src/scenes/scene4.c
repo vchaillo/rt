@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 04:39:01 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/22 03:59:37 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			load_scene4_objects(t_scene *scene)
 {
 	int			i;
 	t_vector	limits[2];
-	
+
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
 	i = 0;
@@ -54,7 +54,7 @@ void			load_scene4(t_env *e)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_4;
 	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 8, 0),
-		new_vector(0, 0, -1)));
+		new_vector(0, 10, -100)));
 	load_scene4_objects(e->scene);
 	load_scene4_lights(e->scene);
 }

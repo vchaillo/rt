@@ -12,16 +12,17 @@
 
 #include "rt.h"
 
-t_boloid		*new_boloid(t_vector pos, float a, float b, float c)
+t_boloid		*new_boloid(t_vector pos, float abc[], float sign)
 {
 	t_boloid	*boloid;
 
 	if (!(boloid = (t_boloid*)malloc(sizeof(t_boloid))))
 		print_error(MALLOC_ERROR);
 	boloid->pos = pos;
-	boloid->a = a;
-	boloid->b = b;
-	boloid->c = c;
+	boloid->a = abc[0];
+	boloid->b = abc[1];
+	boloid->c = abc[2];
+	boloid->sign = sign;
 	return (boloid);
 }
 

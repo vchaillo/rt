@@ -19,15 +19,14 @@ float			hit_boloid(t_boloid *boloid, t_ray *ray)
 	double		c;
 	double		t;
 
-	a = (boloid->a * pow(ray->d.x, 2)) +
-		(boloid->b * pow(ray->d.y, 2)) +
-		(boloid->c * pow(ray->d.z, 2));
-	b = 2 * ((boloid->a * ray->d.x) +
-			 (boloid->b * ray->d.y) +
-			 (boloid->c * ray->d.z));
-	c = boloid->a * pow(ray->o.x, 2) +
-		boloid->b * pow(ray->o.y, 2) +
- 		boloid->c * pow(ray->o.z, 2) - 1; 
+	a = (pow(ray->d.y, 2) / pow(boloid->b, 2))
+	  + (boloid->sign * pow(ray->d.x, 2));
+	b = (2 * ray->d.y * ray->o.y)
+	  + (boloid->sign * 2 * ray->d.x * ray->o.x)
+	  - ray->d.z;
+	c = pow(ray->o.y, 2) / pow(boloid->b, 2)
+	  + boloid->sign * pow(ray->o.x, 2)
+	  - ray->o.z;
 	t = solve_deg2(a, b, c);
 	return (t);
 }
@@ -38,8 +37,8 @@ t_vector		get_normal_at_boloid(t_ray *ray, t_boloid *boloid)
 	t_vector	normal;
 
 	hit = ray->hitpoint.pos;
-	normal.x = 2*boloid->a*hit.x;
-	normal.y = 2*boloid->b*hit.y;
-	normal.z = 2*boloid->c*hit.z;
+	normal.x = 2 * hit.x * boloid->sign * (1 / pow(boloid->a, 2));
+	normal.y = 2 * hit.y * (1 / pow(boloid->b, 2));
+	normal.z = -1 * (hit.z / ABS(hit.z));
 	return (normal);
 }

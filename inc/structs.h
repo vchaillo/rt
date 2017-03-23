@@ -91,6 +91,7 @@ typedef struct				s_boloid
 	float					a;
 	float					b;
 	float					c;
+	float					sign;
 }							t_boloid;
 
 typedef struct				s_box

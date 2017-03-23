@@ -1,21 +1,3 @@
-A*x² + B*y² + C*z² = 0
-x = x0 + t1
-y = y0 + t2
-z = z0 + t3
-
-A(x0 + t * a)^2 + B(y0 + t * b)^2 + C(z0 + t * c)^2 = 0
-
-A(x0² + 2ta +  t²a²) +
-B(y0² + 2tb +  t²b²) +
-C(z0² + 2tc +  t²c²)
-
-Aa² t² + 2aA t + x0²A +
-Bb² t² + 2bB t + y0²B +
-Cc² t² + 2cC t + z0²C
-
-t² * (Aa² + Bb² + Cc²) + t(2(aA + bB + cC) + x0²A + y0²B + z0²C = 
-
-normal:
-2*A*x
-2*B*y
-2*C*z
+z = y²/b² +- x²/a²
+0 = (dy²t² + 2dypyt + py²)/b² +- (dx²t² + 2dxpxt + px²) - (dzt + pz)
+t² (dy²/b² +- dx²) + t(2dypy +- 2dxpx - dz) + py²/b² +- px² - pz = 0

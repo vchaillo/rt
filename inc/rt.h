@@ -185,7 +185,7 @@ t_sphere		*new_sphere(t_vector pos, float r, t_vector axis,
 void			delete_sphere(t_sphere *sphere);
 t_tore			*new_tore(t_vector pos, float r, float big_r);
 void			delete_tore(t_tore *tore);
-t_boloid		*new_boloid(t_vector pos, float a, float b, float c);
+t_boloid		*new_boloid(t_vector pos, float abc[], float sign);
 void			delete_boloid(t_boloid *boloid);
 t_plane			*new_plane(t_vector normal, float offset, int wave,
 				   t_vector limits[]);

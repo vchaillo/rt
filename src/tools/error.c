@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 09:06:13 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/23 00:44:55 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			print_parser_error(char *str, int error_code, int line)
 	else if (error_code == MISSING_ERROR)
 		ft_putstr_color("Missing value between both tags", TERM_BOLD_RED);
 	else if (error_code == NOT_DEFINE_ERROR)
-		ft_putstr_color(" is not a define at line : ", TERM_BOLD_RED);
+		ft_putstr_color(" is not a define", TERM_BOLD_RED);
 	line != 0 ? ft_putnbr_color(line, TERM_BOLD_GREY) : NULL;
 	ft_putstr_color("\n", TERM_END);
 	exit(0);

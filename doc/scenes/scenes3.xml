@@ -1,13 +1,11 @@
 <scene>
-
 	<camera>
-		<pos>0.000, 0.100, 4.200<pos>
-		<dir>0.000, 0.000, -1.000<dir>
+		<pos>0.00, 0.00, 4.2</pos>
+		<dir>0.002, 0.100, -1.000</dir>
 	</camera>
 	<background>BLACK</background>
 	<amb_color>WHITE</amb_color>
 	<amb_intensity>1</amb_intensity>
-
 	<objects>
 
 		<object>
@@ -19,37 +17,30 @@
 				<r>1</r>
 			</sphere>
 
-	</object>
+		</object>
 
 	</objects>
-
 	<lights>
 
 		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>RED</color>
-			<dir>
-				<pos>1, -1, -1<pos>
-			</dir>
+			<vector>1, -1, -1</vector>
 		</light>
 
 		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>BLUE</color>
-			<dir>
-				<pos>-1, -1, -1<pos>
-			</dir>
+			<vector>-1, -1, -1</vector>
 		</light>
 
-				<light>
+		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>GREEN</color>
-			<dir>
-				<pos>0, 1, -1<pos>
-			</dir>
+			<vector>0, 1, -1</vector>
 		</light>
 
 	</lights>

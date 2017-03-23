@@ -1,11 +1,11 @@
 <scene>
 	<camera>
-		<pos>0, 10, 100<pos>
-		<dir>0, 0, -1<dir>
+		<pos>0.00, 10, 100</pos>
+		<dir>0.000, 0.0, -1.000</dir>
 	</camera>
 	<background>BLACK</background>
-	<amb_color>WHITE</amb_color>
-	<amb_intensity>1</amb_intensity>
+	<amb_color>BLUE</amb_color>
+	<amb_intensity>0.3</amb_intensity>
 	<objects>
 
 		<object>
@@ -22,14 +22,14 @@
 			<color>WHITE</color>
 			<material>BASIC</material>
 			<plane>
-				<normal>0, 1, 0</normal>
+				<normal>0, -1, 0</normal>
 				<offset>0</offset>
 				<style>NORMAL</style>
 			</plane>
 		</object>
 		<object>
 			<type>CYLINDER</type>
-			<color>BLUE</color>
+			<color>PASTEL_BLUE</color>
 			<material>BASIC</material>
 			<cylinder>
 				<axis>0, 10, -3</axis>
@@ -42,25 +42,27 @@
 			<color>CYAN</color>
 			<material>PLASTIC</material>
 			<cone>
-				<axis>0, 2, -1</axis>
+				<axis>0, 1, -0.5</axis>
 				<apex>40, 20, -25</apex>
 				<angle>30</angle>
 			</cone>
 		</object>
+
 	</objects>
 	<lights>
-		<light>
-			<type>SPOT</type>
-			<intensity>1</intensity>
-			<color>WHITE</color>
-			<vector>-100, 75, 50<vector>
-		</light>
 
 		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>WHITE</color>
-			<vector>0, -1, -1<vector>
+			<vector>0, -1, -1</vector>
+		</light>
+		<light>
+			<type>SPOT</type>
+			<intensity>1</intensity>
+			<color>WHITE</color>
+			<vector>-100, 75, 50</vector>
 		</light>
 	</lights>
+
 </scene>

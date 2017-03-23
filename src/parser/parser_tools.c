@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:41:17 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 09:56:17 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/23 06:20:59 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,159 +39,86 @@ char			**get_tab(char *file)
 	return (tab);
 }
 
-// int				search_macro(char *str, t_macro *macros)
-// {
-// 	t_parser	p;
-// 	char		*line;
-// 	int			i;
-//
-// 	i = 0;
-// 	p.i = 0;
-// 	p.y = 0;
-// 	line = NULL;
-// 	while (tab[p.i] != 0)
-// 	{
-// 		if (ft_strstr(tab[p.i], str))
-// 		{
-// 			i = hextoint(tab[p.i]);
-// 			return (i);
-// 		}
-// 		p.i++;
-// 	}
-// 	print_parser_error(str, NOT_DEFINE, p.i);
-// 	return (0);
-// }
-//
-// int				hextoint(const char *str)
-// {
-// 	int			i;
-// 	int			value;
-// 	int			count;
-//
-// 	value = 0;
-// 	count = 0;
-// 	i = 0;
-// 	while (str[i] > '9' || str[i] < '0')
-// 	{
-// 		if (str[i] == 0)
-// 			print_parser_error("", MISSING, 0);
-// 		i++;
-// 	}
-// 	while (str[i] <= '9' && str[i] >= '0')
-// 	{
-// 		value = value * 10;
-// 		value = value + str[i] - 48;
-// 		count++;
-// 		i++;
-// 	}
-// 	return (value);
-// }
-//
-// int				get_value(t_env *e, char *str, char **tab, int x)
-// {
-// 	t_parser	p;
-// 	int			i;
-//
-// 	i = 0;
-// 	p.i = 0;
-// 	p.y = 0;
-// 	p.line = NULL;
-// 	while (tab[x] != 0)
-// 	{
-// 		if (ft_strstr(tab[x], str))
-// 		{
-// 			while (tab[x][p.y] != '>')
-// 				p.y++;
-// 			p.fd = p.y;
-// 			while (tab[x][++p.y] != '<' && (i = tab[x][p.y]) && i++)
-// 				if (!(p.line = (char *)malloc(sizeof(char) * (i + 1))))
-// 					p.y = p.fd;
-// 			i = 0;
-// 			while (tab[x][++p.fd] != '<')
-// 				p.line[i++] = tab[x][p.fd];
-// 			p.line[i] = 0;
-// 			if (ft_strcmp(str, "<material>") == 0)
-// 				return (search_macro(e, p.line, e->macros->materials));
-// 			else if (ft_strcmp(str, "<color>") == 0 ||
-// 					ft_strcmp(str, "<background>") == 0 ||
-// 					ft_strcmp(str, "<amb_color>") == 0)
-// 				return (search_macro(e, p.line, e->macros->colors));
-// 			else
-// 				return (search_macro(e, p.line, e->macros->objects));
-// 			if (p.line[0] == 0)
-// 				print_parser_error(str, IS_EMPTY, x);
-// 		}
-// 		if (ft_strstr(tab[x], "</object>"))
-// 			print_parser_error(str, IS_MISSING, 0);
-// 		x++;
-// 	}
-// 	print_parser_error(str, IS_MISSING, 0);
-// 	return (0);
-// }
-//
-// int				get_nbr(char *str, char **tab, int x)
-// {
-// 	while (tab[x])
-// 	{
-// 		if (ft_strstr(tab[x], str))
-// 			return (hextoint(tab[x]));
-// 		if (ft_strstr(tab[x], "</object>"))
-// 			print_parser_error(str, IS_MISSING, 0);
-// 		x++;
-// 	}
-// 	return (0);
-// }
-//
-// t_vector		get_vect(char *str, char **tab, int x)
-// {
-// 	float		abc[3];
-// 	t_parser	p;
-// 	float		value;
-// 	int			count;
-// 	int			check;
-//
-// 	ft_bzero(abc, 3 * sizeof(float));
-// 	count = 0;
-// 	p.i = 1;
-// 	while (tab[x])
-// 	{
-// 		if (ft_strstr(tab[x], str))
-// 		{
-// 			while (tab[x][p.y] != '>')
-// 				p.y++;
-// 			p.fd = p.y;
-// 			while (tab[x][p.y] != '<')
-// 			{
-// 				value = 0;
-// 				check = 0;
-// 				if (tab[x][p.y] == '-')
-// 					p.i = -1;
-// 				while (tab[x][++p.y] <= '9' && tab[x][p.y] >= '0')
-// 				{
-// 					value = value * 10;
-// 					value = value + tab[x][p.y] - 48;
-// 					check++;
-// 				}
-// 				if (tab[x][p.y] == ',' || tab[x][p.y] == '<')
-// 				{
-// 					value = value * p.i;
-// 					if (check == 0)
-// 						print_parser_error(tab[x], THREE_ARGV_VEC, x);
-// 					if (count == 0)
-// 						abc[0] = value;
-// 					if (count == 1)
-// 						abc[1] = value;
-// 					if (count == 2)
-// 						abc[2] = value;
-// 					p.i = 1;
-// 					count++;
-// 				}
-// 			}
-// 			(count != 3) ? print_parser_error(tab[x], THREE_ARGV_VEC, x) : NULL;
-// 			return (new_vector(abc[0], abc[1], abc[2]));
-// 		}
-// 		if (ft_strstr(tab[x++], "</object>"))
-// 			print_parser_error(str, IS_MISSING, 0);
-// 	}
-// 	return (new_vector(abc[0], abc[1], abc[2]));
-// }
+int				get_nbr(char **array, char *tag, char *tagg)
+{
+	float		abc;
+	char		*str;
+
+	str = between_tags(&array[tag_present(array, tagg, "open") + 1],
+	tag, tag_present(array, tagg, "close") - 1);
+	abc = ft_atof(&str[0]);
+	return (abc);
+}
+
+t_vector		get_vector(char **array, char *tag, char *tagg)
+{
+	t_vector	vector;
+	int			i;
+	float		abc[3];
+	char		*str;
+
+	i = 0;
+	ft_bzero(abc, 3 * sizeof(float));
+	str = between_tags(&array[tag_present(array, tagg, "open") + 1],
+	tag, tag_present(array, tagg, "close") - 1);
+	abc[0] = ft_atof(&str[i]);
+	while (str[i] != ',')
+		i++;
+	i++;
+	abc[1] = ft_atof(&str[i++]);
+	while (str[i] != ',')
+		i++;
+	abc[2] = ft_atof(&str[i + 2]);
+	vector = new_vector(abc[0], abc[1], abc[2]);
+	return (vector);
+}
+
+char			*between_tags(char **array, char *tag, int end)
+{
+	int			open_close[2];
+	int			i_mlen[2];
+	char		*str;
+
+	ft_bzero(i_mlen, 2 * sizeof(int));
+	open_close[0] = tag_present(array, tag, "open");
+	open_close[1] = tag_present(array, tag, "close");
+	if (open_close[0] != open_close[1] || open_close[0] > end)
+		print_parser_error(tag, MISSING_TAG_ERROR, 0);
+	while (array[open_close[0]][i_mlen[0]] != '>')
+		i_mlen[0]++;
+	while (array[open_close[0]][i_mlen[0]] != '<')
+	{
+		i_mlen[1]++;
+		i_mlen[0]++;
+	}
+	if (!(str = (char *)malloc(sizeof(char) * i_mlen[1])))
+		print_error(MALLOC_ERROR);
+	i_mlen[0] -= (i_mlen[1] - 1);
+	i_mlen[1] = 0;
+	while (array[open_close[0]][i_mlen[0]] != '<')
+		str[i_mlen[1]++] = array[open_close[0]][i_mlen[0]++];
+	str[i_mlen[1]] = 0;
+	return (str);
+}
+
+int				tag_present(char **array, char *tag, char *str)
+{
+	int			i;
+	char		*tagg;
+
+	i = 0;
+	if (ft_strcmp("close", str) == 0)
+		tagg = ft_strjoin("</", tag);
+	else
+		tagg = ft_strjoin("<", tag);
+	tag = ft_strjoin(tagg, ">");
+	free(tagg);
+	while (array[i])
+	{
+		if (ft_strstr(array[i], tag))
+			return (i);
+		i++;
+	}
+	print_parser_error(tag, MISSING_TAG_ERROR, 0);
+	return (0);
+}

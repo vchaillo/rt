@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 09:35:04 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/21 09:39:49 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/22 21:19:50 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,27 @@ float				ft_atof(char *c)
 {
 	float			f;
 	unsigned char	dec;
+	int				sign;
 
 	f = 0;
-	while (*c >= '0' && *c <= '9')
+	sign = 1;
+	while (*c == ' ' || *c == '\n' || *c == '\t')
+		c++;
+	if (*c == '-')
 	{
-		f = (f * 10) + (*c - '0');
+		sign = -1;
 		c++;
 	}
+	else if (*c == '+')
+		c++;
+	while (*c >= '0' && *c <= '9')
+		f = (f * 10) + (*c++ - '0');
 	dec = 1;
 	if (*c++ == '.')
 	{
 		while (*c >= '0' && *c <= '9')
-		{
-			f += (*c - '0') * pow(10, -(dec++));
-			c++;
-		}
+			f += (*c++ - '0') * pow(10, -(dec++));
 	}
+	f = f * sign;
 	return (f);
 }

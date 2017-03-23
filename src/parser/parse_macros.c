@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:10:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 07:36:15 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/23 06:08:09 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ t_macro_array		*create_macros_array(char **array, char *str)
 	start = find_start(array, str);
 	nb_macros = get_nb_macros(array, start);
 	if (!(macro_array = (t_macro_array *)malloc(sizeof(t_macro_array)
-		* nb_macros + 1)))
+		* (nb_macros + 1))))
 		print_error(MALLOC_ERROR);
-	// macro_array[nb_macros + 1] = NULL;
 	i = 0;
+	macro_array[nb_macros].define = "end";
 	while (nb_macros > 0)
 	{
 		if (ft_strstr(array[start], "# define"))

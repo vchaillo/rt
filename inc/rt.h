@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 08:45:46 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/23 06:22:03 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,19 @@ void			parse_xml_file(t_env *e, char **tab);
 t_macros		create_macros_arrays(void);
 int				search_macro(char *str, char **tab);
 char			**get_tab(char *file);
+int				create_object(t_env *e, char **tab);
+int				create_light(t_env *e, char **tab);
 int				hextoint(const char *str);
-int				get_value(t_env *e, char *str, char **tab, int x);
-int				get_nbr(char *str, char **tab, int x);
+t_vector		get_vector(char **array, char *tag, char *tagg);
+int				get_color(t_env *e, char **array, char *tag, char *tagg);
+int				get_material(t_env *e, char **array, char *tag, char *tagg);
+int				get_effect(t_env *e, char **array, char *tag, char *tagg);
+int				get_object(t_env *e, char **array, char *tag, char *tagg);
+int				get_light(t_env *e, char **array, char *tag, char *tagg);
+int				get_pstyle(t_env *e, char **array, char *tag, char *tagg);
+int				tag_present(char **array, char *tag, char *str);
+char			*between_tags(char **array, char *tag, int end);
+int				get_nbr(char **array, char *tag, char *tagg);
 t_vector		get_vect(char *str, char **tab, int x);
 void			print_error(int error_code);
 void			print_parser_error(char *str, int error_code, int line);

@@ -43,22 +43,22 @@
 			<type>CYLINDER</type>
 			<color>BLUE</color>
 			<material>BASIC</material>
-			<cone>
+			<cylinder>
 				<axis>0, 1, 0</axis>
 				<pos>40, 20, 25</pos>
 				<r>100</r>
-			</cone>
+			</cylinder>
 		</object>
 
 		<object>
 			<type>CONE</type>
 			<color>RED</color>
 			<material>PERLIN</material>
-			<cylinder>
+			<cone>
 				<axis>0, 1, 0</axis>
 				<apex>40, 20, 0</apex>
 				<angle>20</angle>
-			</cylinder>
+			</cone>
 		</object>
 
 	</objects>
@@ -71,18 +71,14 @@
 			<type>SPOT</type>
 			<intensity>5</intensity>
 			<color>WHITE</color>
-			<spot>
-				<pos>15, 12, 20<pos>
-			</spot>
+			<vector>15, 12, 20<vector>
 		</light>
 
 		<light>
 			<type>DIR</type>
 			<intensity>5</intensity>
 			<color>WHITE</color>
-			<dir>
-				<pos>15, 12, 20</pos>
-			</dir>
+			<vector>15, 12, 20</vector>
 		</light>
 
 	</lights>

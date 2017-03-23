@@ -6,12 +6,18 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 08:38:57 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/22 18:24:52 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+typedef struct				s_tag_array
+{
+	int						start;
+	int						end;
+}							t_tag_array;
 
 typedef struct				s_parser
 {

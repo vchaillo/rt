@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/23 06:23:18 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/23 18:37:17 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,16 @@ void			parse_lights(t_env *e, char **array)
 
 void			parse_xml_file(t_env *e, char **array)
 {
-	int			current_line;
-	int			countlight;
-	int			countobj;
+	int			i;
 
-	countlight = 0;
-	countobj = 0;
-	current_line = 0;
+	i = 0;
 	parse_scenes(e, array);
 	parse_objects(e, array);
 	parse_lights(e, array);
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

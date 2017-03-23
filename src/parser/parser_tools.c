@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:41:17 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/23 06:20:59 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/23 18:35:14 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char			**get_tab(char *file)
 	close(fd);
 	(tmp == NULL) ? print_error(OPEN_ERROR) : NULL;
 	tab = ft_strsplit(tmp, '\n');
+	free(tmp);
 	return (tab);
 }
 
@@ -70,6 +71,7 @@ t_vector		get_vector(char **array, char *tag, char *tagg)
 		i++;
 	abc[2] = ft_atof(&str[i + 2]);
 	vector = new_vector(abc[0], abc[1], abc[2]);
+	free(str);
 	return (vector);
 }
 
@@ -108,15 +110,19 @@ int				tag_present(char **array, char *tag, char *str)
 
 	i = 0;
 	if (ft_strcmp("close", str) == 0)
-		tagg = ft_strjoin("</", tag);
+		tag = ft_strjoin("</", tag);
 	else
-		tagg = ft_strjoin("<", tag);
-	tag = ft_strjoin(tagg, ">");
+		tag = ft_strjoin("<", tag);
+	tagg = tag;
+	tag = ft_strjoin(tag, ">");
 	free(tagg);
 	while (array[i])
 	{
 		if (ft_strstr(array[i], tag))
+		{
+			free(tag);
 			return (i);
+		}
 		i++;
 	}
 	print_parser_error(tag, MISSING_TAG_ERROR, 0);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:10:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/23 06:08:09 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/24 00:18:48 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,15 @@ t_macro_array		create_macros_array_case(char *macro, char *str)
 	char			**array;
 
 	array = ft_strsplit(&macro[9], ' ');
+	free(macro);
 	if (!(macro_case.define = ft_strdup(array[0])))
 		print_error(MALLOC_ERROR);
 	if (ft_strcmp(str, "colors defines"))
 		macro_case.value = (int)strtol(array[1], NULL, 10);
 	else
 		macro_case.value = (int)strtol(array[1], NULL, 16);
+	free(array[0]);
+	free(array[1]);
 	free(array);
 	return (macro_case);
 }
@@ -92,6 +95,7 @@ t_macros			create_macros_arrays(void)
 	char			**file_colors;
 	char			**file_materials;
 	char			**file_macros;
+	int				i;
 
 	file_colors = get_tab("inc/colors.h");
 	macros.colors = create_macros_array(file_colors, "colors defines");
@@ -102,6 +106,10 @@ t_macros			create_macros_arrays(void)
 	macros.objects = create_macros_array(file_macros, "objects defines");
 	macros.effects = create_macros_array(file_macros, "effects defines");
 	macros.plane_styles = create_macros_array(file_macros, "plane types defin");
+	i = 0;
+	while (i < 11)
+		free(file_colors[i++]);
+	free(file_colors[i]);
 	free(file_colors);
 	free(file_materials);
 	free(file_macros);

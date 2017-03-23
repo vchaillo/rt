@@ -1,11 +1,11 @@
 <scene>
 	<camera>
 		<pos>0.00, 0.00, 4.2</pos>
-		<dir>0.002, 0.100, -1.000</dir>
+		<dir>0.00, 0.100, -1.000</dir>
 	</camera>
 	<background>BLACK</background>
 	<amb_color>WHITE</amb_color>
-	<amb_intensity>1</amb_intensity>
+	<amb_intensity>0</amb_intensity>
 	<objects>
 
 		<object>

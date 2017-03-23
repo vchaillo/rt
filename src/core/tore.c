@@ -12,6 +12,28 @@
 
 #include "rt.h"
 
+static int		is_out_limit(const t_tore *tore, const t_ray *ray, const float t)
+{
+	t_vector	relative_pos;
+
+	relative_pos.x = (ray->o.x + ray->d.x * t) - tore->pos.x;
+	relative_pos.y = (ray->o.y + ray->d.y * t) - tore->pos.y;
+	relative_pos.z = (ray->o.z + ray->d.z * t) - tore->pos.z;
+	if ((tore->limit_max.x > 0 || tore->limit_min.x < 0)
+	    && (relative_pos.x > tore->limit_max.x ||
+		relative_pos.x < tore->limit_min.x))
+		return (1);
+	if ((tore->limit_max.y > 0 || tore->limit_min.y < 0)
+	    && (relative_pos.y > tore->limit_max.y ||
+		relative_pos.y < tore->limit_min.y))
+		return (1);
+	if ((tore->limit_max.z > 0 || tore->limit_min.z < 0)
+	    && (relative_pos.z > tore->limit_max.z ||
+		relative_pos.z < tore->limit_min.z))
+		return (1);
+	return (0);
+}
+
 /*
 ** Ray to hit tore intersection is a 4th degree equation.
 ** eq4[5] is the e, d, c, b, a parameters of that equation.
@@ -52,10 +74,8 @@ float			hit_tore(t_tore *tore, t_ray *ray)
 	eq[3] /= eq[4];
 	eq[4] = 1;
 	t = solve_deg4(eq);
-	if (t != INFINITY && t > EPSILON)
-	{
-	  //printf("%.18lf*x^4 + %.18lf*x^3 + %.18lf*x^2 + %.18lf*x + %.18lf = 0\nx = %lf\n", eq4[4], eq4[3] , eq4[2] , eq4[1] , eq4[0] , t);
-	}
-	// printf("t: %lf\n", t);
-	return (t);
+	if (!is_out_limit(tore, ray, t))
+	  return (t);
+	else
+	  return (0);
 }

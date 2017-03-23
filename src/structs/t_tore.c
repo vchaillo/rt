@@ -12,7 +12,8 @@
 
 #include "rt.h"
 
-t_tore		*new_tore(t_vector pos, float r, float big_r)
+t_tore		*new_tore(t_vector pos, float r, float big_r,
+			  t_vector limits[])
 {
 	t_tore	*tore;
 
@@ -21,6 +22,8 @@ t_tore		*new_tore(t_vector pos, float r, float big_r)
 	tore->pos = pos;
 	tore->r = r;
 	tore->big_r = big_r;
+	tore->limit_min = limits[0];
+	tore->limit_max = limits[1];
 	return (tore);
 }
 

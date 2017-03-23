@@ -12,7 +12,8 @@
 
 #include "rt.h"
 
-t_boloid		*new_boloid(t_vector pos, float abc[], float sign)
+t_boloid		*new_boloid(t_vector pos, float abc[], float sign,
+				    t_vector limits[])
 {
 	t_boloid	*boloid;
 
@@ -22,6 +23,8 @@ t_boloid		*new_boloid(t_vector pos, float abc[], float sign)
 	boloid->a = abc[0];
 	boloid->b = abc[1];
 	boloid->c = abc[2];
+	boloid->limit_min = limits[0];
+	boloid->limit_max = limits[1];
 	boloid->sign = sign;
 	return (boloid);
 }

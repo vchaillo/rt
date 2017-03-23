@@ -81,6 +81,8 @@ typedef struct				s_cone
 typedef struct				s_tore
 {
 	t_vector				pos;
+	t_vector				limit_max;
+	t_vector				limit_min;
 	float					r;
 	float					big_r;
 }							t_tore;
@@ -88,6 +90,8 @@ typedef struct				s_tore
 typedef struct				s_boloid
 {
 	t_vector				pos;
+	t_vector				limit_max;
+	t_vector				limit_min;
 	float					a;
 	float					b;
 	float					c;

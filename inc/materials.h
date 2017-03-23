@@ -6,16 +6,16 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/19 21:39:32 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/23 23:52:32 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIALS_H
 # define MATERIALS_H
 
-#define DIFFUSE 0
-#define REFLECTIVE 1
-#define TRANSMITIVE 2
+# define DIFFUSE 0
+# define REFLECTIVE 1
+# define TRANSMITIVE 2
 
 # define BASIC 0
 # define PLASTIC 1

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 03:19:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 00:49:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct				s_plane
 	int						is_limited;
 	t_vector				mins;
 	t_vector				maxs;
-  	t_vector				limit_max;
+	t_vector				limit_max;
 	t_vector				limit_min;
 }							t_plane;
 

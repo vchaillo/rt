@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 08:54:27 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 21:11:06 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,12 @@ void			delete_cylinder(t_cylinder *cylinder);
 t_cone			*new_cone(t_vector axis, t_vector apex, float aperture,
 					t_vector limits[]);
 void			delete_cone(t_cone *cone);
+t_box			*new_box(t_vector corner, t_vector translation,
+					t_vector rotxyz);
+void			delete_box(t_box *box);
+t_disc			*new_disc(float r_max, float r_min, t_vector pos,
+					t_vector rotxyz);
+void			delete_disc(t_disc *disc);
 t_object		*new_object(int type, void *object, t_color color, t_mat mat);
 void			add_object(t_scene *scene, t_object *new);
 void			delete_objects(t_object *objects);
@@ -248,10 +254,6 @@ t_mat			new_test_material(void);
 t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
 t_color			**reset_color_array(int aa, t_color **colors);
-t_box			*new_box(t_vector corner, t_vector translation,
-					t_vector rotxyz);
-t_disc			*new_disc(float r_max, float r_min, t_vector pos,
-					t_vector rotxyz);
 t_ray			ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz);
 
 #endif

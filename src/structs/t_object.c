@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:46 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/15 17:09:35 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 21:09:41 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ void			delete_objects(t_object *objects)
 			delete_cone(objects->object);
 		else if (objects->type == TORE)
 			delete_tore(objects->object);
+		else if (objects->type == BOLOID)
+			delete_boloid(objects->object);
+		else if (objects->type == DISC)
+			delete_disc(objects->object);
+		else if (objects->type == BOX)
+			delete_box(objects->object);
 		objects->next = NULL;
 		free(objects);
 		objects = tmp;

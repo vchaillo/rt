@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 03:35:05 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 03:51:42 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 float			gradient(int i, int j)
 {
 	float		unit;
-	float		gradient[8][2];
+	float		grad[8][2];
 
 	unit = 1.0 / sqrt(2);
-	gradient[0][0] = unit;
-	gradient[0][1] = unit;
-	gradient[1][0] = -unit;
-	gradient[1][1] = unit;
-	gradient[2][0] = unit;
-	gradient[2][1] = -unit;
-	gradient[3][0] = -unit;
-	gradient[3][1] = -unit;
-	gradient[4][0] = 1;
-	gradient[4][1] = 0;
-	gradient[5][0] = -1;
-	gradient[5][1] = 0;
-	gradient[6][0] = 0;
-	gradient[6][1] = 1;
-	gradient[7][0] = 0;
-	gradient[7][1] = -1;
-	return (gradient[i][j]);
+	grad[0][0] = unit;
+	grad[0][1] = unit;
+	grad[1][0] = -unit;
+	grad[1][1] = unit;
+	grad[2][0] = unit;
+	grad[2][1] = -unit;
+	grad[3][0] = -unit;
+	grad[3][1] = -unit;
+	grad[4][0] = 1;
+	grad[4][1] = 0;
+	grad[5][0] = -1;
+	grad[5][1] = 0;
+	grad[6][0] = 0;
+	grad[6][1] = 1;
+	grad[7][0] = 0;
+	grad[7][1] = -1;
+	return (grad[i][j]);
 }
 
 float			fade(float nb)
@@ -53,9 +53,10 @@ static void		read_perm(const char *pstr, unsigned int perm[])
 	while (pstr && *pstr)
 	{
 		perm[i++] = ft_atoi(pstr);
-		while (*pstr > '0' && *pstr < '9')
+		while (*pstr >= '0' && *pstr <= '9')
 			pstr++;
-		pstr += 2;
+		while (*pstr && (*pstr < '0' || *pstr > '9'))
+			pstr++;
 	}
 }
 

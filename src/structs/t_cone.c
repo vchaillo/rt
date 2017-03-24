@@ -6,14 +6,14 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:37 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 01:48:17 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 03:04:19 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 t_cone			*new_cone(t_vector axis, t_vector apex,
-						  float aperture, t_vector limits[])
+					float aperture, t_vector limits[])
 {
 	t_cone	*cone;
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene7.c                                           :+:      :+:    :+:   */
+/*   t_box.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/14 07:55:18 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/24 03:02:56 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ t_box			*new_box(t_vector corner, t_vector translation, t_vector rotxyz)
 
 	if (!(box = (t_box*)malloc(sizeof(t_box))))
 		print_error(MALLOC_ERROR);
-    corner.x = (corner.x >= 0) ? corner.x : -corner.x;
-    corner.y = (corner.y >= 0) ? corner.y : -corner.y;
-    corner.z = (corner.z >= 0) ? corner.z : -corner.z;
-    box->corner_min = corner;
-    box->corner_max = vector_scalar(-1, corner);
-    box->trans = translation;
-    box->rotxyz = rotxyz;
+	corner.x = (corner.x >= 0) ? corner.x : -corner.x;
+	corner.y = (corner.y >= 0) ? corner.y : -corner.y;
+	corner.z = (corner.z >= 0) ? corner.z : -corner.z;
+	box->corner_min = corner;
+	box->corner_max = vector_scalar(-1, corner);
+	box->trans = translation;
+	box->rotxyz = rotxyz;
 	return (box);
 }
 

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   t_tore.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlegroux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 00:06:06 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/14 00:13:05 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:00:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 t_tore		*new_tore(t_vector pos, float r, float big_r,
-			  t_vector limits[])
+				t_vector limits[])
 {
 	t_tore	*tore;
 

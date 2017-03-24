@@ -6,14 +6,14 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:34:52 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:00:00 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 t_plane			*new_plane(t_vector normal, float offset, int type,
-				   t_vector limits[])
+					t_vector limits[])
 {
 	t_plane		*plane;
 

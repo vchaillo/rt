@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/24 04:42:00 by tlegroux         ###   ########.fr        #
+#    Updated: 2017/03/24 04:58:27 by tlegroux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,7 @@ SRC_STRUCTS = \
 		structs/t_object.c\
 		structs/t_light.c\
 		structs/t_material.c\
+		structs/t_material2.c\
 		structs/t_color.c\
 		structs/t_color_array.c\
 

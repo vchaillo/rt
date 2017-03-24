@@ -6,14 +6,14 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:37 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/12 23:00:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 03:05:43 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 t_cylinder		*new_cylinder(t_vector axis, t_vector pos, float r,
-				      t_vector limits[])
+					t_vector limits[])
 {
 	t_cylinder	*cylinder;
 

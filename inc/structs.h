@@ -180,6 +180,7 @@ typedef struct				s_ref
 	t_color					refract_color;
 	t_ray					reflect_ray;
 	t_ray					refract_ray;
+	int						depth;
 }							t_ref;
 
 typedef struct				s_light

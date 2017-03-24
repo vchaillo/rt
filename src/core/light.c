@@ -101,7 +101,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 			color = add_color(specular(vray, light, &lray), color);
 		color = scalar_color(lray.transmittance_ray, color);
 	}
-	return (scalar_color(hitpoint.object->material.diffuse, color));
+	return (scalar_color(vray->hitpoint.object->material.diffuse, color));
 }
 
 t_color			illuminate(t_env *e, t_ray *ray)

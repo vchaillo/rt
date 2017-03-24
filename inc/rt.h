@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 04:06:46 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:20:31 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,7 @@ void			print_tag_tofile(char *tag, int type, int tabulations, int fd);
 void			print_vector_tofile(t_vector v, char *name, int tabs, int fd);
 void			print_color_tofile(t_color c, char *name, int tabs, int fd);
 void			print_objects_tofile(t_object *objects, int fd);
+void			print_cone_tofile(t_cone *cone, int fd);
 void			print_lights_tofile(t_env *e, t_light *lights, int fd);
 
 /*

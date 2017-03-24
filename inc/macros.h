@@ -6,14 +6,12 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 01:33:54 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:24:24 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
-
-# define ABS(x) ((x > 0) ? (x) : (-x))
 
 /*
 ** multi threading

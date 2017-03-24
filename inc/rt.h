@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 08:21:13 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:48:42 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void			print_frame_time(t_env *e);
 void			parse_arguments(int ac, char **av, t_env *e);
 void			parse_xml_file(t_env *e, char **tab);
 t_macros		create_macros_arrays(void);
+void 			free_array(char **array);
 int				search_macro(char *str, char **tab);
 char			**get_tab(char *file);
 int				create_object(t_env *e, char **tab);

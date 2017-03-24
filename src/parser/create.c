@@ -6,54 +6,58 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/24 01:45:42 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:32:55 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
+void			free_array(char **array)
+{
+	int			i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+}
+
 int				create_object(t_env *e, char **tab)
 {
-	int				color;
-	int				type;
-	int				material;
-
-	// temporary
+	t_color		color;
+	int			type;
+	t_mat		material;
 	t_vector	limits[2];
-	t_vector	axis;
 
-	limits[0] = new_vector(0, 0, 0);
-	limits[1] = new_vector(0, 0, 0);
-	axis = new_vector(0, 1, 1);
-	// temporary
-
+	limits[0] = get_vector(tab, "min", "limits");
+	limits[1] = get_vector(tab, "max", "limits");
 	type = get_object(e, tab, "type", "object");
-	color = get_color(e, tab, "color", "object");
-	material = get_material(e, tab, "material", "object");
+	color = new_color(get_color(e, tab, "color", "object"));
+	material = new_material(get_material(e, tab, "material", "object"));
 	type == SPHERE ? add_object(e->scene, new_object(type,
 		new_sphere(get_vector(tab, "pos", "sphere"),
-		get_nbr(tab, "r", "sphere"), axis, limits),
-		new_color(color), new_material(material))) : NULL;
+		get_nbr(tab, "r", "sphere"), get_vector(tab, "axis", "sphere"), limits),
+		color, material)) : NULL;
 	type == PLANE ? add_object(e->scene, new_object(type,
 		new_plane(get_vector(tab, "normal", "plane"),
-		get_nbr(tab, "offset", "plane"), get_pstyle(e, tab, "style", "plane"), limits),
-		new_color(color), new_material(material))) : NULL;
+		get_nbr(tab, "offset", "plane"),
+		get_pstyle(e, tab, "style", "plane"), limits), color, material)) : NULL;
 	type == CYLINDER ? add_object(e->scene, new_object(type,
 		new_cylinder(get_vector(tab, "axis", "cylinder"),
-		get_vector(tab, "pos", "cylinder"), get_nbr(tab, "r", "cylinder"), limits),
-		new_color(color), new_material(material))) : NULL;
+		get_vector(tab, "pos", "cylinder"),
+		get_nbr(tab, "r", "cylinder"), limits), color, material)) : NULL;
 	type == CONE ? add_object(e->scene, new_object(type,
 		new_cone(get_vector(tab, "axis", "cone"),
-		get_vector(tab, "apex", "cone"), get_nbr(tab, "angle", "cone"), limits),
-		new_color(color), new_material(material))) : NULL;
+		get_vector(tab, "apex", "cone"),
+		get_nbr(tab, "angle", "cone"), limits), color, material)) : NULL;
 	return (0);
 }
 
 int				create_light(t_env *e, char **tab)
 {
-	int				color;
-	int				type;
-	int				intensity;
+	int			color;
+	int			type;
+	int			intensity;
 
 	type = get_light(e, tab, "type", "light");
 	color = get_color(e, tab, "color", "light");

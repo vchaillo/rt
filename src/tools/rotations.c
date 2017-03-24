@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 01:20:22 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/20 00:52:49 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 00:08:34 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,33 +66,30 @@ t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle)
 	return (normalize(vector));
 }
 
-t_vector	convert_to_rotated_coordinates(t_vector pos, t_vector axis)
+t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis)
 {
-	float		theta0;
-	float		phi0;
-	float		theta;
-	float		phi;
-	float		r0;
-	float		r;
+	float		theta[2];
+	float		phi[2];
+	float		r[2];
 
-	r0 = sqrt(pow(pos.x, 2) + pow(pos.y, 2) + pow(pos.z, 2));
-	r = sqrt(pow(axis.x, 2) + pow(axis.y, 2) + pow(axis.z, 2));
-	theta0 = acos(pos.y / r0);
-	if (!theta0)
-	  phi0 = 0;
+	r[0] = sqrt(pow(pos.x, 2) + pow(pos.y, 2) + pow(pos.z, 2));
+	r[1] = sqrt(pow(axis.x, 2) + pow(axis.y, 2) + pow(axis.z, 2));
+	theta[0] = acos(pos.y / r[0]);
+	if (!theta[0])
+		phi[0] = 0;
 	else
-	  phi0 = acos(pos.z / sin(theta0) / r0);
-	theta = acos(axis.y / r);
-	if (!theta)
-	  phi = 0;
+		phi[0] = acos(pos.z / sin(theta[0]) / r[0]);
+	theta[1] = acos(axis.y / r[1]);
+	if (!theta[1])
+		phi[1] = 0;
 	else
-	  phi = acos(axis.z / sin(theta) / r);
-	if (asin(pos.x / sin(theta0) / r0) < 0)
-	  phi0 = -phi0;
-	if (asin(axis.x / sin(theta) / r) < 0)
-	  phi = -phi;
-	pos.x = r0 * sin(theta0 + theta) * sin (phi0 + phi);
-	pos.y = r0 * cos(theta0 + theta);
-	pos.z = r0 * sin(theta0 + theta) * cos (phi0 + phi);
+		phi[1] = acos(axis.z / sin(theta[1]) / r[1]);
+	if (asin(pos.x / sin(theta[0]) / r[0]) < 0)
+		phi[0] = -phi[0];
+	if (asin(axis.x / sin(theta[1]) / r[1]) < 0)
+		phi[1] = -phi[1];
+	pos.x = r[0] * sin(theta[0] + theta[1]) * sin(phi[0] + phi[1]);
+	pos.y = r[0] * cos(theta[0] + theta[1]);
+	pos.z = r[0] * sin(theta[0] + theta[1]) * cos(phi[0] + phi[1]);
 	return (pos);
 }

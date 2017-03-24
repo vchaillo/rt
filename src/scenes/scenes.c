@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 19:53:08 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 00:22:58 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:20:43 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			load_scene(int scene_type, t_env *e)
 {
-  	if (scene_type == SCENE_1)
+	if (scene_type == SCENE_1)
 		load_scene1(e);
 	else if (scene_type == SCENE_2)
 		load_scene2(e);

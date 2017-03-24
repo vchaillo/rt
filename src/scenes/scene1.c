@@ -6,28 +6,28 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 21:44:49 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 00:22:10 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:20:30 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void			load_scene1_objects(t_scene *scene)
+static void			load_scene1_objects(t_scene *scene)
 {
-  	t_vector	limits[2];
+	t_vector	limits[2];
 
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(SPHERE,
-				     new_sphere(new_vector(0, 10, 0), 10,
-						new_vector(0, 1, 0),  limits),
-				     new_color(ORANGE), new_material(PERLIN)));
+		new_sphere(new_vector(0, 10, 0), 10,
+		new_vector(0, 1, 0), limits),
+		new_color(ORANGE), new_material(PERLIN)));
 	add_object(scene, new_object(PLANE,
-				     new_plane(new_vector(0, 1, 0), 0, CHECK, limits),
-				     new_color(WHITE), new_material(BASIC)));
+		new_plane(new_vector(0, 1, 0), 0, CHECK, limits),
+		new_color(WHITE), new_material(BASIC)));
 }
 
-void			load_scene1_lights(t_scene *scene)
+static void			load_scene1_lights(t_scene *scene)
 {
 	scene->amb_intensity = 0.2;
 	scene->amb_color = new_color(WHITE);
@@ -35,7 +35,7 @@ void			load_scene1_lights(t_scene *scene)
 		new_color(WHITE)));
 }
 
-void			load_scene1(t_env *e)
+void				load_scene1(t_env *e)
 {
 	if (e->scene)
 		delete_scene(e->scene);

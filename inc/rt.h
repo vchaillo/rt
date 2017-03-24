@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 05:20:31 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:21:13 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,29 +199,13 @@ void			print_lights_tofile(t_env *e, t_light *lights, int fd);
 void			load_scene(int scene_type, t_env *e);
 void			switch_scene(int keycode, t_env *e);
 void			load_scene1(t_env *e);
-void			load_scene1_objects(t_scene *scene);
-void			load_scene1_lights(t_scene *scene);
 void			load_scene2(t_env *e);
-void			load_scene2_objects(t_scene *scene);
-void			load_scene2_lights(t_scene *scene);
 void			load_scene3(t_env *e);
-void			load_scene3_objects(t_scene *scene);
-void			load_scene3_lights(t_scene *scene);
 void			load_scene4(t_env *e);
-void			load_scene4_objects(t_scene *scene);
-void			load_scene4_lights(t_scene *scene);
 void			load_scene5(t_env *e);
-void			load_scene5_objects(t_scene *scene);
-void			load_scene5_lights(t_scene *scene);
 void			load_scene6(t_env *e);
-void			load_scene6_objects(t_scene *scene);
-void			load_scene6_lights(t_scene *scene);
 void			load_scene7(t_env *e);
-void			load_scene7_objects(t_scene *scene);
-void			load_scene7_lights(t_scene *scene);
 void			load_scene8(t_env *e);
-void			load_scene8_objects(t_scene *scene);
-void			load_scene8_lights(t_scene *scene);
 void			load_scene9(t_env *e);
 
 /*

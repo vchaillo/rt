@@ -6,24 +6,24 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 00:47:41 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:20:19 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void			load_scene2_objects(t_scene *scene)
+static void			load_scene2_objects(t_scene *scene)
 {
-    	t_vector	limits[2];
+	t_vector	limits[2];
 
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 0, 0), 1,
-							new_vector(0, 1, 0), limits),
-				     new_color(WHITE), new_material(BASIC)));
+		new_vector(0, 1, 0), limits),
+		new_color(WHITE), new_material(BASIC)));
 }
 
-void			load_scene2_lights(t_scene *scene)
+static void			load_scene2_lights(t_scene *scene)
 {
 	scene->amb_intensity = 0;
 	scene->amb_color = new_color(WHITE);
@@ -35,7 +35,7 @@ void			load_scene2_lights(t_scene *scene)
 		new_color(GREEN)));
 }
 
-void			load_scene2(t_env *e)
+void				load_scene2(t_env *e)
 {
 	if (e->scene)
 		delete_scene(e->scene);

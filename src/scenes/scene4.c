@@ -6,13 +6,13 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/22 03:59:37 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:19:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void			load_scene4_objects(t_scene *scene)
+static void			load_scene4_objects(t_scene *scene)
 {
 	int			i;
 	t_vector	limits[2];
@@ -23,24 +23,24 @@ void			load_scene4_objects(t_scene *scene)
 	while (i > -100)
 	{
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
-								    new_vector(10, 0, i), 1, limits), new_color(PASTEL_BLUE),
+			new_vector(10, 0, i), 1, limits), new_color(PASTEL_BLUE),
 			new_material(BASIC)));
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
-								    new_vector(-10, 0, i), 1, limits), new_color(PASTEL_BLUE),
+			new_vector(-10, 0, i), 1, limits), new_color(PASTEL_BLUE),
 			new_material(BASIC)));
 		i -= 4;
 	}
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 10, -100),
-							10, new_vector(0, 1, 0), limits),
-				     new_color(ORANGE), new_material(BASIC)));
+		10, new_vector(0, 1, 0), limits),
+		new_color(ORANGE), new_material(BASIC)));
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 30, -100),
-							10, new_vector(0, 1, 0), limits),
-				     new_color(RED), new_material(BASIC)));
-	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0, NORMAL, limits),
-		new_color(LIGHT_GREY), new_material(BASIC)));
+		10, new_vector(0, 1, 0), limits),
+		new_color(RED), new_material(BASIC)));
+	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0,
+		NORMAL, limits), new_color(LIGHT_GREY), new_material(BASIC)));
 }
 
-void			load_scene4_lights(t_scene *scene)
+static void			load_scene4_lights(t_scene *scene)
 {
 	scene->amb_intensity = 0.5;
 	scene->amb_color = new_color(DARK_GREY);
@@ -48,7 +48,7 @@ void			load_scene4_lights(t_scene *scene)
 		new_color(WHITE)));
 }
 
-void			load_scene4(t_env *e)
+void				load_scene4(t_env *e)
 {
 	if (e->scene)
 		delete_scene(e->scene);

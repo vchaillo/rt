@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 16:30:24 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 01:58:55 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:07:31 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int		is_out_limit(const t_cone *cone, const t_ray *ray,
 	t_vector	relative_pos;
 	t_vector	rotated_pos;
 
+	return (0);
 	relative_pos.x = (ray->o.x + ray->d.x * t) - cone->apex.x;
 	relative_pos.y = (ray->o.y + ray->d.y * t) - cone->apex.y;
 	relative_pos.z = (ray->o.z + ray->d.z * t) - cone->apex.z;

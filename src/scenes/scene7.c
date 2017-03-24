@@ -6,15 +6,15 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/22 03:48:16 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:18:15 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void			load_scene7_objects(t_scene *scene)
+static void			load_scene7_objects(t_scene *scene)
 {
-      	t_vector	limits[2];
+	t_vector	limits[2];
 
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
@@ -25,19 +25,15 @@ void			load_scene7_objects(t_scene *scene)
 		NORMAL, limits), new_color(RED), new_material(BASIC)));
 }
 
-void			load_scene7_lights(t_scene *scene)
+static void			load_scene7_lights(t_scene *scene)
 {
 	scene->amb_intensity = 1;
 	scene->amb_color = new_color(WHITE);
 	add_light(scene, new_light(SPOT, 0.5, new_vector(20, 100, 10),
 		new_color(WHITE)));
-	// add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
-	// 	new_color(WHITE)));
-	// add_light(scene, new_light(SPOT, 0.5, new_vector(20, 10, 10),
-	// 	new_color(WHITE)));
 }
 
-void			load_scene7(t_env *e)
+void				load_scene7(t_env *e)
 {
 	if (e->scene)
 		delete_scene(e->scene);

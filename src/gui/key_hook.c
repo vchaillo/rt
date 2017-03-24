@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 05:19:23 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:51:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int			check_if_update_image(int k)
 	if (k == KEY_UP || k == KEY_DOWN || k == KEY_LEFT || k == KEY_RIGHT
 		|| k == KEY_PLUS || k == KEY_MINUS || k == KEY_Z || k == KEY_Q
 		|| k == KEY_S || k == KEY_D || k == KEY_A || k == KEY_E || k == KEY_N
-		|| k == KEY_P || k == KEY_SPACE || k == KEY_CONTROL	|| k == KEY_R
+		|| k == KEY_P || k == KEY_SPACE || k == KEY_CONTROL || k == KEY_R
 		|| k == KEY_X || k == KEY_KP0 || k == KEY_KP1 || k == KEY_KP2
 		|| k == KEY_M || k == KEY_KP3 || k == KEY_KP4 || k == KEY_KP5
 		|| k == KEY_UP_MAC || k == KEY_DOWN_MAC || k == KEY_LEFT_MAC
@@ -26,7 +26,7 @@ static int			check_if_update_image(int k)
 		|| k == KEY_D_MAC || k == KEY_Q_MAC || k == KEY_E_MAC || k == KEY_N_MAC
 		|| k == KEY_P_MAC || k == KEY_SPACE_MAC || k == KEY_CONTROL_MAC
 		|| k == KEY_R_MAC || k == KEY_X_MAC || k == KEY_KP0_MAC
-		|| k == KEY_KP1_MAC || k == KEY_KP2_MAC	|| k == KEY_KP3_MAC
+		|| k == KEY_KP1_MAC || k == KEY_KP2_MAC || k == KEY_KP3_MAC
 		|| k == KEY_KP4_MAC || k == KEY_KP5_MAC || k == KEY_NUM0_MAC
 		|| k == KEY_NUM1_MAC || k == KEY_NUM2_MAC || k == KEY_NUM3_MAC
 		|| k == KEY_NUM4_MAC || k == KEY_NUM5_MAC || k == KEY_KP7
@@ -36,7 +36,7 @@ static int			check_if_update_image(int k)
 	return (FALSE);
 }
 
-int				key_hook_light(int key, t_scene *scene)
+static int			key_hook_light(int key, t_scene *scene)
 {
 	if (key == KEY_KP1 || key == KEY_KP1_MAC || key == KEY_NUM1_MAC)
 		scene->amb = (scene->amb == ACTIVE) ? INACTIVE : ACTIVE;
@@ -51,7 +51,7 @@ int				key_hook_light(int key, t_scene *scene)
 	return (0);
 }
 
-int				key_hook_scene(int keycode, t_env *e)
+static int			key_hook_scene(int keycode, t_env *e)
 {
 	if (keycode == KEY_M || keycode == KEY_M_MAC)
 	{
@@ -67,14 +67,15 @@ int				key_hook_scene(int keycode, t_env *e)
 	return (0);
 }
 
-void			key_hook_effects(int keycode, t_env *e)
+static void			key_hook_effects(int key, t_env *e)
 {
-	if (keycode == KEY_KP0 || keycode == KEY_KP0_MAC || keycode == KEY_NUM0_MAC)
+	if (key == KEY_KP0 || key == KEY_KP0_MAC || key == KEY_NUM0_MAC)
 	{
 		e->scene->aa = e->scene->aa == INACTIVE_AA ? ACTIVE_AA : INACTIVE_AA;
-		e->scene->color_array_aa = reset_color_array(e->scene->aa, e->scene->color_array_aa);
+		e->scene->color_array_aa = reset_color_array(e->scene->aa,
+			e->scene->color_array_aa);
 	}
-	else if (keycode == KEY_X || keycode == KEY_X_MAC)
+	else if (key == KEY_X || key == KEY_X_MAC)
 	{
 		e->scene->effect++;
 		if (e->scene->effect == 6)
@@ -84,22 +85,22 @@ void			key_hook_effects(int keycode, t_env *e)
 		else if (e->scene->effect == CARTOON + 1)
 			e->scene->amb_intensity /= 5;
 	}
-	else if (keycode == KEY_KP7_MAC || keycode == KEY_NUM7_MAC || keycode == KEY_KP7)
+	else if (key == KEY_KP7_MAC || key == KEY_NUM7_MAC || key == KEY_KP7)
 	{
 		e->scene->aa = e->scene->aa == INACTIVE_AA ? ACTIVE_AA : INACTIVE_AA;
-		e->scene->color_array_aa = reset_color_array(e->scene->aa, e->scene->color_array_aa);
+		e->scene->color_array_aa = reset_color_array(e->scene->aa,
+			e->scene->color_array_aa);
 		e->scene->gi = (e->scene->gi == INACTIVE) ? ACTIVE : INACTIVE;
 	}
-	else if (keycode == KEY_KP6_MAC || keycode == KEY_NUM6_MAC || keycode == KEY_KP6)
+	else if (key == KEY_KP6_MAC || key == KEY_NUM6_MAC || key == KEY_KP6)
 		e->scene->gi = (e->scene->gi == INACTIVE) ? ACTIVE : INACTIVE;
 }
 
-int				key_hook(int keycode, t_env *e)
+int					key_hook(int keycode, t_env *e)
 {
 	if (keycode == KEY_ESCAPE || keycode == KEY_ESCAPE_MAC)
 	{
-		if (e->scene)
-			delete_scene(e->scene);
+		e->scene ? delete_scene(e->scene) : NULL;
 		exit(0);
 	}
 	if (keycode == KEY_RETURN || keycode == KEY_RETURN_MAC)

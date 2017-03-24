@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 08:21:13 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:52:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,6 @@ void			start_mlx(t_env *e);
 int				expose_hook(t_env *e);
 int				key_hook(int keycode, t_env *e);
 int				key_hook_camera(int keycode, t_camera *camera);
-int				key_hook_move_camera(int keycode, t_camera *camera);
-int				key_hook_rot_x_camera(int keycode, t_camera *camera);
-int				key_hook_rot_y_camera(int keycode, t_camera *camera);
-int				key_hook_rot_z_camera(int keycode, t_camera *camera);
-int				key_hook_light(int key, t_scene *scene);
-int				key_hook_scene(int keycode, t_env *e);
-void			key_hook_effects(int keycode, t_env *e);
 int				mouse_hook(int button, int x, int y, t_env *e);
 int				mouse_clic(t_env *e);
 void			fill_pixel(t_env *e, t_color color, int x, int y);

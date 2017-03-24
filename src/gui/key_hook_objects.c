@@ -27,9 +27,9 @@ int				key_hook_plane(int keycode, t_plane *plane)
 	else if (keycode == KEY_E || keycode == KEY_E_MAC)
 		plane->normal = vector_rot_z(plane->normal, -OBJ_ROT);
 	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
-		plane->offset -= OBJ_EXPAND;
+		plane->offset -= OBJ_PROP;
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
-		plane->offset += OBJ_EXPAND;
+		plane->offset += OBJ_PROP;
 	return (0);
 }
 
@@ -48,9 +48,9 @@ int				key_hook_sphere(int keycode, t_sphere *sphere)
 	else if (keycode == KEY_Z || keycode == KEY_W_MAC)
 		sphere->pos.z -= OBJ_SPEED;
 	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
-		sphere->r += OBJ_EXPAND;
+		sphere->r += OBJ_PROP;
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
-		sphere->r -= OBJ_EXPAND;
+		sphere->r -= OBJ_PROP;
 	return (0);
 }
 

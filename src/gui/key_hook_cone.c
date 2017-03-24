@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:40:03 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 05:40:17 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:42:02 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int				key_hook_cone(int keycode, t_cone *cone)
 	else if (keycode == KEY_Z || keycode == KEY_W_MAC)
 		cone->apex.z -= OBJ_SPEED;
 	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
-		cone->angle += OBJ_EXPAND;
+		cone->angle += OBJ_PROP;
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
-		cone->angle -= OBJ_EXPAND;
+		cone->angle -= OBJ_PROP;
 	else
 		key_hook_cone_rotation(keycode, cone);
 	return (0);

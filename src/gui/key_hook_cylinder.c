@@ -44,9 +44,9 @@ int				key_hook_cylinder(int keycode, t_cylinder *cylinder)
 	else if (keycode == KEY_Z || keycode == KEY_W_MAC)
 		cylinder->pos.z -= OBJ_SPEED;
 	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
-		cylinder->r += OBJ_EXPAND;
+		cylinder->r += OBJ_PROP;
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
-		cylinder->r -= OBJ_EXPAND;
+		cylinder->r -= OBJ_PROP;
 	else
 		key_hook_cylinder_rotation(keycode, cylinder);
 	return (0);

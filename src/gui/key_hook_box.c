@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook_box.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/24 05:06:25 by tlegroux         ###   ########.fr       */
+/*   Created: 2017/03/24 08:29:59 by vchaillo          #+#    #+#             */
+/*   Updated: 2017/03/24 08:44:19 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int				key_hook_box_rotation(int keycode, t_box *box)
+static int			key_hook_box_rotation(int keycode, t_box *box)
 {
 	if (keycode == KEY_UP || keycode == KEY_UP_MAC)
-		box->rotxyz.x +=  -OBJ_ROT;
+		box->rotxyz.x -= OBJ_ROT;
 	else if (keycode == KEY_DOWN || keycode == KEY_DOWN_MAC)
 		box->rotxyz.x += OBJ_ROT;
 	else if (keycode == KEY_LEFT || keycode == KEY_LEFT_MAC)
 		box->rotxyz.y += OBJ_ROT;
 	else if (keycode == KEY_RIGHT || keycode == KEY_RIGHT_MAC)
-		box->rotxyz.y += -OBJ_ROT;
-	if (keycode == KEY_A || keycode == KEY_Q_MAC)
+		box->rotxyz.y -= OBJ_ROT;
+	else if (keycode == KEY_A || keycode == KEY_Q_MAC)
 		box->rotxyz.z += OBJ_ROT;
 	else if (keycode == KEY_E || keycode == KEY_E_MAC)
-		box->rotxyz.z += -OBJ_ROT;
+		box->rotxyz.z -= OBJ_ROT;
 	return (0);
 }
 
-int				key_hook_box(int keycode, t_box *box)
+int					key_hook_box(int keycode, t_box *box)
 {
 	if (keycode == KEY_D || keycode == KEY_D_MAC)
 		box->trans.x += OBJ_SPEED;
@@ -45,12 +45,12 @@ int				key_hook_box(int keycode, t_box *box)
 		box->trans.z -= OBJ_SPEED;
 	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
 	{
-		box->corner_min = vector_scalar(OBJ_EXPAND * 1.3, box->corner_min);
+		box->corner_min = vector_scalar(OBJ_PROP * 1.3, box->corner_min);
 		box->corner_max = vector_scalar(-1, box->corner_min);
 	}
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)
 	{
-		box->corner_min = vector_scalar(1 / (OBJ_EXPAND * 1.3), box->corner_min);
+		box->corner_min = vector_scalar(1 / (OBJ_PROP * 1.3), box->corner_min);
 		box->corner_max = vector_scalar(-1, box->corner_min);
 	}
 	else

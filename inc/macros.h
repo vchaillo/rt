@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 05:24:24 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 08:42:02 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define CAM_ROT 10
 # define OBJ_SPEED 1
 # define OBJ_ROT 10
-# define OBJ_EXPAND 1
+# define OBJ_PROP 1
 
 /*
 ** exposure defines

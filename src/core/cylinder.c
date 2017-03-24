@@ -6,15 +6,16 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 01:35:20 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 02:00:10 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static int		is_out_limit(const t_cylinder *cylinder, const t_ray *ray, float t)
+static int		is_out_limit(const t_cylinder *cylinder, const t_ray *ray,
+							float t)
 {
-  	t_vector	relative_pos;
+	t_vector	relative_pos;
 	t_vector	rotated_pos;
 
 	relative_pos.x = (ray->o.x + ray->d.x * t) - cylinder->pos.x;
@@ -22,15 +23,15 @@ static int		is_out_limit(const t_cylinder *cylinder, const t_ray *ray, float t)
 	relative_pos.z = (ray->o.z + ray->d.z * t) - cylinder->pos.z;
 	rotated_pos = convert_to_rotated_coordinates(relative_pos, cylinder->axis);
 	if ((cylinder->limit_max.x > 0 || cylinder->limit_min.x < 0)
-	    && (rotated_pos.x > cylinder->limit_max.x ||
+		&& (rotated_pos.x > cylinder->limit_max.x ||
 		rotated_pos.x < cylinder->limit_min.x))
 		return (1);
 	if ((cylinder->limit_max.y > 0 || cylinder->limit_min.y < 0)
-	    && (rotated_pos.y > cylinder->limit_max.y ||
+		&& (rotated_pos.y > cylinder->limit_max.y ||
 		rotated_pos.y < cylinder->limit_min.y))
 		return (1);
 	if ((cylinder->limit_max.z > 0 || cylinder->limit_min.z < 0)
-	    && (rotated_pos.z > cylinder->limit_max.z ||
+		&& (rotated_pos.z > cylinder->limit_max.z ||
 		rotated_pos.z < cylinder->limit_min.z))
 		return (1);
 	return (0);

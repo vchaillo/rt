@@ -6,17 +6,20 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/19 21:39:32 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:21:48 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIALS_H
 # define MATERIALS_H
 
-#define DIFFUSE 0
-#define REFLECTIVE 1
-#define TRANSMITIVE 2
+# define DIFFUSE 0
+# define REFLECTIVE 1
+# define TRANSMITIVE 2
 
+/*
+** materials defines
+*/
 # define BASIC 0
 # define PLASTIC 1
 # define GLASS 2
@@ -26,6 +29,9 @@
 # define CHROME 6
 # define TEST 7
 
+/*
+** materials values defines
+*/
 # define BASIC_DIFFUSE 1
 # define BASIC_SPECULAR 1
 # define BASIC_SHININESS 100
@@ -42,7 +48,7 @@
 # define PLASTIC_IOR 1
 # define PLASTIC_SHADOW 0
 
-# define CHROME_DIFFUSE 1
+# define CHROME_DIFFUSE 0
 # define CHROME_SPECULAR 1
 # define CHROME_SHININESS 1000
 # define CHROME_REFLEXION 1
@@ -74,9 +80,9 @@
 # define WATER_IOR 1.3
 # define WATER_SHADOW 0.7
 
-# define GLASS_DIFFUSE 1
+# define GLASS_DIFFUSE 0
 # define GLASS_SPECULAR 1
-# define GLASS_SHININESS 1000
+# define GLASS_SHININESS 100
 # define GLASS_REFLEXION 0.4
 # define GLASS_REFRACTION 1
 # define GLASS_IOR 1.55

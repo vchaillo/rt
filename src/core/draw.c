@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 21:49:47 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:34:40 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void			fill_pixel(t_env *e, t_color color, int x, int y)
 
 void			apply_color_to_image(t_env *e)
 {
-	int 		x;
-	int 		y;
+	int			x;
+	int			y;
 
 	y = -1;
 	while (++y < WIN_H)
@@ -34,7 +34,8 @@ void			apply_color_to_image(t_env *e)
 		while (++x < WIN_W)
 		{
 			if (e->scene->effect == NEGATIVE)
-				e->scene->color_array[y][x] = negative_color(e->scene->color_array[y][x]);
+				e->scene->color_array[y][x] = negative_color(
+					e->scene->color_array[y][x]);
 			fill_pixel(e, e->scene->color_array[y][x], x, y);
 		}
 	}
@@ -42,8 +43,8 @@ void			apply_color_to_image(t_env *e)
 
 void			update_image(t_env *e)
 {
-	clock_t 	begin;
-	clock_t 	end;
+	clock_t		begin;
+	clock_t		end;
 
 	mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
@@ -56,7 +57,7 @@ void			update_image(t_env *e)
 	print_cli_output(e);
 }
 
-void		join_environements(t_env *e, t_env e_tab[NUM_THREADS])
+void			join_environements(t_env *e, t_env e_tab[NUM_THREADS])
 {
 	int			x;
 	int			y;
@@ -66,23 +67,22 @@ void		join_environements(t_env *e, t_env e_tab[NUM_THREADS])
 	{
 		x = -1;
 		while (++x < WIN_W * e->scene->aa)
-			e->scene->color_array_aa[y][x] = e_tab[y % NUM_THREADS].scene->color_array_aa[y][x];
+			e->scene->color_array_aa[y][x] =
+				e_tab[y % NUM_THREADS].scene->color_array_aa[y][x];
 	}
 }
 
-void* perform_work( void* argument )
+void			*perform_work(void *argument)
 {
 	int			x;
 	int			y;
 	t_color		color;
 	t_env		*e;
 	int			thread;
+	float		increment_percent;
+	float		percent;
 
-	float        increment_percent;
-    float        percent;
-
-
-	e = ( (t_env* )argument );
+	e = ((t_env*)argument);
 	thread = e->thread;
 	increment_percent = 100.0 / (WIN_H * e->scene->aa - 1);
 	percent = 0;
@@ -107,34 +107,37 @@ void* perform_work( void* argument )
 		}
 		y++;
 	}
-	return NULL;
+	return (NULL);
 }
 
 void			draw(t_env *e)
 {
 	t_env		e_tab[NUM_THREADS];
-
 	pthread_t	threads[NUM_THREADS];
 	int			result_code;
 	unsigned	index;
 
 	// create all threads one by one
-	for( index = 0; index < NUM_THREADS; ++index )
+	index = 0;
+	while (index < NUM_THREADS)
 	{
-		e_tab[ index ] = *e;
+		e_tab[index] = *e;
 		e_tab[index].thread = index;
 		// printf("In draw: creating thread %d\n", index);
-		result_code = pthread_create( &threads[index], NULL, perform_work, &(e_tab[index]) );
-		assert( !result_code );
+		result_code = pthread_create(&threads[index], NULL,
+									perform_work, &(e_tab[index]));
+		assert(!result_code);
+		++index;
 	}
-
 	// wait for each thread to complete
-	for( index = 0; index < NUM_THREADS; ++index )
+	index = 0;
+	while (index < NUM_THREADS)
 	{
 		// block until thread 'index' completes
-		result_code = pthread_join( threads[ index ], NULL );
-		assert( !result_code );
-		// printf( "In draw: thread %d has completed\n", index );
+		result_code = pthread_join(threads[index], NULL);
+		assert(!result_code);
+		++index;
+		// printf( "In draw: thread %d has completed\n", index);
 	}
 	join_environements(e, e_tab);
 	super_sampling(e);

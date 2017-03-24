@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 19:52:30 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/14 01:53:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:56:23 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void		super_sampling(t_env *e)
 	int		x;
 	int		y;
 
-		y = -1;
-		while (++y < WIN_H)
-		{
-			x = -1;
-			while (++x < WIN_W)
-				ss_average(e, x, y);
-		}
+	y = -1;
+	while (++y < WIN_H)
+	{
+		x = -1;
+		while (++x < WIN_W)
+			ss_average(e, x, y);
+	}
 }

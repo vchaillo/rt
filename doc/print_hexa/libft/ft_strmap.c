@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light.h                                            :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlegroux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/12 23:47:38 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/12 23:47:41 by valentin         ###   ########.fr       */
+/*   Created: 2013/11/20 16:04:54 by tlegroux          #+#    #+#             */
+/*   Updated: 2017/01/05 14:29:58 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHT_H
-# define LIGHT_H
+#include "libft.h"
 
-int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj);
-t_color			illuminate(t_env *e, t_ray *ray);
-void			exposure_correction(t_color **colors);
+char	*ft_strmap(char const *s, char (*f)(char))
+{
+	char	*d;
+	char	*r;
 
-#endif
+	if (!s || !f)
+		return (NULL);
+	d = ft_strdup(s);
+	r = d;
+	while (*d)
+	{
+		*d = (*f)(*d);
+		d++;
+	}
+	return (r);
+}

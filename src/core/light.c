@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 06:01:56 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 00:46:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,13 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 	lray.d = normalize(lray.d);
 	if (!(is_in_shadow(e->scene->objects, &lray, vray->hitpoint.object)))
 	{
-		if (e->scene->diffuse == ACTIVE)
+		if (e->scene->diffuse == ACTIVE && vray->hitpoint.object->material.diffuse)
 			color = add_color(diffuse(e, vray->hitpoint, light, &lray), color);
 		if (e->scene->specular == ACTIVE && e->scene->effect != CARTOON)
 			color = add_color(specular(vray, light, &lray), color);
 		color = scalar_color(lray.transmittance_ray, color);
 	}
-	return (color);
+	return (scalar_color(hitpoint.object->material.diffuse, color));
 }
 
 t_color			illuminate(t_env *e, t_ray *ray)
@@ -127,7 +127,7 @@ t_color			illuminate(t_env *e, t_ray *ray)
 		e->nb_light_rays++;
 	}
 	if (e->scene->amb == ACTIVE && (e->scene->spot || e->scene->dir))
-		color = add_color(scalar_color((e->scene->amb_intensity / 2),
+		color = add_color(scalar_color((e->scene->amb_intensity),
 			add_color(e->scene->amb_color, ray->hitpoint.color)), color);
 	return (color);
 }

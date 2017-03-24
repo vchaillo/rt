@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:12:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 12:55:36 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:44:48 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ void				print_lights_tofile(t_env *e, t_light *lights, int fd)
 			tmp = tmp->next;
 		}
 		print_tag_tofile("lights", TAG_CLOSE, 1, fd);
-
 	}
 }

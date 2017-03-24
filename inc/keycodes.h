@@ -43,6 +43,10 @@
 # define KEY_KP3 65435
 # define KEY_KP4 65430
 # define KEY_KP5 65437
+//check that keycode
+# define KEY_KP6 777777
+//check that keycode
+# define KEY_KP7 77777777
 # define KEY_ESCAPE 65307
 
 /*
@@ -75,12 +79,16 @@
 # define KEY_KP3_MAC 85
 # define KEY_KP4_MAC 86
 # define KEY_KP5_MAC 87
+# define KEY_KP6_MAC 88
+# define KEY_KP7_MAC 89
 # define KEY_NUM0_MAC 29
 # define KEY_NUM1_MAC 18
 # define KEY_NUM2_MAC 19
 # define KEY_NUM3_MAC 20
 # define KEY_NUM4_MAC 21
 # define KEY_NUM5_MAC 23
+# define KEY_NUM6_MAC 22
+# define KEY_NUM7_MAC 26
 # define KEY_ESCAPE_MAC 53
 
 #endif

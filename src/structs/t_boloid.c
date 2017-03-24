@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   t_boloid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlegroux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 00:09:43 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/14 00:18:03 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 03:02:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 t_boloid		*new_boloid(t_vector pos, float abc[], float sign,
-				    t_vector limits[])
+					t_vector limits[])
 {
 	t_boloid	*boloid;
 

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/20 00:39:45 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:19:23 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ static int			check_if_update_image(int k)
 		|| k == KEY_KP1_MAC || k == KEY_KP2_MAC	|| k == KEY_KP3_MAC
 		|| k == KEY_KP4_MAC || k == KEY_KP5_MAC || k == KEY_NUM0_MAC
 		|| k == KEY_NUM1_MAC || k == KEY_NUM2_MAC || k == KEY_NUM3_MAC
-		|| k == KEY_NUM4_MAC || k == KEY_NUM5_MAC)
+		|| k == KEY_NUM4_MAC || k == KEY_NUM5_MAC || k == KEY_KP7
+		|| k == KEY_KP7_MAC || k == KEY_NUM7_MAC || k == KEY_KP6
+		|| k == KEY_KP6_MAC || k == KEY_NUM6_MAC)
 		return (TRUE);
 	return (FALSE);
 }
@@ -82,6 +84,14 @@ void			key_hook_effects(int keycode, t_env *e)
 		else if (e->scene->effect == CARTOON + 1)
 			e->scene->amb_intensity /= 5;
 	}
+	else if (keycode == KEY_KP7_MAC || keycode == KEY_NUM7_MAC || keycode == KEY_KP7)
+	{
+		e->scene->aa = e->scene->aa == INACTIVE_AA ? ACTIVE_AA : INACTIVE_AA;
+		e->scene->color_array_aa = reset_color_array(e->scene->aa, e->scene->color_array_aa);
+		e->scene->gi = (e->scene->gi == INACTIVE) ? ACTIVE : INACTIVE;
+	}
+	else if (keycode == KEY_KP6_MAC || keycode == KEY_NUM6_MAC || keycode == KEY_KP6)
+		e->scene->gi = (e->scene->gi == INACTIVE) ? ACTIVE : INACTIVE;
 }
 
 int				key_hook(int keycode, t_env *e)
@@ -98,6 +108,7 @@ int				key_hook(int keycode, t_env *e)
 		export_scene(e);
 	else
 	{
+		print_keyhook(keycode, e);
 		if (check_if_update_image(keycode) == TRUE)
 		{
 			if (e->scene->mode == MOVE_MODE)
@@ -107,7 +118,6 @@ int				key_hook(int keycode, t_env *e)
 			key_hook_light(keycode, e->scene);
 			key_hook_scene(keycode, e);
 			key_hook_effects(keycode, e);
-			print_keyhook(keycode, e);
 			update_image(e);
 		}
 	}

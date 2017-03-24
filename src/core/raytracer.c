@@ -101,7 +101,7 @@ t_color			raytracer(t_env *e, int x, int y)
 	ray.d = get_camray_dir(e->scene->camera, x, y, e->scene->aa);
 	ray.ior = AIR_IOR;
 	ray.is_in = 0;
-	color = reflection_refraction(e, &ray, 0, 1);
+	color = depth_compute(e, &ray, 0, 1);
 	color = fog(e, &ray, color);
 	return (color);
 }

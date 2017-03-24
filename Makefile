@@ -6,14 +6,14 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/22 21:15:08 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/24 07:03:32 by tlegroux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = rt
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror -g #-O3 -g
 RM = rm -Rf
 
 # Colors
@@ -49,7 +49,10 @@ SRC_CORE = \
 		core/tore.c\
 		core/boloid.c\
 		core/effects.c\
-		core/reflection_refraction.c\
+		core/depth_compute.c\
+		core/reflection.c\
+		core/refraction.c\
+		core/global_illumination.c\
 		core/antialiasing.c\
 		core/perlin.c\
 		core/exposure.c\
@@ -58,6 +61,11 @@ SRC_CORE = \
 
 SRC_PARSER = \
 		parser/args_parser.c\
+		parser/parse_macros.c\
+		parser/parser_tools.c\
+		parser/parser.c\
+		parser/get_macros.c\
+		parser/create.c\
 
 SRC_GUI = \
 		gui/mlx.c\
@@ -82,12 +90,14 @@ SRC_TOOLS = \
 		tools/color.c\
 		tools/error.c\
 		tools/cross_product.c\
+		tools/gradient.c\
 
 SRC_EXPORT = \
 		export/exports.c\
 		export/export_image.c\
 		export/export_scene.c\
 		export/export_objects.c\
+		export/export_objects2.c\
 		export/export_lights.c\
 		export/export_tools.c\
 
@@ -118,6 +128,7 @@ SRC_STRUCTS = \
 		structs/t_object.c\
 		structs/t_light.c\
 		structs/t_material.c\
+		structs/t_material2.c\
 		structs/t_color.c\
 		structs/t_color_array.c\
 

@@ -6,7 +6,7 @@
 /*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 00:15:01 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/22 02:53:51 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:10:47 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			load_scene6_objects(t_scene *scene)
 	//add_object(scene, new_object(PLANE, new_plane(new_vector(0, -10, 0), 0, CHECK, limits),
 	//			     new_color(BLUE), new_material(PERLIN)));
 	add_object(scene, new_object(BOLOID, new_boloid(new_vector(0, -50, 0), abc, 1, limits),
-				     new_color(RED), new_material(BASIC)));
+				     new_color(RED), new_material(PERLIN)));
 }
 
 void			load_scene6_lights(t_scene *scene)

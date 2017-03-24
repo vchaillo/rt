@@ -35,7 +35,7 @@ t_color			depth_compute(t_env *e, t_ray *ray, int depth, float coef)
 		r.color = reflection(e, ray, r, coef);
 	else if (r.refract_ray.hitpoint.object->material.property == TRANSMITIVE)
 		r.color = refraction(e, ray, r, coef);
-	if (GI && depth == 0)
+	if (e->scene->gi && depth == 0)
 		r.color = add_color(r.color, global_illumination(e, ray));
 	return (r.color);
 }

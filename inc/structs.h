@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 03:19:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:33:34 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ typedef struct				s_fresnel
 
 typedef struct				s_color
 {
-	unsigned int			r;
-	unsigned int			g;
-	unsigned int			b;
+	float					r;
+	float					g;
+	float					b;
 }							t_color;
 
 typedef struct				s_vector
@@ -56,7 +56,7 @@ typedef struct				s_plane
 	int						is_limited;
 	t_vector				mins;
 	t_vector				maxs;
-  	t_vector				limit_max;
+	t_vector				limit_max;
 	t_vector				limit_min;
 }							t_plane;
 
@@ -159,6 +159,20 @@ typedef struct				s_ray
 	int						is_in;
 }							t_ray;
 
+typedef struct				s_gi
+{
+	t_color					indirect_light;
+	float					pdf;
+	float					r1;
+	float					r2;
+	t_vector				nt;
+	t_vector				nb;
+	t_vector				sample;
+	t_vector				sample_world;
+	t_ray					tmp;
+	int						i;
+}							t_gi;
+
 typedef struct				s_ref
 {
 	t_color					color;
@@ -208,7 +222,24 @@ typedef struct				s_scene
 	int						aa;
 	t_color					**color_array;
 	t_color					**color_array_aa;
+	int						gi;
 }							t_scene;
+
+typedef struct				s_macro_array
+{
+	char					*define;
+	int						value;
+}							t_macro_array;
+
+typedef struct				s_macros
+{
+	t_macro_array			*colors;
+	t_macro_array			*materials;
+	t_macro_array			*effects;
+	t_macro_array			*objects;
+	t_macro_array			*lights;
+	t_macro_array			*plane_styles;
+}							t_macros;
 
 typedef struct				s_env
 {
@@ -222,6 +253,7 @@ typedef struct				s_env
 	int						thread;
 	int						scene_type;
 	t_scene					*scene;
+	t_macros				macros;
 	double					nb_rays;
 	double					nb_cam_rays;
 	double					nb_light_rays;

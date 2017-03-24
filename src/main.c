@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:13 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 04:49:06 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 07:03:53 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		main(int ac, char **av)
 	t_env	e;
 
 	e.scene = NULL;
+	e.macros = create_macros_arrays();
 	load_scene(SCENE_1, &e);
 	if (ac > 1)
 		parse_arguments(ac, av, &e);

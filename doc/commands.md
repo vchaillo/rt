@@ -22,6 +22,8 @@ rt commands
 | <kbd>3</kbd> | switch on/off specular light |
 | <kbd>4</kbd> | switch on/off spot light     |
 | <kbd>5</kbd> | switch on/off dir light      |
+| <kbd>6</kbd> | switch on/off gi		      |
+| <kbd>7</kbd> | switch on/off gi + aa	      |
 
 ### Effects
 

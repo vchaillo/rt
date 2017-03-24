@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:25:52 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 12:53:29 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:43:06 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ static void			print_camera_tofile(t_camera *camera, int fd)
 
 static void			print_scene_tofile(t_scene *scene, int fd)
 {
-	float			amb_intensity;
-
-	amb_intensity = scene->amb == ACTIVE ? scene->amb_intensity : 0;
 	print_color_tofile(scene->background_color, "background", 1, fd);
 	print_color_tofile(scene->amb_color, "amb_color", 1, fd);
 	print_tag_tofile("amb_intensity", TAG_OPEN, 1, fd);
-	dprintf(fd, "%.1f", amb_intensity);
+	dprintf(fd, "%.1f", scene->amb == ACTIVE ? scene->amb_intensity : 0);
 	print_tag_tofile("amb_intensity", TAG_CLOSE, 0, fd);
 	print_tag_tofile("antialiasing", TAG_OPEN, 1, fd);
 	scene->aa == INACTIVE_AA ? ft_putstr_fd("INACTIVE_AA", fd) :
@@ -50,9 +47,9 @@ static void			print_scene_tofile(t_scene *scene, int fd)
 	print_tag_tofile("effect", TAG_CLOSE, 0, fd);
 }
 
-void			export_scene(t_env *e)
+void				export_scene(t_env *e)
 {
-	int			fd;
+	int				fd;
 
 	ft_putendl_color("Saving scene file...", TERM_BOLD_BLACK);
 	fd = create_file(e, SCENE);

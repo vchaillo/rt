@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 21:44:49 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 19:16:04 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 00:22:10 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void			load_scene1_objects(t_scene *scene)
 
 void			load_scene1_lights(t_scene *scene)
 {
-	scene->amb_intensity = 0.5;
+	scene->amb_intensity = 0.2;
 	scene->amb_color = new_color(WHITE);
 	add_light(scene, new_light(SPOT, 1, new_vector(-50, 25, 100),
 		new_color(WHITE)));

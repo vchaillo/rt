@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   perlin.h                                           :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlegroux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/12 23:47:49 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/13 21:34:13 by vchaillo         ###   ########.fr       */
+/*   Created: 2013/11/20 15:55:03 by tlegroux          #+#    #+#             */
+/*   Updated: 2013/11/27 09:57:22 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PERLIN_H
-# define PERLIN_H
+#include "libft.h"
 
-unsigned int	permutation(int index);
-float			perlin(float x, float y, int resolution);
-float			gradient(int i, int j);
-float			noise(float x, float y, float res);
-float			fade(float nb);
-
-#endif
+void	ft_strclr(char *s)
+{
+	if (s)
+	{
+		while (*s)
+			*s++ = '\0';
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:57:50 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/14 04:38:22 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/23 21:36:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ void			load_scene3_objects(t_scene *scene)
 	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 1.5, 0), 3,
 							new_vector(0, 1, 0), limits),
-		new_color(RED), new_material(CHROME)));
+		new_color(RED), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0,
-		NORMAL, limits), new_color(WHITE), new_material(CHROME)));
+		NORMAL, limits), new_color(BLUE), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, -1, 0), 10,
-		NORMAL, limits), new_color(WHITE), new_material(CHROME)));
+		NORMAL, limits), new_color(BLUE), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 0, 1), 5,
-		NORMAL, limits), new_color(WHITE), new_material(CHROME)));
+		NORMAL, limits), new_color(BLUE), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 0, 1), -32,
-		NORMAL, limits), new_color(WHITE), new_material(CHROME)));
+		NORMAL, limits), new_color(BLUE), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(1, 0, 0), 5,
-		NORMAL, limits), new_color(WHITE), new_material(CHROME)));
+		NORMAL, limits), new_color(BLUE), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(-1, 0, 0), 5,
-		NORMAL, limits), new_color(WHITE), new_material(CHROME)));
+		NORMAL, limits), new_color(BLUE), new_material(BIT_REF)));
 }
 
 void			load_scene3_lights(t_scene *scene)
@@ -48,8 +48,8 @@ void			load_scene3(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_3;
-	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 5, 20),
-		new_vector(0.25, 0, -1)));
+	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 1.5, 20),
+		new_vector(0, 2, 0)));
 	load_scene3_objects(e->scene);
 	load_scene3_lights(e->scene);
 }

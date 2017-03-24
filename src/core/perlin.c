@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 02:12:51 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 03:35:05 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 float			gradient(int i, int j)
 {
 	float		unit;
-	float		gradient2[8][2];
+	float		gradient[8][2];
 
 	unit = 1.0 / sqrt(2);
-	gradiant[0][0] = unit;
-	gradiant[0][1] = unit;
-	gradiant[1][0] = -unit;
-	gradiant[1][1] = unit;
-	gradiant[2][0] = unit;
-	gradiant[2][1] = -unit;
-	gradiant[3][0] = -unit;
-	gradiant[3][1] = -unit;
-	gradiant[4][0] = 1;
-	gradiant[4][1] = 0;
-	gradiant[5][0] = -1;
-	gradiant[5][1] = 0;
-	gradiant[6][0] = 0;
-	gradiant[6][1] = 1;
-	gradiant[7][0] = 0;
-	gradiant[7][1] = -1;
-	return (gradient2[i][j]);
+	gradient[0][0] = unit;
+	gradient[0][1] = unit;
+	gradient[1][0] = -unit;
+	gradient[1][1] = unit;
+	gradient[2][0] = unit;
+	gradient[2][1] = -unit;
+	gradient[3][0] = -unit;
+	gradient[3][1] = -unit;
+	gradient[4][0] = 1;
+	gradient[4][1] = 0;
+	gradient[5][0] = -1;
+	gradient[5][1] = 0;
+	gradient[6][0] = 0;
+	gradient[6][1] = 1;
+	gradient[7][0] = 0;
+	gradient[7][1] = -1;
+	return (gradient[i][j]);
 }
 
 float			fade(float nb)
@@ -45,9 +45,22 @@ float			fade(float nb)
 	return (t * t * t * (t * (t * 6 - 15) + 10));
 }
 
-unsigned int	permutation(int index)
+static void		read_perm(const char *pstr, unsigned int perm[])
 {
 	int				i;
+
+	i = 0;
+	while (pstr && *pstr)
+	{
+		perm[i++] = ft_atoi(pstr);
+		while (*pstr > '0' && *pstr < '9')
+			pstr++;
+		pstr += 2;
+	}
+}
+
+unsigned int	permutation(int index)
+{
 	unsigned int	perm[256];
 	char			*pstr;
 
@@ -68,14 +81,7 @@ unsigned int	permutation(int index)
 	157, 184, 84, 204, 176, 115, 121, 50, 45, 127, 4, 150, 254, 138, 236, 205, \
 	93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, \
 	180";
-	i = 0;
-	while (pstr && *pstr)
-	{
-		perm[i++] = ft_atoi(pstr);
-		while (*pstr > '0' && *pstr < '9')
-			pstr++;
-		pstr += 2;
-	}
+	read_perm(pstr, perm);
 	return (perm[index % 256]);
 }
 

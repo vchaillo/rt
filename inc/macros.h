@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/22 06:04:45 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:33:54 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,13 @@
 # define MLX_ERROR 1
 # define ARG_ERROR 2
 # define OPEN_ERROR 3
+# define OBJECT_ABSENT_ERROR 4
+# define LIGHT_ABSENT_ERROR 5
+# define MISSING_TAG_ERROR 6
+# define THREE_ARGV_VEC_ERROR 7
+# define IS_EMPTY_ERROR 8
+# define MISSING_ERROR 9
+# define NOT_DEFINE_ERROR 10
 
 /*
 ** window and camera defines
@@ -82,7 +89,7 @@
 # define MAX_DIST 1000
 
 /*
-** lights defines
+** mode defines
 */
 # define MOVE_MODE 0
 # define EDIT_MODE 1

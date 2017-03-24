@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:05:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/10 21:31:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/21 09:41:14 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 # include "structs_libft.h"
@@ -90,6 +91,7 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
+float				ft_atof(char *c);
 char				*ft_itoa(int n);
 /*
 ** 					list functions

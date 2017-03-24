@@ -1,3 +1,0 @@
-z = y²/b² +- x²/a²
-0 = (dy²t² + 2dypyt + py²)/b² +- (dx²t² + 2dxpxt + px²) - (dzt + pz)
-t² (dy²/b² +- dx²) + t(2dypy +- 2dxpx - dz) + py²/b² +- px² - pz = 0

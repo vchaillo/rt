@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2017/02/23 04:34:01 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/21 09:36:00 by mmorice          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,7 @@ SRC_CONVERT = \
 		convert/ft_tolower.c\
 		convert/ft_toupper.c\
 		convert/ft_atoi.c\
+		convert/ft_atof.c\
 		convert/ft_itoa.c\
 
 SRC_LIST = \

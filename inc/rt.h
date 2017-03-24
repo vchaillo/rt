@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 00:51:25 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 02:00:12 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,36 @@ void			print_exposehook(t_env *e);
 void			print_keyhook(int keycode, t_env *e);
 void			print_mousehook(int button, int x, int y, t_env *e);
 void			print_frame_time(t_env *e);
+
+/*
+** 				parser functions
+*/
+void			parse_arguments(int ac, char **av, t_env *e);
+void			parse_xml_file(t_env *e, char **tab);
+t_macros		create_macros_arrays(void);
+int				search_macro(char *str, char **tab);
+char			**get_tab(char *file);
+int				create_object(t_env *e, char **tab);
+int				create_light(t_env *e, char **tab);
+int				hextoint(const char *str);
+t_vector		get_vector(char **array, char *tag, char *tagg);
+int				get_color(t_env *e, char **array, char *tag, char *tagg);
+int				get_material(t_env *e, char **array, char *tag, char *tagg);
+int				get_effect(t_env *e, char **array, char *tag, char *tagg);
+int				get_object(t_env *e, char **array, char *tag, char *tagg);
+int				get_light(t_env *e, char **array, char *tag, char *tagg);
+int				get_pstyle(t_env *e, char **array, char *tag, char *tagg);
+int				tag_present(char **array, char *tag, char *str);
+char			*between_tags(char **array, char *tag, int end);
+float			get_nbr(char **array, char *tag, char *tagg);
+t_vector		get_vect(char *str, char **tab, int x);
+void			print_error(int error_code);
+void			print_parser_error(char *str, int error_code, int line);
+void			print_help(void);
+
 /*
 ** 				tools functions
 */
-void			parse_arguments(int ac, char **av, t_env *e);
 float			solve_deg2(double a, double b, double c);
 double			solve_deg4(const double *eq);
 float			pow_2(float nb);
@@ -146,6 +172,7 @@ t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis);
 t_vector		cross_product(t_vector u, t_vector v);
 void			print_error(int error_code);
 void			print_help(void);
+
 /*
 ** 				export functions
 */
@@ -160,6 +187,7 @@ void			print_vector_tofile(t_vector v, char *name, int tabs, int fd);
 void			print_color_tofile(t_color c, char *name, int tabs, int fd);
 void			print_objects_tofile(t_object *objects, int fd);
 void			print_lights_tofile(t_env *e, t_light *lights, int fd);
+
 /*
 ** 				scenes functions
 */

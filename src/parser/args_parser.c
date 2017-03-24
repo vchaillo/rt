@@ -6,15 +6,15 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 16:31:16 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 12:29:45 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:17:20 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void			parse_arguments(int ac, char **av, t_env *e)
+void				parse_arguments(int ac, char **av, t_env *e)
 {
-	int			i;
+	int				i;
 
 	i = 1;
 	while (i < ac)
@@ -40,7 +40,7 @@ void			parse_arguments(int ac, char **av, t_env *e)
 		else if (ft_strcmp(av[i], "-s9") == 0)
 			load_scene(SCENE_9, e);
 		else
-			print_error(ARG_ERROR);
+			parse_xml_file(e, get_tab(av[1]));
 		i++;
 	}
 }

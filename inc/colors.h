@@ -6,13 +6,16 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/18 18:14:39 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:22:31 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLORS_H
 # define COLORS_H
 
+/*
+** colors defines
+*/
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
 # define GREY 0x777777

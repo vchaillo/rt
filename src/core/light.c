@@ -71,7 +71,7 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 	color = scalar_color(dot, add_color(hitpoint.color, l->color));
 	if (hitpoint.object->material.type == PERLIN)
 		color = scalar_color(perlin(hitpoint.pos.x, hitpoint.pos.y, 75), color);
-	return (color);
+	return (scalar_color(hitpoint.object->material.diffuse, color));
 }
 
 t_color			phong(t_env *e, t_light *light, t_ray *vray)
@@ -101,7 +101,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 			color = add_color(specular(vray, light, &lray), color);
 		color = scalar_color(lray.transmittance_ray, color);
 	}
-	return (scalar_color(vray->hitpoint.object->material.diffuse, color));
+	return (color);
 }
 
 t_color			illuminate(t_env *e, t_ray *ray)
@@ -128,6 +128,7 @@ t_color			illuminate(t_env *e, t_ray *ray)
 	}
 	if (e->scene->amb == ACTIVE && (e->scene->spot || e->scene->dir))
 		color = add_color(scalar_color((e->scene->amb_intensity),
-			add_color(e->scene->amb_color, ray->hitpoint.color)), color);
+			add_color(e->scene->amb_color, scalar_color(
+		ray->hitpoint.object->material.diffuse, ray->hitpoint.color))), color);
 	return (color);
 }

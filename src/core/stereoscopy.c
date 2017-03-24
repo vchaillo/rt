@@ -6,18 +6,17 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 06:06:23 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/22 06:10:45 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:06:53 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-
 void			stereoscopy(t_env *e)
 {
 	t_color		color;
-	int 		x;
-	int 		y;
+	int			x;
+	int			y;
 
 	if (e->scene->effect == STEREO)
 	{

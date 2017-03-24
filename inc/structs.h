@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 01:19:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:33:34 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ typedef struct				s_fresnel
 
 typedef struct				s_color
 {
-	unsigned int			r;
-	unsigned int			g;
-	unsigned int			b;
+	float					r;
+	float					g;
+	float					b;
 }							t_color;
 
 typedef struct				s_vector

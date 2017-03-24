@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/22 21:15:08 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/24 01:23:44 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,11 @@ SRC_CORE = \
 
 SRC_PARSER = \
 		parser/args_parser.c\
+		parser/parse_macros.c\
+		parser/parser_tools.c\
+		parser/parser.c\
+		parser/get_macros.c\
+		parser/create.c\
 
 SRC_GUI = \
 		gui/mlx.c\

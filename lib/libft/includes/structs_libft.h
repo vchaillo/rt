@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/24 00:56:43 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/10 21:31:05 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:32:06 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct		s_static_s
+typedef struct		s_fddata
 {
-	char			static_s[BUFF_SIZE + 1];
-	int				first_gnl_use;
-}					t_static_s;
+	int				fd;
+	char			*stat;
+}					t_fddata;
 
 #endif

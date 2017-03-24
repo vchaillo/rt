@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/23 23:52:32 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:21:48 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # define REFLECTIVE 1
 # define TRANSMITIVE 2
 
+/*
+** materials defines
+*/
 # define BASIC 0
 # define PLASTIC 1
 # define GLASS 2
@@ -26,6 +29,9 @@
 # define CHROME 6
 # define TEST 7
 
+/*
+** materials values defines
+*/
 # define BASIC_DIFFUSE 1
 # define BASIC_SPECULAR 1
 # define BASIC_SHININESS 100

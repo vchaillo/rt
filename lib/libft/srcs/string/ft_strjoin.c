@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmorice <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/12 20:21:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/11/22 07:53:21 by vchaillo         ###   ########.fr       */
+/*   Created: 2016/11/06 18:02:25 by mmorice           #+#    #+#             */
+/*   Updated: 2017/01/12 14:45:02 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char		*str;
-	size_t		len;
+	char	*tab;
 
-	if (s1 == NULL || s2 == NULL)
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	if (!(tab = (char *)malloc(sizeof(char) *
+		(ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * len + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_strcpy(str, s1);
-	ft_strcat(str, s2);
-	str[len] = '\0';
-	return (str);
+	tab = ft_strcpy(tab, s1);
+	tab = ft_strcat(tab, s2);
+	return (tab);
 }

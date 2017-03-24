@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 04:42:40 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 06:59:31 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ float			perlin(float x, float y, int resolution)
 {
 	float	nb;
 
-	return (1);
 	nb = (noise(fabs(x * 100), fabs(y * 100),
 		resolution) + 1);
 	return (nb);

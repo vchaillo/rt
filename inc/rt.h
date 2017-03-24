@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 02:00:12 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:06:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,8 +256,12 @@ void			delete_lights(t_light *lights);
 t_mat			new_material(int material);
 t_mat			new_basic_material(void);
 t_mat			new_plastic_material(void);
+t_mat			new_perlin_material(void);
+t_mat			new_chrome_material(void);
 t_mat			new_glass_material(void);
-t_mat			new_marble_material(void);
+t_mat			new_water_material(void);
+t_mat			new_bitref_material(void);
+t_mat			new_test_material(void);
 t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
 t_color			**reset_color_array(int aa, t_color **colors);

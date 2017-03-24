@@ -6,14 +6,14 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:25:01 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/13 21:35:11 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 04:00:22 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 t_sphere		*new_sphere(t_vector pos, float r, t_vector axis,
-				    t_vector limits[])
+					t_vector limits[])
 {
 	t_sphere	*sphere;
 

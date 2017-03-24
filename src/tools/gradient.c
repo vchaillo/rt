@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   gradient.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlegroux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 04:40:06 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/24 04:42:29 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:44:23 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void		read_perm(const char *pstr, unsigned int perm[])
+static void				read_perm(const char *pstr, unsigned int perm[])
 {
-	int				i;
+	int					i;
 
 	i = 0;
 	while (pstr && *pstr)
@@ -27,10 +27,10 @@ static void		read_perm(const char *pstr, unsigned int perm[])
 	}
 }
 
-unsigned int	permutation(int index)
+unsigned int			permutation(int index)
 {
 	static unsigned int	perm[256];
-	static char				*pstr;
+	static char			*pstr;
 
 	if (pstr)
 		return (perm[index % 256]);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tore.c                                             :+:      :+:    :+:   */
+/*   boloid.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 01:58:06 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:24:58 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ t_vector		get_normal_at_boloid(t_ray *ray, t_boloid *boloid)
 	normal.x = 2 * (hit.x - boloid->pos.x) * boloid->sign
 		* (1 / pow(boloid->a, 2));
 	normal.z = 2 * (hit.z - boloid->pos.z) * (1 / pow(boloid->b, 2));
-	normal.y = -1 * ((hit.y - boloid->pos.y) / ABS((hit.y - boloid->pos.y)));
+	normal.y = -1 * ((hit.y - boloid->pos.y) / fabs((hit.y - boloid->pos.y)));
 	return (normal);
 }

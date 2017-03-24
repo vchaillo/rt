@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/24 06:50:25 by tlegroux         ###   ########.fr        #
+#    Updated: 2017/03/24 07:03:32 by tlegroux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,7 @@ SRC_EXPORT = \
 		export/export_image.c\
 		export/export_scene.c\
 		export/export_objects.c\
+		export/export_objects2.c\
 		export/export_lights.c\
 		export/export_tools.c\
 

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 03:48:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/20 00:39:45 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/24 05:19:23 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int				key_hook(int keycode, t_env *e)
 		export_scene(e);
 	else
 	{
+		print_keyhook(keycode, e);
 		if (check_if_update_image(keycode) == TRUE)
 		{
 			if (e->scene->mode == MOVE_MODE)
@@ -107,7 +108,6 @@ int				key_hook(int keycode, t_env *e)
 			key_hook_light(keycode, e->scene);
 			key_hook_scene(keycode, e);
 			key_hook_effects(keycode, e);
-			print_keyhook(keycode, e);
 			update_image(e);
 		}
 	}

@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   t_disc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/14 07:55:18 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/24 04:38:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_disc		*new_disc(float r_max, float r_min, t_vector pos, t_vector rotxyz)
+t_disc			*new_disc(float r_max, float r_min, t_vector pos,
+					t_vector rotxyz)
 {
-	t_disc	*disc;
+	t_disc		*disc;
 
 	if (!(disc = (t_disc*)malloc(sizeof(t_disc))))
 		print_error(MALLOC_ERROR);

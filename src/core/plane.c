@@ -6,13 +6,14 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 02:36:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:08:04 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static int		is_out_limit(const t_plane *plane, const t_ray *ray, const float t)
+static int		is_out_limit(const t_plane *plane, const t_ray *ray,
+							const float t)
 {
 	t_vector	relative_pos;
 	t_vector	rotated_pos;
@@ -23,16 +24,16 @@ static int		is_out_limit(const t_plane *plane, const t_ray *ray, const float t)
 	relative_pos.z = (ray->o.z + ray->d.z * t) - plane->offset;
 	rotated_pos = convert_to_rotated_coordinates(relative_pos, plane->normal);
 	if ((plane->limit_max.x > 0 || plane->limit_min.x < 0)
-	    && (rotated_pos.x > plane->limit_max.x ||
-		rotated_pos.x < plane->limit_min.x))
+		&& (rotated_pos.x > plane->limit_max.x ||
+			rotated_pos.x < plane->limit_min.x))
 		return (1);
 	if ((plane->limit_max.y > 0 || plane->limit_min.y < 0)
-	    && (rotated_pos.y > plane->limit_max.y ||
-		rotated_pos.y < plane->limit_min.y))
+		&& (rotated_pos.y > plane->limit_max.y ||
+			rotated_pos.y < plane->limit_min.y))
 		return (1);
 	if ((plane->limit_max.z > 0 || plane->limit_min.z < 0)
-	    && (rotated_pos.z > plane->limit_max.z ||
-		rotated_pos.z < plane->limit_min.z))
+		&& (rotated_pos.z > plane->limit_max.z ||
+			rotated_pos.z < plane->limit_min.z))
 		return (1);
 	return (0);
 }
@@ -52,7 +53,7 @@ float			hit_plane(t_plane *plane, t_ray *ray)
 	if (!is_out_limit(plane, ray, t))
 		return (t);
 	else
-       		return (0);
+		return (0);
 }
 
 int				is_plane_illuminated(t_ray *ray, t_light *light)

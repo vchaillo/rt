@@ -6,7 +6,7 @@
 /*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/14 07:55:18 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/24 02:10:58 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,25 @@ void			normal_disc(t_disc *disc, int normal)
 	disc->normal_hit = normalize(n);
 }
 
-float           hit_disc(t_disc *disc, t_ray *ray)
+static t_plane	*init_discplane(void)
 {
-	float		t;
-    t_ray		r;
-	t_plane		*plane;
 	t_vector	limits[2];
-	t_vector	hitpos;
-	float		d_from_o;
 
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
-    r = ray_coord_modif(ray, disc->pos, disc->rotxyz);
-	plane = new_plane(new_vector(0, 1, 0), 0, NORMAL, limits);
+	return (new_plane(new_vector(0, 1, 0), 0, NORMAL, limits));
+}
+
+float			hit_disc(t_disc *disc, t_ray *ray)
+{
+	float		t;
+	t_ray		r;
+	t_plane		*plane;
+	t_vector	hitpos;
+	float		d_from_o;
+
+	r = ray_coord_modif(ray, disc->pos, disc->rotxyz);
+	plane = init_discplane();
 	t = hit_plane(plane, &r);
 	if (t)
 	{

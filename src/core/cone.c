@@ -6,13 +6,14 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 16:30:24 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 01:44:42 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/24 01:58:55 by tlegroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static int		is_out_limit(const t_cone *cone, const t_ray *ray, const float t)
+static int		is_out_limit(const t_cone *cone, const t_ray *ray,
+							const float t)
 {
 	t_vector	relative_pos;
 	t_vector	rotated_pos;
@@ -22,16 +23,16 @@ static int		is_out_limit(const t_cone *cone, const t_ray *ray, const float t)
 	relative_pos.z = (ray->o.z + ray->d.z * t) - cone->apex.z;
 	rotated_pos = convert_to_rotated_coordinates(relative_pos, cone->axis);
 	if ((cone->limit_max.x > 0 || cone->limit_min.x < 0)
-	    && (rotated_pos.x > cone->limit_max.x ||
-		rotated_pos.x < cone->limit_min.x))
+		&& (rotated_pos.x > cone->limit_max.x ||
+			rotated_pos.x < cone->limit_min.x))
 		return (1);
 	if ((cone->limit_max.y > 0 || cone->limit_min.y < 0)
-	    && (rotated_pos.y > cone->limit_max.y ||
-		rotated_pos.y < cone->limit_min.y))
+		&& (rotated_pos.y > cone->limit_max.y ||
+			rotated_pos.y < cone->limit_min.y))
 		return (1);
 	if ((cone->limit_max.z > 0 || cone->limit_min.z < 0)
-	    && (rotated_pos.z > cone->limit_max.z ||
-		rotated_pos.z < cone->limit_min.z))
+		&& (rotated_pos.z > cone->limit_max.z ||
+			rotated_pos.z < cone->limit_min.z))
 		return (1);
 	return (0);
 }

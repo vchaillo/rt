@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 18:36:20 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/17 12:45:05 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/24 21:06:14 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void			export_image(t_env *e)
 	fd = create_file(e, IMAGE);
 	put_file_header(fd);
 	put_image_header(fd);
-	y = WIN_H;
-	while (y > 0)
+	y = WIN_H - 1;
+	while (y >= 0)
 	{
 		x = 0;
 		while (x < WIN_W)

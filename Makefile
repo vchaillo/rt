@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/24 09:02:11 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/28 00:30:07 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,6 @@ SRC_TOOLS = \
 		tools/color.c\
 		tools/error.c\
 		tools/cross_product.c\
-		tools/gradient.c\
 
 SRC_EXPORT = \
 		export/exports.c\

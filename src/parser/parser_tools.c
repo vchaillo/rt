@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:41:17 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 02:00:00 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/27 20:06:04 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ float			get_nbr(char **array, char *tag, char *tagg)
 	abc = ft_atof(&str[0]);
 	printf("before : %s\n", &str[0]);
 	printf("after : %f\n", abc);
+	free(str);
 	return (abc);
 }
 

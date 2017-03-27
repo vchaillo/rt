@@ -2,8 +2,8 @@
 
 	<!-- mandatory -->
 	<camera>
-		<pos>10, 5, 60<pos>
-		<dir>0, 0, 5<dir>
+		<pos>10, 5, 60</pos>
+		<dir>0, 0, 5</dir>
 	</camera>
 	<!-- mandatory -->
 	<background>BLACK</background>
@@ -19,13 +19,18 @@
 	<objects>
 
 		<object>
-			<type> SPHERE</type>
+			<type>SPHERE</type>
 			<color>ORANGE</color>
 			<material>GLASS</material>
 			<sphere>
+				<axis>0, 10, -3</axis>
 				<pos>0, 10, 0</pos>
 				<r>5.2</r>
 			</sphere>
+			<limits>
+				<min>0, 1, 0</min>
+				<max>0, 1, 0</max>
+			</limits>
 		</object>
 
 		<object>
@@ -37,6 +42,10 @@
 				<offset>0</offset>
 				<style>CHECK</style>
 			</plane>
+			<limits>
+				<min>0, 1, 0</min>
+				<max>0, 1, 0</max>
+			</limits>
 		</object>
 
 		<object>
@@ -48,6 +57,10 @@
 				<pos>40, 20, 25</pos>
 				<r>100</r>
 			</cylinder>
+			<limits>
+				<min>0, 1, 0</min>
+				<max>0, 1, 0</max>
+			</limits>
 		</object>
 
 		<object>
@@ -59,6 +72,10 @@
 				<apex>40, 20, 0</apex>
 				<angle>20</angle>
 			</cone>
+			<limits>
+				<min>0, 1, 0</min>
+				<max>0, 1, 0</max>
+			</limits>
 		</object>
 
 	</objects>
@@ -71,7 +88,7 @@
 			<type>SPOT</type>
 			<intensity>5</intensity>
 			<color>WHITE</color>
-			<vector>15, 12, 20<vector>
+			<vector>15, 12, 20</vector>
 		</light>
 
 		<light>

@@ -7,7 +7,6 @@
 	<amb_color>WHITE</amb_color>
 	<amb_intensity>0</amb_intensity>
 	<objects>
-
 		<object>
 			<type>SPHERE</type>
 			<color>WHITE</color>
@@ -15,34 +14,32 @@
 			<sphere>
 				<pos>0, 0, 0</pos>
 				<r>1</r>
+				<axis>0, 1, 1</axis>
 			</sphere>
-
+			<limits>
+				<min>0, 1, 0</min>
+				<max>0, 1, 0</max>
+			</limits>
 		</object>
-
 	</objects>
 	<lights>
-
 		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>RED</color>
 			<vector>1, -1, -1</vector>
 		</light>
-
 		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>BLUE</color>
 			<vector>-1, -1, -1</vector>
 		</light>
-
 		<light>
 			<type>DIR</type>
 			<intensity>1</intensity>
 			<color>GREEN</color>
 			<vector>0, 1, -1</vector>
 		</light>
-
 	</lights>
-
 </scene>

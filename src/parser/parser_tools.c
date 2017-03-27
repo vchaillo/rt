@@ -48,8 +48,6 @@ float			get_nbr(char **array, char *tag, char *tagg)
 	str = between_tags(&array[tag_present(array, tagg, "open") + 1],
 	tag, tag_present(array, tagg, "close") - 1);
 	abc = ft_atof(&str[0]);
-	printf("before : %s\n", &str[0]);
-	printf("after : %f\n", abc);
 	free(str);
 	return (abc);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene7.c                                           :+:      :+:    :+:   */
+/*   box.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/14 07:55:18 by hbock            ###   ########.fr       */
+/*   Updated: 2017/03/28 03:32:54 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,76 +74,52 @@ float           hit_box(t_box *box, t_ray *ray)
     t_ray		r;
 
     r = ray_coord_modif(ray, box->trans, box->rotxyz);
-	if (r.d.x == 0)
-	{
-		tmin = FLT_MAX;
-		tmax = FLT_MAX;
-	}
-	else
-	{
-		normal = 0;
-		tmin = (box->corner_min.x - r.o.x) / r.d.x;
-		tmax = (box->corner_max.x - r.o.x) / r.d.x;
-	}
+	normal = 0;
+	tmin = (box->corner_min.x - r.o.x) / r.d.x;
+	tmax = (box->corner_max.x - r.o.x) / r.d.x;
 
-    if (tmin > tmax)
+	if (tmin > tmax)
 	{
 		normal = 1;
 		ft_swapf(&tmin, &tmax);
 	}
 
-	if (r.d.y == 0)
-	{
-		tymin = FLT_MAX;
-		tymax = FLT_MAX;
-	}
-	else
-	{
-		tmp_normal = 2;
-    	tymin = (box->corner_min.y - r.o.y) / r.d.y;
-    	tymax = (box->corner_max.y - r.o.y) / r.d.y;
-	}
+	tmp_normal = 2;
+	tymin = (box->corner_min.y - r.o.y) / r.d.y;
+	tymax = (box->corner_max.y - r.o.y) / r.d.y;
 
-    if (tymin > tymax)
+	if (tymin > tymax)
 	{
 		tmp_normal = 3;
-        ft_swapf(&tymin, &tymax);
+		ft_swapf(&tymin, &tymax);
 	}
 
-    if ((tmin > tymax) || (tymin > tmax))
-        return FLT_MAX;
+	if ((tmin > tymax) || (tymin > tmax))
+		return FLT_MAX;
 
-    if (tymin > tmin)
+	if (tymin > tmin)
 	{
 		normal = tmp_normal;
-        tmin = tymin;
+		tmin = tymin;
 	}
 
-    if (tymax < tmax)
-        tmax = tymax;
+	if (tymax < tmax)
+		tmax = tymax;
 
-	if (r.d.z == 0)
-	{
-		tzmin = FLT_MAX;
-		tzmax = FLT_MAX;
-	}
-	else
-	{
-		tmp_normal = 4;
-    	tzmin = (box->corner_min.z - r.o.z) / r.d.z;
-    	tzmax = (box->corner_max.z - r.o.z) / r.d.z;
-	}
+	tmp_normal = 4;
+	tzmin = (box->corner_min.z - r.o.z) / r.d.z;
+	tzmax = (box->corner_max.z - r.o.z) / r.d.z;
 
-    if (tzmin > tzmax)
+	if (tzmin > tzmax)
 	{
 		tmp_normal = 5;
 		ft_swapf(&tzmin, &tzmax);
 	}
 
-    if ((tmin > tzmax) || (tzmin > tmax))
-        return FLT_MAX;
+	if ((tmin > tzmax) || (tzmin > tmax))
+		return FLT_MAX;
 
-    if (tzmin > tmin)
+	if (tzmin > tmin)
 	{
         tmin = tzmin;
 		normal = tmp_normal;

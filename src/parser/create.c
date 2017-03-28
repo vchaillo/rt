@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/27 20:02:52 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/28 03:28:07 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,23 @@ int				create_object(t_env *e, char **tab)
 		new_cone(get_vector(tab, "axis", "cone"),
 		get_vector(tab, "apex", "cone"),
 		get_nbr(tab, "angle", "cone"), limits), color, material)) : NULL;
+	type == TORE ? add_object(e->scene, new_object(type,
+		new_tore(get_vector(tab, "pos", "tore"),
+		get_nbr(tab, "little_radius", "tore"),
+		get_nbr(tab, "big_radius", "tore"), limits), color, material)) : NULL;
+	type == BOLOID ? add_object(e->scene, new_object(type,
+		new_boloid(get_vector(tab, "pos", "boloid"),
+		get_vector(tab, "abc", "boloid"),
+		get_nbr(tab, "sign", "boloid"), limits), color, material)) : NULL;
+	type == BOX ? add_object(e->scene, new_object(type,
+		new_box(get_vector(tab, "corner", "box"),
+		get_vector(tab, "translation", "box"),
+		get_vector(tab, "rotxyz", "box")), color, material)) : NULL;
+	type == DISC ? add_object(e->scene, new_object(type,
+		new_disc(get_nbr(tab, "big_radius", "disc"),
+		get_nbr(tab, "little_radius", "disc"),
+		get_vector(tab, "pos", "disc"),
+		get_vector(tab, "rotxyz", "disc")), color, material)) : NULL;
 	return (0);
 }
 

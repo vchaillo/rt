@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 04:03:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 04:04:18 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/28 02:15:18 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_mat			new_perlin_material(void)
 	material.refraction = PERLIN_REFRACTION;
 	material.ior = PERLIN_IOR;
 	material.property = DIFFUSE;
+	material.shadow = PERLIN_SHADOW;
 	return (material);
 }
 

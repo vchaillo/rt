@@ -6,14 +6,14 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/28 00:30:07 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/28 02:16:14 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = rt
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -O3
+CFLAGS = -Wall -Wextra -Werror -O3
 RM = rm -Rf
 
 # Colors

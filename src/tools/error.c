@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/28 23:09:51 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/29 07:52:15 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void			print_help(void)
 	ft_putendl_color("display rays and frame time infos", TERM_BLACK);
 	ft_putstr_color("-s1 ... -s9   	:   ", TERM_BLACK);
 	ft_putendl_color("load defaults scenes", TERM_BLACK);
+	ft_putstr_color("scene.xml   	:   ", TERM_BLACK);
+	ft_putendl_color("load xml scene file", TERM_BLACK);
 }
 
 void			print_parser_error(char *str, int error_code, int line)
@@ -56,8 +58,10 @@ void			print_error(int error_code)
 	else if (error_code == MALLOC_ERROR)
 		ft_putendl_color("Memory allocation failed", TERM_BOLD_RED);
 	else if (error_code == OPEN_ERROR)
-	{
 		ft_putendl_color("Open or create file failed", TERM_BOLD_RED);
+	else if (error_code == OPEN_XML_ERROR)
+	{
+		ft_putendl_color("Invalid scene file", TERM_BOLD_RED);
 		print_help();
 	}
 	exit(0);

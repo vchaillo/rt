@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/29 00:58:26 by valentinchaillou89###   ########.fr        #
+#    Updated: 2017/03/29 07:45:26 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,9 +149,9 @@ else
 SYSTEM = MACOS
 LIBMLX	=	-Llib/mlx/minilibx_$(SYSTEM)/ -lmlx -framework OpenGL -framework AppKit
 LIBGSL	=	-Llib/gsl/gsl_$(SYSTEM)/lib -lgsl -lgslcblas
-LIBGTK	=	`pkg-config --libs gtk+-3.0`
 endif
 LIBFT 	=	 -Llib/libft/ -lft
+LIBGTK	=	`pkg-config --libs gtk+-3.0`
 INC		=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM)/ -I lib/libft/includes/\
 			-I lib/gsl/gsl_$(SYSTEM)/include/ `pkg-config --cflags gtk+-3.0`
 

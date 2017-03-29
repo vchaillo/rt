@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/29 00:50:53 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/29 07:50:10 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@
 # define IS_EMPTY_ERROR 8
 # define MISSING_ERROR 9
 # define NOT_DEFINE_ERROR 10
+# define OPEN_XML_ERROR 11
 
 /*
 ** window and camera defines

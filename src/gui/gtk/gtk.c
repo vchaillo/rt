@@ -6,11 +6,39 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 00:31:16 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/29 03:14:11 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/29 08:33:57 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+// static gboolean
+// render (GtkGLArea *area, GdkGLContext *context)
+// {
+//   // inside this function it's safe to use GL; the given
+//   // #GdkGLContext has been made current to the drawable
+//   // surface used by the #GtkGLArea and the viewport has
+//   // already been set to be the size of the allocation
+//
+//   // we can start by clearing the buffer
+//   glClearColor (0, 0, 0, 0);
+//   glClear (GL_COLOR_BUFFER_BIT);
+//
+//   // draw your object
+//   draw_an_object ();
+//
+//   // we completed our drawing; the draw commands will be
+//   // flushed at the end of the signal emission chain, and
+//   // the buffers will be drawn on the window
+//   return TRUE;
+// }
+//
+// static void			create_gl_area(t_env *e, GtkWidget *window)
+// {
+// 	(void)e;
+// 	GtkWidget *gl_area = gtk_gl_area_new();
+// 	g_signal_connect (gl_area, "render", G_CALLBACK (render), NULL);
+// }
 
 static void			create_buttons(GtkWidget *window)
 {
@@ -19,8 +47,8 @@ static void			create_buttons(GtkWidget *window)
 
 	grid = gtk_grid_new();
 	gtk_container_add(GTK_CONTAINER(window), grid);
-	button = gtk_button_new_with_label("Button 1");
-	// g_signal_connect(button, "clicked", G_CALLBACK (print_hello), NULL);
+	button = gtk_button_new_with_label("Start Mlx");
+	// g_signal_connect(button, "clicked", G_CALLBACK(start_mlx), e);
 	gtk_grid_attach(GTK_GRID(grid), button, 0, 0, 1, 1);
 	button = gtk_button_new_with_label("Button 2");
 	// g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
@@ -30,58 +58,17 @@ static void			create_buttons(GtkWidget *window)
 	gtk_grid_attach(GTK_GRID(grid), button, 2, 0, 1, 1);
 }
 
-static void			activate(GtkApplication* app)
+void				start_gtk(t_env *e)
 {
 	GtkWidget 		*window;
 
-	window = gtk_application_window_new(app);
-	create_buttons(window);
-	gtk_window_set_title(GTK_WINDOW(window), "rt");
-	gtk_window_set_default_size(GTK_WINDOW(window), WIN_W, WIN_H);
-	gtk_widget_show_all(window);
-	gtk_window_maximize(GTK_WINDOW(window));
-}
-
-void				start_gtk(t_env *e)
-{
-	GtkApplication	*app;
-	int				status;
-
 	(void)e;
-	app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE);
-	g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
-	status = g_application_run(G_APPLICATION(app), 0, NULL);
-	g_object_unref(app);
+	gtk_init(0, NULL);
+	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_title(GTK_WINDOW(window), "rt");
+	gtk_window_maximize(GTK_WINDOW(window));
+	create_buttons(window);
+	// create_gl_area(e, window);
+	gtk_widget_show_all(window);
+	gtk_main();
 }
-
-// static void			print_hello (void)
-// {
-// 	g_print ("Hello World\n");
-// }
-//
-// void				start_gtk(t_env *e)
-// {
-// 	GtkBuilder		*builder;
-// 	GObject			*window;
-// 	GObject			*button;
-//
-// 	(void)e;
-// 	gtk_init (NULL, NULL);
-// 	builder = gtk_builder_new();
-// 	gtk_builder_add_from_file(builder, "doc/rt_gtk.ui", NULL);
-//
-// 	/* Connect signal handlers to the constructed widgets. */
-// 	window = gtk_builder_get_object (builder, "rt");
-// 	g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
-//
-// 	button = gtk_builder_get_object (builder, "button1");
-// 	g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
-//
-// 	button = gtk_builder_get_object (builder, "button2");
-// 	g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
-//
-// 	button = gtk_builder_get_object (builder, "quit");
-// 	g_signal_connect (button, "clicked", G_CALLBACK (gtk_main_quit), NULL);
-//
-// 	gtk_main ();
-// }

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:41:17 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/27 23:56:30 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/29 07:51:13 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char			**get_tab(char *file)
 		free(line);
 	}
 	close(fd);
-	(tmp == NULL) ? print_error(OPEN_ERROR) : NULL;
+	(tmp == NULL) ? print_error(OPEN_XML_ERROR) : NULL;
 	tab = ft_strsplit(tmp, '\n');
 	free(tmp);
 	return (tab);

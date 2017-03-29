@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 06:52:07 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/29 09:56:55 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # include <gtk/gtk.h>
 
 /*
-** 		program includes
+** 		rt includes
 */
 # include "libft.h"
 # include "colors.h"

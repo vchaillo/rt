@@ -1,7 +1,7 @@
 <scene>
 	<camera>
-		<pos>0.00, 15, 100</pos>
-		<look_at>0.000, 15.0, 0.000</look_at>
+		<pos>0.000, 15.000, 100.000</pos>
+		<look_at>0.027, -0.033, -0.999</look_at>
 	</camera>
 	<background>BLACK</background>
 	<amb_color>WHITE</amb_color>
@@ -12,13 +12,13 @@
 			<color>FAKE_WHITE</color>
 			<material>CHROME</material>
 			<sphere>
-				<pos>-15, 15, 0</pos>
-				<r>10</r>
-				<axis>0, 1, 1</axis>
+				<pos>-15.000, 15.000, 0.000</pos>
+				<r>10.0</r>
+				<axis>0.000, 1.000, 1.000</axis>
 			</sphere>
 			<limits>
-				<min>0, 1, 0</min>
-				<max>0, 1, 0</max>
+				<min>0.000, 1.000, 0.000</min>
+				<max>0.000, 1.000, 0.000</max>
 			</limits>
 		</object>
 		<object>
@@ -26,41 +26,33 @@
 			<color>WHITE</color>
 			<material>BASIC</material>
 			<plane>
-				<normal>0, -1, 0</normal>
-				<offset>-2</offset>
+				<normal>0.000, -1.000, 0.000</normal>
+				<offset>-2.0</offset>
 				<style>CHECK</style>
 			</plane>
-			<limits>
-				<min>50, 50, 50</min>
-				<max>100, 100, 100</max>
-			</limits>
 		</object>
 		<object>
 			<type>CYLINDER</type>
 			<color>PASTEL_BLUE</color>
 			<material>BASIC</material>
 			<cylinder>
-				<axis>0, 10, -3</axis>
-				<pos>-50, 20, -25</pos>
-				<r>10</r>
+				<axis>0.000, 0.958, -0.287</axis>
+				<pos>-50.000, 20.000, -25.000</pos>
+				<r>10.0</r>
 			</cylinder>
-			<limits>
-				<min>100, 100, 100</min>
-				<max>0, 0, 0</max>
-			</limits>
 		</object>
 		<object>
 			<type>TORE</type>
 			<color>WHITE</color>
 			<material>GLASS</material>
 			<tore>
-				<pos>50, 20, -100</pos>
-				<little_radius>2,5</little_radius>
-				<big_radius>20</big_radius>
+				<pos>50.000, 20.000, -100.000</pos>
+				<little_radius>2.0</little_radius>
+				<big_radius>20.0</big_radius>
 			</tore>
 			<limits>
-				<min>100, 100, 100</min>
-				<max>0, 0, 0</max>
+				<min>100.000, 100.000, 100.000</min>
+				<max>0.000, 0.000, 0.000</max>
 			</limits>
 		</object>
 		<object>
@@ -68,13 +60,13 @@
 			<color>WHITE</color>
 			<material>PERLIN</material>
 			<boloid>
-				<pos>0, 20, 25</pos>
-				<abc>1, 0.99999, 1</abc>
-				<sign>1</sign>
+				<pos>0.000, 20.000, 25.000</pos>
+				<sign>1.0</sign>
+				<abc>1.0, 1.0, 1.0</abc>
 			</boloid>
 			<limits>
-				<min>100, 100, 100</min>
-				<max>0, 0, 0</max>
+				<min>100.000, 100.000, 100.000</min>
+				<max>0.000, 0.000, 0.000</max>
 			</limits>
 		</object>
 		<object>
@@ -82,13 +74,13 @@
 			<color>CYAN</color>
 			<material>PLASTIC</material>
 			<cone>
-				<axis>0, 1, -0.5</axis>
-				<apex>40, 20, -25</apex>
-				<angle>30</angle>
+				<axis>0.000, 0.894, -0.447</axis>
+				<apex>40.000, 20.000, -25.000</apex>
+				<angle>30.0</angle>
 			</cone>
 			<limits>
-				<min>0, 0, 0</min>
-				<max>100, 100, 100</max>
+				<min>0.000, 0.000, 0.000</min>
+				<max>100.000, 100.000, 100.000</max>
 			</limits>
 		</object>
 		<object>
@@ -96,9 +88,9 @@
 			<color>YELLOW</color>
 			<material>PLASTIC</material>
 			<box>
-				<corner>6, 6, 6</corner>
-				<translation>12, 15, 30</translation>
-				<rotxyz>0, 50, 15</rotxyz>
+				<corner>6.000, 6.000, 6.000</corner>
+				<rotxyz>0.000, 50.000, 15.000</rotxyz>
+				<translation>12.000, 15.000, 30.000</translation>
 			</box>
 		</object>
 		<object>
@@ -106,25 +98,25 @@
 			<color>BLACK</color>
 			<material>PLASTIC</material>
 			<disc>
-				<pos>-15, 15, 6</pos>
-				<rotxyz>0, 50, 15</rotxyz>
-				<little_radius>15</little_radius>
-				<big_radius>20</big_radius>
+				<pos>-15.000, 15.000, 6.000</pos>
+				<rotxyz>0.000, 50.000, 15.000</rotxyz>
+				<little_radius>15.0</little_radius>
+				<big_radius>20.0</big_radius>
 			</disc>
 		</object>
 	</objects>
 	<lights>
 		<light>
 			<type>DIR</type>
-			<intensity>1</intensity>
+			<intensity>1.0</intensity>
 			<color>WHITE</color>
-			<vector>0, -1, -1</vector>
+			<vector>0.000, -0.707, -0.707</vector>
 		</light>
 		<light>
 			<type>SPOT</type>
-			<intensity>1</intensity>
+			<intensity>1.0</intensity>
 			<color>WHITE</color>
-			<vector>-100, 75, 50</vector>
+			<vector>0.000, 0.000, 0.000</vector>
 		</light>
 	</lights>
 </scene>

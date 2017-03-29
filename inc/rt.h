@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 21:11:06 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/29 01:42:06 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,9 +182,13 @@ char			*get_file_name(t_env *e, int type);
 void			export_scene(t_env *e);
 void			print_tag_tofile(char *tag, int type, int tabulations, int fd);
 void			print_vector_tofile(t_vector v, char *name, int tabs, int fd);
-void			print_color_tofile(t_color c, char *name, int tabs, int fd);
-void			print_objects_tofile(t_object *objects, int fd);
+void			print_color_tofile(t_env *e, t_color c, int fd);
+void			print_objects_tofile(t_env *e, int fd);
 void			print_cone_tofile(t_cone *cone, int fd);
+void			print_tore_tofile(t_tore *tore, int fd);
+void			print_boloid_tofile(t_boloid *boloid, int fd);
+void			print_box_tofile(t_box *box, int fd);
+void			print_disc_tofile(t_disc *disc, int fd);
 void			print_lights_tofile(t_env *e, t_light *lights, int fd);
 
 /*
@@ -218,7 +222,7 @@ void			delete_sphere(t_sphere *sphere);
 t_tore			*new_tore(t_vector pos, float r, float big_r,
 					t_vector limits[]);
 void			delete_tore(t_tore *tore);
-t_boloid		*new_boloid(t_vector pos, float abc[], float sign,
+t_boloid		*new_boloid(t_vector pos, t_vector abc, float sign,
 					t_vector limits[]);
 void			delete_boloid(t_boloid *boloid);
 t_plane			*new_plane(t_vector normal, float offset, int wave,

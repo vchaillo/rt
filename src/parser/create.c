@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/28 03:28:07 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/29 03:10:57 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ int				create_object(t_env *e, char **tab)
 	t_mat		material;
 	t_vector	limits[2];
 
-	limits[0] = get_vector(tab, "min", "limits");
-	limits[1] = get_vector(tab, "max", "limits");
 	type = get_object(e, tab, "type", "object");
 	color = new_color(get_color(e, tab, "color", "object"));
 	material = new_material(get_material(e, tab, "material", "object"));
+	if (type != BOX && type != DISC)
+	{
+		limits[0] = get_vector(tab, "min", "limits");
+		limits[1] = get_vector(tab, "max", "limits");
+	}
 	type == SPHERE ? add_object(e->scene, new_object(type,
 		new_sphere(get_vector(tab, "pos", "sphere"),
 		get_nbr(tab, "r", "sphere"), get_vector(tab, "axis", "sphere"), limits),
@@ -54,10 +57,10 @@ int				create_object(t_env *e, char **tab)
 		new_tore(get_vector(tab, "pos", "tore"),
 		get_nbr(tab, "little_radius", "tore"),
 		get_nbr(tab, "big_radius", "tore"), limits), color, material)) : NULL;
-	// type == BOLOID ? add_object(e->scene, new_object(type,
-	// 	new_boloid(get_vector(tab, "pos", "boloid"),
-	// 	get_vector(tab, "abc", "boloid"),
-	// 	get_nbr(tab, "sign", "boloid"), limits), color, material)) : NULL;
+	type == BOLOID ? add_object(e->scene, new_object(type,
+		new_boloid(get_vector(tab, "pos", "boloid"),
+		get_vector(tab, "abc", "boloid"),
+		get_nbr(tab, "sign", "boloid"), limits), color, material)) : NULL;
 	type == BOX ? add_object(e->scene, new_object(type,
 		new_box(get_vector(tab, "corner", "box"),
 		get_vector(tab, "translation", "box"),

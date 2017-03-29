@@ -1,0 +1,45 @@
+<scene>
+	<camera>
+		<pos>0.000, 0.000, 4.200</pos>
+		<look_at>-0.019, 0.027, -0.999</look_at>
+	</camera>
+	<background>BLACK</background>
+	<amb_color>WHITE</amb_color>
+	<amb_intensity>0.0</amb_intensity>
+	<objects>
+		<object>
+			<type>SPHERE</type>
+			<color>WHITE</color>
+			<material>BASIC</material>
+			<sphere>
+				<pos>0.000, 0.000, 0.000</pos>
+				<r>1.0</r>
+				<axis>0.000, 1.000, 1.000</axis>
+			</sphere>
+			<limits>
+				<min>0.000, 1.000, 0.000</min>
+				<max>0.000, 1.000, 0.000</max>
+			</limits>
+		</object>
+	</objects>
+	<lights>
+		<light>
+			<type>DIR</type>
+			<intensity>1.0</intensity>
+			<color>GREEN</color>
+			<vector>0.000, 0.707, -0.707</vector>
+		</light>
+		<light>
+			<type>DIR</type>
+			<intensity>1.0</intensity>
+			<color>BLUE</color>
+			<vector>-0.577, -0.577, -0.577</vector>
+		</light>
+		<light>
+			<type>DIR</type>
+			<intensity>1.0</intensity>
+			<color>RED</color>
+			<vector>0.577, -0.577, -0.577</vector>
+		</light>
+	</lights>
+</scene>

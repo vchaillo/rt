@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 20:49:51 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 01:08:04 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/29 00:40:33 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int				is_plane_illuminated(t_ray *ray, t_light *light)
 	t_plane		*plane;
 
 	cam_light_ray.o = ray->o;
-	if (light->type == SPOT)
+	if (light->type == LSPOT)
 	{
 		plane = (t_plane *)ray->hitpoint.object->object;
 		sign_light = dot_product(plane->normal, light->pos) + plane->offset;

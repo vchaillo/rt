@@ -6,13 +6,16 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 01:42:06 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/29 06:52:07 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
 
+/*
+** 		system includes
+*/
 # include <float.h>
 # include "gsl/gsl_poly.h"
 # include "gsl/gsl_errno.h"
@@ -26,6 +29,11 @@
 # include <fcntl.h>
 # include <pthread.h>
 # include <assert.h>
+# include <gtk/gtk.h>
+
+/*
+** 		program includes
+*/
 # include "libft.h"
 # include "colors.h"
 # include "term_colors.h"
@@ -84,7 +92,7 @@ void			reflected_ray(t_ray *ray);
 t_color			refraction(t_env *e, t_ray *ray, t_ref r, float coef);
 
 /*
-** 				gui functions
+** 				gui mlx functions
 */
 void			start_mlx(t_env *e);
 int				expose_hook(t_env *e);
@@ -107,6 +115,11 @@ int				key_hook_box(int keycode, t_box *box);
 int				key_hook_cone(int keycode, t_cone *cone);
 int				key_hook_cone_rotation(int keycode, t_cone *cone);
 int				key_hook_objects(int keycode, t_scene *scene);
+
+/*
+** 				gui gtk functions
+*/
+void			start_gtk(t_env *e);
 
 /*
 ** 				cli functions

@@ -3,7 +3,7 @@
 	<!-- mandatory -->
 	<camera>
 		<pos>10, 5, 60</pos>
-		<dir>0, 0, 5</dir>
+		<look_at>0, 0, 5</look_at>
 	</camera>
 	<!-- mandatory -->
 	<background>BLACK</background>

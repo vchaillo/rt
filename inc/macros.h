@@ -6,12 +6,18 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 08:42:02 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/29 00:50:53 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
+
+/*
+** Graphic library defines
+*/
+# define GTK 0
+# define MLX 1
 
 /*
 ** multi threading
@@ -52,8 +58,8 @@
 /*
 ** basics defines
 */
-# define TRUE 1
-# define FALSE 0
+// # define TRUE 1
+// # define FALSE 0
 # define ACTIVE 1
 # define INACTIVE 0
 # define ACTIVE_AA 4
@@ -135,9 +141,9 @@
 /*
 ** lights defines
 */
-# define AMB 0
-# define SPOT 1
-# define DIR 2
+# define LAMB 0
+# define LSPOT 1
+# define LDIR 2
 
 /*
 ** effects defines

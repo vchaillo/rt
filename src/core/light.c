@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 00:46:46 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/29 00:40:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 
 	color = new_color(BLACK);
 	lray.o = vray->hitpoint.pos;
-	if (light->type == SPOT)
+	if (light->type == LSPOT)
 	{
 		lray.d = vector_sub(light->pos, vray->hitpoint.pos);
 		lray.t = sqrt((lray.d.x * lray.d.x) + (lray.d.y * lray.d.y) +
@@ -117,10 +117,10 @@ t_color			illuminate(t_env *e, t_ray *ray)
 		lux = TRUE;
 		if (ray->hitpoint.object->type == PLANE)
 			lux = is_plane_illuminated(ray, light);
-		if (light->type == SPOT && e->scene->spot == ACTIVE && lux)
+		if (light->type == LSPOT && e->scene->spot == ACTIVE && lux)
 			color = add_color(scalar_color(light->intensity,
 				phong(e, light, ray)), color);
-		else if (light->type == DIR && e->scene->dir == ACTIVE && lux)
+		else if (light->type == LDIR && e->scene->dir == ACTIVE && lux)
 			color = add_color(scalar_color(light->intensity,
 				phong(e, light, ray)), color);
 		light = light->next;

@@ -6,7 +6,7 @@
 /*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 00:15:01 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/24 08:23:20 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/29 00:42:19 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void			load_scene8_lights(t_scene *scene)
 {
 	scene->amb_intensity = 0.3;
 	scene->amb_color = new_color(WHITE);
-	add_light(scene, new_light(SPOT, 0.5, new_vector(0, 5, 2),
+	add_light(scene, new_light(LSPOT, 0.5, new_vector(0, 5, 2),
 		new_color(FAKE_WHITE)));
 }
 

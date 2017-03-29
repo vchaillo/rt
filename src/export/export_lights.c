@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:12:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 01:53:24 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/29 06:53:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void				print_lights_tofile(t_env *e, t_light *lights, int fd)
 		tmp = lights;
 		while (tmp != NULL)
 		{
-			print_light_tofile(e, tmp, fd);
+			if (tmp->type == LDIR && e->scene->dir == ACTIVE)
+				print_light_tofile(e, tmp, fd);
+			else if (tmp->type == LSPOT && e->scene->spot == ACTIVE)
+				print_light_tofile(e, tmp, fd);
 			tmp = tmp->next;
 		}
 		print_tag_tofile("lights", TAG_CLOSE, 1, fd);

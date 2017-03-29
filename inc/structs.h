@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 04:33:34 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/28 23:20:01 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,6 +251,7 @@ typedef struct				s_env
 	int						size;
 	int						endian;
 	int						bpp;
+	int						graphic_library;
 	int						thread;
 	int						scene_type;
 	t_scene					*scene;

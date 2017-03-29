@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 01:16:46 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/28 23:09:51 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			print_help(void)
 	ft_putendl_color("Available options :", TERM_BLACK);
 	ft_putstr_color("-v,      	:   ", TERM_BLACK);
 	ft_putendl_color("display rays and frame time infos", TERM_BLACK);
-	ft_putstr_color("-s1 -s2 -s3   	:   ", TERM_BLACK);
+	ft_putstr_color("-s1 ... -s9   	:   ", TERM_BLACK);
 	ft_putendl_color("load defaults scenes", TERM_BLACK);
 }
 
@@ -56,6 +56,9 @@ void			print_error(int error_code)
 	else if (error_code == MALLOC_ERROR)
 		ft_putendl_color("Memory allocation failed", TERM_BOLD_RED);
 	else if (error_code == OPEN_ERROR)
+	{
 		ft_putendl_color("Open or create file failed", TERM_BOLD_RED);
+		print_help();
+	}
 	exit(0);
 }

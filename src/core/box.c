@@ -48,63 +48,69 @@ t_vector			normal_box(t_box *box, int normal)
 	return (normalize(real_normal));
 }
 
+float				norm_box1(float tmms[6], int normals[2])
+{
+	if (tmms[2] > tmms[3])
+	{
+		normals[1] = 3;
+		ft_swapf(&(tmms[2]), &(tmms[3]));
+	}
+	if ((tmms[0] > tmms[3]) || (tmms[2] > tmms[1]))
+		return (FLT_MAX);
+	if (tmms[2] > tmms[0])
+	{
+		normals[0] = normals[1];
+		tmms[0] = tmms[2];
+	}
+	if (tmms[3] < tmms[1])
+		tmms[1] = tmms[3];
+	normals[1] = 4;
+	return (0);
+}
+
+float				norm_box2(float tmms[6], int normals[2])
+{
+	if (tmms[4] > tmms[5])
+	{
+		normals[1] = 5;
+		ft_swapf(&(tmms[4]), &(tmms[5]));
+	}
+	if ((tmms[0] > tmms[5]) || (tmms[4] > tmms[1]))
+		return (FLT_MAX);
+	if (tmms[4] > tmms[0])
+	{
+		tmms[0] = tmms[4];
+		normals[0] = normals[1];
+	}
+	if (tmms[5] < tmms[1])
+		tmms[1] = tmms[5];
+	return (0);
+}
+
 float				hit_box(t_box *box, t_ray *ray)
 {
-	float			tmin;
-	float			tmax;
-	float			tymin;
-	float			tymax;
-	float			tzmin;
-	float			tzmax;
-	int				normal;
-	int				tmp_normal;
+	float			tmms[6];
+	int				normals[2];
 	t_ray			r;
 
 	r = ray_coord_modif(ray, box->trans, box->rotxyz);
-	normal = 0;
-	tmin = (box->corner_min.x - r.o.x) / r.d.x;
-	tmax = (box->corner_max.x - r.o.x) / r.d.x;
-	if (tmin > tmax)
+	normals[0] = 0;
+	tmms[0] = (box->corner_min.x - r.o.x) / r.d.x;
+	tmms[1] = (box->corner_max.x - r.o.x) / r.d.x;
+	if (tmms[0] > tmms[1])
 	{
-		normal = 1;
-		ft_swapf(&tmin, &tmax);
+		normals[0] = 1;
+		ft_swapf(&(tmms[0]), &(tmms[1]));
 	}
-	tmp_normal = 2;
-	tymin = (box->corner_min.y - r.o.y) / r.d.y;
-	tymax = (box->corner_max.y - r.o.y) / r.d.y;
-	if (tymin > tymax)
-	{
-		tmp_normal = 3;
-		ft_swapf(&tymin, &tymax);
-	}
-	if ((tmin > tymax) || (tymin > tmax))
+	normals[1] = 2;
+	tmms[2] = (box->corner_min.y - r.o.y) / r.d.y;
+	tmms[3] = (box->corner_max.y - r.o.y) / r.d.y;
+	if (norm_box1(tmms, normals))
 		return (FLT_MAX);
-	if (tymin > tmin)
-	{
-		normal = tmp_normal;
-		tmin = tymin;
-	}
-	if (tymax < tmax)
-		tmax = tymax;
-	tmp_normal = 4;
-	tzmin = (box->corner_min.z - r.o.z) / r.d.z;
-	tzmax = (box->corner_max.z - r.o.z) / r.d.z;
-	if (tzmin > tzmax)
-	{
-		tmp_normal = 5;
-		ft_swapf(&tzmin, &tzmax);
-	}
-	if ((tmin > tzmax) || (tzmin > tmax))
+	tmms[4] = (box->corner_min.z - r.o.z) / r.d.z;
+	tmms[5] = (box->corner_max.z - r.o.z) / r.d.z;
+	if (norm_box2(tmms, normals))
 		return (FLT_MAX);
-	if (tzmin > tmin)
-	{
-		tmin = tzmin;
-		normal = tmp_normal;
-	}
-	if (tzmax < tmax)
-		tmax = tzmax;
-	if (tmin > tmax)
-		normal = 5;
-	ray->hitpoint.normal = normal_box(box, normal);
-	return ((tmin <= tmax) ? tmin : tmax);
+	ray->hitpoint.normal = normal_box(box, normals[0]);
+	return ((tmms[0] <= tmms[1]) ? tmms[0] : tmms[1]);
 }

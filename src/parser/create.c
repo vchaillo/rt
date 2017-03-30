@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/30 16:50:52 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 20:32:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void			free_array(char **array)
 	while (array[i])
 		free(array[i++]);
 	free(array);
+}
+
+int				create_object2(t_env *e, char **tab)
+{
+
 }
 
 int				create_object(t_env *e, char **tab)

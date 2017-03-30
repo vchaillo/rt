@@ -1,0 +1,45 @@
+<scene>
+	<camera>
+		<pos>0.000, 10.000, 65.000</pos>
+		<look_at>0.000, 0.000, -1.000</look_at>
+	</camera>
+	<background>BLACK</background>
+	<amb_color>WHITE</amb_color>
+	<amb_intensity>0.2</amb_intensity>
+	<antialiasing>ACTIVE</antialiasing>
+	<effect>GRAYSCALE</effect>
+	<objects>
+		<object>
+			<type>PLANE</type>
+			<color>WHITE</color>
+			<material>BASIC</material>
+			<plane>
+				<normal>0.000, 1.000, 0.000</normal>
+				<offset>0.0</offset>
+				<style>CHECK</style>
+			</plane>
+		</object>
+		<object>
+			<type>SPHERE</type>
+			<color>ORANGE</color>
+			<material>PERLIN</material>
+			<sphere>
+				<pos>0.000, 10.000, 0.000</pos>
+				<r>10.0</r>
+				<axis>0.000, 1.000, 0.000</axis>
+			</sphere>
+			<limits>
+				<min>0.000, 0.000, 0.000</min>
+				<max>0.000, 0.000, 0.000</max>
+			</limits>
+		</object>
+	</objects>
+	<lights>
+		<light>
+			<type>LSPOT</type>
+			<intensity>1.0</intensity>
+			<color>WHITE</color>
+			<vector>-50.000, 25.000, 100.000</vector>
+		</light>
+	</lights>
+</scene>

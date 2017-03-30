@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 05:17:23 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/30 20:21:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void			delete_scene(t_scene *scene)
 {
 	if (scene)
 	{
+		delete_color_array(scene->aa * WIN_H, scene->color_array_aa);
+		delete_color_array(WIN_H, scene->color_array);
 		delete_camera(scene->camera);
 		delete_objects(scene->objects);
 		scene->nb_objects = 0;

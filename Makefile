@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/30 16:58:32 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/03/30 17:28:22 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRC_MAIN = \
 		main.c\
 
 SRC_CORE = \
-		core/draw.c\
 		core/raytracer.c\
 		core/light.c\
 		core/normal.c\
@@ -54,6 +53,7 @@ SRC_CORE = \
 		core/refraction.c\
 		core/global_illumination.c\
 		core/antialiasing.c\
+		core/multithreading.c\
 		core/perlin.c\
 		core/exposure.c\
 		core/fog.c\
@@ -77,6 +77,7 @@ SRC_GUI = \
 		gui/key_hook_box.c\
 		gui/mouse_hook.c\
 		gui/print.c\
+		gui/draw.c\
 
 SRC_CLI = \
 		cli/output.c\

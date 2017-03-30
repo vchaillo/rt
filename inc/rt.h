@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 16:58:59 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:31:54 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ t_color			global_illumination(t_env *e, t_ray *ray);
 t_color			reflection(t_env *e, t_ray *ray, t_ref r, float coef);
 void			reflected_ray(t_ray *ray);
 t_color			refraction(t_env *e, t_ray *ray, t_ref r, float coef);
+void			*perform_work(void *argument);
+void			join_environements(t_env *e, t_env e_tab[NUM_THREADS]);
 
 /*
 ** 				gui functions

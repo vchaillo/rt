@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/30 16:58:38 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:24:09 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,58 +64,47 @@ float				hit_box(t_box *box, t_ray *ray)
 	normal = 0;
 	tmin = (box->corner_min.x - r.o.x) / r.d.x;
 	tmax = (box->corner_max.x - r.o.x) / r.d.x;
-
 	if (tmin > tmax)
 	{
 		normal = 1;
 		ft_swapf(&tmin, &tmax);
 	}
-
 	tmp_normal = 2;
 	tymin = (box->corner_min.y - r.o.y) / r.d.y;
 	tymax = (box->corner_max.y - r.o.y) / r.d.y;
-
 	if (tymin > tymax)
 	{
 		tmp_normal = 3;
 		ft_swapf(&tymin, &tymax);
 	}
-
 	if ((tmin > tymax) || (tymin > tmax))
-	return FLT_MAX;
-
+		return (FLT_MAX);
 	if (tymin > tmin)
 	{
 		normal = tmp_normal;
 		tmin = tymin;
 	}
-
 	if (tymax < tmax)
-	tmax = tymax;
-
+		tmax = tymax;
 	tmp_normal = 4;
 	tzmin = (box->corner_min.z - r.o.z) / r.d.z;
 	tzmax = (box->corner_max.z - r.o.z) / r.d.z;
-
 	if (tzmin > tzmax)
 	{
 		tmp_normal = 5;
 		ft_swapf(&tzmin, &tzmax);
 	}
-
 	if ((tmin > tzmax) || (tzmin > tmax))
-	return FLT_MAX;
-
+		return (FLT_MAX);
 	if (tzmin > tmin)
 	{
 		tmin = tzmin;
 		normal = tmp_normal;
 	}
-
 	if (tzmax < tmax)
-	tmax = tzmax;
+		tmax = tzmax;
 	if (tmin > tmax)
-	normal = 5;
+		normal = 5;
 	ray->hitpoint.normal = normal_box(box, normal);
 	return ((tmin <= tmax) ? tmin : tmax);
 }

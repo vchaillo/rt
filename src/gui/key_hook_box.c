@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 16:36:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 16:42:48 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:55:32 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int					key_hook_box(int keycode, t_box *box)
 		box->trans.z -= OBJ_SPEED;
 	else if (keycode == KEY_PLUS || keycode == KEY_PLUS_MAC)
 	{
-		box->corner_min = vector_scalar(OBJ_PROP * 1.3, box->corner_min);
+		box->corner_min = vector_scalar(1.3 * OBJ_PROP, box->corner_min);
 		box->corner_max = vector_scalar(-1, box->corner_min);
 	}
 	else if (keycode == KEY_MINUS || keycode == KEY_MINUS_MAC)

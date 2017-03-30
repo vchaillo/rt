@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 17:21:27 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:37:47 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,6 @@ t_color			illuminate(t_env *e, t_ray *ray)
 			color = add_color(scalar_color(light->intensity,
 				phong(e, light, ray)), color);
 		light = light->next;
-		e->nb_light_rays++;
 	}
 	if (e->scene->amb == ACTIVE && (e->scene->spot || e->scene->dir))
 		color = add_color(scalar_color((e->scene->amb_intensity),

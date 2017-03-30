@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 16:17:07 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:37:52 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,9 +255,6 @@ typedef struct				s_env
 	int						scene_type;
 	t_scene					*scene;
 	t_macros				macros;
-	double					nb_rays;
-	double					nb_cam_rays;
-	double					nb_light_rays;
 	int						verbose;
 	float					frame_time;
 }							t_env;

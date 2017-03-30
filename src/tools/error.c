@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 16:01:11 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 07:52:15 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:38:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			print_help(void)
 	ft_putendl("Usage : ./rt [options]");
 	ft_putendl_color("Available options :", TERM_BLACK);
 	ft_putstr_color("-v,      	:   ", TERM_BLACK);
-	ft_putendl_color("display rays and frame time infos", TERM_BLACK);
+	ft_putendl_color("display frame time", TERM_BLACK);
 	ft_putstr_color("-s1 ... -s9   	:   ", TERM_BLACK);
 	ft_putendl_color("load defaults scenes", TERM_BLACK);
 	ft_putstr_color("scene.xml   	:   ", TERM_BLACK);

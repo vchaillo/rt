@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 17:26:56 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 17:33:47 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:42:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,31 @@ void			*perform_work(void *argument)
 		y++;
 	}
 	return (NULL);
+}
+
+void			multithreading(t_env *e)
+{
+	t_env		e_tab[NUM_THREADS];
+	pthread_t	threads[NUM_THREADS];
+	int			result_code;
+	unsigned	index;
+
+	index = 0;
+	while (index < NUM_THREADS)
+	{
+		e_tab[index] = *e;
+		e_tab[index].thread = index;
+		result_code = pthread_create(&threads[index], NULL,
+									perform_work, &(e_tab[index]));
+		assert(!result_code);
+		++index;
+	}
+	index = 0;
+	while (index < NUM_THREADS)
+	{
+		result_code = pthread_join(threads[index], NULL);
+		assert(!result_code);
+		++index;
+	}
+	join_environements(e, e_tab);
 }

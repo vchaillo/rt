@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 17:31:54 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:43:06 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void			reflected_ray(t_ray *ray);
 t_color			refraction(t_env *e, t_ray *ray, t_ref r, float coef);
 void			*perform_work(void *argument);
 void			join_environements(t_env *e, t_env e_tab[NUM_THREADS]);
+void			multithreading(t_env *e);
 
 /*
 ** 				gui functions
@@ -122,7 +123,6 @@ int				key_hook_objects(int keycode, t_scene *scene);
 ** 				cli functions
 */
 void			print_cli_output(t_env *e);
-void			print_nb_rays(t_env *e);
 void			print_exposehook(t_env *e);
 void			print_keyhook(int keycode, t_env *e);
 void			print_mousehook(int button, int x, int y, t_env *e);

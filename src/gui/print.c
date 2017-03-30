@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 05:46:34 by valentin          #+#    #+#             */
-/*   Updated: 2017/01/19 04:00:06 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:01:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void			print_gui_selected_object(t_env *e)
 			mlx_string_put(e->mlx, e->win, x, y, color, "cylinder selected");
 		if (e->scene->selected_object->type == CONE)
 			mlx_string_put(e->mlx, e->win, x, y, color, "cone selected");
+		if (e->scene->selected_object->type == BOX)
+			mlx_string_put(e->mlx, e->win, x, y, color, "box selected");
 	}
 	else
 		mlx_string_put(e->mlx, e->win, x, y, color, "no object selected");

@@ -6,41 +6,29 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/28 03:32:54 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:58:38 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void				ft_swapf(float *f1, float *f2)
-{
-	float			tmp;
-
-	tmp = *f1;
-	*f1 = *f2;
-	*f2 = tmp;
-}
-
 t_ray				ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz)
 {
-    t_ray			new;
+	t_ray			new;
 
 	new.o = vector_sub(ray->o, trans);
-    new.d = vector_rot_x(ray->d, -rotxyz.x);
-    // new.d = vector_rot_x(ray->d, -rotxyz.x);
-    new.d = vector_rot_y(new.d, -rotxyz.y);
-    new.d = vector_rot_z(new.d, -rotxyz.z);
-    // new.o = vector_rot_x(ray->o, -rotxyz.x);
-    new.o = vector_rot_x(new.o, -rotxyz.x);
-    new.o = vector_rot_y(new.o, -rotxyz.y);
-    new.o = vector_rot_z(new.o, -rotxyz.z);
-	// new.o = ray->o;
-    return (new);
+	new.d = vector_rot_x(ray->d, -rotxyz.x);
+	new.d = vector_rot_y(new.d, -rotxyz.y);
+	new.d = vector_rot_z(new.d, -rotxyz.z);
+	new.o = vector_rot_x(new.o, -rotxyz.x);
+	new.o = vector_rot_y(new.o, -rotxyz.y);
+	new.o = vector_rot_z(new.o, -rotxyz.z);
+	return (new);
 }
 
-t_vector		normal_box(t_box *box, int normal)
+t_vector			normal_box(t_box *box, int normal)
 {
-	t_vector	real_normal;
+	t_vector		real_normal;
 
 	if (normal == 0)
 		real_normal = new_vector(1, 0, 0);
@@ -52,7 +40,6 @@ t_vector		normal_box(t_box *box, int normal)
 		real_normal = new_vector(0, -1, 0);
 	else if (normal == 4)
 		real_normal = new_vector(0, 0, 1);
-	// else if (normal == 5)
 	else
 		real_normal = new_vector(0, 0, -1);
 	real_normal = vector_rot_x(real_normal, box->rotxyz.x);
@@ -61,19 +48,19 @@ t_vector		normal_box(t_box *box, int normal)
 	return (normalize(real_normal));
 }
 
-float           hit_box(t_box *box, t_ray *ray)
+float				hit_box(t_box *box, t_ray *ray)
 {
-    float		tmin;
-    float		tmax;
-    float		tymin;
-    float		tymax;
-	float		tzmin;
-    float		tzmax;
-	int			normal;
-	int			tmp_normal;
-    t_ray		r;
+	float			tmin;
+	float			tmax;
+	float			tymin;
+	float			tymax;
+	float			tzmin;
+	float			tzmax;
+	int				normal;
+	int				tmp_normal;
+	t_ray			r;
 
-    r = ray_coord_modif(ray, box->trans, box->rotxyz);
+	r = ray_coord_modif(ray, box->trans, box->rotxyz);
 	normal = 0;
 	tmin = (box->corner_min.x - r.o.x) / r.d.x;
 	tmax = (box->corner_max.x - r.o.x) / r.d.x;
@@ -95,7 +82,7 @@ float           hit_box(t_box *box, t_ray *ray)
 	}
 
 	if ((tmin > tymax) || (tymin > tmax))
-		return FLT_MAX;
+	return FLT_MAX;
 
 	if (tymin > tmin)
 	{
@@ -104,7 +91,7 @@ float           hit_box(t_box *box, t_ray *ray)
 	}
 
 	if (tymax < tmax)
-		tmax = tymax;
+	tmax = tymax;
 
 	tmp_normal = 4;
 	tzmin = (box->corner_min.z - r.o.z) / r.d.z;
@@ -117,18 +104,18 @@ float           hit_box(t_box *box, t_ray *ray)
 	}
 
 	if ((tmin > tzmax) || (tzmin > tmax))
-		return FLT_MAX;
+	return FLT_MAX;
 
 	if (tzmin > tmin)
 	{
-        tmin = tzmin;
+		tmin = tzmin;
 		normal = tmp_normal;
 	}
 
-    if (tzmax < tmax)
-        tmax = tzmax;
+	if (tzmax < tmax)
+	tmax = tzmax;
 	if (tmin > tmax)
-		normal = 5;
+	normal = 5;
 	ray->hitpoint.normal = normal_box(box, normal);
-    return ((tmin <= tmax) ? tmin : tmax);
+	return ((tmin <= tmax) ? tmin : tmax);
 }

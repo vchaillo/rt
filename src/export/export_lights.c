@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:12:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 06:53:14 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/30 17:10:30 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ static void			print_light_tofile(t_env *e, t_light *light, int fd)
 	print_tag_tofile("color", TAG_OPEN, 3, fd);
 	print_color_tofile(e, light->color, fd);
 	print_tag_tofile("color", TAG_CLOSE, 0, fd);
-	print_vector_tofile(light->dir, "vector", 3, fd);
+	if (light->type == LDIR)
+		print_vector_tofile(light->dir, "vector", 3, fd);
+	else
+		print_vector_tofile(light->pos, "vector", 3, fd);
 	print_tag_tofile("light", TAG_CLOSE, 2, fd);
 }
 

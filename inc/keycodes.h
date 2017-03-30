@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/17 18:42:53 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:29:25 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@
 # define KEY_KP3 65435
 # define KEY_KP4 65430
 # define KEY_KP5 65437
-//check that keycode
 # define KEY_KP6 777777
-//check that keycode
 # define KEY_KP7 77777777
 # define KEY_ESCAPE 65307
 

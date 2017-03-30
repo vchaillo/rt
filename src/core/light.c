@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 00:40:14 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/03/30 17:21:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,25 +83,24 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 	lray.o = vray->hitpoint.pos;
 	if (light->type == LSPOT)
 	{
-		lray.d = vector_sub(light->pos, vray->hitpoint.pos);
+		lray.d = normalize(vector_sub(light->pos, vray->hitpoint.pos));
 		lray.t = sqrt((lray.d.x * lray.d.x) + (lray.d.y * lray.d.y) +
 			(lray.d.z * lray.d.z));
 	}
 	else
 	{
-		lray.d = vector_scalar(-1, light->dir);
+		lray.d = normalize(vector_scalar(-1, light->dir));
 		lray.t = MAX_DIST;
 	}
-	lray.d = normalize(lray.d);
 	if (!(is_in_shadow(e->scene->objects, &lray, vray->hitpoint.object)))
 	{
-		if (e->scene->diffuse == ACTIVE && vray->hitpoint.object->material.diffuse)
+		if (e->scene->diffuse == ACTIVE
+			&& vray->hitpoint.object->material.diffuse)
 			color = add_color(diffuse(e, vray->hitpoint, light, &lray), color);
 		if (e->scene->specular == ACTIVE && e->scene->effect != CARTOON)
 			color = add_color(specular(vray, light, &lray), color);
-		color = scalar_color(lray.transmittance_ray, color);
 	}
-	return (color);
+	return (scalar_color(lray.transmittance_ray, color));
 }
 
 t_color			illuminate(t_env *e, t_ray *ray)

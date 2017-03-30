@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 16:18:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:58:59 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ float			fade(float nb);
 t_color			phong(t_env *e, t_light *light, t_ray *vray);
 t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray);
 t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray);
-t_color			depth_compute(t_env *e, t_ray *ray, int depth, float cumul_coef);
+t_color			depth_compute(t_env *e, t_ray *ray, int depth,
+					float cumul_coef);
 t_color			global_illumination(t_env *e, t_ray *ray);
 t_color			reflection(t_env *e, t_ray *ray, t_ref r, float coef);
 void			reflected_ray(t_ray *ray);
@@ -131,7 +132,7 @@ void			print_frame_time(t_env *e);
 void			parse_arguments(int ac, char **av, t_env *e);
 void			parse_xml_file(t_env *e, char **tab);
 t_macros		create_macros_arrays(void);
-void 			free_array(char **array);
+void			free_array(char **array);
 int				search_macro(char *str, char **tab);
 char			**get_tab(char *file);
 int				create_object(t_env *e, char **tab);
@@ -158,6 +159,7 @@ void			print_help(void);
 float			solve_deg2(double a, double b, double c);
 double			solve_deg4(const double *eq);
 float			pow_2(float nb);
+void			ft_swapf(float *f1, float *f2);
 t_vector		normalize(t_vector vector);
 t_vector		vector_scalar(float scalar, t_vector v);
 t_vector		vector_add(t_vector v1, t_vector v2);

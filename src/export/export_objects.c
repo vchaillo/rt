@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:12:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 02:24:27 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/30 21:22:04 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ static void			print_cylinder_tofile(t_cylinder *cylinder, int fd)
 	dprintf(fd, "%.1f", cylinder->r);
 	print_tag_tofile("r", TAG_CLOSE, 0, fd);
 	print_tag_tofile("cylinder", TAG_CLOSE, 3, fd);
+	print_tag_tofile("limits", TAG_OPEN_ENDL, 3, fd);
+	print_vector_tofile(cylinder->limit_min, "min", 4, fd);
+	print_vector_tofile(cylinder->limit_max, "max", 4, fd);
+	print_tag_tofile("limits", TAG_CLOSE, 3, fd);
 }
 
 static void			print_plane_tofile(t_env *e, t_plane *plane, int fd)
@@ -34,6 +38,10 @@ static void			print_plane_tofile(t_env *e, t_plane *plane, int fd)
 	ft_putstr_fd(e->macros.plane_styles[plane->type].define, fd);
 	print_tag_tofile("style", TAG_CLOSE, 0, fd);
 	print_tag_tofile("plane", TAG_CLOSE, 3, fd);
+	print_tag_tofile("limits", TAG_OPEN_ENDL, 3, fd);
+	print_vector_tofile(plane->limit_min, "min", 4, fd);
+	print_vector_tofile(plane->limit_max, "max", 4, fd);
+	print_tag_tofile("limits", TAG_CLOSE, 3, fd);
 }
 
 static void			print_sphere_tofile(t_sphere *sphere, int fd)

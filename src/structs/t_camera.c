@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 16:52:45 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 20:58:52 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_camera		*new_camera(t_vector pos, t_vector look_at)
 	cam->dir = new_vector(0, 0, -1);
 	cam->dir_right = new_vector(1, 0, 0);
 	cam->dir_up = new_vector(0, 1, 0);
+	cam->look_at = look_at;
 	dir = normalize(vector_sub(look_at, cam->pos));
 	angle = acosf(dot_product(new_vector(dir.x, 0, dir.z), cam->dir));
 	angle = dir.x > 0 ? -angle : angle;

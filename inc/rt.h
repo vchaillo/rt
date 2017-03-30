@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 09:56:55 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:18:08 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # include <fcntl.h>
 # include <pthread.h>
 # include <assert.h>
-# include <gtk/gtk.h>
 
 /*
 ** 		rt includes
@@ -92,7 +91,7 @@ void			reflected_ray(t_ray *ray);
 t_color			refraction(t_env *e, t_ray *ray, t_ref r, float coef);
 
 /*
-** 				gui mlx functions
+** 				gui functions
 */
 void			start_mlx(t_env *e);
 int				expose_hook(t_env *e);
@@ -115,11 +114,6 @@ int				key_hook_box(int keycode, t_box *box);
 int				key_hook_cone(int keycode, t_cone *cone);
 int				key_hook_cone_rotation(int keycode, t_cone *cone);
 int				key_hook_objects(int keycode, t_scene *scene);
-
-/*
-** 				gui gtk functions
-*/
-void			start_gtk(t_env *e);
 
 /*
 ** 				cli functions

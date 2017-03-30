@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/29 07:45:26 by valentin         ###   ########.fr        #
+#    Updated: 2017/03/30 16:16:33 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ END_COLOR =	\033[0m
 # Directories
 SRCDIR = src/
 OBJDIR = obj/
-OBJSUBDIR = obj/core obj/gui/mlx obj/gui/gtk obj/cli obj/tools obj/structs\
+OBJSUBDIR = obj/core obj/gui obj/cli obj/tools obj/structs\
 			obj/scenes obj/parser obj/export
 
 # Sources files
@@ -67,19 +67,16 @@ SRC_PARSER = \
 		parser/get_macros.c\
 		parser/create.c\
 
-SRC_GUI_MLX = \
-		gui/mlx/mlx.c\
-		gui/mlx/key_hook.c\
-		gui/mlx/key_hook_camera.c\
-		gui/mlx/key_hook_objects.c\
-		gui/mlx/key_hook_cylinder.c\
-		gui/mlx/key_hook_cone.c\
-		gui/mlx/key_hook_box.c\
-		gui/mlx/mouse_hook.c\
-		gui/mlx/print.c\
-
-SRC_GUI_GTK = \
-		gui/gtk/gtk.c\
+SRC_GUI = \
+		gui/mlx.c\
+		gui/key_hook.c\
+		gui/key_hook_camera.c\
+		gui/key_hook_objects.c\
+		gui/key_hook_cylinder.c\
+		gui/key_hook_cone.c\
+		gui/key_hook_box.c\
+		gui/mouse_hook.c\
+		gui/print.c\
 
 SRC_CLI = \
 		cli/output.c\
@@ -134,7 +131,7 @@ SRC_STRUCTS = \
 		structs/t_color.c\
 		structs/t_color_array.c\
 
-SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI_MLX) $(SRC_GUI_GTK) $(SRC_CLI)\
+SRC = $(SRC_MAIN) $(SRC_CORE) $(SRC_GUI) $(SRC_CLI)\
  		$(SRC_TOOLS) $(SRC_STRUCTS) $(SRC_SCENES) $(SRC_PARSER) $(SRC_EXPORT)\
 
 # Objects files
@@ -151,9 +148,8 @@ LIBMLX	=	-Llib/mlx/minilibx_$(SYSTEM)/ -lmlx -framework OpenGL -framework AppKit
 LIBGSL	=	-Llib/gsl/gsl_$(SYSTEM)/lib -lgsl -lgslcblas
 endif
 LIBFT 	=	 -Llib/libft/ -lft
-LIBGTK	=	`pkg-config --libs gtk+-3.0`
 INC		=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM)/ -I lib/libft/includes/\
-			-I lib/gsl/gsl_$(SYSTEM)/include/ `pkg-config --cflags gtk+-3.0`
+			-I lib/gsl/gsl_$(SYSTEM)/include/
 
 # Rules
 all: $(NAME)
@@ -161,7 +157,7 @@ all: $(NAME)
 $(NAME): obj libft $(OBJ)
 		@echo "======================================="
 		@printf "$(WHITE)Creating $(SYSTEM) $(NAME) executable... $(END_COLOR)"
-		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBGTK) $(LIBFT) $(LIBGSL)
+		@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LIBFT) $(LIBGSL)
 		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "======================================="
 

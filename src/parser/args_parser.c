@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 16:31:16 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/29 07:46:38 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:16:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void				parse_arguments(int ac, char **av, t_env *e)
 	{
 		if (ft_strcmp(av[i], "-v") == 0)
 			e->verbose = VERBOSE;
-		else if (ft_strcmp(av[i], "-gtk") == 0)
-			e->graphic_library = GTK;
 		else
 			parse_scene_arguments(av[i], e);
 		i++;

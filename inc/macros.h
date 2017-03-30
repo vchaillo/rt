@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/29 07:50:10 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:12:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@
 /*
 ** basics defines
 */
-// # define TRUE 1
-// # define FALSE 0
+# define TRUE 1
+# define FALSE 0
 # define ACTIVE 1
 # define INACTIVE 0
 # define ACTIVE_AA 4

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:25:52 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 19:05:56 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/30 21:03:37 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void			print_camera_tofile(t_camera *camera, int fd)
 {
 	print_tag_tofile("camera", TAG_OPEN_ENDL, 1, fd);
 	print_vector_tofile(camera->pos, "pos", 2, fd);
-	print_vector_tofile(camera->dir, "look_at", 2, fd);
+	print_vector_tofile(vector_add(camera->dir, camera->pos),
+		"look_at", 2, fd);
 	print_tag_tofile("camera", TAG_CLOSE, 1, fd);
 }
 

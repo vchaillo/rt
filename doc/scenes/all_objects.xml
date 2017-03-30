@@ -7,7 +7,7 @@
 	<amb_color>WHITE</amb_color>
 	<amb_intensity>0.9</amb_intensity>
 	<effect>CARTOON</effect>
-	<antialiasing>ACTIVE</antialiasing>
+	<antialiasing>INACTIVE</antialiasing>
 	<objects>
 		<object>
 			<type>SPHERE</type>

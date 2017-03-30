@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/28 02:52:27 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/30 19:12:48 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 void			parse_scenes(t_env *e, char **array)
 {
+	// char	*aa;
+
 	e->scene = new_scene(new_color(get_color(e, array, "background", "scene")),
 	new_camera(get_vector(array, "pos", "camera"),
 	get_vector(array, "look_at", "camera")));
 	e->scene->amb_intensity = get_nbr(array, "amb_intensity", "scene");
 	e->scene->amb_color = new_color(get_color(e, array, "amb_color", "scene"));
+	e->scene->effect = get_effect(e, array, "effect", "scene");
+	// aa = between_tags(&array[tag_present(array, "scene", "open") + 1],
+	// "antialiasing", tag_present(array, "scene", "close") - 1);
+	// if (!(ft_strcmp(aa, "ACTIVE")))
+	// e->scene->aa = ACTIVE_AA;
 }
 
 void			parse_objects(t_env *e, char **array)

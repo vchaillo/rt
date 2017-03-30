@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/30 17:05:36 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/30 19:00:20 by mmorice          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,11 +149,11 @@
 /*
 ** effects defines
 */
-# define SEPIA 1
-# define GRAYSCALE 2
-# define CARTOON 3
-# define NEGATIVE 4
-# define STEREO 5
+# define SEPIA 0
+# define GRAYSCALE 1
+# define CARTOON 2
+# define NEGATIVE 3
+# define STEREO 4
 
 /*
 ** files modes defines

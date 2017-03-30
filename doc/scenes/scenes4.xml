@@ -6,6 +6,8 @@
 	<background>BLACK</background>
 	<amb_color>WHITE</amb_color>
 	<amb_intensity>0.9</amb_intensity>
+	<effect>CARTOON</effect>
+	<antialiasing>ACTIVE</antialiasing>
 	<objects>
 		<object>
 			<type>SPHERE</type>
@@ -115,13 +117,13 @@
 	</objects>
 	<lights>
 		<light>
-			<type>DIR</type>
+			<type>LDIR</type>
 			<intensity>1</intensity>
 			<color>WHITE</color>
 			<vector>0, -1, -1</vector>
 		</light>
 		<light>
-			<type>SPOT</type>
+			<type>LSPOT</type>
 			<intensity>1</intensity>
 			<color>WHITE</color>
 			<vector>-100, 75, 50</vector>

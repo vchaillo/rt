@@ -1,0 +1,123 @@
+<scene>
+	<camera>
+		<pos>0.000, 15.000, 100.000</pos>
+		<look_at>0.000, 0.000, -1.000</look_at>
+	</camera>
+	<background>BLACK</background>
+	<amb_color>WHITE</amb_color>
+	<amb_intensity>0.9</amb_intensity>
+	<effect>NEGATIVE</effect>
+	<objects>
+		<object>
+			<type>DISC</type>
+			<color>BLACK</color>
+			<material>PLASTIC</material>
+			<disc>
+				<pos>-15.000, 15.000, 6.000</pos>
+				<rotxyz>0.000, 50.000, 15.000</rotxyz>
+				<little_radius>15.0</little_radius>
+				<big_radius>20.0</big_radius>
+			</disc>
+		</object>
+		<object>
+			<type>BOX</type>
+			<color>YELLOW</color>
+			<material>PLASTIC</material>
+			<box>
+				<corner>6.000, 6.000, 6.000</corner>
+				<rotxyz>0.000, 50.000, 15.000</rotxyz>
+				<translation>12.000, 15.000, 30.000</translation>
+			</box>
+		</object>
+		<object>
+			<type>CONE</type>
+			<color>CYAN</color>
+			<material>PLASTIC</material>
+			<cone>
+				<axis>0.000, 0.894, -0.447</axis>
+				<apex>40.000, 20.000, -25.000</apex>
+				<angle>30.0</angle>
+			</cone>
+			<limits>
+				<min>0.000, 0.000, 0.000</min>
+				<max>100.000, 100.000, 100.000</max>
+			</limits>
+		</object>
+		<object>
+			<type>BOLOID</type>
+			<color>WHITE</color>
+			<material>PERLIN</material>
+			<boloid>
+				<pos>0.000, 20.000, 25.000</pos>
+				<sign>1.0</sign>
+				<abc>1.0, 1.0, 1.0</abc>
+			</boloid>
+			<limits>
+				<min>100.000, 100.000, 100.000</min>
+				<max>0.000, 0.000, 0.000</max>
+			</limits>
+		</object>
+		<object>
+			<type>TORE</type>
+			<color>WHITE</color>
+			<material>GLASS</material>
+			<tore>
+				<pos>50.000, 20.000, -100.000</pos>
+				<little_radius>2.0</little_radius>
+				<big_radius>20.0</big_radius>
+			</tore>
+			<limits>
+				<min>100.000, 100.000, 100.000</min>
+				<max>0.000, 0.000, 0.000</max>
+			</limits>
+		</object>
+		<object>
+			<type>CYLINDER</type>
+			<color>PASTEL_BLUE</color>
+			<material>BASIC</material>
+			<cylinder>
+				<axis>0.000, 0.958, -0.287</axis>
+				<pos>-50.000, 20.000, -25.000</pos>
+				<r>10.0</r>
+			</cylinder>
+		</object>
+		<object>
+			<type>PLANE</type>
+			<color>WHITE</color>
+			<material>BASIC</material>
+			<plane>
+				<normal>0.000, -1.000, 0.000</normal>
+				<offset>-2.0</offset>
+				<style>CHECK</style>
+			</plane>
+		</object>
+		<object>
+			<type>SPHERE</type>
+			<color>FAKE_WHITE</color>
+			<material>CHROME</material>
+			<sphere>
+				<pos>-15.000, 15.000, 0.000</pos>
+				<r>10.0</r>
+				<axis>0.000, 1.000, 1.000</axis>
+			</sphere>
+			<limits>
+				<min>0.000, 1.000, 0.000</min>
+				<max>0.000, 1.000, 0.000</max>
+			</limits>
+		</object>
+	</objects>
+	<lights>
+		<light>
+			<type>LSPOT</type>
+			<intensity>1.0</intensity>
+			<color>WHITE</color>
+			<vector>-100.000, 75.000, 50.000</vector>
+		</light>
+		<light>
+			<type>LDIR</type>
+			<intensity>1.0</intensity>
+			<color>WHITE</color>
+			<vector>0.000, -0.707, -0.707</vector>
+		</light>
+	</lights>
+</scene>

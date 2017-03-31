@@ -19,8 +19,8 @@
 				<axis>0, 1, 1</axis>
 			</sphere>
 			<limits>
-				<min>0, 1, 0</min>
-				<max>0, 1, 0</max>
+				<min>0, 0, 0</min>
+				<max>0, 0, 0</max>
 			</limits>
 		</object>
 		<object>
@@ -33,8 +33,8 @@
 				<style>CHECK</style>
 			</plane>
 			<limits>
-				<min>50, 50, 50</min>
-				<max>100, 100, 100</max>
+				<min>0, 0, 0</min>
+				<max>0, 0, 0</max>
 			</limits>
 		</object>
 		<object>
@@ -47,7 +47,7 @@
 				<r>10</r>
 			</cylinder>
 			<limits>
-				<min>100, 100, 100</min>
+				<min>0, 0, 0</min>
 				<max>0, 0, 0</max>
 			</limits>
 		</object>
@@ -61,7 +61,7 @@
 				<big_radius>20</big_radius>
 			</tore>
 			<limits>
-				<min>100, 100, 100</min>
+				<min>0, 0, 0</min>
 				<max>0, 0, 0</max>
 			</limits>
 		</object>
@@ -90,7 +90,7 @@
 			</cone>
 			<limits>
 				<min>0, 0, 0</min>
-				<max>100, 100, 100</max>
+				<max>0, 0, 0</max>
 			</limits>
 		</object>
 		<object>

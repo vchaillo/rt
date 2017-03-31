@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 00:26:12 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/03/31 04:18:46 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ static int	is_out_limit(const t_tore *tore, const t_ray *ray, const float t)
 {
 	t_vector	relative_pos;
 
+	if (!tore->limit_min.x && !tore->limit_min.y && !tore->limit_min.z
+		&& !tore->limit_max.x && !tore->limit_max.y && !tore->limit_max.z)
+		return (0);
 	relative_pos.x = (ray->o.x + ray->d.x * t) - tore->pos.x;
 	relative_pos.y = (ray->o.y + ray->d.y * t) - tore->pos.y;
 	relative_pos.z = (ray->o.z + ray->d.z * t) - tore->pos.z;

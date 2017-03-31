@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 05:24:58 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/31 04:19:43 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ static int		is_out_limit(const t_boloid *boloid, const t_ray *ray,
 {
 	t_vector	relative_pos;
 
+	if (!boloid->limit_min.x && !boloid->limit_min.y && !boloid->limit_min.z
+		&& !boloid->limit_max.x && !boloid->limit_max.y && !boloid->limit_max.z)
+		return (0);
 	relative_pos.x = (ray->o.x + ray->d.x * t) - boloid->pos.x;
 	relative_pos.y = (ray->o.y + ray->d.y * t) - boloid->pos.y;
 	relative_pos.z = (ray->o.z + ray->d.z * t) - boloid->pos.z;

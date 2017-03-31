@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 16:04:11 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 08:07:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/31 04:20:50 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ static int		is_out_limit(const t_cylinder *cylinder, const t_ray *ray,
 	t_vector	relative_pos;
 	t_vector	rotated_pos;
 
-	return (0);
+	if (!cylinder->limit_min.x && !cylinder->limit_min.y &&
+		!cylinder->limit_min.z && !cylinder->limit_max.x
+		&& !cylinder->limit_max.y && !cylinder->limit_max.z)
+		return (0);
 	relative_pos.x = (ray->o.x + ray->d.x * t) - cylinder->pos.x;
 	relative_pos.y = (ray->o.y + ray->d.y * t) - cylinder->pos.y;
 	relative_pos.z = (ray->o.z + ray->d.z * t) - cylinder->pos.z;

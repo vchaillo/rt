@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:05:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/21 09:41:14 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/31 02:45:02 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "structs_libft.h"
 # include "term_colors.h"
 
-# define EOF (-1)
+# define BUFF_SIZE 32
 
 /*
 ** 					string functions

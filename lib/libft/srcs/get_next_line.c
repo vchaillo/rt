@@ -1,121 +1,52 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 17:23:30 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/23 21:38:50 by mmorice          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-static char	*clean_realloc(char *s, size_t size)
+int             resultat(char **line, char *buf_save)
 {
-	char	*d;
+	char    *eol;
 
-	if (!(d = malloc(size)))
-		return (NULL);
-	if (!s)
+	eol = ft_strchr(buf_save, '\n');
+	if (NULL != eol)
 	{
-		d[0] = '\0';
-	}
-	else
-	{
-		ft_strcpy(d, s);
-		free(s);
-	}
-	return (d);
-}
-
-static int	concat_til_eol(const int fd, char **stack)
-{
-	char	buf[BUFF_SIZE + 1];
-	char	*ptr;
-	int		r;
-
-	r = 1;
-	buf[0] = '\0';
-	while (r > 0 && !(ptr = ft_strchr(*stack, '\n')))
-	{
-		*stack = clean_realloc(*stack, ft_strlen(*stack) + BUFF_SIZE + 1);
-		if (!(stack))
-			return (-1);
-		r = read(fd, buf, BUFF_SIZE);
-		buf[r] = '\0';
-		ft_strcat(*stack, buf);
-	}
-	return (r);
-}
-
-static void	shave_rest(char *stack, char **stat)
-{
-	char *ptr;
-
-	ptr = ft_strchr(stack, '\n');
-	if (!ptr)
-	{
-		*stat = NULL;
-		return ;
-	}
-	else
-	{
-		*ptr = '\0';
-		if (*(ptr + 1))
-			*stat = ft_strdup(ptr + 1);
-	}
-}
-
-static char	**get_fd_stat(const int fd, t_list **list)
-{
-	t_list		*cur;
-	t_fddata	*data;
-
-	cur = *list;
-	while (cur)
-	{
-		data = (t_fddata*)cur->content;
-		if (data->fd == fd)
-		{
-			return (&(data->stat));
-		}
-		else
-			cur = cur->next;
-	}
-	if (!(data = malloc(sizeof(t_fddata))))
-		return (NULL);
-	data->fd = fd;
-	data->stat = NULL;
-	ft_lstadd(list, ft_lstnew(data, sizeof(t_fddata)));
-	return (&(data->stat));
-}
-
-int			get_next_line(const int fd, char **s)
-{
-	static t_list	*list;
-	char			**stat;
-	char			*stack;
-	int				r;
-
-	if (fd < 0 || !s)
-		return (-1);
-	if (!(stat = get_fd_stat(fd, &list)))
-		return (-1);
-	if (*stat)
-	{
-		stack = *stat;
-		*stat = NULL;
-	}
-	else
-		stack = NULL;
-	if ((r = concat_til_eol(fd, &stack)) == -1)
-		return (-1);
-	shave_rest(stack, stat);
-	*s = stack;
-	if (r == 0 && (ft_strlen(*stat) + ft_strlen(stack)) == 0)
-		return (0);
-	else
+		*eol = '\0';
+		*line = ft_strdup(buf_save);
+		ft_memmove(buf_save, &eol[1], ft_strlen(&eol[1]) + 1);
 		return (1);
+	}
+	if (0 < ft_strlen(buf_save))
+	{
+		*line = ft_strdup(buf_save);
+		*buf_save = '\0';
+		return (1);
+	}
+	return (0);
+}
+
+int             get_next_line(int const fd, char **line)
+{
+	static char     *buf_save = NULL;
+	char            buffer[BUFF_SIZE + 1];
+	char            *line_tmp;
+	int                     ret;
+
+	if (NULL == line || 0 > fd || BUFF_SIZE <= 0)
+		return (-1);
+	if (NULL == buf_save)
+		buf_save = ft_strnew(0);
+	while (!ft_strchr(buf_save, '\n'))
+	{
+		ret = read(fd, buffer, BUFF_SIZE);
+		if (-1 == ret)
+			return (-1);
+		if (0 == ret)
+			break ;
+		buffer[ret] = '\0';
+		line_tmp = ft_strjoin(buf_save, buffer);
+		free(buf_save);
+		buf_save = line_tmp;
+	}
+	return (resultat(line, buf_save));
 }

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:10:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 01:22:55 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/03/31 03:19:02 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_macro_array		create_macros_array_case(char *macro, char *str)
 		macro_case.value = (int)strtol(array[1], NULL, 16);
 	free(array[0]);
 	free(array[1]);
+	free(array[2]);
 	free(array);
 	return (macro_case);
 }

@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 01:17:40 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/31 02:23:19 by valentin         ###   ########.fr       */
+/*   Updated: 2017/03/31 03:07:08 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,16 @@ t_color			**new_color_array(int wmax, int hmax)
 	t_color		**colors;
 
 	if (!(colors = malloc(sizeof(t_color*) * hmax)))
-	{
 		print_error(MALLOC_ERROR);
-		exit(0);
-	}
-	y = -1;
-	while (++y < hmax)
+	y = 0;
+	while (y < hmax)
 	{
 		if (!(colors[y] = malloc(sizeof(t_color) * wmax)))
 		{
 			delete_color_array(y, colors);
 			print_error(MALLOC_ERROR);
-			exit(0);
 		}
+		y++;
 	}
 	return (colors);
 }

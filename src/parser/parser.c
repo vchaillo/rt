@@ -6,7 +6,7 @@
 /*   By: mmorice <mmorice@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 05:53:22 by mmorice           #+#    #+#             */
-/*   Updated: 2017/03/30 20:16:49 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/03/31 03:30:21 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void			parse_scenes(t_env *e, char **array)
 		e->scene->color_array_aa = reset_color_array(e->scene->aa,
 			e->scene->color_array_aa);
 	}
+	free(aa);
 }
 
 void			parse_objects(t_env *e, char **array)
@@ -50,7 +51,6 @@ void			parse_objects(t_env *e, char **array)
 		}
 		start++;
 	}
-	(void)*e;
 }
 
 void			parse_lights(t_env *e, char **array)

@@ -41,6 +41,8 @@ void			print_gui_selected_object(t_env *e)
 			mlx_string_put(e->mlx, e->win, x, y, color, "cone selected");
 		if (e->scene->selected_object->type == BOX)
 			mlx_string_put(e->mlx, e->win, x, y, color, "box selected");
+		if (e->scene->selected_object->type == DISC)
+			mlx_string_put(e->mlx, e->win, x, y, color, "disc selected");
 	}
 	else
 		mlx_string_put(e->mlx, e->win, x, y, color, "no object selected");

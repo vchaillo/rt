@@ -23,7 +23,7 @@ void			get_hitpoint(t_object *object, t_ray *ray, float t_min)
 		ray->hitpoint.color = object->color;
 }
 
-float			get_hit_distance(t_object *object, t_ray *ray)
+float			get_hit_distance(t_object *object, t_ray *ray, float tn)
 {
 	float		t;
 
@@ -40,7 +40,7 @@ float			get_hit_distance(t_object *object, t_ray *ray)
 	else if (object->type == BOLOID)
 		t = hit_boloid(object->object, ray);
 	else if (object->type == BOX)
-		t = hit_box(object->object, ray);
+		t = hit_box(object->object, ray, tn);
 	else if (object->type == DISC)
 		t = hit_disc(object->object, ray);
 	else
@@ -61,7 +61,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	object = objects;
 	while (object != NULL)
 	{
-		t = get_hit_distance(object, ray);
+		t = get_hit_distance(object, ray, t);
 		if (t > EPSILON && t < t_min)
 		{
 			t_min = t;

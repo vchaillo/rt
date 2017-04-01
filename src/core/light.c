@@ -25,7 +25,7 @@ int				is_in_shadow(t_object *objects, t_ray *ray, t_object *hit_obj)
 		{
 			if (ray->transmittance_ray < EPSILON_SHADOW)
 				return (TRUE);
-			t = get_hit_distance(object, ray);
+			t = get_hit_distance(object, ray, ray->t);
 			if (t > EPSILON && t < ray->t && !object->material.shadow)
 				return (TRUE);
 			else if (t > EPSILON && t < ray->t && object->material.shadow)

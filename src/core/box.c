@@ -12,20 +12,6 @@
 
 #include "rt.h"
 
-t_ray				ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz)
-{
-	t_ray			new;
-
-	new.o = vector_sub(ray->o, trans);
-	new.d = vector_rot_x(ray->d, -rotxyz.x);
-	new.d = vector_rot_y(new.d, -rotxyz.y);
-	new.d = vector_rot_z(new.d, -rotxyz.z);
-	new.o = vector_rot_x(new.o, -rotxyz.x);
-	new.o = vector_rot_y(new.o, -rotxyz.y);
-	new.o = vector_rot_z(new.o, -rotxyz.z);
-	return (new);
-}
-
 t_vector			normal_box(t_box *box, int normal)
 {
 	t_vector		real_normal;
@@ -87,7 +73,16 @@ float				norm_box2(float tmms[6], int normals[2])
 	return (0);
 }
 
-float				hit_box(t_box *box, t_ray *ray)
+void				norm_box3(float tmms[6], int normals[2])
+{
+	if (tmms[0] > tmms[1])
+	{
+		normals[0] = 1;
+		ft_swapf(&(tmms[0]), &(tmms[1]));
+	}
+}
+
+float				hit_box(t_box *box, t_ray *ray, float t)
 {
 	float			tmms[6];
 	int				normals[2];
@@ -97,11 +92,7 @@ float				hit_box(t_box *box, t_ray *ray)
 	normals[0] = 0;
 	tmms[0] = (box->corner_min.x - r.o.x) / r.d.x;
 	tmms[1] = (box->corner_max.x - r.o.x) / r.d.x;
-	if (tmms[0] > tmms[1])
-	{
-		normals[0] = 1;
-		ft_swapf(&(tmms[0]), &(tmms[1]));
-	}
+	norm_box3(tmms, normals);
 	normals[1] = 2;
 	tmms[2] = (box->corner_min.y - r.o.y) / r.d.y;
 	tmms[3] = (box->corner_max.y - r.o.y) / r.d.y;
@@ -111,6 +102,8 @@ float				hit_box(t_box *box, t_ray *ray)
 	tmms[5] = (box->corner_max.z - r.o.z) / r.d.z;
 	if (norm_box2(tmms, normals))
 		return (FLT_MAX);
-	ray->hitpoint.normal = normal_box(box, normals[0]);
+	tmms[0] = (tmms[0] <= tmms[1]) ? tmms[0] : tmms[1];
+	if (t < EPSILON || tmms[0] < t)
+		ray->hitpoint.normal = normal_box(box, normals[0]);
 	return ((tmms[0] <= tmms[1]) ? tmms[0] : tmms[1]);
 }

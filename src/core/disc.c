@@ -22,7 +22,7 @@ void			normal_disc(t_disc *disc, int normal)
 	n = vector_rot_x(n, disc->rotxyz.x);
 	n = vector_rot_y(n, disc->rotxyz.y);
 	n = vector_rot_z(n, disc->rotxyz.z);
-	disc->normal_hit = normalize(n);
+	disc->normal = normalize(n);
 }
 
 static t_plane	*init_discplane(void)
@@ -55,7 +55,7 @@ float			hit_disc(t_disc *disc, t_ray *ray)
 			normal_disc(disc, 0);
 		else
 			normal_disc(disc, 1);
-		ray->hitpoint.normal = disc->normal_hit;
+		ray->hitpoint.normal = disc->normal;
 	}
 	return (t);
 }

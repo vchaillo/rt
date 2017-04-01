@@ -35,3 +35,17 @@ void				free_array(char **array)
 		free(array[i++]);
 	free(array);
 }
+
+t_ray				ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz)
+{
+	t_ray			new;
+
+	new.o = vector_sub(ray->o, trans);
+	new.d = vector_rot_x(ray->d, -rotxyz.x);
+	new.d = vector_rot_y(new.d, -rotxyz.y);
+	new.d = vector_rot_z(new.d, -rotxyz.z);
+	new.o = vector_rot_x(new.o, -rotxyz.x);
+	new.o = vector_rot_y(new.o, -rotxyz.y);
+	new.o = vector_rot_z(new.o, -rotxyz.z);
+	return (new);
+}

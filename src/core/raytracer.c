@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:21:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/22 05:25:35 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/01 19:45:44 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray)
 	t_object	*object;
 	t_object	*hit_object;
 
+	t = 0;
 	t_min = MAX_DIST;
 	hit_object = NULL;
 	ray->hitpoint.object = NULL;

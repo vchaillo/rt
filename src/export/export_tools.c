@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 07:17:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 03:12:31 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/04/01 21:19:34 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void			print_tag_tofile(char *tag, int type, int tabs, int fd)
 void			print_vector_tofile(t_vector v, char *name, int tabs, int fd)
 {
 	print_tag_tofile(name, TAG_OPEN, tabs, fd);
-	dprintf(fd, "%.3f", v.x);
+	ft_putfloat_fd(v.x, 3, fd);
 	ft_putstr_fd(", ", fd);
-	dprintf(fd, "%.3f", v.y);
+	ft_putfloat_fd(v.y, 3, fd);
 	ft_putstr_fd(", ", fd);
-	dprintf(fd, "%.3f", v.z);
+	ft_putfloat_fd(v.z, 3, fd);
 	print_tag_tofile(name, TAG_CLOSE, 0, fd);
 }
 

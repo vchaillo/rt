@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:25:52 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 21:03:37 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/01 21:18:57 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void			print_scene_tofile(t_env *e, t_scene *scene, int fd)
 	print_color_tofile(e, scene->amb_color, fd);
 	print_tag_tofile("amb_color", TAG_CLOSE, 0, fd);
 	print_tag_tofile("amb_intensity", TAG_OPEN, 1, fd);
-	dprintf(fd, "%.1f", scene->amb == ACTIVE ? scene->amb_intensity : 0);
+	ft_putfloat_fd(scene->amb == ACTIVE ? scene->amb_intensity : 0, 1, fd);
 	print_tag_tofile("amb_intensity", TAG_CLOSE, 0, fd);
 	print_tag_tofile("antialiasing", TAG_OPEN, 1, fd);
 	scene->aa == INACTIVE_AA ? ft_putstr_fd("INACTIVE", fd) :

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 05:01:05 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/29 00:09:59 by mmorice          ###   ########.fr       */
+/*   Updated: 2017/04/01 21:50:36 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			print_cone_tofile(t_cone *cone, int fd)
 	print_vector_tofile(cone->axis, "axis", 4, fd);
 	print_vector_tofile(cone->apex, "apex", 4, fd);
 	print_tag_tofile("angle", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", cone->angle);
+	ft_putfloat_fd(cone->angle, 1, fd);
 	print_tag_tofile("angle", TAG_CLOSE, 0, fd);
 	print_tag_tofile("cone", TAG_CLOSE, 3, fd);
 	print_tag_tofile("limits", TAG_OPEN_ENDL, 3, fd);
@@ -32,10 +32,10 @@ void			print_tore_tofile(t_tore *tore, int fd)
 	print_tag_tofile("tore", TAG_OPEN_ENDL, 3, fd);
 	print_vector_tofile(tore->pos, "pos", 4, fd);
 	print_tag_tofile("little_radius", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", tore->r);
+	ft_putfloat_fd(tore->r, 1, fd);
 	print_tag_tofile("little_radius", TAG_CLOSE, 0, fd);
 	print_tag_tofile("big_radius", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", tore->big_r);
+	ft_putfloat_fd(tore->big_r, 1, fd);
 	print_tag_tofile("big_radius", TAG_CLOSE, 0, fd);
 	print_tag_tofile("tore", TAG_CLOSE, 3, fd);
 	print_tag_tofile("limits", TAG_OPEN_ENDL, 3, fd);
@@ -49,12 +49,14 @@ void			print_boloid_tofile(t_boloid *boloid, int fd)
 	print_tag_tofile("boloid", TAG_OPEN_ENDL, 3, fd);
 	print_vector_tofile(boloid->pos, "pos", 4, fd);
 	print_tag_tofile("sign", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", boloid->sign);
+	ft_putfloat_fd(boloid->sign, 1, fd);
 	print_tag_tofile("sign", TAG_CLOSE, 0, fd);
 	print_tag_tofile("abc", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f, ", boloid->a);
-	dprintf(fd, "%.1f, ", boloid->b);
-	dprintf(fd, "%.1f", boloid->c);
+	ft_putfloat_fd(boloid->a, 1, fd);
+	ft_putstr_fd(", ", fd);
+	ft_putfloat_fd(boloid->b, 1, fd);
+	ft_putstr_fd(", ", fd);
+	ft_putfloat_fd(boloid->c, 1, fd);
 	print_tag_tofile("abc", TAG_CLOSE, 0, fd);
 	print_tag_tofile("boloid", TAG_CLOSE, 3, fd);
 	print_tag_tofile("limits", TAG_OPEN_ENDL, 3, fd);
@@ -78,10 +80,10 @@ void			print_disc_tofile(t_disc *disc, int fd)
 	print_vector_tofile(disc->pos, "pos", 4, fd);
 	print_vector_tofile(disc->rotxyz, "rotxyz", 4, fd);
 	print_tag_tofile("little_radius", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", disc->r_min);
+	ft_putfloat_fd(disc->r_min, 1, fd);
 	print_tag_tofile("little_radius", TAG_CLOSE, 0, fd);
 	print_tag_tofile("big_radius", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", disc->r_max);
+	ft_putfloat_fd(disc->r_max, 1, fd);
 	print_tag_tofile("big_radius", TAG_CLOSE, 0, fd);
 	print_tag_tofile("disc", TAG_CLOSE, 3, fd);
 }

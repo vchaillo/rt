@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 09:12:27 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 21:22:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/01 21:15:16 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void			print_cylinder_tofile(t_cylinder *cylinder, int fd)
 	print_vector_tofile(cylinder->axis, "axis", 4, fd);
 	print_vector_tofile(cylinder->pos, "pos", 4, fd);
 	print_tag_tofile("r", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", cylinder->r);
+	ft_putfloat_fd(cylinder->r, 1, fd);
 	print_tag_tofile("r", TAG_CLOSE, 0, fd);
 	print_tag_tofile("cylinder", TAG_CLOSE, 3, fd);
 	print_tag_tofile("limits", TAG_OPEN_ENDL, 3, fd);
@@ -32,7 +32,7 @@ static void			print_plane_tofile(t_env *e, t_plane *plane, int fd)
 	print_tag_tofile("plane", TAG_OPEN_ENDL, 3, fd);
 	print_vector_tofile(plane->normal, "normal", 4, fd);
 	print_tag_tofile("offset", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", plane->offset);
+	ft_putfloat_fd(plane->offset, 1, fd);
 	print_tag_tofile("offset", TAG_CLOSE, 0, fd);
 	print_tag_tofile("style", TAG_OPEN, 4, fd);
 	ft_putstr_fd(e->macros.plane_styles[plane->type].define, fd);
@@ -49,7 +49,7 @@ static void			print_sphere_tofile(t_sphere *sphere, int fd)
 	print_tag_tofile("sphere", TAG_OPEN_ENDL, 3, fd);
 	print_vector_tofile(sphere->pos, "pos", 4, fd);
 	print_tag_tofile("r", TAG_OPEN, 4, fd);
-	dprintf(fd, "%.1f", sphere->r);
+	ft_putfloat_fd(sphere->r, 1, fd);
 	print_tag_tofile("r", TAG_CLOSE, 0, fd);
 	print_vector_tofile(sphere->axis, "axis", 4, fd);
 	print_tag_tofile("sphere", TAG_CLOSE, 3, fd);

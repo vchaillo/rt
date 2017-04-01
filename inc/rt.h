@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/01 20:42:50 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/04/01 21:42:25 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,7 @@ t_vector		cross_product(t_vector u, t_vector v);
 void			print_error(int error_code);
 void			print_help(void);
 void			ft_putfloat(float n, int max);
+void			ft_putfloat_fd(float n, int max, int fd);
 
 /*
 ** 				export functions

@@ -75,6 +75,7 @@ SRC_GUI = \
 		gui/key_hook_cylinder.c\
 		gui/key_hook_cone.c\
 		gui/key_hook_box.c\
+		gui/key_hook_disc.c\
 		gui/mouse_hook.c\
 		gui/print.c\
 		gui/draw.c\

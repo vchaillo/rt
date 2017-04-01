@@ -117,6 +117,7 @@ int				key_hook_cylinder_rotation(int keycode, t_cylinder *cylinder);
 int				key_hook_box(int keycode, t_box *box);
 int				key_hook_cone(int keycode, t_cone *cone);
 int				key_hook_cone_rotation(int keycode, t_cone *cone);
+int				key_hook_disc(int keycode, t_disc *disc);
 int				key_hook_objects(int keycode, t_scene *scene);
 
 /*

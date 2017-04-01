@@ -6,18 +6,12 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:03 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/30 20:14:42 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/01 21:04:36 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
-
-/*
-** Graphic library defines
-*/
-# define GTK 0
-# define MLX 1
 
 /*
 ** multi threading

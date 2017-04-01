@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 01:17:40 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/31 03:07:08 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/01 21:06:36 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ t_color			**reset_color_array(int aa, t_color **colors)
 
 	old_aa = aa == ACTIVE_AA ? INACTIVE_AA : ACTIVE_AA;
 	delete_color_array(old_aa * WIN_H, colors);
-	return (new_color_array(WIN_W * aa, WIN_W * aa));
+	return (new_color_array(WIN_W * aa, WIN_H * aa));
 }

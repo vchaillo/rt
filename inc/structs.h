@@ -104,7 +104,7 @@ typedef struct				s_box
 	t_vector				corner_max;
 	t_vector				trans;
 	t_vector				rotxyz;
-	t_vector				normal_hit;
+	t_vector				normal;
 }							t_box;
 
 typedef struct				s_disc
@@ -113,7 +113,7 @@ typedef struct				s_disc
 	float					r_max;
 	t_vector				pos;
 	t_vector				rotxyz;
-	t_vector				normal_hit;
+	t_vector				normal;
 }							t_disc;
 
 typedef struct				s_mat

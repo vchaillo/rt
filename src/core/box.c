@@ -105,5 +105,5 @@ float				hit_box(t_box *box, t_ray *ray, float t)
 	tmms[0] = (tmms[0] <= tmms[1]) ? tmms[0] : tmms[1];
 	if (t < EPSILON || tmms[0] < t)
 		ray->hitpoint.normal = normal_box(box, normals[0]);
-	return ((tmms[0] <= tmms[1]) ? tmms[0] : tmms[1]);
+	return (tmms[0]);
 }

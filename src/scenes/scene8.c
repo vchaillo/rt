@@ -46,9 +46,9 @@ static void			load_scene8_objects(t_scene *scene)
 
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
-	load_scene8_boxes(scene);
 	add_object(scene, new_object(DISC, new_disc(2, 1, new_vector(-2, -2, 0),
 		new_vector(45, 0, 0)), new_color(YELLOW), new_material(BASIC)));
+	load_scene8_boxes(scene);
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-3.2, -3.2, -5),
 		2.6, new_vector(0, 1, 0), limits),
 		new_color(RED), new_material(CHROME)));

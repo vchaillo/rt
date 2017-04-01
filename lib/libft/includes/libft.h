@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:05:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/31 02:45:02 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/01 22:59:45 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
+int					ft_atoi_base(const char *str, const unsigned int base);
 float				ft_atof(char *c);
 char				*ft_itoa(int n);
 /*

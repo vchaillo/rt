@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:10:18 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/31 03:19:02 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/01 23:27:37 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ t_macro_array		create_macros_array_case(char *macro, char *str)
 	if (!(macro_case.define = ft_strdup(array[0])))
 		print_error(MALLOC_ERROR);
 	if (ft_strcmp(str, "colors defines"))
-		macro_case.value = (int)strtol(array[1], NULL, 10);
+		macro_case.value = ft_atoi_base(array[1], 10);
 	else
-		macro_case.value = (int)strtol(array[1], NULL, 16);
+		macro_case.value = ft_atoi_base(array[1] + 2, 16);
 	free(array[0]);
 	free(array[1]);
 	free(array[2]);

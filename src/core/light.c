@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 17:37:47 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/01 20:31:28 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,15 @@ t_color			phong(t_env *e, t_light *light, t_ray *vray)
 
 	color = new_color(BLACK);
 	lray.o = vray->hitpoint.pos;
+	lray.d = vector_scalar(-1, light->dir);
+	lray.t = MAX_DIST;
 	if (light->type == LSPOT)
 	{
-		lray.d = normalize(vector_sub(light->pos, vray->hitpoint.pos));
+		lray.d = vector_sub(light->pos, vray->hitpoint.pos);
 		lray.t = sqrt((lray.d.x * lray.d.x) + (lray.d.y * lray.d.y) +
 			(lray.d.z * lray.d.z));
 	}
-	else
-	{
-		lray.d = normalize(vector_scalar(-1, light->dir));
-		lray.t = MAX_DIST;
-	}
+	lray.d = normalize(lray.d);
 	if (!(is_in_shadow(e->scene->objects, &lray, vray->hitpoint.object)))
 	{
 		if (e->scene->diffuse == ACTIVE

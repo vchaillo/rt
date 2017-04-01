@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 17:43:06 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/01 20:42:50 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,9 +179,11 @@ t_vector		vector_rot_y(t_vector v, float angle);
 t_vector		vector_rot_z(t_vector v, float angle);
 t_vector		vector_rot_axis(t_vector v, t_vector axis, float angle);
 t_vector		convert_to_rotated_coordinates(t_vector pos, t_vector axis);
+t_ray			ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz);
 t_vector		cross_product(t_vector u, t_vector v);
 void			print_error(int error_code);
 void			print_help(void);
+void			ft_putfloat(float n, int max);
 
 /*
 ** 				export functions
@@ -270,6 +272,5 @@ t_mat			new_test_material(void);
 t_color			**new_color_array(int wmax, int hmax);
 void			delete_color_array(int hmax, t_color **colors);
 t_color			**reset_color_array(int aa, t_color **colors);
-t_ray			ray_coord_modif(t_ray *ray, t_vector trans, t_vector rotxyz);
 
 #endif

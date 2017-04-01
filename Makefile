@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/06 22:40:14 by vchaillo          #+#    #+#              #
-#    Updated: 2017/03/30 21:28:44 by vchaillo         ###   ########.fr        #
+#    Updated: 2017/04/01 20:40:40 by valentinchaillou89###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ SRC_TOOLS = \
 		tools/color.c\
 		tools/error.c\
 		tools/cross_product.c\
+		tools/ft_putfloat.c\
 
 SRC_EXPORT = \
 		export/exports.c\

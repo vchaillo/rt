@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 14:58:39 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/30 16:52:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 01:10:31 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		load_scene9_objects(t_scene *scene)
 		2.6, new_vector(0, 1, 0), limits), new_color(BLACK),
 		new_material(GLASS)));
 	add_object(scene, new_object(BOX, new_box(new_vector(-2, -2, -2),
-		new_vector(4.5, -4, -2), new_vector(0, 15, 0)), new_color(0x87E1FF),
+		new_vector(4.5, -4, -2), new_vector(0, 15, 0)), new_color(PASTEL_BLUE),
 		new_material(BASIC)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 6,
 		NORMAL, limits), new_color(GREEN), new_material(BASIC)));

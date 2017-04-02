@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 22:41:26 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/02 13:19:35 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/02 15:31:14 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_color			specular(t_ray *v_ray, t_light *spot, t_ray *l_ray)
 		return (new_color(BLACK));
 	spe = pow(dot, v_ray->hitpoint.object->material.shininess);
 	spe *= v_ray->hitpoint.object->material.specular;
-	color = scalar_color(spe, spot->color);
+	color = scalar_color(spe, scalar_color(spot->intensity, spot->color));
 	return (color);
 }
 
@@ -68,7 +68,8 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 	dot = cartoon(e, dot);
 	if (dot <= 0)
 		return (new_color(BLACK));
-	color = scalar_color(dot, add_color(hitpoint.color, l->color));
+	color = scalar_color(dot, add_color(hitpoint.color,
+		scalar_color(l->intensity, l->color)));
 	if (hitpoint.object->material.type == PERLIN)
 	{
 		color = scalar_color(perlin(hitpoint.pos.x, hitpoint.pos.y,

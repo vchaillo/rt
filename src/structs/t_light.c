@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:24:41 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/30 16:52:34 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 00:34:42 by valentinchaillou89###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ t_light			*new_light(int type, float intensity, t_vector v, t_color c)
 		print_error(MALLOC_ERROR);
 	new_light->type = type;
 	new_light->intensity = intensity;
+	new_light->color = c;
 	if (type == LSPOT)
 		new_light->pos = v;
 	else
 		new_light->dir = normalize(v);
-	new_light->color = scalar_color(intensity, c);
 	return (new_light);
 }
 

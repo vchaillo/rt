@@ -6,7 +6,11 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 07:17:32 by vchaillo          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2017/04/01 21:19:34 by valentinchaillou ###   ########.fr       */
+=======
+/*   Updated: 2017/04/02 00:49:15 by valentinchaillou89###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +50,7 @@ void			print_color_tofile(t_env *e, t_color c, int fd)
 	hexcolor = (((int)(c.r) & 0xff) << 16)
 		+ (((int)(c.g) & 0xff) << 8)
 		+ ((int)(c.b) & 0xff);
-	while (i != 100)
+	while (ft_strcmp(e->macros.colors[i].define, "end"))
 	{
 		if (hexcolor == e->macros.colors[i].value)
 		{

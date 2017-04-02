@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/04/02 16:57:45 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 18:13:36 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void			load_scene7_lights(t_scene *scene)
 	scene->amb_color = new_color(WHITE);
 	add_light(scene, new_light(LSPOT, 0.5, new_vector(20, 100, 100),
 		new_color(WHITE)));
+	add_light(scene, new_light(LSPOT, 0.5, new_vector(20, 100, 100),
+		new_color(WHITE)));
 }
 
 void				load_scene7(t_env *e)
@@ -53,8 +55,8 @@ void				load_scene7(t_env *e)
 	if (e->scene)
 		delete_scene(e->scene);
 	e->scene_type = SCENE_7;
-	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 10, 100),
-		new_vector(0, 10, 0)));
+	e->scene = new_scene(new_color(BLACK), new_camera(new_vector(0, 20, 100),
+		new_vector(0, 20, 0)));
 	load_scene7_objects(e->scene);
 	load_scene7_lights(e->scene);
 }

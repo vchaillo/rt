@@ -45,6 +45,7 @@ float			hit_disc(t_disc *disc, t_ray *ray)
 	r = ray_coord_modif(ray, disc->pos, disc->rotxyz);
 	plane = init_discplane();
 	t = hit_plane(plane, &r);
+	delete_plane(plane);
 	if (t)
 	{
 		hitpos = vector_add(r.o, vector_scalar(t, r.d));

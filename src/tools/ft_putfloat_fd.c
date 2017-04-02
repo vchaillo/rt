@@ -59,7 +59,7 @@ void				ft_putfloat_fd(float n, int max, int fd)
 
 	sign = (n < 0) ? -1 : 1;
 	integer_part = (int)n;
-	if (n >= -1 && n < 0)
+	if (n > -1 && n < 0)
 		ft_putchar_fd('-', fd);
 	ft_putnbr_fd(integer_part, fd);
 	if (max > 0)

@@ -41,6 +41,14 @@
 # define SEA_BLUE 0x0066FF
 # define GRASS_GREEN 0x669933
 # define FLASH_PINK 0xFF005A
+# define PASTEL_GREEN 0x00FF56
+
+# define P_GREEN_1 0x00ff61
+# define P_GREEN_2 0x1cff73
+# define P_GREEN_3 0x2ffc7e
+# define P_GREEN_4 0x4cff91
+# define P_GREEN_5 0x66ffa0
+# define P_GREEN_6 0x7affad
 
 # define FAKE_BLACK 0x171717
 # define FAKE_WHITE 0xEDEDED

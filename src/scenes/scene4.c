@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:12:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/30 16:51:47 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 16:06:25 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ static void			load_scene4_objects(t_scene *scene)
 	{
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
 			new_vector(10, 0, i), 1, limits), new_color(PASTEL_BLUE),
-			new_material(BASIC)));
+			new_material(BIT_REF)));
 		add_object(scene, new_object(CYLINDER, new_cylinder(new_vector(0, 1, 0),
 			new_vector(-10, 0, i), 1, limits), new_color(PASTEL_BLUE),
-			new_material(BASIC)));
+			new_material(BIT_REF)));
 		i -= 4;
 	}
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 10, -100),
 		10, new_vector(0, 1, 0), limits),
-		new_color(ORANGE), new_material(BASIC)));
+		new_color(ORANGE), new_material(BIT_REF)));
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 30, -100),
 		10, new_vector(0, 1, 0), limits),
-		new_color(RED), new_material(BASIC)));
+		new_color(RED), new_material(BIT_REF)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0,
-		NORMAL, limits), new_color(LIGHT_GREY), new_material(BASIC)));
+		NORMAL, limits), new_color(LIGHT_GREY), new_material(BIT_REF)));
 }
 
 static void			load_scene4_lights(t_scene *scene)

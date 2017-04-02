@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/02 13:17:55 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/02 15:56:44 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@
 # define PERLIN_RESOLUTION 100
 
 # define BITREF_DIFFUSE 1
-# define BITREF_SPECULAR 1
-# define BITREF_SHININESS 10
-# define BITREF_REFLEXION 0.7
+# define BITREF_SPECULAR 0.5
+# define BITREF_SHININESS 1000
+# define BITREF_REFLEXION 0.9
 # define BITREF_REFRACTION 0
 # define BITREF_IOR 20
 # define BITREF_SHADOW 0

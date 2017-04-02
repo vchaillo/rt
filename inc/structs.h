@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:23:02 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/02 13:10:13 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/02 16:04:47 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,9 +222,9 @@ typedef struct				s_scene
 	int						mode;
 	int						effect;
 	int						aa;
+	int						gi;
 	t_color					**color_array;
 	t_color					**color_array_aa;
-	int						gi;
 }							t_scene;
 
 typedef struct				s_macro_array

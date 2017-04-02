@@ -79,7 +79,6 @@ t_color			diffuse(t_env *e, t_hitpoint hitpoint, t_light *l, t_ray *ray)
 		color = scalar_color(perlin(hitpoint.pos.x, hitpoint.pos.y,
 			TIGER_RESOLUTION, hitpoint.object->material.type), color);
 	}
-
 	return (scalar_color(hitpoint.object->material.diffuse, color));
 }
 

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putfloat_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hbock <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/01 20:00:41 by valentin          #+#    #+#             */
-/*   Updated: 2017/04/01 21:42:14 by valentinchaillou89###   ########.fr       */
+/*   Created: 2017/04/02 13:49:27 by hbock             #+#    #+#             */
+/*   Updated: 2017/04/02 13:49:28 by hbock            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static int		len_number(int n)
+static int			len_number(int n)
 {
-	int			len;
+	int		len;
 
 	len = 1;
 	while (n / 10)
@@ -25,36 +25,53 @@ static int		len_number(int n)
 	return (len);
 }
 
-static void		print_diff_number(int diff, int fd)
+static void			print_diff_number(int diff, int fd)
 {
-	int			i;
+	int		i;
 
 	i = -1;
 	while (++i < diff)
 		ft_putchar_fd('0', fd);
 }
 
-void			ft_putfloat_fd(float n, int max, int fd)
+static void			dec_deci(float *n, int *added, int max, int fd)
 {
-	int			integer_part;
-	int			sign;
-	int			i;
-	int			dif;
+	int		i;
+
+	i = -1;
+	while (++i < max)
+	{
+		*n *= 10;
+		if (*n < 1)
+		{
+			(*added)++;
+			ft_putchar_fd('0', fd);
+		}
+	}
+}
+
+void				ft_putfloat_fd(float n, int max, int fd)
+{
+	int		integer_part;
+	int		sign;
+	int		dif;
+	int		added;
 
 	sign = (n < 0) ? -1 : 1;
 	integer_part = (int)n;
+	if (n >= -1 && n < 0)
+		ft_putchar_fd('-', fd);
 	ft_putnbr_fd(integer_part, fd);
 	if (max > 0)
 	{
 		ft_putchar_fd('.', fd);
 		n -= (float)integer_part;
 		n *= sign;
-		i = -1;
-		while (++i < max)
-			n *= 10;
+		added = 0;
+		dec_deci(&n, &added, max, fd);
 		integer_part = (int)n;
 		ft_putnbr_fd(integer_part, fd);
 		if ((dif = max - len_number(integer_part)) > 0)
-			print_diff_number(dif, fd);
+			print_diff_number(dif - added, fd);
 	}
 }

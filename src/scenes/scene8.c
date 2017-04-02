@@ -59,6 +59,9 @@ static void			load_scene8_disc(t_scene *scene)
 	load_scene8_boxes(scene);
 	add_object(scene, new_object(DISC, new_disc(3.7, 3.5, new_vector(4, 2, -5),
 		new_vector(25, 0, 15)), new_color(P_GREEN_6), new_material(BASIC)));
+	add_object(scene, new_object(BOX, new_box(new_vector(-2.7, -0.2, -1.2),
+	new_vector(-6, 2.4, -8.6), new_vector(0, 0, 0)), new_color(PASTEL_GREEN),
+		new_material(BASIC)));
 	load_scene8_boxes(scene);
 }
 
@@ -69,9 +72,6 @@ static void			load_scene8_objects(t_scene *scene)
 	limits[0] = new_vector(0, 0, 0);
 	limits[1] = new_vector(0, 0, 0);
 	load_scene8_disc(scene);
-	add_object(scene, new_object(BOX, new_box(new_vector(-2.7, -0.2, -1.2),
-	new_vector(-6, 2.4, -8.6), new_vector(0, 0, 0)), new_color(PASTEL_GREEN),
-		new_material(BASIC)));
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(-0, -3, 0),
 		1.6, new_vector(0, 1, 0), limits),
 		new_color(BLACK), new_material(CHROME)));

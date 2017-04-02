@@ -6,7 +6,7 @@
 /*   By: tlegroux <tlegroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 00:15:01 by tlegroux          #+#    #+#             */
-/*   Updated: 2017/03/30 16:51:57 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 16:35:55 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ static void			load_scene6_objects(t_scene *scene)
 {
 	t_vector	limits[2];
 
-	limits[0] = new_vector(-30, -4, -30);
-	limits[1] = new_vector(30, 70, 30);
+	limits[0] = new_vector(0, 0, 0);
+	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(TORE, new_tore(new_vector(0, 0, 0), 5, 31,
-		limits), new_color(ORANGE), new_material(BASIC)));
-	add_object(scene, new_object(TORE, new_tore(new_vector(0, 0, 0), 5, 25,
-		limits), new_color(WHITE), new_material(GLASS)));
+		limits), new_color(BLUE), new_material(BASIC)));
 	add_object(scene, new_object(TORE, new_tore(new_vector(0, 0, 0), 5, 10,
-		limits), new_color(BLUE), new_material(PERLIN)));
+		limits), new_color(BLUE), new_material(CHROME)));
 	add_object(scene, new_object(BOLOID, new_boloid(new_vector(0, -50, 0),
 		new_vector(1, 1, 1), 1, limits), new_color(RED), new_material(PERLIN)));
 }

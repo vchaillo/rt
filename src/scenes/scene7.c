@@ -6,7 +6,7 @@
 /*   By: hbock <hbock@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 07:55:18 by hbock             #+#    #+#             */
-/*   Updated: 2017/03/30 16:52:00 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 13:17:53 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static void			load_scene7_objects(t_scene *scene)
 	limits[1] = new_vector(0, 0, 0);
 	add_object(scene, new_object(SPHERE, new_sphere(new_vector(0, 0, 0), 7,
 		new_vector(0, 1, 0), limits),
-		new_color(0x31c486), new_material(BASIC)));
+		new_color(ORANGE), new_material(TIGER)));
 	add_object(scene, new_object(PLANE, new_plane(new_vector(0, 1, 0), 0,
 		NORMAL, limits), new_color(RED), new_material(BASIC)));
 }
 
 static void			load_scene7_lights(t_scene *scene)
 {
-	scene->amb_intensity = 1;
+	scene->amb_intensity = 0.1;
 	scene->amb_color = new_color(WHITE);
 	add_light(scene, new_light(LSPOT, 0.5, new_vector(20, 100, 10),
 		new_color(WHITE)));

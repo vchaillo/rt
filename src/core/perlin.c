@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 15:38:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/28 00:31:01 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 13:08:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,13 @@ float					noise(float x, float y, float res)
 	return (smooth[0] + fade(y) * (smooth[1] - smooth[0]));
 }
 
-float					perlin(float x, float y, int resolution)
+float					perlin(float x, float y, int resolution, int material)
 {
 	float				nb;
 
-	nb = (noise(fabs(x * 100), fabs(y * 100),
-		resolution) + 1);
+	if (material == TIGER)
+		nb = (noise(fabs(x + 100), fabs(y * 100), resolution) + 1);
+	else
+		nb = (noise(fabs(x * 100), fabs(y * 100), resolution) + 1);
 	return (nb);
 }

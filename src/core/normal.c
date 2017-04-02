@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 03:18:42 by valentin          #+#    #+#             */
-/*   Updated: 2017/03/24 01:08:28 by tlegroux         ###   ########.fr       */
+/*   Updated: 2017/04/02 13:20:08 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_vector		get_normal(t_ray *ray)
 		normal = get_normal_at_boloid(ray, ray->hitpoint.object->object);
 	if (ray->hitpoint.object->material.type == PERLIN)
 		normal = vector_rot_y(normal, perlin(ray->hitpoint.pos.x,
-		ray->hitpoint.pos.y, 75) * 30);
+		ray->hitpoint.pos.y, PERLIN_RESOLUTION, PERLIN) * 30);
 	return (normalize(normal));
 }
 

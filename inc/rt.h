@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 12:22:57 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/01 21:42:25 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/04/02 13:08:01 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				get_ray_intersection(t_object *objects, t_ray *ray);
 t_vector		get_camray_dir(t_camera *camera, int x, int y, int aa);
 t_color			raytracer(t_env *e, int x, int y);
 unsigned int	permutation(int index);
-float			perlin(float x, float y, int resolution);
+float			perlin(float x, float y, int resolution, int material);
 float			gradient(int i, int j);
 float			noise(float x, float y, float res);
 float			fade(float nb);

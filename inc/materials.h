@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:39:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/03/24 01:21:48 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/02 13:17:55 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define BIT_REF 4
 # define WATER 5
 # define CHROME 6
-# define TEST 7
+# define TIGER 7
 
 /*
 ** materials values defines
@@ -58,11 +58,12 @@
 
 # define PERLIN_DIFFUSE 1
 # define PERLIN_SPECULAR 1
-# define PERLIN_SHININESS 500
+# define PERLIN_SHININESS 100
 # define PERLIN_REFLEXION 0.5
 # define PERLIN_REFRACTION 0
 # define PERLIN_IOR 1
 # define PERLIN_SHADOW 0
+# define PERLIN_RESOLUTION 100
 
 # define BITREF_DIFFUSE 1
 # define BITREF_SPECULAR 1
@@ -88,12 +89,13 @@
 # define GLASS_IOR 1.55
 # define GLASS_SHADOW 0.7
 
-# define TEST_DIFFUSE 1
-# define TEST_SPECULAR 1
-# define TEST_SHININESS 10
-# define TEST_REFLEXION 0
-# define TEST_REFRACTION 0
-# define TEST_IOR 4
-# define TEST_SHADOW 0
+# define TIGER_DIFFUSE 1
+# define TIGER_SPECULAR 1
+# define TIGER_SHININESS 100
+# define TIGER_REFLEXION 0
+# define TIGER_REFRACTION 0
+# define TIGER_IOR 4
+# define TIGER_SHADOW 0
+# define TIGER_RESOLUTION 20
 
 #endif

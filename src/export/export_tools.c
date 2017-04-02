@@ -6,11 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 07:17:32 by vchaillo          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2017/04/01 21:19:34 by valentinchaillou ###   ########.fr       */
-=======
-/*   Updated: 2017/04/02 00:49:15 by valentinchaillou89###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2017/04/02 15:32:26 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

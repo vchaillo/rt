@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 22:28:14 by valentin          #+#    #+#             */
-/*   Updated: 2017/04/01 23:16:05 by valentinchaillou89###   ########.fr       */
+/*   Updated: 2017/04/02 15:24:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int				ft_atoi_base(const char *str, const unsigned int base)
 	int			result;
 
 	if ((base < 2) || (base > 16))
-		return 0;
+		return (0);
 	i = 0;
 	sign = 1;
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||\

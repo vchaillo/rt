@@ -1,12 +1,20 @@
-#include "libft.h"
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/02 15:23:01 by vchaillo          #+#    #+#             */
+/*   Updated: 2017/04/02 15:25:53 by vchaillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int             resultat(char **line, char *buf_save)
+#include "libft.h"
+
+int					resultat(char **line, char *buf_save)
 {
-	char    *eol;
+	char			*eol;
 
 	eol = ft_strchr(buf_save, '\n');
 	if (NULL != eol)
@@ -25,12 +33,12 @@ int             resultat(char **line, char *buf_save)
 	return (0);
 }
 
-int             get_next_line(int const fd, char **line)
+int					get_next_line(int const fd, char **line)
 {
-	static char     *buf_save = NULL;
-	char            buffer[BUFF_SIZE + 1];
-	char            *line_tmp;
-	int                     ret;
+	static char		*buf_save = NULL;
+	char			buffer[BUFF_SIZE + 1];
+	char			*line_tmp;
+	int				ret;
 
 	if (NULL == line || 0 > fd || BUFF_SIZE <= 0)
 		return (-1);

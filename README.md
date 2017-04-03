@@ -2,8 +2,11 @@ rt
 ===
 
 [Subject](../master/rt.pdf)
-
 [Commands list](../master/doc/commands.md)
+
+<img src="https://raw.githubusercontent.com/vchaillo/rt/master/assets/20170322_061703.bmp"/>
+<img src="https://raw.githubusercontent.com/vchaillo/rt/master/assets/20170322_134431.bmp"/>
+<img src="https://raw.githubusercontent.com/vchaillo/rt/master/assets/20170402_174041.bmp"/>
 
 ### Description
 
